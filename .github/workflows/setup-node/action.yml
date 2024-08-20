@@ -13,11 +13,11 @@ runs:
       uses: actions/cache@v3
       with:
         path: node_modules
-        key: node-modules-${{ hashFiles('app/package-lock.json') }}
+        key: yarn-cache-${{ hashFiles('app/yarn.lock') }}
 
     - name: Install dependencies
       shell: bash
       if: steps.cache_dependencies.outputs.cache-hit != 'true'
       run: |
         cd app
-        npm ci
+        yarn install --frozen-lockfile

@@ -26,7 +26,7 @@ jobs:
   build-next:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Node.js- Cache dependencies- Install dependencies
         uses: ./.github/workflows/setup-node
@@ -35,7 +35,7 @@ jobs:
         with:
           static_site_generator: next
       - name: Build with Next.js
-        run: npx next build
+        run: yarn build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
