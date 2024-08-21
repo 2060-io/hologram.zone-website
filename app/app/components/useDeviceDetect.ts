@@ -1,25 +1,24 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 
-type DeviceType = 'mobile' | 'desktop' | 'unknown';
+type DeviceType = 'mobile' | 'tablet' | 'desktop' | 'unknown';
 
 const useDeviceDetect = (): DeviceType => {
   const [deviceType, setDeviceType] = useState<DeviceType>('unknown');
 
   useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor;
-    const isMobile =
-      /android|iPad|iPhone|iPod|Mobile/.test(userAgent) ||
-      (/Macintosh/.test(userAgent) && 'ontouchend' in document) ||
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-      (navigator.vendor && navigator.vendor.indexOf('Apple') > -1);
+    const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+    const isMobile = /android|webos|iphone|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+    const isTablet = /tablet|ipad|playbook|silk/i.test(userAgent.toLowerCase()) && !isMobile;
 
     if (isMobile) {
-      console.log('Dispositivo móvil detectado');
+      console.log('Mobile device detected');
       setDeviceType('mobile');
+    } else if (isTablet) {
+      console.log('Tablet device detected');
+      setDeviceType('tablet');
     } else {
-      console.log('Dispositivo de escritorio detectado');
+      console.log('Desktop device detected');
       setDeviceType('desktop');
     }
   }, []);
