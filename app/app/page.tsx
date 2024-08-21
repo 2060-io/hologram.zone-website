@@ -11,7 +11,7 @@ export default function HomePage() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-white">
       <header className="py-4">
         <div className="container mx-auto flex justify-center">
-          <Image src="/logo-hologram.svg" alt="Logo Holográfico" width={300} height={100} />
+          <Image src="/logo-hologram.svg" alt="Logo" width={300} height={100} />
         </div>
       </header>
 
