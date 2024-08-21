@@ -1,7 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import useDeviceDetect from './components/useDeviceDetect';
 
 export default function HomePage() {
+  const deviceType = useDeviceDetect();
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white">
       <header className="py-4">
@@ -56,6 +61,7 @@ export default function HomePage() {
           New to Hologram?
         </h2>
         <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
+        {`Tipo de dispositivo detectado: ${deviceType}`}<br />
           Hologram is a Verifiable Credential wallet and messaging app with true privacy ŕeserving features. Unlike other messaging apps, Hologram is a self-custody app, which means user's data is only stored on device, and exclusively under user's control.
         </p>
       </section>
