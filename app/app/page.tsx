@@ -24,7 +24,7 @@ export default function HomePage() {
       {deviceType !== 'mobile' && (
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
           <div className="flex justify-center mb-6">
-            <img
+            <Image
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAiMAAAIjAQMAAADr5InyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURQAAAP///6XZn90AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMMSURBVHja7ZzLceMwDIbh8SFHl8BSXNqmtJSiEnzUwWNsTIkmqceslZUyEPThEjkiPwE/yKH5kGXC/ui3tf2Hkw7sS96zxZRgyBcoZBpdoGxFsZbpc1Wo6SmdffZlrhWlqtCuRQmGfPGnSyAiIvp1XwLq7iWiW1/4I1MmRpK7yKWn3PPd7IsJir+IUHdLXwRd6I2HVneG8kiXsdwtjiSxwJaUgC8b+oK69AB6AOoup8RLGc8mtqAEfNnQF9RVegA9wGNvLKyeB8TL7hnVPKAwY5TgjoIu9tWlB9AD9qzuyIYjSfHl/7JkZ3khJUCBslOKuIsIynEoOmPPYeb5d0SZsMYQRQ1RGijThcnRhhTUJUfLIop2yVWjnfJs4pGGi6revb9rj6KGKOhylIj8UcjRwdSdKKd5cSntOZynKj2nHf4oDbpsSEHdLSmNIYq/iPxR9HUzzhfqHYKQ3w8o7Fo+oxtngiGKGKL4i8gfxV/bpTcS0TJK/M+tqposDjPF+wGajolWs4n4ZDuUYIjiTxcyjS5KD3CW6cKqI0XFZWfxc9pZLk4krUYRQ5QAhRyhLhTZQY6GW72jc0EFJV6eq4JqiNIYoqg7X8j0USKiBxypB5zz13vNVT/yfoDm4aN42VdGK0r/SRF3lODOl0B7ISIonttLm9eCinNB9UiSgGmlqB1F9EOKGKIEKOYptBdydOxMr6qL9uWKk0Kj34qQgcUd41OqCWWC0rijoO5RdPHnC61ujqJT9pokpLOh12pFKe4JF5vH61AaQxR15ws5Qt1jqwtljjJhaUUpAYuql/zKcDHtCFCgQIECZaeU12wiWr2rkM6GfvUPmB9JoECBAgXKTinp/YB6O7mg6MyKUn8JBQoUIxQhog0p+2gvaXv4MRG6vuyxIkXwxXxE6EKm96oL7eWnEem4amdpnGnf8eX3KGKIElCXiIgIimlK317qm69XEJ6fu8vipx3S9vBb+wFLKJZ8gXIUiuALvXGn6q5HGVlBSWtGiXIZPE7/sbO8hCLuKAEKmUYXKJZzJPIXF7qU2GoDIA0AAAAASUVORK5CYII="
               alt="QR Code"
               className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
@@ -79,7 +79,7 @@ export default function HomePage() {
           New to Hologram?
         </h2>
         <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
-          Hologram is a Verifiable Credential wallet and messaging app with true privacy ŕeserving features. Unlike other messaging apps, Hologram is a self-custody app, which means user's data is only stored on device, and exclusively under user's control.
+          Hologram is a Verifiable Credential wallet and messaging app with true privacy ŕeserving features. Unlike other messaging apps, Hologram is a self-custody app, which means users data is only stored on device, and exclusively under users control.
         </p>
       </section>
 
