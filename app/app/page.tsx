@@ -10,9 +10,15 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section className="container mx-auto my-12 md:my-16 lg:my-20 flex flex-col items-center justify-center">
+      <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
+        <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
+          Hologram is a Verifiable Credential wallet and messaging app with true privacy ŕeserving features. Unlike other messaging apps, Hologram is a self-custody app, which means user's data is only stored on device, and exclusively under user's control.
+        </p>
+      </section>
+
+      <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
-          Download our app
+          Download Hologram Messaging
         </h2>
         <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
           
@@ -45,7 +51,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container mx-auto my-12 md:my-16 lg:my-20 flex flex-col items-center justify-center text-center">
+      <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
           New to Hologram?
         </h2>
@@ -54,7 +60,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="container mx-auto my-12 md:my-16 lg:my-20 flex flex-col items-center justify-center text-center">
+      <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
         Terms and conditions
         </h2>
@@ -62,7 +68,7 @@ export default function HomePage() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed auctor eros et nibh elementum, nec interdum sem pharetra. Curabitur bibendum, augue nec dapibus suscipit, ex eros bibendum urna, a auctor nunc urna sed quam. Integer sit amet convallis urna. Maecenas vehicula ut nisl ac vehicula.        </p>
       </section>
 
-      <section className="container mx-auto my-12 md:my-16 lg:my-20 flex flex-col items-center justify-center text-center">
+      <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
           Privacy Policy
         </h2>
@@ -72,7 +78,7 @@ export default function HomePage() {
 
       <footer className="w-full bg-gray-800 text-white py-6">
         <div className="container mx-auto text-center">
-          <p>&copy; 2024 My App. All rights reserved.</p>
+          <p>&copy; 2024 Hologram Messaging App. All rights reserved.</p>
         </div>
       </footer>
     </div>
