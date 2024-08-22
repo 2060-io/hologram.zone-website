@@ -2,31 +2,39 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { useRouter } from 'next/router';
 import { useDeviceDetect } from './components';
 import QRCode from 'react-qr-code';
+import { Suspense, useEffect, useState } from 'react';
+
+interface OobData {
+  imageUrl: string;
+  label: string;
+}
+
 
 export default function HomePage() {
+  const [oobData, setOobData] = useState<OobData | null>(null);
+  const [url, setUrl] = useState<string>("");
+  const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null);
   const deviceType = useDeviceDetect();
-  const searchParams = useSearchParams();
-  const { asPath } = useRouter();
 
-  const oobParam = searchParams.get('oob');
-  let oobData;
-  if (oobParam) {
-    try {
-      const decoded = atob(oobParam);
-      oobData = JSON.parse(decoded);
-    } catch (error) {
-      console.error('Error decoding oob parameter:', error);
-      oobData = null;
+  useEffect(() => {
+    setSearchParams(new URLSearchParams(window.location.search));
+    const oobParam = searchParams?.get('oob');
+
+    setUrl(window.location.href);
+    if (oobParam) {
+      try {
+        const decoded = atob(oobParam);
+        const parsedData = JSON.parse(decoded);
+        setOobData(parsedData);
+      } catch (error) {
+        console.error('Error decoding oob parameter:', error);
+        setOobData(null);
+      }
     }
-  } else {
-    oobData = null;
-  }
+  }, [searchParams]);
 
-  console.log('Decoded oob data:', oobData);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white">
@@ -63,7 +71,7 @@ export default function HomePage() {
       {deviceType !== 'mobile' && (
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
           <div className="flex justify-center mb-6">
-          <QRCode value={asPath} />
+          <QRCode value={url} />
           </div>
           <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-6">
             Continue on your Mobile Phone by scanning this QR
@@ -109,15 +117,17 @@ export default function HomePage() {
         </section>
       )}
 
-      {oobData && deviceType === 'mobile' && (
-        <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
-          <Link href={`didcomm://aries_proof-request?oob=${oobParam}`} legacyBehavior>
-            <a className="text-green-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
-              You have to downloaded Hologrma? click here to enter {oobData.label}.
-            </a>
-          </Link>
-        </section>
-      )}
+      <Suspense>
+        {oobData && deviceType === 'mobile' && (
+          <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
+            <Link href={`didcomm://aries_proof-request?${searchParams}`} legacyBehavior>
+              <a className="text-green-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
+                You have to downloaded Hologrma? click here to enter {oobData.label}.
+              </a>
+            </Link>
+          </section>
+        )}
+      </Suspense>
 
       <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
