@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useDeviceDetect } from './components';
 import QRCode from 'react-qr-code';
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface OobData {
   imageUrl: string;
@@ -19,8 +19,9 @@ export default function HomePage() {
   const deviceType = useDeviceDetect();
 
   useEffect(() => {
-    setSearchParams(new URLSearchParams(window.location.search));
-    const oobParam = searchParams?.get('oob');
+    const params = new URLSearchParams(window.location.search);
+    setSearchParams(params);
+    const oobParam = params.get('oob');
 
     setUrl(window.location.href);
     if (oobParam) {
@@ -33,7 +34,7 @@ export default function HomePage() {
         setOobData(null);
       }
     }
-  }, [searchParams]);
+  }, []);
 
 
   return (
@@ -117,17 +118,15 @@ export default function HomePage() {
         </section>
       )}
 
-      <Suspense>
-        {oobData && deviceType === 'mobile' && (
-          <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
-            <Link href={`didcomm://aries_proof-request?${searchParams}`} legacyBehavior>
-              <a className="text-green-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
-                You have to downloaded Hologrma? click here to enter {oobData.label}.
-              </a>
-            </Link>
-          </section>
-        )}
-      </Suspense>
+      {oobData && deviceType === 'mobile' && (
+        <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
+          <Link href={`didcomm://aries_proof-request?${searchParams}`} legacyBehavior>
+            <a className="text-green-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
+              You have to downloaded Hologram? click here to enter {oobData.label}.
+            </a>
+          </Link>
+        </section>
+      )}
 
       <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
