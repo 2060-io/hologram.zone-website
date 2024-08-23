@@ -4,15 +4,20 @@ import Image from 'next/image';
 import { useDeviceDetect } from './components';
 import QRCode from 'react-qr-code';
 import { useEffect, useState } from 'react';
+import loadTranslations from '../utils/loadTranslations'
 
 interface OobData {
   imageUrl: string;
   label: string;
 }
 
+interface Translations {
+  [key: string]: string;
+}
 
 export default function HomePage() {
   const [oobData, setOobData] = useState<OobData | null>(null);
+  const [translations, setTranslations] = useState<Translations>();
   const [url, setUrl] = useState<string>("");
   const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null);
   const deviceType = useDeviceDetect();
@@ -20,6 +25,9 @@ export default function HomePage() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setSearchParams(params);
+    const userLocale = navigator.language.startsWith('es') ? 'es' : 'en';
+    const loadedTranslations = loadTranslations(userLocale);
+    setTranslations(loadedTranslations);
     const oobParam = params.get('oob');
 
     setUrl(window.location.href);
@@ -35,7 +43,6 @@ export default function HomePage() {
     }
   }, []);
 
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white">
       <header className="py-4">
@@ -46,7 +53,7 @@ export default function HomePage() {
 
       <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
         <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed auctor eros et nibh elementum, nec interdum sem pharetra. Curabitur bibendum, augue nec dapibus suscipit, ex eros bibendum urna, a auctor nunc urna sed quam. Integer sit amet convallis urna. Maecenas vehicula ut nisl ac vehicula.
+          { translations?.lorem_ipsum }
         </p>
       </section>
 
@@ -63,7 +70,7 @@ export default function HomePage() {
             {oobData.label}
           </h2>
           <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-4">
-            To connect to {oobData.label}, first you need to download Hologram ins your phone.
+            { translations?.download.replace("SERVICE", oobData.label) }
           </p>
         </section>
       )}
@@ -74,7 +81,7 @@ export default function HomePage() {
           <QRCode value={url} />
           </div>
           <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-6">
-            Continue on your Mobile Phone by scanning this QR
+            { translations?.continue_qr }
           </p>
         </section>
       )}
@@ -83,7 +90,7 @@ export default function HomePage() {
       {deviceType === 'mobile' && (
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center">
           <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
-            Download Hologram Messaging
+            {  translations?.download_msg }
           </h2>
           <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
             
@@ -114,39 +121,41 @@ export default function HomePage() {
       {oobData && deviceType === 'mobile' && (
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
             <a href={`didcomm://aries_proof-request?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
-              You have to downloaded Hologram? click here to enter {oobData.label}.
+              {  translations?.get_service.replace("SERVICE", oobData.label) }
             </a>
         </section>
       )}
 
       <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
-          New to Hologram?
+          {  translations?.new_app }
         </h2>
         <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
-          Hologram is a Verifiable Credential wallet and messaging app with true privacy ŕeserving features. Unlike other messaging apps, Hologram is a self-custody app, which means users data is only stored on device, and exclusively under users control.
+          {  translations?.what_is }
         </p>
       </section>
 
       <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
-        Terms and conditions
+          {  translations?.terms }
         </h2>
         <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed auctor eros et nibh elementum, nec interdum sem pharetra. Curabitur bibendum, augue nec dapibus suscipit, ex eros bibendum urna, a auctor nunc urna sed quam. Integer sit amet convallis urna. Maecenas vehicula ut nisl ac vehicula.        </p>
+          {  translations?.lorem_ipsum }
+        </p>
       </section>
 
       <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
         <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
-          Privacy Policy
+          {  translations?.privacy }
         </h2>
         <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed auctor eros et nibh elementum, nec interdum sem pharetra. Curabitur bibendum, augue nec dapibus suscipit, ex eros bibendum urna, a auctor nunc urna sed quam. Integer sit amet convallis urna. Maecenas vehicula ut nisl ac vehicula.        </p>
+          {  translations?.lorem_ipsum }
+        </p>
       </section>
 
       <footer className="w-full bg-gray-800 text-white py-6">
         <div className="container mx-auto text-center">
-          <p>&copy; 2024 Hologram Messaging App. All rights reserved.</p>
+          <p>&copy; { translations?.rights_reserved }</p>
         </div>
       </footer>
     </div>

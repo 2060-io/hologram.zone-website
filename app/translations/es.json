@@ -1,0 +1,12 @@
+{
+    "lorem_ipsum" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Sed auctor eros et nibh elementum, nec interdum sem pharetra. Curabitur bibendum, augue nec dapibus suscipit, ex eros bibendum urna, a auctor nunc urna sed quam. Integer sit amet convallis urna. Maecenas vehicula ut nisl ac vehicula.",
+    "terms": "Términos y condiciones",
+    "download": "Para conectarse a SERVICE, primero debe descargar Hologram en su teléfono.",
+    "get_service": "¿Ya has descargado Hologram? Haz clic aquí para entrar a SERVICE.",
+    "continue_qr": "Continúa en tu móvil escaneando este código QR",
+    "download_msg": "Descargar Hologram Messaging",
+    "new_app": "¿Eres nuevo en Hologram?",
+    "what_is": "Hologram es una aplicación de mensajería y billetera con credenciales verificables con funciones de preservación de la privacidad. A diferencia de otras aplicaciones de mensajería, Hologram es una aplicación de autocustodia, lo que significa que los datos del usuario solo se almacenan en el dispositivo y exclusivamente bajo el control del usuario.",
+    "privacy": "Política de privacidad",
+    "rights_reserved": "2024 Hologram Messaging App. Todos los derechos reservados."
+}

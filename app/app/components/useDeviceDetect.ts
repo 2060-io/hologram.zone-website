@@ -12,13 +12,10 @@ const useDeviceDetect = (): DeviceType => {
     const isTablet = /tablet|ipad|playbook|silk/i.test(userAgent.toLowerCase()) && !isMobile;
 
     if (isMobile) {
-      console.log('Mobile device detected');
       setDeviceType('mobile');
     } else if (isTablet) {
-      console.log('Tablet device detected');
       setDeviceType('tablet');
     } else {
-      console.log('Desktop device detected');
       setDeviceType('desktop');
     }
   }, []);
