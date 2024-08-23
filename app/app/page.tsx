@@ -9,6 +9,7 @@ import loadTranslations from '../utils/loadTranslations'
 interface OobData {
   imageUrl: string;
   label: string;
+  type: string;
 }
 
 interface Translations {
@@ -18,7 +19,6 @@ interface Translations {
 export default function HomePage() {
   const didUrl = 'didcomm://aries_proof-request';
   const didcomm_v2 = 'https://didcomm.org/out-of-band/2.0/invitation';
-  let v1 = true;
   const [oobData, setOobData] = useState<OobData | null>(null);
   const [translations, setTranslations] = useState<Translations>();
   const [url, setUrl] = useState<string>("");
@@ -38,7 +38,6 @@ export default function HomePage() {
       try {
         const decoded = atob(oobParam);
         const parsedData = JSON.parse(decoded);
-        if(parsedData.type===didcomm_v2) v1 = false;
         setOobData(parsedData);
       } catch (error) {
         console.error('Error decoding oob parameter:', error);
@@ -68,7 +67,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      {oobData && v1 && (
+      {oobData && oobData?.type!==didcomm_v2 && (
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
           <Image
             src={oobData.imageUrl}
@@ -129,7 +128,7 @@ export default function HomePage() {
         </section>
       )}
 
-      {oobData && v1 && deviceType === 'mobile' && (
+      {oobData && oobData.type!==didcomm_v2 && deviceType === 'mobile' && (
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
             <a href={`${didUrl}?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
               {  translations?.get_service.replace("SERVICE", oobData.label) }
@@ -137,7 +136,7 @@ export default function HomePage() {
         </section>
       )}
 
-      {oobData && !v1 && deviceType === 'mobile' && (
+      {oobData && oobData.type===didcomm_v2 && deviceType === 'mobile' && (
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
             <a href={`${didUrl}?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
               {  translations?.continue_service }
