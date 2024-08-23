@@ -45,14 +45,14 @@ export default function HomePage() {
         setOobData(null);
       }
     }
+    
+  }, []);
 
     try {
-      if (deviceType === 'mobile') window.location.href = `${didUrl}?${params}`;
+      if (deviceType === 'mobile') window.location.href = `${didUrl}?${searchParams}`;
     } catch (error) {
       console.error('Error opening the didcomm URL:', error);
     }
-    
-  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white">
