@@ -38,7 +38,7 @@ export default function HomePage() {
       try {
         const decoded = atob(oobParam);
         const parsedData = JSON.parse(decoded);
-        if(parsedData.type!==didcomm_v2) v1 = false;
+        if(parsedData.type===didcomm_v2) v1 = false;
         setOobData(parsedData);
       } catch (error) {
         console.error('Error decoding oob parameter:', error);
