@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useDeviceDetect } from './components';
 import QRCode from 'react-qr-code';
 import { useEffect, useState } from 'react';
