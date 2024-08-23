@@ -47,7 +47,7 @@ export default function HomePage() {
     }
 
     try {
-      window.location.href = `${didUrl}?${params}`;
+      if (deviceType === 'mobile') window.location.href = `${didUrl}?${params}`;
     } catch (error) {
       console.error('Error opening the didcomm URL:', error);
     }
