@@ -16,6 +16,7 @@ interface Translations {
 }
 
 export default function HomePage() {
+  const didUrl = 'didcomm://aries_proof-request';
   const [oobData, setOobData] = useState<OobData | null>(null);
   const [translations, setTranslations] = useState<Translations>();
   const [url, setUrl] = useState<string>("");
@@ -23,12 +24,12 @@ export default function HomePage() {
   const deviceType = useDeviceDetect();
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    setSearchParams(params);
     const userLocale = navigator.language.startsWith('es') ? 'es' : 'en';
     const loadedTranslations = loadTranslations(userLocale);
     setTranslations(loadedTranslations);
-    const oobParam = params.get('oob');
+    const params = new URLSearchParams(window.location.search);
+    setSearchParams(params);
+    const oobParam = params.get('oob') || params.get('_oob');
 
     setUrl(window.location.href);
     if (oobParam) {
@@ -41,6 +42,13 @@ export default function HomePage() {
         setOobData(null);
       }
     }
+
+    try {
+      window.location.href = `${didUrl}?${params}`;
+    } catch (error) {
+      console.error('Error opening the didcomm URL:', error);
+    }
+    
   }, []);
 
   return (
@@ -120,7 +128,7 @@ export default function HomePage() {
 
       {oobData && deviceType === 'mobile' && (
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
-            <a href={`didcomm://aries_proof-request?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
+            <a href={`${didUrl}?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
               {  translations?.get_service.replace("SERVICE", oobData.label) }
             </a>
         </section>
