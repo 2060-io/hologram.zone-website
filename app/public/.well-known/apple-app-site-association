@@ -1,0 +1,19 @@
+{
+    "applinks": {
+      "details": [
+        {
+          "appIDs": [
+            "Y5A6KQ62S7.io.2060.mobileagent.dev",
+            "Y5A6KQ62S7.io.2060.mobileagent.m",
+            "Y5A6KQ62S7.io.2060.mobileagent.st"
+          ],
+          "components": [
+            {
+              "/": "/*",
+              "comment": "Matches any URL"
+            }
+          ]
+        }
+      ]
+    }
+  }
