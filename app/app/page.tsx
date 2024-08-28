@@ -80,7 +80,7 @@ export default function HomePage() {
             {oobData.label}
           </h2>
           <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-4">
-            { translations?.download.replace("SERVICE", oobData.label??'service') }
+            { translations?.download.replace("SERVICE", oobData.label ?? 'service') }
           </p>
         </section>
       )}
