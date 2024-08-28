@@ -70,7 +70,7 @@ export default function HomePage() {
       {oobData && oobData?.type!==didcomm_v2 && (
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
           <Image
-            src={oobData.imageUrl}
+            src={oobData.imageUrl ?? './default.svg'}
             alt="QR Code"
             className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
             width={30}
@@ -80,7 +80,7 @@ export default function HomePage() {
             {oobData.label}
           </h2>
           <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-4">
-            { translations?.download.replace("SERVICE", oobData.label) }
+            { translations?.download.replace("SERVICE", oobData.label ?? 'service') }
           </p>
         </section>
       )}
@@ -131,7 +131,7 @@ export default function HomePage() {
       {oobData && oobData.type!==didcomm_v2 && deviceType === 'mobile' && (
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
             <a href={`${didUrl}?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
-              {  translations?.get_service.replace("SERVICE", oobData.label) }
+              {  translations?.get_service.replace("SERVICE", oobData.label ?? 'service') }
             </a>
         </section>
       )}
