@@ -131,7 +131,7 @@ export default function HomePage() {
       {oobData && oobData.type!==didcomm_v2 && deviceType === 'mobile' && (
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
             <a href={`${didUrl}?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
-              {  translations?.get_service.replace("SERVICE", oobData.label??'service') }
+              {  translations?.get_service.replace("SERVICE", oobData.label ?? 'service') }
             </a>
         </section>
       )}
