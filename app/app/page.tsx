@@ -5,6 +5,7 @@ import { useDeviceDetect } from './components';
 import QRCode from 'react-qr-code';
 import { useEffect, useState } from 'react';
 import loadTranslations from '../utils/loadTranslations'
+import Header from './components/Header';
 
 interface OobData {
   imageUrl: string;
@@ -54,12 +55,9 @@ export default function HomePage() {
     }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
-      <header className="py-4">
-        <div className="container mx-auto flex justify-center">
-          <Image src="/logo-hologram.svg" alt="Logo" width={300} height={100} />
-        </div>
-      </header>
+    // <div className="flex flex-col items-center justify-center min-h-screen bg-red-600">
+    <div className="container mx-auto px-6 sm:px-8 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
+      <Header></Header>
 
       <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
         <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
