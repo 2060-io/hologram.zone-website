@@ -9,8 +9,8 @@ interface WhatIs {
 const WhatIs: React.FC<WhatIs> = ({ translations }) => {
 	return (
 		<section>
-			<div className="flex flex-col 2xl:lg:flex-row xl:lg:flex-row lg:flex-row">
-				<div className="flex-1 flex items-center justify-center">
+			<div className="flex flex-col 2xl:flex-row xl:flex-row lg:flex-row">
+				<div className="flex-1 flex items-center justify-center order-2 2xl:xl:lg:order-1">
 					<Image
 						src="images/what-is-hologram.svg"
 						alt="what is hologram"
@@ -18,7 +18,7 @@ const WhatIs: React.FC<WhatIs> = ({ translations }) => {
 						height={550}
 					/>
 				</div>
-				<div className="flex-1 text-justify 2xl:px-20 xl:px-20 lg:px-20">
+				<div className="flex-1 text-justify 2xl:px-20 xl:px-20 lg:px-20 order-1 2xlorder-2 :xl:order-2 lg:order-2">
 					<p 
 						className="
 							mb-6
