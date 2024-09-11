@@ -7,7 +7,12 @@
     "download_msg": "Descargar Hologram Messaging",
     "new_app": "¿Eres nuevo en Hologram?",
     "what_is": "Hologram es una aplicación de mensajería y billetera con credenciales verificables con funciones de preservación de la privacidad. A diferencia de otras aplicaciones de mensajería, Hologram es una aplicación de autocustodia, lo que significa que los datos del usuario solo se almacenan en el dispositivo y exclusivamente bajo el control del usuario.",
+    "what_is_title": "¿Qué es Hologram?",
     "privacy": "Política de privacidad",
     "rights_reserved": "2024 Hologram Messaging App. Todos los derechos reservados.",
-    "continue_service": "¿Ya has descargado Hologram? Haz clic aquí para continuar al servicio."
+    "continue_service": "¿Ya has descargado Hologram? Haz clic aquí para continuar al servicio.",
+    "header_title_line_1": "Interacciones-de Confianza",
+    "header_title_line_2": "Credenciales-Verificables",
+    "header_title_line_3": "Sé dueño-de tus datos",
+    "dot": "."
 }

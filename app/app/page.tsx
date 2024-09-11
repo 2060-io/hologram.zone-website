@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import loadTranslations from '../utils/loadTranslations'
 import Header from './components/Header';
 import BannerHologram from './components/BannerHologram';
+import WhatIs from './components/sections/WhatIs';
 
 interface OobData {
   imageUrl: string;
@@ -14,7 +15,7 @@ interface OobData {
   type: string;
 }
 
-interface Translations {
+export interface Translations {
   [key: string]: string;
 }
 
@@ -60,13 +61,14 @@ export default function HomePage() {
       {
         deviceType === 'mobile' && !oobData ? <BannerHologram /> : ''
       }
-      <div className="container mx-auto 2xl:px-10 xl:px-10 lg:px-10 px-6 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
-        <Header />
-        <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
-          <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
-            { translations?.what_is }
-          </p>
-        </section>
+      <div className="container mx-auto 2xl:px-28 xl:px-28 lg:px-28 px-6 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
+        <Header
+          translations={translations ?? {}}
+        />
+        
+        <WhatIs
+          translations={translations ?? {}}
+        />
 
         {oobData && oobData?.type!==didcomm_v2 && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">

@@ -6,8 +6,13 @@
     "continue_qr": "Continue on your Mobile Phone by scanning this QR",
     "download_msg": "Download Hologram Messaging",
     "new_app": "New to Hologram?",
+    "what_is_title": "What id Hologram?",
     "what_is": "Hologram is a Verifiable Credential wallet and messaging app with true privacy preserving features. Unlike other messaging apps, Hologram is a self-custody app, which means user´s data is only stored on device, and exclusively under user’s control",
     "privacy": "Privacy Policy",
     "rights_reserved": "2024 Hologram Messaging App. All rights reserved.",
-    "continue_service": "You have to downloaded Hologram? click here to continue with the service"
+    "continue_service": "You have to downloaded Hologram? click here to continue with the service",
+    "header_title_line_1": "Trusted-Interactions",
+    "header_title_line_2": "Verificable-Credentials",
+    "header_title_line_3": "Own-Your Data",
+    "dot": "."
 }
