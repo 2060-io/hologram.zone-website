@@ -15,6 +15,9 @@ const config: Config = {
       },
       colors: {
         "hologram-color": "#7678EC"
+      },
+      fontFamily: {
+        euclidCircularA: ["euclidCircularA", "sans-serif"]
       }
     },
   },

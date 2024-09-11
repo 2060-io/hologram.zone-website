@@ -64,7 +64,7 @@ export default function HomePage() {
         <Header />
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
           <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
-            { translations?.lorem_ipsum }
+            { translations?.what_is }
           </p>
         </section>
 
