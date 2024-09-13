@@ -9,6 +9,7 @@ import BannerHologramMessaging from './components/Banners/BannerHologramMessagin
 import SectionWhatIs from './components/sections/SectionWhatIs';
 import SectionProofOfTrust from './components/sections/SectionProofOfTrust';
 import BannerDownloadHolomgram from './components/Banners/BannerDownloadHologram';
+import SectionStandardsBuilt from './components/sections/SectionStandardsBuilt';
 
 interface OobData {
   imageUrl: string;
@@ -59,25 +60,30 @@ export default function HomePage() {
 
   return (
     <React.Fragment>
-      {
-        deviceType === 'mobile' && !oobData ? <BannerHologramMessaging /> : ''
-      }
-      <div className="container mx-auto 2xl:px-28 xl:px-28 lg:px-28 px-6 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
-        <Header
-          translations={translations ?? {}}
-        />
-        
-        <SectionWhatIs
-          translations={translations ?? {}}
-        />
+      {deviceType === "mobile" && !oobData ? <BannerHologramMessaging /> : ""}
+      <div
+        className="
+          container
+          mx-auto
+          2xl:px-28
+          xl:px-28
+          lg:px-28
+          px-6
+          bg-white
+          dark:bg-gray-900
+          text-black
+          dark:text-gray-300
+        "
+      >
+        <Header translations={translations ?? {}} />
 
-        <SectionProofOfTrust
-          translations={translations ?? {}}
-        />
+        <SectionWhatIs translations={translations ?? {}} />
 
-        <BannerDownloadHolomgram
-          translatios={translations ?? {}}
-        />
+        <SectionProofOfTrust translations={translations ?? {}} />
+
+        <BannerDownloadHolomgram translatios={translations ?? {}} />
+
+        <SectionStandardsBuilt translations={translations ?? {}} />
 
         {/* {oobData && oobData?.type!==didcomm_v2 && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
@@ -181,13 +187,7 @@ export default function HomePage() {
           <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
             {  translations?.lorem_ipsum }
           </p>
-        </section>
-
-        <footer className="w-full bg-gray-800 text-white py-6">
-          <div className="container mx-auto text-center">
-            <p>&copy; { translations?.rights_reserved }</p>
-          </div>
-        </footer> */}
+        </section> */}
       </div>
     </React.Fragment>
   );
