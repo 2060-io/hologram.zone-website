@@ -3,8 +3,8 @@ import { Translations } from "@/app/page";
 import Image from "next/image";
 
 interface WhatIs {
-	translations: Translations;
-};
+	translations: Translations
+}
 
 const WhatIs: React.FC<WhatIs> = ({ translations }) => {
 	return (
@@ -12,14 +12,16 @@ const WhatIs: React.FC<WhatIs> = ({ translations }) => {
 			<div className="flex flex-col 2xl:flex-row xl:flex-row lg:flex-row">
 				<div className="flex-1 flex items-center justify-center order-2 2xl:xl:lg:order-1">
 					<Image
-						src="images/what-is-hologram.svg"
-						alt="what is hologram"
+						src={"images/what-is-hologram.svg"}
+						alt={"what is hologram"}
 						width={395}
 						height={550}
+						className="w-[395px] h-[550px]"
+						priority={true}
 					/>
 				</div>
 				<div className="flex-1 text-justify 2xl:px-20 xl:px-20 lg:px-20 order-1 2xlorder-2 :xl:order-2 lg:order-2">
-					<p 
+					<p
 						className="
 							mb-6
 							2xl:pt-20
@@ -35,7 +37,7 @@ const WhatIs: React.FC<WhatIs> = ({ translations }) => {
 							2xl:text-5xl
 							xl:text-5xl
 							lg:text-5xl">
-							{translations?.what_is_title}
+						{translations?.what_is_title}
 					</p>
 					<p>
 						{translations?.what_is}
@@ -44,6 +46,6 @@ const WhatIs: React.FC<WhatIs> = ({ translations }) => {
 			</div>
 		</section>
 	);
-};
+}
 
 export default React.memo(WhatIs);

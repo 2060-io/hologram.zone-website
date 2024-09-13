@@ -8,6 +8,7 @@ import loadTranslations from '../utils/loadTranslations'
 import Header from './components/Header';
 import BannerHologram from './components/BannerHologram';
 import WhatIs from './components/sections/WhatIs';
+import ProofOfTrust from './components/sections/ProofOfTrust';
 
 interface OobData {
   imageUrl: string;
@@ -70,7 +71,11 @@ export default function HomePage() {
           translations={translations ?? {}}
         />
 
-        {oobData && oobData?.type!==didcomm_v2 && (
+        <ProofOfTrust
+          translations={translations ?? {}}
+        />
+
+        {/* {oobData && oobData?.type!==didcomm_v2 && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
             <Image
               src={oobData.imageUrl ?? './default.svg'}
@@ -178,7 +183,7 @@ export default function HomePage() {
           <div className="container mx-auto text-center">
             <p>&copy; { translations?.rights_reserved }</p>
           </div>
-        </footer>
+        </footer> */}
       </div>
     </React.Fragment>
   );

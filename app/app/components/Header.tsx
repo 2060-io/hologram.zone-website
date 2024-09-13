@@ -19,7 +19,8 @@ const Header: React.FC<Header> = ({translations}) => {
 					alt="Logo"
 					width={150}
 					height={32}
-					className="w-36 h-8"
+					className="w-[150px] h-[32px]"
+					priority={true}
 				/>
 				<Image
 					src="images/logo-github.svg"
@@ -28,6 +29,7 @@ const Header: React.FC<Header> = ({translations}) => {
 					height={32}
 					id="logo-github-white"
 					className="w-8 h-8"
+					priority={false}
 				/>
 				<Image
 					src="images/logo-github-white.svg"
@@ -36,6 +38,7 @@ const Header: React.FC<Header> = ({translations}) => {
 					height={32}
 					id="logo-github-black"
 					className="w-8 h-8"
+					priority={false}
 				/>
 			</div>
 			<div className="mb-4 mt-3 text-2xl md:text-5xl lg:text-6xl font-semibold">
