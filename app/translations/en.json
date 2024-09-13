@@ -4,7 +4,7 @@
     "download" : "To connect to SERVICE, first you need to download Hologram ins your phone.",
     "get_service": "You have to downloaded Hologram? click here to enter SERVICE.",
     "continue_qr": "Continue on your Mobile Phone by scanning this QR",
-    "download_msg": "Download Hologram Messaging",
+    "download_msg": "Download Hologram",
     "new_app": "New to Hologram?",
     "what_is_title": "What id Hologram?",
     "what_is": "Hologram is a Verifiable Credential wallet and messaging app with true privacy preserving features. Unlike other messaging apps, Hologram is a self-custody app, which means user´s data is only stored on device, and exclusively under user’s control",

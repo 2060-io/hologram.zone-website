@@ -8,6 +8,7 @@ import Header from './components/Header';
 import BannerHologramMessaging from './components/Banners/BannerHologramMessaging';
 import SectionWhatIs from './components/sections/SectionWhatIs';
 import SectionProofOfTrust from './components/sections/SectionProofOfTrust';
+import BannerDownloadHolomgram from './components/Banners/BannerDownloadHologram';
 
 interface OobData {
   imageUrl: string;
@@ -72,6 +73,10 @@ export default function HomePage() {
 
         <SectionProofOfTrust
           translations={translations ?? {}}
+        />
+
+        <BannerDownloadHolomgram
+          translatios={translations ?? {}}
         />
 
         {/* {oobData && oobData?.type!==didcomm_v2 && (

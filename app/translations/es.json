@@ -4,7 +4,7 @@
     "download": "Para conectarse a SERVICE, primero debe descargar Hologram en su teléfono.",
     "get_service": "¿Ya has descargado Hologram? Haz clic aquí para entrar a SERVICE.",
     "continue_qr": "Continúa en tu móvil escaneando este código QR",
-    "download_msg": "Descargar Hologram Messaging",
+    "download_msg": "Descargar Hologram",
     "new_app": "¿Eres nuevo en Hologram?",
     "what_is": "Hologram es una aplicación de mensajería y billetera con credenciales verificables con funciones de preservación de la privacidad. A diferencia de otras aplicaciones de mensajería, Hologram es una aplicación de autocustodia, lo que significa que los datos del usuario solo se almacenan en el dispositivo y exclusivamente bajo el control del usuario.",
     "what_is_title": "¿Qué es Hologram?",

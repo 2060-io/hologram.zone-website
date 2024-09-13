@@ -4,12 +4,14 @@ import Image from 'next/image';
 
 const BannerHologramMessaging = () => {
 	return (
-		<div className="p-2 flex justify-around dark:bg-indigo-300 bg-indigo-100">
+		<div className="p-2 flex justify-around dark:bg-indigo-300 bg-indigo-100 align-middle">
 			<Image
 				src="images/ico-hologram.svg"
 				alt='hologram'
 				width={32}
 				height={32}
+				className='w-[32px] h-[32px]'
+				priority={false}
 			/>
 			<p>
 				<span
