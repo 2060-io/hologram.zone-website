@@ -2,11 +2,11 @@ import React from "react";
 import { Translations } from "@/app/page";
 import Image from "next/image";
 
-interface WhatIs {
+interface SectionWhatIs {
 	translations: Translations
 }
 
-const WhatIs: React.FC<WhatIs> = ({ translations }) => {
+const SectionWhatIs: React.FC<SectionWhatIs> = ({ translations }) => {
 	return (
 		<section>
 			<div className="flex flex-col 2xl:flex-row xl:flex-row lg:flex-row">
@@ -48,4 +48,4 @@ const WhatIs: React.FC<WhatIs> = ({ translations }) => {
 	);
 }
 
-export default React.memo(WhatIs);
+export default React.memo(SectionWhatIs);

@@ -1,14 +1,13 @@
 'use client';
 
-import Image from 'next/image';
 import { useDeviceDetect } from './components';
 import QRCode from 'react-qr-code';
 import React, { useEffect, useState } from 'react';
 import loadTranslations from '../utils/loadTranslations'
 import Header from './components/Header';
-import BannerHologram from './components/BannerHologram';
-import WhatIs from './components/sections/WhatIs';
-import ProofOfTrust from './components/sections/ProofOfTrust';
+import BannerHologramMessaging from './components/Banners/BannerHologramMessaging';
+import SectionWhatIs from './components/sections/SectionWhatIs';
+import SectionProofOfTrust from './components/sections/SectionProofOfTrust';
 
 interface OobData {
   imageUrl: string;
@@ -60,18 +59,18 @@ export default function HomePage() {
   return (
     <React.Fragment>
       {
-        deviceType === 'mobile' && !oobData ? <BannerHologram /> : ''
+        deviceType === 'mobile' && !oobData ? <BannerHologramMessaging /> : ''
       }
       <div className="container mx-auto 2xl:px-28 xl:px-28 lg:px-28 px-6 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
         <Header
           translations={translations ?? {}}
         />
         
-        <WhatIs
+        <SectionWhatIs
           translations={translations ?? {}}
         />
 
-        <ProofOfTrust
+        <SectionProofOfTrust
           translations={translations ?? {}}
         />
 

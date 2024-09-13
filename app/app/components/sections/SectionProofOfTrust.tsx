@@ -2,11 +2,11 @@ import React from "react";
 import { Translations } from '../../page';
 import Image from "next/image";
 
-interface ProofOfTrust {
+interface SectionProofOfTrust {
 	translations: Translations
 }
 
-const ProofOfTrust: React.FC<ProofOfTrust> = ({ translations }) => {
+const SectionProofOfTrust: React.FC<SectionProofOfTrust> = ({ translations }) => {
 	return (
 		<section>
 			<div className="flex flex-col 2xl:flex-row xl:flex-row lg:flex-row">
@@ -62,4 +62,4 @@ const ProofOfTrust: React.FC<ProofOfTrust> = ({ translations }) => {
 	)
 }
 
-export default React.memo(ProofOfTrust);
+export default React.memo(SectionProofOfTrust);

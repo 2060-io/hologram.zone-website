@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-const BannerHologram = () => {
+const BannerHologramMessaging = () => {
 	return (
 		<div className="p-2 flex justify-around dark:bg-indigo-300 bg-indigo-100">
 			<Image
@@ -28,4 +28,4 @@ const BannerHologram = () => {
 	)
 }
 
-export default BannerHologram;
+export default BannerHologramMessaging;
