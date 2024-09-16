@@ -6,10 +6,11 @@ import React, { useEffect, useState } from 'react';
 import loadTranslations from '../utils/loadTranslations'
 import Header from './components/Header';
 import BannerHologramMessaging from './components/Banners/BannerHologramMessaging';
-import SectionWhatIs from './components/sections/SectionWhatIs';
-import SectionProofOfTrust from './components/sections/SectionProofOfTrust';
+import SectionWhatIs from './components/Sections/SectionWhatIs';
+import SectionProofOfTrust from './components/Sections/SectionProofOfTrust';
 import BannerDownloadHolomgram from './components/Banners/BannerDownloadHologram';
-import SectionStandardsBuilt from './components/sections/SectionStandardsBuilt';
+import SectionStandardsBuilt from './components/Sections/SectionStandardsBuilt';
+import Footer from './components/Footer.tsx/Footer';
 
 interface OobData {
   imageUrl: string;
@@ -84,6 +85,16 @@ export default function HomePage() {
         <BannerDownloadHolomgram translatios={translations ?? {}} />
 
         <SectionStandardsBuilt translations={translations ?? {}} />
+
+{/* 
+        <footer
+          className="flex -mx-6 bg-zinc-300 text-center"
+        >
+          <About translations={translations ?? {}} />
+          <Navbar />
+        </footer> */}
+
+        <Footer translations={translations ?? {}} />
 
         {/* {oobData && oobData?.type!==didcomm_v2 && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">

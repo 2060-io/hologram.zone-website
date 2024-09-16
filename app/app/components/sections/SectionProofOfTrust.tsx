@@ -53,7 +53,6 @@ const SectionProofOfTrust: React.FC<SectionProofOfTrust> = ({ translations }) =>
 						alt={"proof of trust"}
 						width={366}
 						height={549}
-						className="w"
 						priority={false}
 					/>
 				</div>
