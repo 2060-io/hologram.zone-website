@@ -11,6 +11,7 @@ import SectionProofOfTrust from './components/sections/sectionProofOfTrust';
 import BannerDownloadHolomgram from './components/banners/bannerDownloadHologram';
 import SectionStandardsBuilt from './components/sections/sectionStandardsBuilt';
 import Footer from './components/footer/footer';
+import Image from 'next/image';
 
 interface OobData {
   imageUrl: string;
@@ -78,25 +79,7 @@ export default function HomePage() {
       >
         <Header translations={translations ?? {}} />
 
-        <SectionWhatIs translations={translations ?? {}} />
-
-        <SectionProofOfTrust translations={translations ?? {}} />
-
-        <BannerDownloadHolomgram translatios={translations ?? {}} />
-
-        <SectionStandardsBuilt translations={translations ?? {}} />
-
-{/* 
-        <footer
-          className="flex -mx-6 bg-zinc-300 text-center"
-        >
-          <About translations={translations ?? {}} />
-          <Navbar />
-        </footer> */}
-
-        <Footer translations={translations ?? {}} />
-
-        {/* {oobData && oobData?.type!==didcomm_v2 && (
+        {oobData && oobData?.type!==didcomm_v2 && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
             <Image
               src={oobData.imageUrl ?? './default.svg'}
@@ -104,6 +87,7 @@ export default function HomePage() {
               className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
               width={30}
               height={30}
+              priority={false}
             />
             <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
               {oobData.label}
@@ -125,7 +109,33 @@ export default function HomePage() {
           </section>
         )}
 
+        {oobData && oobData.type!==didcomm_v2 && deviceType === 'mobile' && (
+          <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
+              <a href={`${didUrl}?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
+                {  translations?.get_service.replace("SERVICE", oobData.label ?? 'service') }
+              </a>
+          </section>
+        )}
 
+        {oobData && oobData.type===didcomm_v2 && deviceType === 'mobile' && (
+          <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
+              <a href={`${didUrl}?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
+                {  translations?.continue_service }
+              </a>
+          </section>
+        )}
+        
+        <SectionWhatIs translations={translations ?? {}} />
+
+        <SectionProofOfTrust translations={translations ?? {}} />
+
+        <BannerDownloadHolomgram translatios={translations ?? {}} />
+
+        <SectionStandardsBuilt translations={translations ?? {}} />
+
+        <Footer translations={translations ?? {}} />
+
+{/* 
         {deviceType === 'mobile' && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center">
             <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
@@ -155,23 +165,7 @@ export default function HomePage() {
               </div>
             </div>
           </section>
-        )}
-
-        {oobData && oobData.type!==didcomm_v2 && deviceType === 'mobile' && (
-          <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
-              <a href={`${didUrl}?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
-                {  translations?.get_service.replace("SERVICE", oobData.label ?? 'service') }
-              </a>
-          </section>
-        )}
-
-        {oobData && oobData.type===didcomm_v2 && deviceType === 'mobile' && (
-          <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
-              <a href={`${didUrl}?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
-                {  translations?.continue_service }
-              </a>
-          </section>
-        )}
+        )} 
 
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
           <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
@@ -198,7 +192,8 @@ export default function HomePage() {
           <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
             {  translations?.lorem_ipsum }
           </p>
-        </section> */}
+        </section>
+*/}
       </div>
     </React.Fragment>
   );
