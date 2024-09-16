@@ -1,7 +1,7 @@
 import React from 'react';
 import { Translations } from '../../page';
-import About from './About';
-import Navbar from './Navbar';
+import About from './about';
+import Navbar from './navbar';
 
 interface Footer {
 	translations: Translations

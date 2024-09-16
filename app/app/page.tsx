@@ -4,13 +4,13 @@ import { useDeviceDetect } from './components';
 import QRCode from 'react-qr-code';
 import React, { useEffect, useState } from 'react';
 import loadTranslations from '../utils/loadTranslations'
-import Header from './components/Header';
-import BannerHologramMessaging from './components/Banners/BannerHologramMessaging';
-import SectionWhatIs from './components/Sections/SectionWhatIs';
-import SectionProofOfTrust from './components/Sections/SectionProofOfTrust';
-import BannerDownloadHolomgram from './components/Banners/BannerDownloadHologram';
-import SectionStandardsBuilt from './components/Sections/SectionStandardsBuilt';
-import Footer from './components/Footer.tsx/Footer';
+import Header from './components/header';
+import BannerHologramMessaging from './components/banners/bannerHologramMessaging';
+import SectionWhatIs from './components/sections/sectionWhatIs';
+import SectionProofOfTrust from './components/sections/sectionProofOfTrust';
+import BannerDownloadHolomgram from './components/banners/bannerDownloadHologram';
+import SectionStandardsBuilt from './components/sections/sectionStandardsBuilt';
+import Footer from './components/footer/footer';
 
 interface OobData {
   imageUrl: string;
