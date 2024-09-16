@@ -13,6 +13,12 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        "hologram-color": "#7678EC"
+      },
+      fontFamily: {
+        euclidCircularA: ["euclidCircularA", "sans-serif"]
+      }
     },
   },
   plugins: [],
