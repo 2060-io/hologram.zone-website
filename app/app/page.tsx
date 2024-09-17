@@ -1,68 +1,65 @@
-'use client';
+'use client'
 
-import { useDeviceDetect } from './components';
-import QRCode from 'react-qr-code';
-import React, { useEffect, useState } from 'react';
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
+import QRCode from 'react-qr-code'
+
 import loadTranslations from '../utils/loadTranslations'
-import Header from './components/header';
-import BannerHologramMessaging from './components/banners/bannerHologramMessaging';
-import SectionWhatIs from './components/sections/sectionWhatIs';
-import SectionProofOfTrust from './components/sections/sectionProofOfTrust';
-import BannerDownloadHolomgram from './components/banners/bannerDownloadHologram';
-import SectionStandardsBuilt from './components/sections/sectionStandardsBuilt';
-import Footer from './components/footer/footer';
-import Image from 'next/image';
+
+import { Header, useDeviceDetect } from './components'
+import BannerDownloadHolomgram from './components/banners/bannerDownloadHologram'
+import BannerHologramMessaging from './components/banners/bannerHologramMessaging'
+import Footer from './components/footer/footer'
+import SectionProofOfTrust from './components/sections/sectionProofOfTrust'
+import SectionStandardsBuilt from './components/sections/sectionStandardsBuilt'
+import SectionWhatIs from './components/sections/sectionWhatIs'
+import { Translations } from './components/utils'
 
 interface OobData {
-  imageUrl: string;
-  label: string;
-  type: string;
-}
-
-export interface Translations {
-  [key: string]: string;
+  imageUrl: string
+  label: string
+  type: string
 }
 
 export default function HomePage() {
-  const didUrl = 'didcomm://aries_proof-request';
-  const didcomm_v2 = 'https://didcomm.org/out-of-band/2.0/invitation';
-  const [oobData, setOobData] = useState<OobData | null>(null);
-  const [translations, setTranslations] = useState<Translations>();
-  const [url, setUrl] = useState<string>("");
-  const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null);
-  const deviceType = useDeviceDetect();
+  const didUrl = 'didcomm://aries_proof-request'
+  const didcomm_v2 = 'https://didcomm.org/out-of-band/2.0/invitation'
+  const [oobData, setOobData] = useState<OobData | null>(null)
+  const [translations, setTranslations] = useState<Translations>()
+  const [url, setUrl] = useState<string>('')
+  const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null)
+  const deviceType = useDeviceDetect()
 
   useEffect(() => {
-    const userLocale = navigator.language.startsWith('es') ? 'es' : 'en';
-    const loadedTranslations = loadTranslations(userLocale);
-    setTranslations(loadedTranslations);
-    const params = new URLSearchParams(window.location.search);
-    setSearchParams(params);
-    const oobParam = params.get('oob') || params.get('_oob');
+    const userLocale = navigator.language.startsWith('es') ? 'es' : 'en'
+    const loadedTranslations = loadTranslations(userLocale)
+    setTranslations(loadedTranslations)
+    const params = new URLSearchParams(window.location.search)
+    setSearchParams(params)
+    const oobParam = params.get('oob') || params.get('_oob')
 
-    setUrl(window.location.href);
+    setUrl(window.location.href)
     if (oobParam) {
       try {
-        const decoded = atob(oobParam);
-        const parsedData = JSON.parse(decoded);
-        setOobData(parsedData);
+        const decoded = atob(oobParam)
+        const parsedData = JSON.parse(decoded)
+        setOobData(parsedData)
       } catch (error) {
-        console.error('Error decoding oob parameter:', error);
-        setOobData(null);
+        console.error('Error decoding oob parameter:', error)
+        setOobData(null)
       }
     }
-    
-  }, []);
+  }, [])
 
-    try {
-      if (deviceType === 'mobile') window.location.href = `${didUrl}?${searchParams}`;
-    } catch (error) {
-      console.error('Error opening the didcomm URL:', error);
-    }
+  try {
+    if (deviceType === 'mobile') window.location.href = `${didUrl}?${searchParams}`
+  } catch (error) {
+    console.error('Error opening the didcomm URL:', error)
+  }
 
   return (
     <React.Fragment>
-      {deviceType === "mobile" && !oobData ? <BannerHologramMessaging /> : ""}
+      {deviceType === 'mobile' && !oobData ? <BannerHologramMessaging /> : ''}
       <div
         className="
           container
@@ -79,7 +76,7 @@ export default function HomePage() {
       >
         <Header translations={translations ?? {}} />
 
-        {oobData && oobData?.type!==didcomm_v2 && (
+        {oobData && oobData?.type !== didcomm_v2 && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
             <Image
               src={oobData.imageUrl ?? './default.svg'}
@@ -89,11 +86,9 @@ export default function HomePage() {
               height={30}
               priority={false}
             />
-            <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
-              {oobData.label}
-            </h2>
+            <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">{oobData.label}</h2>
             <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-4">
-              { translations?.download.replace("SERVICE", oobData.label ?? 'service') }
+              {translations?.download.replace('SERVICE', oobData.label ?? 'service')}
             </p>
           </section>
         )}
@@ -101,41 +96,47 @@ export default function HomePage() {
         {deviceType !== 'mobile' && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
             <div className="flex justify-center mb-6">
-            <QRCode value={url} />
+              <QRCode value={url} />
             </div>
             <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-6">
-              { translations?.continue_qr }
+              {translations?.continue_qr}
             </p>
           </section>
         )}
 
-        {oobData && oobData.type!==didcomm_v2 && deviceType === 'mobile' && (
+        {oobData && oobData.type !== didcomm_v2 && deviceType === 'mobile' && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
-              <a href={`${didUrl}?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
-                {  translations?.get_service.replace("SERVICE", oobData.label ?? 'service') }
-              </a>
+            <a
+              href={`${didUrl}?${searchParams}`}
+              className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300"
+            >
+              {translations?.get_service.replace('SERVICE', oobData.label ?? 'service')}
+            </a>
           </section>
         )}
 
-        {oobData && oobData.type===didcomm_v2 && deviceType === 'mobile' && (
+        {oobData && oobData.type === didcomm_v2 && deviceType === 'mobile' && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
-              <a href={`${didUrl}?${searchParams}`} className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300">
-                {  translations?.continue_service }
-              </a>
+            <a
+              href={`${didUrl}?${searchParams}`}
+              className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300"
+            >
+              {translations?.continue_service}
+            </a>
           </section>
         )}
-        
+
         <SectionWhatIs translations={translations ?? {}} />
 
         <SectionProofOfTrust translations={translations ?? {}} />
 
-        <BannerDownloadHolomgram translatios={translations ?? {}} />
+        <BannerDownloadHolomgram translations={translations ?? {}} />
 
         <SectionStandardsBuilt translations={translations ?? {}} />
 
         <Footer translations={translations ?? {}} />
 
-{/* 
+        {/* 
         {deviceType === 'mobile' && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center">
             <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
@@ -196,5 +197,5 @@ export default function HomePage() {
 */}
       </div>
     </React.Fragment>
-  );
+  )
 }

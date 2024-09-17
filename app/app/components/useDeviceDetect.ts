@@ -1,26 +1,26 @@
-'use client';
-import { useState, useEffect } from 'react';
+'use client'
+import { useState, useEffect } from 'react'
 
-type DeviceType = 'mobile' | 'tablet' | 'desktop' | 'unknown';
+type DeviceType = 'mobile' | 'tablet' | 'desktop' | 'unknown'
 
 const useDeviceDetect = (): DeviceType => {
-  const [deviceType, setDeviceType] = useState<DeviceType>('unknown');
+  const [deviceType, setDeviceType] = useState<DeviceType>('unknown')
 
   useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
-    const isMobile = /android|webos|iphone|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
-    const isTablet = /tablet|ipad|playbook|silk/i.test(userAgent.toLowerCase()) && !isMobile;
+    const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera
+    const isMobile = /android|webos|iphone|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase())
+    const isTablet = /tablet|ipad|playbook|silk/i.test(userAgent.toLowerCase()) && !isMobile
 
     if (isMobile) {
-      setDeviceType('mobile');
+      setDeviceType('mobile')
     } else if (isTablet) {
-      setDeviceType('tablet');
+      setDeviceType('tablet')
     } else {
-      setDeviceType('desktop');
+      setDeviceType('desktop')
     }
-  }, []);
+  }, [])
 
-  return deviceType;
-};
+  return deviceType
+}
 
-export default useDeviceDetect;
+export default useDeviceDetect
