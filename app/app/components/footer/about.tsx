@@ -23,13 +23,32 @@ const About: React.FC<About> = ({ translations }) => {
         lg:flex-1
         items-center
         text-center
-        text-gray-500">
+        text-gray-500"
+    >
       <div className="p-4">
         <div className="flex justify-center space-x-7 lg:space-x-4 xl:space-x-4 2xl:space-x-4">
           <Image src={'images/ico-x.svg'} alt={'x'} width={26} height={26} className="f w-[30px] h-[30px]" />
-          <Image src={'images/ico-in.svg'} alt={'in'} width={26} height={26} className="f w-[30px] h-[30px]" />
-          <Image src={'images/ico-github.svg'} alt={'github'} width={26} height={26} className="f w-[30px] h-[30px]" />
-          <Image src={'images/ico-hologram.svg'} alt={'hologram'} width={26} height={26} className="f w-[30px] h-[30px]" />
+          <Image
+            src={'images/ico-in.svg'}
+            alt={'in'}
+            width={26}
+            height={26}
+            className="f w-[30px] h-[30px]"
+          />
+          <Image
+            src={'images/ico-github.svg'}
+            alt={'github'}
+            width={26}
+            height={26}
+            className="f w-[30px] h-[30px]"
+          />
+          <Image
+            src={'images/ico-hologram.svg'}
+            alt={'hologram'}
+            width={26}
+            height={26}
+            className="f w-[30px] h-[30px]"
+          />
         </div>
       </div>
       <div className="p-4 text-center justify-center">{translations.copy_right}</div>
