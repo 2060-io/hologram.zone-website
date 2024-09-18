@@ -31,7 +31,7 @@ const Navbar: React.FC<NavBar> = ({ translations, currentPage, setCurrentPage })
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
-              {translations.nav_terms_and_Conditions}
+              {translations.terms}
             </a>
             <a
               href="#"
@@ -42,7 +42,7 @@ const Navbar: React.FC<NavBar> = ({ translations, currentPage, setCurrentPage })
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
-              {translations.nav_privacy_policy}
+              {translations.privacy}
             </a>
           </div>
         </div>
