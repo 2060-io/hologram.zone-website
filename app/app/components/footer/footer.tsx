@@ -1,9 +1,9 @@
 import React from 'react'
 
+import NavbarFooter from '../navBars/navbarFooter'
 import { Translations } from '../utils'
 
 import About from './about'
-import NavbarFooter from '../navBars/navbarFooter'
 
 interface Footer {
   translations: Translations

@@ -1,11 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { Header } from '../components'
-import loadTranslations from '@/utils/loadTranslations'
-import { Translations } from '../components/utils'
-import Footer from '../components/footer/footer'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
+
+import loadTranslations from '../../utils/loadTranslations'
+import { Header } from '../components'
+import Footer from '../components/footer/footer'
+import NavBarTopPage from '../components/navBars/navbarTopPage'
+import { Translations } from '../components/utils'
 
 const Terms = () => {
   const [translations, setTranslations] = useState<Translations>()
@@ -19,7 +21,7 @@ const Terms = () => {
 
   return (
     <div
-    className="
+      className="
       container
       mx-auto
       2xl:px-28
@@ -33,6 +35,53 @@ const Terms = () => {
     "
     >
       <Header translations={translations ?? {}}></Header>
+
+      <NavBarTopPage
+        translations={translations ?? {}}
+        titleSection={translations?.terms ?? ''}
+      ></NavBarTopPage>
+
+      <section className="my-2">
+        <p className="text-xl font-semibold mb-2">{translations?.terms_service_title}</p>
+        <p className="text-xl text-justify">{translations?.terms_service_text}</p>
+      </section>
+
+      <p className="text-xl font-bold my-4">{translations?.terms_about_title}</p>
+
+      <section className="my-2">
+        <p className="text-xl font-semibold mb-2">{translations?.terms_minium_age_title}</p>
+        <p className="text-xl text-justify">{translations?.terms_minium_age_text}</p>
+      </section>
+
+      <section className="my-2">
+        <p className="text-xl font-semibold mb-2">{translations?.terms_software_title}</p>
+        <p className="text-xl text-justify mb-4">{translations?.terms_software_text}</p>
+      </section>
+
+      <section className="my-2">
+        <p className="text-xl font-semibold mb-2">{translations?.terms_fees_title}</p>
+        <p className="text-xl text-justify mb-4">{translations?.terms_fees_text}</p>
+      </section>
+
+      <section className="my-2">
+        <p className="text-xl font-semibold mb-2">{translations?.terms_using_title}</p>
+      </section>
+
+      <section className="my-2">
+        <p className="text-xl font-semibold mb-2">{translations?.terms_our_title}</p>
+        <p className="text-xl text-justify mb-4">{translations?.terms_our_text}</p>
+      </section>
+
+      <section className="my-2">
+        <p className="text-xl font-semibold mb-2">{translations?.terms_legal_title}</p>
+        <p className="text-xl text-justify mb-4">{translations?.terms_legal_text}</p>
+      </section>
+
+      <section className="my-2 pb-6">
+        <p className="text-xl font-semibold mb-2">{translations?.terms_harm_title}</p>
+        <p className="text-xl text-justify mb-4">{translations?.terms_harm_text}</p>
+      </section>
+
       <Footer translations={translations ?? {}} currentPage={pathname}></Footer>
     </div>
   )
