@@ -12,11 +12,14 @@ import { Translations } from '../components/utils'
 const Privacity = () => {
   const [translations, setTranslations] = useState<Translations>()
   const pathname: string = usePathname()
+  const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null)
 
   useEffect(() => {
     const userLocale = navigator.language.startsWith('es') ? 'es' : 'en'
     const loadedTranslations = loadTranslations(userLocale)
     setTranslations(loadedTranslations)
+    const params = new URLSearchParams(window.location.search)
+    setSearchParams(params)
   }, [])
 
   return (
@@ -39,6 +42,7 @@ const Privacity = () => {
       <NavBarTopPage
         translations={translations ?? {}}
         titleSection={translations?.privacy ?? ''}
+        urlParams={searchParams}
       ></NavBarTopPage>
 
       <section className="my-2 pb-36">
@@ -46,7 +50,7 @@ const Privacity = () => {
         <p className="text-xl text-justify">{translations?.privacy_section_text}</p>
       </section>
 
-      <Footer translations={translations ?? {}} currentPage={pathname}></Footer>
+      <Footer translations={translations ?? {}} currentPage={pathname} urlParams={searchParams}></Footer>
     </div>
   )
 }

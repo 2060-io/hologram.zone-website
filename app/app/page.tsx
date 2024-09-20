@@ -136,7 +136,7 @@ export default function HomePage() {
 
         <SectionStandardsBuilt translations={translations ?? {}} />
 
-        <Footer translations={translations ?? {}} currentPage={pathname} />
+        <Footer translations={translations ?? {}} currentPage={pathname} urlParams={searchParams} />
 
         {/* 
         {deviceType === 'mobile' && (

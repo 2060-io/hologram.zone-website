@@ -12,11 +12,14 @@ import { Translations } from '../components/utils'
 const Terms = () => {
   const [translations, setTranslations] = useState<Translations>()
   const pathname: string = usePathname()
+  const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null)
 
   useEffect(() => {
     const userLocale = navigator.language.startsWith('es') ? 'es' : 'en'
     const loadedTranslations = loadTranslations(userLocale)
     setTranslations(loadedTranslations)
+    const params = new URLSearchParams(window.location.search)
+    setSearchParams(params)
   }, [])
 
   return (
@@ -39,6 +42,7 @@ const Terms = () => {
       <NavBarTopPage
         translations={translations ?? {}}
         titleSection={translations?.terms ?? ''}
+        urlParams={searchParams}
       ></NavBarTopPage>
 
       <section className="my-2">
@@ -82,7 +86,7 @@ const Terms = () => {
         <p className="text-xl text-justify mb-4">{translations?.terms_harm_text}</p>
       </section>
 
-      <Footer translations={translations ?? {}} currentPage={pathname}></Footer>
+      <Footer translations={translations ?? {}} currentPage={pathname} urlParams={searchParams}></Footer>
     </div>
   )
 }
