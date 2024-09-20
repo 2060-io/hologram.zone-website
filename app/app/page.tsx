@@ -31,7 +31,7 @@ export default function HomePage() {
   const [url, setUrl] = useState<string>('')
   const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null)
   const deviceType = useDeviceDetect()
-  const pathname = usePathname()
+  const pathname: string = usePathname()
 
   useEffect(() => {
     const userLocale = navigator.language.startsWith('es') ? 'es' : 'en'
@@ -78,8 +78,6 @@ export default function HomePage() {
         "
       >
         <Header translations={translations ?? {}} />
-
-        <Link href="terms">Terminos</Link>
 
         {oobData && oobData?.type !== didcomm_v2 && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
