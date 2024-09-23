@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 
 import { Translations } from '../components/utils'
+import Favicon from 'react-favicon'
 
 interface Header {
   translations: Translations
@@ -14,6 +15,7 @@ const Header: React.FC<Header> = ({ translations }) => {
 
   return (
     <header className="pt-4">
+      <Favicon url="images/ico-hologram.png" ></Favicon>
       <div className="flex justify-between mb-5">
         <div className='flex'>
         <Image
