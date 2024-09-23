@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import Favicon from 'react-favicon'
 import QRCode from 'react-qr-code'
 
 import loadTranslations from '../utils/loadTranslations'
@@ -62,7 +61,6 @@ export default function HomePage() {
 
   return (
     <React.Fragment>
-      <Favicon url="images/ico-hologram.png"></Favicon>
       {deviceType === 'mobile' && !oobData ? <BannerHologramMessaging /> : ''}
       <div
         className="
