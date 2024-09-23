@@ -49,7 +49,7 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
           className="w-1/2 2xl:w-1/6 xl:w-1/6 lg:w-1/6 p-10"
         />
         <Image
-          src={'images/logo-dif.svg'}
+          src={'images/logo-dif.png'}
           alt="dif"
           width={124}
           height={42}

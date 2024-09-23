@@ -51,7 +51,7 @@ const SectionProofOfTrust: React.FC<SectionProofOfTrust> = ({ translations }) =>
         </div>
         <div className="flex-1 flex items-center justify-center">
           <Image
-            src={'images/proof-of-trust.svg'}
+            src={'images/proof-of-trust.png'}
             alt={'proof of trust'}
             width={366}
             height={549}
