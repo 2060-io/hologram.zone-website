@@ -30,7 +30,7 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
           width={171}
           height={42}
           priority={false}
-          className="w-1/2 2xl:w-1/6 xl:w-1/6 lg:w-1/6 p-10"
+          className="w-1/3 2xl:w-1/6 xl:w-1/6 lg:w-1/6 px-4 py-2 lg:p-10 xl:p-10 2xl:p-10"
         />
         <Image
           src={'images/logo-w3c.svg'}
@@ -38,7 +38,7 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
           width={88}
           height={42}
           priority={false}
-          className="w-1/2 2xl:w-1/6 xl:w-1/6 lg:w-1/6 p-10"
+          className="w-1/3 2xl:w-1/6 xl:w-1/6 lg:w-1/6 px-4 py-2 lg:p-10 xl:p-10 2xl:p-10"
         />
         <Image
           src={'images/logo-credo.svg'}
@@ -46,7 +46,7 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
           width={59}
           height={42}
           priority={false}
-          className="w-1/2 2xl:w-1/6 xl:w-1/6 lg:w-1/6 p-10"
+          className="w-1/3 2xl:w-1/6 xl:w-1/6 lg:w-1/6 px-4 py-2 lg:p-10 xl:p-10 2xl:p-10"
         />
         <Image
           src={'images/logo-dif.png'}
@@ -54,7 +54,7 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
           width={124}
           height={42}
           priority={false}
-          className="w-1/2 2xl:w-1/6 xl:w-1/6 lg:w-1/6 p-10"
+          className="w-1/3 2xl:w-1/6 xl:w-1/6 lg:w-1/6 px-4 py-2 lg:p-10 xl:p-10 2xl:p-10"
         />
         <Image
           src={'images/logo-trust-over-ip.svg'}
@@ -62,7 +62,7 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
           width={110}
           height={46}
           priority={false}
-          className="w-1/2 2xl:w-1/6 xl:w-1/6 lg:w-1/6 p-10"
+          className="w-1/3 2xl:w-1/6 xl:w-1/6 lg:w-1/6 px-4 py-2 lg:p-10 xl:p-10 2xl:p-10"
         />
         <Image
           src={'images/logo-open-wallet.svg'}
@@ -70,7 +70,7 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
           width={180}
           height={46}
           priority={false}
-          className="w-1/2 2xl:w-1/6 xl:w-1/6 lg:w-1/6 p-10"
+          className="w-1/3 2xl:w-1/6 xl:w-1/6 lg:w-1/6 px-4 py-2 lg:p-10 xl:p-10 2xl:p-10"
         />
       </div>
     </div>
