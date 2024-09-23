@@ -15,14 +15,17 @@ const Header: React.FC<Header> = ({ translations }) => {
   return (
     <header className="pt-4">
       <div className="flex justify-between mb-5">
+        <div className='flex'>
         <Image
-          src="images/logo-hologram.png"
+          src="images/ico-hologram.png"
           alt="Logo"
-          width={150}
-          height={32}
-          className="w-[150px] h-[32px]"
+          width={41}
+          height={41}
+          className="flex-1 w-[41px] h-[41px]"
           priority={true}
         />
+        <p className='flex-1 text-hologram-color font-semibold text-2xl pt-1 pl-4'>Hologram</p>
+        </div>
         <Image
           src="images/logo-github.svg"
           alt="Logo-gitHub"
