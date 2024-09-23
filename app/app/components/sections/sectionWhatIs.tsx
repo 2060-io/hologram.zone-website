@@ -11,7 +11,7 @@ const SectionWhatIs: React.FC<SectionWhatIs> = ({ translations }) => {
   return (
     <section>
       <div className="flex flex-col 2xl:flex-row xl:flex-row lg:flex-row">
-        <div className="flex-1 flex items-center justify-center order-2 2xl:xl:lg:order-1">
+        <div className="flex-1 flex items-center justify-center order-2 2xl:order-1 xl:order-1 lg:order-1">
           <Image
             src={'images/what-is-hologram.svg'}
             alt={'what is hologram'}
@@ -21,7 +21,7 @@ const SectionWhatIs: React.FC<SectionWhatIs> = ({ translations }) => {
             priority={true}
           />
         </div>
-        <div className="flex-1 text-justify 2xl:px-20 xl:px-20 lg:px-20 order-1 2xlorder-2 :xl:order-2 lg:order-2">
+        <div className="flex-1 text-justify 2xl:px-20 xl:px-20 lg:px-20 order-1 2xl:order-2 xl:order-2 lg:order-2">
           <p
             className="
 							mb-6

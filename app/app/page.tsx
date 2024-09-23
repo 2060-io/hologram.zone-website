@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import QRCode from 'react-qr-code'
 
@@ -29,6 +30,7 @@ export default function HomePage() {
   const [url, setUrl] = useState<string>('')
   const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null)
   const deviceType = useDeviceDetect()
+  const pathname: string = usePathname()
 
   useEffect(() => {
     const userLocale = navigator.language.startsWith('es') ? 'es' : 'en'
@@ -134,7 +136,7 @@ export default function HomePage() {
 
         <SectionStandardsBuilt translations={translations ?? {}} />
 
-        <Footer translations={translations ?? {}} />
+        <Footer translations={translations ?? {}} currentPage={pathname} urlParams={searchParams} />
 
         {/* 
         {deviceType === 'mobile' && (
