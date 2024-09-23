@@ -43,7 +43,7 @@ const About: React.FC<About> = ({ translations }) => {
             className="f w-[30px] h-[30px]"
           />
           <Image
-            src={'images/ico-hologram.svg'}
+            src={'images/ico-hologram.png'}
             alt={'hologram'}
             width={26}
             height={26}
