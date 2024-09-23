@@ -34,7 +34,7 @@ const NavbarFooter: React.FC<NavBarFooter> = ({ translations, currentPage, urlPa
           <div className="flex text-sm lg:text-lg xl:text-lg 2xl:text-lg font-medium">
             <Link
               href={`/` + urlData(urlParams)}
-              className={`px-3 py-2 text-center ${
+              className={`px-3 py-2 text-center transition duration-300 ease-in-out hover:scale-95 ${
                 currentPage === '/' ? 'text-hologram-color underline' : 'text-gray-500 hover:text-gray-700'
               }`}
             >
@@ -42,7 +42,7 @@ const NavbarFooter: React.FC<NavBarFooter> = ({ translations, currentPage, urlPa
             </Link>
             <Link
               href={`terms` + urlData(urlParams)}
-              className={`px-3 py-2 ${
+              className={`px-3 py-2 text-center transition duration-300 ease-in-out hover:scale-95 ${
                 currentPage === '/terms'
                   ? 'text-hologram-color underline'
                   : 'text-gray-500 hover:text-gray-700'
@@ -52,7 +52,7 @@ const NavbarFooter: React.FC<NavBarFooter> = ({ translations, currentPage, urlPa
             </Link>
             <Link
               href={`privacity` + urlData(urlParams)}
-              className={`px-3 py-2 ${
+              className={`px-3 py-2 text-center transition duration-300 ease-in-out hover:scale-95 ${
                 currentPage === '/privacity'
                   ? 'text-hologram-color underline'
                   : 'text-gray-500 hover:text-gray-700'
