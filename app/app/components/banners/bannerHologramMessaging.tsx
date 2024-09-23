@@ -6,7 +6,7 @@ const BannerHologramMessaging = () => {
   return (
     <div className="p-2 flex justify-around dark:bg-indigo-300 bg-indigo-100 align-middle">
       <Image
-        src="images/ico-hologram.svg"
+        src="images/ico-hologram.png"
         alt="hologram"
         width={32}
         height={32}

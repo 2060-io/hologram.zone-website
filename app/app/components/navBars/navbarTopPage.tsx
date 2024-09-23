@@ -39,7 +39,7 @@ const NavBarTopPage: React.FC<NavBarTopPage> = ({ translations, titleSection, ur
           <div className="lg:flex-1  w-1/4 text-right lg:text-lg xl:text-lg 2xl:text-lg font-medium">
             <Link
               href={`/` + urlData(urlParams)}
-              className="px-3 py-2 underline text-gray-500 dark:text-gray-400"
+              className="px-3 py-2 underline text-gray-500 dark:text-gray-400 hover:text-hologram-color"
             >
               {translations.nav_home}
             </Link>

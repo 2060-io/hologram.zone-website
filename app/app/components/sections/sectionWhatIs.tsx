@@ -13,7 +13,7 @@ const SectionWhatIs: React.FC<SectionWhatIs> = ({ translations }) => {
       <div className="flex flex-col 2xl:flex-row xl:flex-row lg:flex-row">
         <div className="flex-1 flex items-center justify-center order-2 2xl:order-1 xl:order-1 lg:order-1">
           <Image
-            src={'images/what-is-hologram.svg'}
+            src={'images/what-is-hologram.png'}
             alt={'what is hologram'}
             width={395}
             height={550}
