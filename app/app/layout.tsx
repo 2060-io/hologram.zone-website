@@ -18,6 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-white dark:bg-gray-900">
+      <head>
+        <link rel="icon" type="image/png" href="images/ico-hologram.png"></link>
+      </head>
       <body className={`font-euclidCircularA ` + inter.className}>{children}</body>
     </html>
   )
