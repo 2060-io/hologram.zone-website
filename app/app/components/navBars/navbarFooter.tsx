@@ -29,7 +29,6 @@ const NavbarFooter: React.FC<NavBarFooter> = ({ translations, currentPage, urlPa
   return (
     <div className="lg:p-4 xl:p-4 2xl:p-4 lg:flex xl:flex 2xl:flex lg:flex-1 xl:flex-1 2xl:flex-1 order-1 lg:order-2 xl:order-2 2xl:order-2 lg:space-x-4 xl:space-x-4 2xl:space-x-4 items-center text-center">
       <nav className="justify-center w-[100%]">
-        º
         <div className="flex justify-center h-10">
           <div className="flex text-sm lg:text-lg xl:text-lg 2xl:text-lg font-medium">
             <Link
