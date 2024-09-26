@@ -97,10 +97,17 @@ export default function HomePage() {
 
         {deviceType !== 'mobile' && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
-            <div className="flex justify-center mb-6">
+            <div className="w-[315px] h-[315px] flex justify-center items-center mb-6 bg-white border-solid border-2 rounded-2xl border-gray-300">
               <QRCode value={url} />
+              <Image
+                alt="hologram-ico"
+                src="images/ico-hologram.png"
+                width={48}
+                height={48}
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-solid border-8 border-white rounded-sm bg-white"
+              />
             </div>
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-6">
+            <p className="font-bold text-xl">
               {translations?.continue_qr}
             </p>
           </section>
