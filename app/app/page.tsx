@@ -107,9 +107,7 @@ export default function HomePage() {
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-solid border-8 border-white rounded-sm bg-white"
               />
             </div>
-            <p className="font-bold text-xl">
-              {translations?.continue_qr}
-            </p>
+            <p className="font-bold text-xl">{translations?.continue_qr}</p>
           </section>
         )}
 
