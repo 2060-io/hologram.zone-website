@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import QRCode from 'react-qr-code'
 
 import loadTranslations from '../utils/loadTranslations'
 
@@ -15,6 +14,7 @@ import SectionProofOfTrust from './components/sections/sectionProofOfTrust'
 import SectionStandardsBuilt from './components/sections/sectionStandardsBuilt'
 import SectionWhatIs from './components/sections/sectionWhatIs'
 import { Translations } from './components/utils'
+import QRCodeWithLogo from './components/utils/QRCodeWithLogo'
 
 interface OobData {
   imageUrl: string
@@ -98,14 +98,7 @@ export default function HomePage() {
         {deviceType !== 'mobile' && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
             <div className="w-[315px] h-[315px] flex justify-center items-center mb-6 bg-white border-solid border-2 rounded-2xl border-gray-300">
-              <QRCode value={url} />
-              <Image
-                alt="hologram-ico"
-                src="images/ico-hologram.png"
-                width={48}
-                height={48}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-solid border-8 border-white rounded-sm bg-white"
-              />
+              <QRCodeWithLogo value={url} logoUrl="images/ico-hologram.png" logoHeight={18} logoWidth={18} />
             </div>
             <p className="font-bold text-xl">{translations?.continue_qr}</p>
           </section>
