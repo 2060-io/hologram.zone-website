@@ -10,6 +10,7 @@ import { BannerDownloadHolomgram, BannerHologramMessaging } from './components/b
 import { Footer } from './components/footer'
 import { SectionProofOfTrust, SectionStandardsBuilt, SectionWhatIs } from './components/sections'
 import { Header, QRCodeWithLogo, Translations, useDeviceDetect } from './components/utils'
+import BannerServiceHologram from './components/banners/bannerServiceHologram'
 
 interface OobData {
   imageUrl: string
@@ -74,20 +75,21 @@ export default function HomePage() {
         <Header translations={translations ?? {}} />
 
         {oobData && oobData?.type !== didcomm_v2 && (
-          <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
-            <Image
-              src={oobData.imageUrl ?? './default.svg'}
-              alt="QR Code"
-              className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
-              width={30}
-              height={30}
-              priority={false}
-            />
-            <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">{oobData.label}</h2>
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-4">
-              {translations?.download.replace('SERVICE', oobData.label ?? 'service')}
-            </p>
-          </section>
+          // <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
+          //   <Image
+          //     src={oobData.imageUrl ?? './default.svg'}
+          //     alt="QR Code"
+          //     className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
+          //     width={30}
+          //     height={30}
+          //     priority={false}
+          //   />
+          //   <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">{oobData.label}</h2>
+          //   <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-4">
+          //     {translations?.download.replace('SERVICE', oobData.label ?? 'service')}
+          //   </p>
+          // </section>
+          <BannerServiceHologram translations={translations ?? {}} imageUrl={oobData.imageUrl} label={oobData.label}/>
         )}
 
         {deviceType !== 'mobile' && (
