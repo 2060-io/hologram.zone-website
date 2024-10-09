@@ -5,16 +5,10 @@ import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 import loadTranslations from '../utils/loadTranslations'
-
-import { Header, useDeviceDetect } from './components'
-import BannerDownloadHolomgram from './components/banners/bannerDownloadHologram'
-import BannerHologramMessaging from './components/banners/bannerHologramMessaging'
-import Footer from './components/footer/footer'
-import SectionProofOfTrust from './components/sections/sectionProofOfTrust'
-import SectionStandardsBuilt from './components/sections/sectionStandardsBuilt'
-import SectionWhatIs from './components/sections/sectionWhatIs'
-import { Translations } from './components/utils'
-import QRCodeWithLogo from './components/utils/QRCodeWithLogo'
+import { Header, QRCodeWithLogo, Translations, useDeviceDetect } from './components/utils'
+import { BannerDownloadHolomgram, BannerHologramMessaging } from './components/banners'
+import { SectionProofOfTrust, SectionStandardsBuilt, SectionWhatIs } from './components/sections'
+import { Footer } from './components/footer'
 
 interface OobData {
   imageUrl: string

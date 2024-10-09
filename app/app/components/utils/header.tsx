@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-import { Translations } from '../components/utils'
+import { Translations } from '.'
 
 interface Header {
   translations: Translations
