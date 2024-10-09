@@ -5,7 +5,11 @@ import React from 'react'
 
 import { Translations } from '../utils'
 
-const BannerServiceHologram: React.FC<{ translations: Translations, imageUrl: string, label: string }> = ({ translations, imageUrl, label }) => {
+const BannerServiceHologram: React.FC<{ translations: Translations; imageUrl: string; label: string }> = ({
+  translations,
+  imageUrl,
+  label,
+}) => {
   return (
     <div>
       <div className="-mx-6 w-aut align-middle text-xl text-center py-8 px-3">
@@ -28,13 +32,11 @@ const BannerServiceHologram: React.FC<{ translations: Translations, imageUrl: st
               className="p-2 transform transition duration-300 ease-in-out hover:scale-110"
             />
           </div>
-          <div className="text-xl font-semibold">
-            {label}
-          </div>
+          <div className="text-xl font-semibold">{label}</div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default BannerServiceHologram

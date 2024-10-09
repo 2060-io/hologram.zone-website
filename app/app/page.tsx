@@ -7,10 +7,10 @@ import React, { useEffect, useState } from 'react'
 import loadTranslations from '../utils/loadTranslations'
 
 import { BannerDownloadHolomgram, BannerHologramMessaging } from './components/banners'
+import BannerServiceHologram from './components/banners/bannerServiceHologram'
 import { Footer } from './components/footer'
 import { SectionProofOfTrust, SectionStandardsBuilt, SectionWhatIs } from './components/sections'
 import { Header, QRCodeWithLogo, Translations, useDeviceDetect } from './components/utils'
-import BannerServiceHologram from './components/banners/bannerServiceHologram'
 
 interface OobData {
   imageUrl: string
@@ -89,7 +89,11 @@ export default function HomePage() {
           //     {translations?.download.replace('SERVICE', oobData.label ?? 'service')}
           //   </p>
           // </section>
-          <BannerServiceHologram translations={translations ?? {}} imageUrl={oobData.imageUrl} label={oobData.label}/>
+          <BannerServiceHologram
+            translations={translations ?? {}}
+            imageUrl={oobData.imageUrl}
+            label={oobData.label}
+          />
         )}
 
         {deviceType !== 'mobile' && (
