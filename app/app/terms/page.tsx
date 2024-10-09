@@ -4,9 +4,9 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import loadTranslations from '../../utils/loadTranslations'
-import { Header, Translations } from '../components/utils'
-import { NavBarTopPage } from '../components/navBars'
 import { Footer } from '../components/footer'
+import { NavBarTopPage } from '../components/navBars'
+import { Header, Translations } from '../components/utils'
 
 const Terms = () => {
   const [translations, setTranslations] = useState<Translations>()
