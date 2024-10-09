@@ -6,15 +6,11 @@ import React, { useEffect, useState } from 'react'
 
 import loadTranslations from '../utils/loadTranslations'
 
-import { Header, useDeviceDetect } from './components'
-import BannerDownloadHolomgram from './components/banners/bannerDownloadHologram'
-import BannerHologramMessaging from './components/banners/bannerHologramMessaging'
-import Footer from './components/footer/footer'
-import SectionProofOfTrust from './components/sections/sectionProofOfTrust'
-import SectionStandardsBuilt from './components/sections/sectionStandardsBuilt'
-import SectionWhatIs from './components/sections/sectionWhatIs'
-import { Translations } from './components/utils'
-import QRCodeWithLogo from './components/utils/QRCodeWithLogo'
+import { BannerDownloadHolomgram, BannerHologramMessaging } from './components/banners'
+import BannerServiceHologram from './components/banners/bannerServiceHologram'
+import { Footer } from './components/footer'
+import { SectionProofOfTrust, SectionStandardsBuilt, SectionWhatIs } from './components/sections'
+import { Header, QRCodeWithLogo, Translations, useDeviceDetect } from './components/utils'
 
 interface OobData {
   imageUrl: string
@@ -79,27 +75,46 @@ export default function HomePage() {
         <Header translations={translations ?? {}} />
 
         {oobData && oobData?.type !== didcomm_v2 && (
-          <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
-            <Image
-              src={oobData.imageUrl ?? './default.svg'}
-              alt="QR Code"
-              className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
-              width={30}
-              height={30}
-              priority={false}
-            />
-            <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">{oobData.label}</h2>
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-4">
-              {translations?.download.replace('SERVICE', oobData.label ?? 'service')}
-            </p>
-          </section>
+          // <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
+          //   <Image
+          //     src={oobData.imageUrl ?? './default.svg'}
+          //     alt="QR Code"
+          //     className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
+          //     width={30}
+          //     height={30}
+          //     priority={false}
+          //   />
+          //   <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">{oobData.label}</h2>
+          //   <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-4">
+          //     {translations?.download.replace('SERVICE', oobData.label ?? 'service')}
+          //   </p>
+          // </section>
+          <BannerServiceHologram
+            translations={translations ?? {}}
+            imageUrl={oobData.imageUrl}
+            label={oobData.label}
+          />
         )}
 
         {deviceType !== 'mobile' && (
-          <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
+          <section className="container mx-auto my-2 md:my-8 lg:my-10 flex flex-col items-center justify-center text-center">
             <div className="w-[315px] h-[315px] flex justify-center items-center mb-6 bg-white border-solid border-2 rounded-2xl border-gray-300">
               <QRCodeWithLogo value={url} logoUrl="images/ico-hologram.png" logoHeight={18} logoWidth={18} />
             </div>
+            <p className="flex items-center justify-center font-normal text-[18px] leading-[16px] text-center text-[#9194B1]">
+              <Image
+                src={'images/valid_credential.svg'}
+                alt={'check'}
+                width={26}
+                height={26}
+                className="mr-2 w-[30px] h-[30px] transition duration-300 ease-in-out hover:scale-110"
+              />
+              {translations?.valid_credential.split(' ').slice(0, -1).join(' ') + '\u00A0'}
+              <span className="text-[18px] font-bold leading-[16px] text-[#3EBDB6]">
+                {translations?.valid_credential.split(' ').pop()}
+              </span>
+            </p>
+            &nbsp;
             <p className="font-bold text-xl">{translations?.continue_qr}</p>
           </section>
         )}
