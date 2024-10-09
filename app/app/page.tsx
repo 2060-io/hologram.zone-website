@@ -95,6 +95,20 @@ export default function HomePage() {
             <div className="w-[315px] h-[315px] flex justify-center items-center mb-6 bg-white border-solid border-2 rounded-2xl border-gray-300">
               <QRCodeWithLogo value={url} logoUrl="images/ico-hologram.png" logoHeight={18} logoWidth={18} />
             </div>
+            <p className="flex items-center justify-center font-normal text-[18px] leading-[16px] text-center text-[#9194B1]">
+              <Image
+                src={'images/valid_credential.svg'}
+                alt={'check'}
+                width={26}
+                height={26}
+                className="mr-2 w-[30px] h-[30px] transition duration-300 ease-in-out hover:scale-110"
+              />
+              {translations?.valid_credential.split(' ').slice(0, -1).join(' ') + '\u00A0'}
+              <span className="text-[18px] font-bold leading-[16px] text-[#3EBDB6]">
+                {translations?.valid_credential.split(' ').pop()}
+              </span>
+            </p>
+            &nbsp;
             <p className="font-bold text-xl">{translations?.continue_qr}</p>
           </section>
         )}

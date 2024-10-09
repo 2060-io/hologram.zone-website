@@ -3,6 +3,7 @@
     "terms": "Terms and conditions",
     "download" : "To connect to SERVICE, first you need to download Hologram in your phone.",
     "get_service": "Hologram is already installed in your phone? click here to enter SERVICE.",
+    "valid_credential": "The credential of this service is valid.",
     "continue_qr": "Continue on your Mobile Phone by scanning this QR",
     "download_msg": "Download Hologram",
     "new_app": "New to Hologram?",
