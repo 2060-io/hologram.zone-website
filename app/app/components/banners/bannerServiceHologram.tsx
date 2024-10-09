@@ -16,7 +16,7 @@ const BannerServiceHologram: React.FC<{ translations: Translations, imageUrl: st
           </React.Fragment>
         ))}
       </div>
-      <div className="flex items-center justify-center py-4 bg-white">
+      <div className="flex items-center justify-center py-4 bg-[#EAF8F7]">
         <div className="flex items-center space-x-4">
           <div className="flex-shrink-0">
             <Image
@@ -33,16 +33,6 @@ const BannerServiceHologram: React.FC<{ translations: Translations, imageUrl: st
           </div>
         </div>
       </div>
-      {/* <section className="mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white p-6 max-w-lg">
-        <Image
-          src={imageUrl ?? './default.svg'}
-          alt="QR Code"
-          className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64"
-          width={30}
-          height={30}
-          priority={false}
-        />
-      </section> */}
     </div>
   );
 };

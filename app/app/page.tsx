@@ -93,7 +93,7 @@ export default function HomePage() {
         )}
 
         {deviceType !== 'mobile' && (
-          <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
+          <section className="container mx-auto my-2 md:my-8 lg:my-10 flex flex-col items-center justify-center text-center">
             <div className="w-[315px] h-[315px] flex justify-center items-center mb-6 bg-white border-solid border-2 rounded-2xl border-gray-300">
               <QRCodeWithLogo value={url} logoUrl="images/ico-hologram.png" logoHeight={18} logoWidth={18} />
             </div>
