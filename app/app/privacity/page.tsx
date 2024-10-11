@@ -4,10 +4,9 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import loadTranslations from '../../utils/loadTranslations'
-import { Header } from '../components'
-import Footer from '../components/footer/footer'
-import NavBarTopPage from '../components/navBars/navbarTopPage'
-import { Translations } from '../components/utils'
+import { Footer } from '../components/footer'
+import { NavBarTopPage } from '../components/navBars'
+import { Header, Translations } from '../components/utils'
 
 const Privacity = () => {
   const [translations, setTranslations] = useState<Translations>()
