@@ -8,14 +8,16 @@ import { Translations } from '../utils'
 
 interface About {
   translations: Translations
+  urlData: string
 }
 
-const About: React.FC<About> = ({ translations }) => {
+const About: React.FC<About> = ({ translations, urlData }) => {
   return (
     <div
       className="
         lg:p-4
         lg:flex
+        lg:flex-row-reverse
         order-2
         lg:order-1
         xl:order-1
@@ -55,7 +57,7 @@ const About: React.FC<About> = ({ translations }) => {
               className="f w-[30px] h-[30px] transition duration-300 ease-in-out hover:scale-110"
             />
           </Link>
-          <Link href="#">
+          <Link href={`/` + urlData}>
             <Image
               src={'images/ico-hologram.png'}
               alt={'hologram'}
@@ -66,10 +68,10 @@ const About: React.FC<About> = ({ translations }) => {
           </Link>
         </div>
       </div>
-      <div className="p-4 text-center justify-center">{translations.copy_right}</div>
-      <div className="lg:mb-0 hidden lg:block">
+      <div className="lg:mb-0 hidden lg:block lg:pr-5">
         <Image src={'images/separation.svg'} alt="separation" width={1} height={42} />
       </div>
+      <div className="p-4 text-center justify-center">{translations.copy_right}</div>
     </div>
   )
 }

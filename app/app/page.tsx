@@ -55,6 +55,22 @@ export default function HomePage() {
     console.error('Error opening the didcomm URL:', error)
   }
 
+  const urlData: string = (() => {
+    if (null === searchParams) {
+      return ''
+    }
+
+    if (null !== searchParams.get('oob')) {
+      return '/?oob=' + searchParams.get('oob')
+    }
+
+    if (null !== searchParams.get('_oob')) {
+      return '/?_oob=' + searchParams.get('_oob')
+    }
+
+    return ''
+  })()
+
   return (
     <React.Fragment>
       {deviceType === 'mobile' && !oobData ? <BannerHologramMessaging /> : ''}
@@ -72,7 +88,7 @@ export default function HomePage() {
           dark:text-gray-300
         "
       >
-        <Header translations={translations ?? {}} />
+        <Header translations={translations ?? {}} urlData={urlData} />
 
         {oobData && oobData?.type !== didcomm_v2 && (
           // <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
@@ -149,7 +165,7 @@ export default function HomePage() {
 
         <SectionStandardsBuilt translations={translations ?? {}} />
 
-        <Footer translations={translations ?? {}} currentPage={pathname} urlParams={searchParams} />
+        <Footer translations={translations ?? {}} currentPage={pathname} urlData={urlData} />
 
         {/* 
         {deviceType === 'mobile' && (

@@ -8,14 +8,14 @@ import About from './about'
 interface Footer {
   translations: Translations
   currentPage: string
-  urlParams: URLSearchParams | null
+  urlData: string
 }
 
-const Footer: React.FC<Footer> = ({ translations, currentPage, urlParams }) => {
+const Footer: React.FC<Footer> = ({ translations, currentPage, urlData }) => {
   return (
     <footer className="flex flex-col lg:flex-row xl:flex-row 2xl:flex-row -mx-6 bg-zinc-300 text-center">
-      <About translations={translations} />
-      <NavbarFooter translations={translations} currentPage={currentPage} urlParams={urlParams} />
+      <About translations={translations} urlData={urlData} />
+      <NavbarFooter translations={translations} currentPage={currentPage} urlData={urlData} />
     </footer>
   )
 }

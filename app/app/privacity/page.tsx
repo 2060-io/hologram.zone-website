@@ -21,6 +21,22 @@ const Privacity = () => {
     setSearchParams(params)
   }, [])
 
+  const urlData: string = (() => {
+    if (null === searchParams) {
+      return ''
+    }
+
+    if (null !== searchParams.get('oob')) {
+      return '/?oob=' + searchParams.get('oob')
+    }
+
+    if (null !== searchParams.get('_oob')) {
+      return '/?_oob=' + searchParams.get('_oob')
+    }
+
+    return ''
+  })()
+
   return (
     <div
       className="
@@ -36,7 +52,7 @@ const Privacity = () => {
       dark:text-gray-300
     "
     >
-      <Header translations={translations ?? {}}></Header>
+      <Header translations={translations ?? {}} urlData={urlData}></Header>
 
       <NavBarTopPage
         translations={translations ?? {}}
@@ -49,7 +65,7 @@ const Privacity = () => {
         <p className="text-xl text-justify">{translations?.privacy_section_text}</p>
       </section>
 
-      <Footer translations={translations ?? {}} currentPage={pathname} urlParams={searchParams}></Footer>
+      <Footer translations={translations ?? {}} currentPage={pathname} urlData={urlData}></Footer>
     </div>
   )
 }
