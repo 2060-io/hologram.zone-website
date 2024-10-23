@@ -51,12 +51,12 @@ const Header: React.FC<Header> = ({ translations }) => {
         </div>
       </div>
       <div className="mb-6 mt-3 text-2xl md:text-5xl lg:text-5xl font-medium ">
-        <p className='md:mb-2 lg:mb-2 xl:mb-2'>
+        <p className="md:mb-2 lg:mb-2 xl:mb-2">
           <span className="text-hologram-color">{headerTitleLine1[0]}</span>
           &nbsp;{headerTitleLine1[1]}
           <span className="text-hologram-color">{translations.dot}</span>
         </p>
-        <p className='md:mb-2 lg:mb-2 xl:mb-2'>
+        <p className="md:mb-2 lg:mb-2 xl:mb-2">
           <span className="text-hologram-color">{headerTitleLine2[0]}</span>
           &nbsp;{headerTitleLine2[1]}
           <span className="text-hologram-color">{translations.dot}</span>
