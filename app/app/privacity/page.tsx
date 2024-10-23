@@ -21,38 +21,21 @@ const Privacity = () => {
     setSearchParams(params)
   }, [])
 
-  const urlDataGet = (urlParams: URLSearchParams | null): string => {
-    if (null === urlParams) {
+  const urlData: string = (() => {
+    if (null === searchParams) {
       return ''
     }
 
-    if (null !== urlParams.get('oob')) {
-      return '/?oob=' + urlParams.get('oob')
+    if (null !== searchParams.get('oob')) {
+      return '/?oob=' + searchParams.get('oob')
     }
 
-    if (null !== urlParams.get('_oob')) {
-      return '/?_oob=' + urlParams.get('_oob')
-    }
-  }
-
-  const urlData: string = urlDataGet(searchParams)
-    let data = ''
-    if (null === urlParams) {
-      return data
+    if (null !== searchParams.get('_oob')) {
+      return '/?_oob=' + searchParams.get('_oob')
     }
 
-    if (null !== urlParams.get('oob')) {
-      data = '/?oob=' + urlParams.get('oob')
-    }
-
-    if (null !== urlParams.get('_oob')) {
-      data = '/?_oob=' + urlParams.get('_oob')
-    }
-
-    return data
-  }
-
-  const urlData: string = urlDataGet(searchParams)
+    return ''
+  })()
 
   return (
     <div
