@@ -37,7 +37,7 @@ const Header: React.FC<Header> = ({ translations, urlData }) => {
               alt="Logo-gitHub"
               width={36}
               height={36}
-              id="logo-github-white"
+              id="logo-github-light"
               className="w-[36] h-[36] transition duration-300 ease-in-out hover:scale-110"
               priority={false}
             />

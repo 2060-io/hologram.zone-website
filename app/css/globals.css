@@ -4,15 +4,15 @@
 
 :root {
   --background-start-rgb: 214, 219, 220;
-  --display-logo-git-hub-white: block;
-  --display-logo-git-hub-black: none;
+  --display-image-mode-light: block;
+  --display-image-mode-black: none;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background-start-rgb: 0, 0, 0;
-    --display-logo-git-hub-white: none;
-    --display-logo-git-hub-black: block;
+    --display-image-mode-light: none;
+    --display-image-mode-black: block;
   }
 }
 
@@ -24,12 +24,28 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-#logo-github-white {
-  display: var(--display-logo-git-hub-white);
+#logo-github-light {
+  display: var(--display-image-mode-light);
 }
 
 #logo-github-black {
-  display: var(--display-logo-git-hub-black);
+  display: var(--display-image-mode-black);
+}
+
+#image-what-is-hologram-light {
+  display: var(--display-image-mode-light);
+}
+
+#image-what-is-hologram-dark {
+  display: var(--display-image-mode-black);
+}
+
+#image-proof-of-trust-light {
+  display: var(--display-image-mode-light);
+}
+
+#image-proof-of-trust-dark {
+  display: var(--display-image-mode-black);
 }
 
 @layer utilities {

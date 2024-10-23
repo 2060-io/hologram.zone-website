@@ -19,6 +19,16 @@ const SectionWhatIs: React.FC<SectionWhatIs> = ({ translations }) => {
             height={550}
             className="w-[395px] h-[550px]"
             priority={true}
+            id="image-what-is-hologram-light"
+          />
+          <Image
+            src={'images/what-is-hologram-dark.png'}
+            alt={'what is hologram'}
+            width={395}
+            height={550}
+            className="w-[395px] h-[550px]"
+            priority={true}
+            id="image-what-is-hologram-dark"
           />
         </div>
         <div className="flex-1 text-justify 2xl:px-20 xl:px-20 lg:px-20 order-1 2xl:order-2 xl:order-2 lg:order-2">
