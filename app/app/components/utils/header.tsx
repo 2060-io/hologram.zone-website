@@ -15,7 +15,7 @@ const Header: React.FC<Header> = ({ translations }) => {
 
   return (
     <header className="pt-4">
-      <div className="flex justify-between mb-5">
+      <div className="flex justify-between mb-16">
         <div className="flex">
           <Image
             src="images/ico-hologram.png"
@@ -50,13 +50,13 @@ const Header: React.FC<Header> = ({ translations }) => {
           </Link>
         </div>
       </div>
-      <div className="mb-6 mt-3 text-2xl md:text-5xl lg:text-5xl font-medium ">
-        <p className="md:mb-2 lg:mb-2 xl:mb-2">
+      <div className="mb-6 mt-3 text-2xl md:text-5xl lg:text-5xl font-semibold">
+        <p className="md:mb-2 lg:mb-3 xl:mb-3">
           <span className="text-hologram-color">{headerTitleLine1[0]}</span>
           &nbsp;{headerTitleLine1[1]}
           <span className="text-hologram-color">{translations.dot}</span>
         </p>
-        <p className="md:mb-2 lg:mb-2 xl:mb-2">
+        <p className="md:mb-2 lg:mb-3 xl:mb-3">
           <span className="text-hologram-color">{headerTitleLine2[0]}</span>
           &nbsp;{headerTitleLine2[1]}
           <span className="text-hologram-color">{translations.dot}</span>
