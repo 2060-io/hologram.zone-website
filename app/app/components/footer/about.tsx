@@ -8,9 +8,10 @@ import { Translations } from '../utils'
 
 interface About {
   translations: Translations
+  urlData: string
 }
 
-const About: React.FC<About> = ({ translations }) => {
+const About: React.FC<About> = ({ translations, urlData }) => {
   return (
     <div
       className="
@@ -56,7 +57,7 @@ const About: React.FC<About> = ({ translations }) => {
               className="f w-[30px] h-[30px] transition duration-300 ease-in-out hover:scale-110"
             />
           </Link>
-          <Link href="#">
+          <Link href={`/` + urlData}>
             <Image
               src={'images/ico-hologram.png'}
               alt={'hologram'}

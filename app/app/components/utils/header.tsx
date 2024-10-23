@@ -6,9 +6,10 @@ import { Translations } from './types'
 
 interface Header {
   translations: Translations
+  urlData: string
 }
 
-const Header: React.FC<Header> = ({ translations }) => {
+const Header: React.FC<Header> = ({ translations, urlData }) => {
   const headerTitleLine1: string[] = (translations.header_title_line_1 ?? '').split('-')
   const headerTitleLine2: string[] = (translations.header_title_line_2 ?? '').split('-')
   const headerTitleLine3: string[] = (translations.header_title_line_3 ?? '').split('-')
@@ -16,17 +17,19 @@ const Header: React.FC<Header> = ({ translations }) => {
   return (
     <header className="pt-4">
       <div className="flex justify-between mb-16">
-        <div className="flex">
-          <Image
-            src="images/ico-hologram.png"
-            alt="Logo"
-            width={36}
-            height={36}
-            className="flex-1 w-[36px] h-[36px]"
-            priority={true}
-          />
-          <p className="flex-1 text-hologram-color font-semibold text-2xl pt-1 pl-4">Hologram</p>
-        </div>
+        <Link href={`/` + urlData}>
+          <div className="flex">
+            <Image
+              src="images/ico-hologram.png"
+              alt="Logo"
+              width={36}
+              height={36}
+              className="flex-1 w-[36px] h-[36px]"
+              priority={true}
+            />
+            <p className="flex-1 text-hologram-color font-semibold text-2xl pt-1 pl-4">Hologram</p>
+          </div>
+        </Link>
         <div>
           <Link href="https://github.com/2060-io" target="_blank">
             <Image
