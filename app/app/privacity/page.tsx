@@ -22,6 +22,20 @@ const Privacity = () => {
   }, [])
 
   const urlDataGet = (urlParams: URLSearchParams | null): string => {
+    if (null === urlParams) {
+      return ''
+    }
+
+    if (null !== urlParams.get('oob')) {
+      return '/?oob=' + urlParams.get('oob')
+    }
+
+    if (null !== urlParams.get('_oob')) {
+      return '/?_oob=' + urlParams.get('_oob')
+    }
+  }
+
+  const urlData: string = urlDataGet(searchParams)
     let data = ''
     if (null === urlParams) {
       return data
