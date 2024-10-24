@@ -60,7 +60,7 @@ const Privacity = () => {
         urlParams={searchParams}
       ></NavBarTopPage>
 
-      <section className="my-2 pb-36">
+      <section className="mt-8 mb-10 pb-36">
         <p className="text-xl font-bold mb-4">{translations?.privacy_section_title}</p>
         <p className="text-xl text-justify">{translations?.privacy_section_text}</p>
       </section>

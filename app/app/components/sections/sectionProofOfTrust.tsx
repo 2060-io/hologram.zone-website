@@ -56,6 +56,15 @@ const SectionProofOfTrust: React.FC<SectionProofOfTrust> = ({ translations }) =>
             width={366}
             height={549}
             priority={false}
+            id="image-proof-of-trust-light"
+          />
+          <Image
+            src={'images/proof-of-trust-dark.png'}
+            alt={'proof of trust'}
+            width={366}
+            height={549}
+            priority={false}
+            id="image-proof-of-trust-dark"
           />
         </div>
       </div>
