@@ -65,38 +65,38 @@ const Terms = () => {
         <p className="text-xl text-justify">{translations?.terms_service_text}</p>
       </section>
 
-      <p className="text-xl font-bold my-4">{translations?.terms_about_title}</p>
+      <p className="text-xl font-bold mt-14 mb-7">{translations?.terms_about_title}</p>
 
-      <section className="my-2">
+      <section className="mt-2 mb-7">
         <p className="text-xl font-semibold mb-2">{translations?.terms_minium_age_title}</p>
         <p className="text-xl text-justify">{translations?.terms_minium_age_text}</p>
       </section>
 
-      <section className="my-2">
+      <section className="mt-2 mb-7">
         <p className="text-xl font-semibold mb-2">{translations?.terms_software_title}</p>
         <p className="text-xl text-justify mb-4">{translations?.terms_software_text}</p>
       </section>
 
-      <section className="my-2">
+      <section className="mt-2 mb-7">
         <p className="text-xl font-semibold mb-2">{translations?.terms_fees_title}</p>
         <p className="text-xl text-justify mb-4">{translations?.terms_fees_text}</p>
       </section>
 
-      <section className="my-2">
+      <section className="mt-10 mb-7">
         <p className="text-xl font-semibold mb-2">{translations?.terms_using_title}</p>
       </section>
 
-      <section className="my-2">
+      <section className="mt-2 mb-7">
         <p className="text-xl font-semibold mb-2">{translations?.terms_our_title}</p>
         <p className="text-xl text-justify mb-4">{translations?.terms_our_text}</p>
       </section>
 
-      <section className="my-2">
+      <section className="mt-2 mb-7">
         <p className="text-xl font-semibold mb-2">{translations?.terms_legal_title}</p>
         <p className="text-xl text-justify mb-4">{translations?.terms_legal_text}</p>
       </section>
 
-      <section className="my-2 pb-6">
+      <section className="mt-2 mb-7 pb-6">
         <p className="text-xl font-semibold mb-2">{translations?.terms_harm_title}</p>
         <p className="text-xl text-justify mb-4">{translations?.terms_harm_text}</p>
       </section>
