@@ -76,7 +76,7 @@ const About: React.FC<About> = ({ translations, urlData }) => {
           className="min-w-[3] min-h-[42]"
         />
       </div>
-      <div className="p-4 text-center justify-center">{translations.copy_right}</div>
+      <div className="py-4 text-center justify-center">{translations.copy_right}</div>
     </div>
   )
 }
