@@ -9,7 +9,7 @@ interface SectionProofOfTrust {
 
 const SectionProofOfTrust: React.FC<SectionProofOfTrust> = ({ translations }) => {
   return (
-    <section className="container mx-auto 2xl:px-28 xl:px-28 lg:px-28 px-6 mt-16">
+    <section className="container mx-auto px-6 mt-16">
       <div className="flex flex-col 2xl:flex-row xl:flex-row lg:flex-row">
         <div className="flex-1 text-justify 2xl:px-20 xl:px-20 lg:px-20 mb-10">
           <p
@@ -28,8 +28,6 @@ const SectionProofOfTrust: React.FC<SectionProofOfTrust> = ({ translations }) =>
 								2xl:text-5xl
 								xl:text-5xl
 								lg:text-5xl
-                xl:
-                2xl:
                 "
           >
             {translations.proof_of_trust_title}
