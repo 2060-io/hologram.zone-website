@@ -50,7 +50,7 @@ const BannerDownloadHolomgram: React.FC<BannerHologramMessaging> = ({ translatio
               alt="hologram"
               width={177}
               height={55}
-              className="w-[177px] h-[55px] pr-2 transition duration-300 ease-in-out hover:scale-110"
+              className="pr-2 transition duration-300 ease-in-out hover:scale-110"
               priority={false}
             />
           </Link>
@@ -59,8 +59,8 @@ const BannerDownloadHolomgram: React.FC<BannerHologramMessaging> = ({ translatio
               src="images/app-store-button.svg"
               alt="hologram"
               width={177}
-              height={56}
-              className="w-[177px] h-[55px] pl-2 transition duration-300 ease-in-out hover:scale-110"
+              height={55}
+              className="pl-2 transition duration-300 ease-in-out hover:scale-110"
               priority={false}
             />
           </Link>

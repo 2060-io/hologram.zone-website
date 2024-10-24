@@ -68,13 +68,7 @@ const About: React.FC<About> = ({ translations, urlData }) => {
         </div>
       </div>
       <div className="lg:mb-0 hidden lg:block lg:pr-5">
-        <Image
-          src={'images/separation.svg'}
-          alt="separation"
-          width={2}
-          height={42}
-          className="min-w-[3] min-h-[42]"
-        />
+        <Image src={'images/separation.svg'} alt="separation" width={1} height={42} />
       </div>
       <div className="py-4 text-center justify-center">{translations.copy_right}</div>
     </div>
