@@ -53,7 +53,7 @@ const Header: React.FC<Header> = ({ translations, urlData }) => {
           </Link>
         </div>
       </div>
-      <div className="mb-6 mt-3 text-2xl md:text-5xl lg:text-5xl font-semibold">
+      <div className="mb-6 mt-3 text-3xl md:text-5xl lg:text-5xl font-semibold">
         <p className="md:mb-2 lg:mb-3 xl:mb-3">
           <span className="text-hologram-color">{headerTitleLine1[0]}</span>
           &nbsp;{headerTitleLine1[1]}
