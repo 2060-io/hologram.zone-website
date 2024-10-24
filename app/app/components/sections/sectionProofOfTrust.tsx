@@ -15,11 +15,11 @@ const SectionProofOfTrust: React.FC<SectionProofOfTrust> = ({ translations }) =>
           <p
             className="
 								mb-6
-								2xl:pt-20
-								xl:pt-20
-								lg:pt-20
+								2xl:pt-16
+								xl:pt-16
+								lg:pt-16
 								font-semibold
-								text-center
+                text-center
 								2xl:text-left
 								xl:text-left
 								lg:text-left
@@ -27,7 +27,10 @@ const SectionProofOfTrust: React.FC<SectionProofOfTrust> = ({ translations }) =>
 								text-4xl
 								2xl:text-5xl
 								xl:text-5xl
-								lg:text-5xl"
+								lg:text-5xl
+                xl:
+                2xl:
+                "
           >
             {translations.proof_of_trust_title}
           </p>

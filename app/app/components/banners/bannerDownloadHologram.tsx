@@ -44,28 +44,23 @@ const BannerDownloadHolomgram: React.FC<BannerHologramMessaging> = ({ translatio
           <Link
             href="https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m&pcampaignid=web_share"
             target="_blank"
-            className="mx-5"
           >
             <Image
               src="images/play-store-button.svg"
               alt="hologram"
               width={177}
-              height={56}
-              className="min-w-[177px] min-h-[56px] transition duration-300 ease-in-out hover:scale-110"
+              height={55}
+              className="w-[177px] h-[55px] pr-2 transition duration-300 ease-in-out hover:scale-110"
               priority={false}
             />
           </Link>
-          <Link
-            href="https://apps.apple.com/co/app/hologram-messaging/id6474701855"
-            target="_blank"
-            className="mx-5"
-          >
+          <Link href="https://apps.apple.com/co/app/hologram-messaging/id6474701855" target="_blank">
             <Image
               src="images/app-store-button.svg"
               alt="hologram"
               width={177}
               height={56}
-              className="min-w-[177px] min-h-[56px] transition duration-300 ease-in-out hover:scale-110"
+              className="w-[177px] h-[55px] pl-2 transition duration-300 ease-in-out hover:scale-110"
               priority={false}
             />
           </Link>

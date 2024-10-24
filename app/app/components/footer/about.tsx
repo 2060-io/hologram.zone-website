@@ -27,7 +27,7 @@ const About: React.FC<About> = ({ translations, urlData }) => {
         items-center
         text-gray-500"
     >
-      <div className="p-4">
+      <div className="p-4 mt-2">
         <div className="flex justify-center space-x-7 lg:space-x-2 xl:space-x-4 2xl:space-x-4">
           <Link href="https://www.linkedin.com/company/2060-io">
             <Image
