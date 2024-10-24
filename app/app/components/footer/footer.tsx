@@ -13,9 +13,11 @@ interface Footer {
 
 const Footer: React.FC<Footer> = ({ translations, currentPage, urlData }) => {
   return (
-    <footer className="flex flex-col lg:flex-row xl:flex-row 2xl:flex-row -mx-6 bg-zinc-300 text-center">
-      <About translations={translations} urlData={urlData} />
-      <NavbarFooter translations={translations} currentPage={currentPage} urlData={urlData} />
+    <footer className="-mx-6 bg-zinc-300">
+      <div className="container mx-auto 2xl:px-28 xl:px-28 lg:px-28 px-6 flex flex-col lg:flex-row xl:flex-row 2xl:flex-row text-center">
+        <About translations={translations} urlData={urlData} />
+        <NavbarFooter translations={translations} currentPage={currentPage} urlData={urlData} />
+      </div>
     </footer>
   )
 }

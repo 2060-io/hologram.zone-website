@@ -12,11 +12,11 @@ interface SectionStandardsBuilt {
 
 const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }) => {
   return (
-    <div>
+    <div className="bg-white -mx-6">
       <div className="-mx-6 bg-zinc-300 w-aut align-middle text-xl text-center text-gray-500 py-8 px-3">
         {translations.built_standar}
       </div>
-      <div className="lg:flex xl:flex 2xl:flex items-center justify-center -mx-6 pt-5 pb-7 bg-white md:px-3 lg:px-32 xl:px-32 2xl:px-32">
+      <div className="container mx-auto 2xl:px-28 xl:px-28 lg:px-28 px-6 lg:flex xl:flex 2xl:flex items-center justify-center pt-5 pb-7 bg-white md:px-3">
         <div className="flex lg:flex-1 xl:flex-1 2xl:flex-1">
           <div className="flex-1">
             <Link
