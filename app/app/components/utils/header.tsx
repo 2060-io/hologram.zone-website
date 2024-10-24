@@ -15,7 +15,7 @@ const Header: React.FC<Header> = ({ translations, urlData }) => {
   const headerTitleLine3: string[] = (translations.header_title_line_3 ?? '').split('-')
 
   return (
-    <header className="pt-4">
+    <header className="container mx-auto 2xl:px-28 xl:px-28 lg:px-28 px-6">
       <div className="flex justify-between mb-16">
         <Link href={`/` + urlData}>
           <div className="flex">

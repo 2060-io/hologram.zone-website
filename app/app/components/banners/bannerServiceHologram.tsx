@@ -12,7 +12,7 @@ const BannerServiceHologram: React.FC<{ translations: Translations; imageUrl: st
 }) => {
   return (
     <div>
-      <div className="-mx-6 w-aut align-middle text-xl text-center py-8 px-3">
+      <div className="w-aut align-middle text-xl text-center py-8 px-3">
         {translations.invited_to.split('{word}').map((part, index, array) => (
           <React.Fragment key={index}>
             {part}

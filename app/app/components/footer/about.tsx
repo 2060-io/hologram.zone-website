@@ -25,45 +25,44 @@ const About: React.FC<About> = ({ translations, urlData }) => {
         lg:space-x-4
         lg:flex-1
         items-center
-        text-center
         text-gray-500"
     >
-      <div className="p-4">
-        <div className="flex justify-center space-x-7 lg:space-x-4 xl:space-x-4 2xl:space-x-4">
+      <div className="p-4 mt-2">
+        <div className="flex justify-center space-x-7 lg:space-x-2 xl:space-x-4 2xl:space-x-4">
           <Link href="https://www.linkedin.com/company/2060-io">
             <Image
               src={'images/ico-x.svg'}
               alt={'x'}
-              width={26}
-              height={26}
-              className="f w-[30px] h-[30px] transition duration-300 ease-in-out hover:scale-110"
+              width={30}
+              height={30}
+              className="min-w-[30px] min-h-[30px] transition duration-300 ease-in-out hover:scale-110"
             />
           </Link>
           <Link href="https://www.linkedin.com/company/2060-io">
             <Image
               src={'images/ico-in.svg'}
               alt={'in'}
-              width={26}
-              height={26}
-              className="f w-[30px] h-[30px] transition duration-300 ease-in-out hover:scale-110"
+              width={30}
+              height={30}
+              className="min-w-[30px] min-h-[30px] transition duration-300 ease-in-out hover:scale-110"
             />
           </Link>
           <Link href="https://github.com/2060-io">
             <Image
               src={'images/ico-github.svg'}
               alt={'github'}
-              width={26}
-              height={26}
-              className="f w-[30px] h-[30px] transition duration-300 ease-in-out hover:scale-110"
+              width={30}
+              height={30}
+              className="min-w-[30px] min-h-[30px] transition duration-300 ease-in-out hover:scale-110"
             />
           </Link>
           <Link href={`/` + urlData}>
             <Image
               src={'images/ico-hologram.png'}
               alt={'hologram'}
-              width={26}
-              height={26}
-              className="f w-[30px] h-[30px] transition duration-300 ease-in-out hover:scale-110"
+              width={30}
+              height={30}
+              className="min-w-[30px] min-h-[30px] transition duration-300 ease-in-out hover:scale-110"
             />
           </Link>
         </div>
@@ -71,7 +70,7 @@ const About: React.FC<About> = ({ translations, urlData }) => {
       <div className="lg:mb-0 hidden lg:block lg:pr-5">
         <Image src={'images/separation.svg'} alt="separation" width={1} height={42} />
       </div>
-      <div className="p-4 text-center justify-center">{translations.copy_right}</div>
+      <div className="py-4 text-center justify-center">{translations.copy_right}</div>
     </div>
   )
 }

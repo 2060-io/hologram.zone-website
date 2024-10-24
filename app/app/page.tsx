@@ -74,20 +74,7 @@ export default function HomePage() {
   return (
     <React.Fragment>
       {deviceType === 'mobile' && !oobData ? <BannerHologramMessaging /> : ''}
-      <div
-        className="
-          container
-          mx-auto
-          2xl:px-28
-          xl:px-28
-          lg:px-28
-          px-6
-          bg-white
-          dark:bg-gray-900
-          text-black
-          dark:text-gray-300
-        "
-      >
+      <div className="mt-5 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
         <Header translations={translations ?? {}} urlData={urlData} />
 
         {oobData && oobData?.type !== didcomm_v2 && (
@@ -117,7 +104,7 @@ export default function HomePage() {
             <div className="w-[315px] h-[315px] flex justify-center items-center mb-6 bg-white border-solid border-2 rounded-2xl border-gray-300">
               <QRCodeWithLogo value={url} logoUrl="images/ico-hologram.png" logoHeight={18} logoWidth={18} />
             </div>
-            <p className="flex items-center justify-center font-normal text-[18px] leading-[16px] text-center text-[#9194B1]">
+            <p className="flex items-center justify-center font-normal text-[15px] lg:text-[18px] xl:text-[18px] 2xl:text-[18px] leading-[16px] text-center text-[#9194B1]">
               <Image
                 src={'images/valid_credential.svg'}
                 alt={'check'}
