@@ -74,20 +74,7 @@ export default function HomePage() {
   return (
     <React.Fragment>
       {deviceType === 'mobile' && !oobData ? <BannerHologramMessaging /> : ''}
-      <div
-        className="
-          container
-          mx-auto
-          2xl:px-28
-          xl:px-28
-          lg:px-28
-          px-6
-          bg-white
-          dark:bg-gray-900
-          text-black
-          dark:text-gray-300
-        "
-      >
+      <div className="mt-5 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
         <Header translations={translations ?? {}} urlData={urlData} />
 
         {oobData && oobData?.type !== didcomm_v2 && (
