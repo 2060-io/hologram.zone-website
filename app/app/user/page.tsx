@@ -9,7 +9,6 @@ import { Header, Translations } from '../components/utils'
 
 const Terms = () => {
   const [translations, setTranslations] = useState<Translations>()
-  const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null)
   const termsRef = useRef<HTMLDivElement | null>(null)
   const privacyRef = useRef<HTMLDivElement | null>(null)
   const [url, setUrl] = useState<string>('')
@@ -18,8 +17,6 @@ const Terms = () => {
     const userLocale = navigator.language.startsWith('es') ? 'es' : 'en'
     const loadedTranslations = loadTranslations(userLocale)
     setTranslations(loadedTranslations)
-    const params = new URLSearchParams(window.location.search)
-    setSearchParams(params)
   }, [])
 
   useLayoutEffect(() => {
@@ -29,35 +26,32 @@ const Terms = () => {
   })
 
   const urlData: string = (() => {
-    const url = new URL(window.location.href);
-    const searchParams = new URLSearchParams(url.hash.substring(url.hash.indexOf('?')));
-  
+    const url = new URL(window.location.href)
+    const searchParams = new URLSearchParams(url.hash.substring(url.hash.indexOf('?')))
+
     if (searchParams === null) {
-      return '';
+      return ''
     }
-  
-    const oobValue = searchParams.get('oob');
-    const _oobValue = searchParams.get('_oob');
-  
+
+    const oobValue = searchParams.get('oob')
+    const _oobValue = searchParams.get('_oob')
+
     if (oobValue !== null) {
-      return '/?oob=' + oobValue;
+      return '/?oob=' + oobValue
     }
-  
+
     if (_oobValue !== null) {
-      return '/?_oob=' + _oobValue;
+      return '/?_oob=' + _oobValue
     }
-  
-    return '';
-  })();
+
+    return ''
+  })()
 
   return (
     <div className="mt-5 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
       <Header translations={translations ?? {}} urlData={urlData}></Header>
 
-      <NavBarTopPage
-        translations={translations ?? {}}
-        urlData={urlData}
-      ></NavBarTopPage>
+      <NavBarTopPage translations={translations ?? {}} urlData={urlData}></NavBarTopPage>
 
       <div ref={termsRef} className="container mx-auto px-6 2xl:px-28 xl:px-28 lg:px-28">
         <p className="text-left text-2xl lg:text-4xl xl:text-4xl 2xl:text-4xl text-hologram-color font-semibold">
