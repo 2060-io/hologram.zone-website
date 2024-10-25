@@ -53,9 +53,20 @@ export default function HomePage() {
     console.error('Error opening the didcomm URL:', error)
   }
 
-  const urlData = (() => {
-    const param = searchParams?.get('oob') || searchParams?.get('_oob')
-    return param ? `/?${param}` : ''
+  const urlData: string = (() => {
+    if (null === searchParams) {
+      return ''
+    }
+
+    if (null !== searchParams.get('oob')) {
+      return '/?oob=' + searchParams.get('oob')
+    }
+
+    if (null !== searchParams.get('_oob')) {
+      return '/?_oob=' + searchParams.get('_oob')
+    }
+
+    return ''
   })()
 
   return (

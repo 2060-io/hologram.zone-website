@@ -9,6 +9,7 @@ interface NavBarFooter {
 }
 
 const NavbarFooter: React.FC<NavBarFooter> = ({ translations, currentPage, urlData }) => {
+  //console.log(urlData)
   return (
     <div
       className="

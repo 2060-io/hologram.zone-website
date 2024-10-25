@@ -29,20 +29,26 @@ const Terms = () => {
   })
 
   const urlData: string = (() => {
-    if (null === searchParams) {
-      return ''
+    const url = new URL(window.location.href);
+    const searchParams = new URLSearchParams(url.hash.substring(url.hash.indexOf('?')));
+  
+    if (searchParams === null) {
+      return '';
     }
-
-    if (null !== searchParams.get('oob')) {
-      return '/?oob=' + searchParams.get('oob')
+  
+    const oobValue = searchParams.get('oob');
+    const _oobValue = searchParams.get('_oob');
+  
+    if (oobValue !== null) {
+      return '/?oob=' + oobValue;
     }
-
-    if (null !== searchParams.get('_oob')) {
-      return '/?_oob=' + searchParams.get('_oob')
+  
+    if (_oobValue !== null) {
+      return '/?_oob=' + _oobValue;
     }
-
-    return ''
-  })()
+  
+    return '';
+  })();
 
   return (
     <div className="mt-5 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
@@ -50,8 +56,7 @@ const Terms = () => {
 
       <NavBarTopPage
         translations={translations ?? {}}
-        // titleSection={translations?.terms ?? ''}
-        urlParams={searchParams}
+        urlData={urlData}
       ></NavBarTopPage>
 
       <div ref={termsRef} className="container mx-auto px-6 2xl:px-28 xl:px-28 lg:px-28">

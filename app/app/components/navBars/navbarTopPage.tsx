@@ -5,22 +5,10 @@ import { Translations } from '../utils'
 
 interface NavBarTopPage {
   translations: Translations
-  urlParams: URLSearchParams | null
+  urlData: string
 }
 
-const NavBarTopPage: React.FC<NavBarTopPage> = ({ translations, urlParams }) => {
-  const urlData = (urlParams: URLSearchParams | null): string => {
-    if (!urlParams) {
-      return ''
-    }
-
-    return urlParams.get('oob')
-      ? `/?oob=${urlParams.get('oob')}`
-      : urlParams.get('_oob')
-        ? `/?_oob=${urlParams.get('_oob')}`
-        : ''
-  }
-
+const NavBarTopPage: React.FC<NavBarTopPage> = ({ translations, urlData }) => {
   return (
     <div
       className="
@@ -43,7 +31,7 @@ const NavBarTopPage: React.FC<NavBarTopPage> = ({ translations, urlParams }) => 
           <div className="lg:flex-1 w-3/4"></div>
           <div className="lg:flex-1  w-1/4 text-right lg:text-lg xl:text-lg 2xl:text-lg font-medium">
             <Link
-              href={`/` + urlData(urlParams)}
+              href={`/` + urlData}
               className="px-3 py-2 underline text-gray-500 dark:text-gray-400 hover:text-hologram-color"
             >
               {translations.nav_home}
