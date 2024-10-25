@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 import loadTranslations from '../utils/loadTranslations'
@@ -26,7 +25,6 @@ export default function HomePage() {
   const [url, setUrl] = useState<string>('')
   const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null)
   const deviceType = useDeviceDetect()
-  const pathname: string = usePathname()
 
   useEffect(() => {
     const userLocale = navigator.language.startsWith('es') ? 'es' : 'en'
@@ -55,20 +53,9 @@ export default function HomePage() {
     console.error('Error opening the didcomm URL:', error)
   }
 
-  const urlData: string = (() => {
-    if (null === searchParams) {
-      return ''
-    }
-
-    if (null !== searchParams.get('oob')) {
-      return '/?oob=' + searchParams.get('oob')
-    }
-
-    if (null !== searchParams.get('_oob')) {
-      return '/?_oob=' + searchParams.get('_oob')
-    }
-
-    return ''
+  const urlData = (() => {
+    const param = searchParams?.get('oob') || searchParams?.get('_oob')
+    return param ? `/?${param}` : ''
   })()
 
   return (
@@ -152,7 +139,7 @@ export default function HomePage() {
 
         <SectionStandardsBuilt translations={translations ?? {}} />
 
-        <Footer translations={translations ?? {}} currentPage={pathname} urlData={urlData} />
+        <Footer translations={translations ?? {}} currentPage={url} urlData={urlData} />
 
         {/* 
         {deviceType === 'mobile' && (
