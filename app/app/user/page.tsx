@@ -26,6 +26,9 @@ const Terms = () => {
   })
 
   const urlData: string = (() => {
+    if (typeof window === 'undefined') {
+      return ''
+    }
     const url = new URL(window.location.href)
     const searchParams = new URLSearchParams(url.hash.substring(url.hash.indexOf('?')))
 
