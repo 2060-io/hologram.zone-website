@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 import loadTranslations from '../utils/loadTranslations'
@@ -26,7 +25,6 @@ export default function HomePage() {
   const [url, setUrl] = useState<string>('')
   const [searchParams, setSearchParams] = useState<URLSearchParams | null>(null)
   const deviceType = useDeviceDetect()
-  const pathname: string = usePathname()
 
   useEffect(() => {
     const userLocale = navigator.language.startsWith('es') ? 'es' : 'en'
@@ -152,7 +150,7 @@ export default function HomePage() {
 
         <SectionStandardsBuilt translations={translations ?? {}} />
 
-        <Footer translations={translations ?? {}} currentPage={pathname} urlData={urlData} />
+        <Footer translations={translations ?? {}} currentPage={url} urlData={urlData} />
 
         {/* 
         {deviceType === 'mobile' && (
