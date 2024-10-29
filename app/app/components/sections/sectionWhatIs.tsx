@@ -15,18 +15,18 @@ const SectionWhatIs: React.FC<SectionWhatIs> = ({ translations }) => {
           <Image
             src={'images/what-is-hologram.png'}
             alt={'what is hologram'}
-            width={395}
-            height={550}
-            className="w-[395px] h-[550px]"
+            width={340}
+            height={560}
+            className="w-[340px] h-[560px]"
             priority={true}
             id="image-what-is-hologram-light"
           />
           <Image
             src={'images/what-is-hologram-dark.png'}
             alt={'what is hologram'}
-            width={395}
-            height={550}
-            className="w-[395px] h-[550px]"
+            width={340}
+            height={560}
+            className="w-[340px] h-[560px]"
             priority={true}
             id="image-what-is-hologram-dark"
           />
