@@ -6,6 +6,7 @@ import loadTranslations from '../../utils/loadTranslations'
 import { Footer } from '../components/footer'
 import { NavBarTopPage } from '../components/navBars'
 import { Header, Translations } from '../components/utils'
+import LoadingScreen from '../components/utils/loadingScreen'
 
 import Privacy from './privacy'
 import Terms from './terms'
@@ -45,11 +46,15 @@ const TermsAndPrivacy = () => {
     scrollTarget?.current?.scrollIntoView({ behavior: 'smooth' })
   }, [url])
 
+  if (!translations) {
+    return <LoadingScreen />
+  }
+
   return (
     <div className="mt-5 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
-      <Header translations={translations ?? {}} urlData={urlData}></Header>
+      <Header translations={translations} urlData={urlData}></Header>
 
-      <NavBarTopPage translations={translations ?? {}} urlData={urlData}></NavBarTopPage>
+      <NavBarTopPage translations={translations} urlData={urlData}></NavBarTopPage>
 
       <div ref={termsRef} className="container mx-auto px-6 2xl:px-28 xl:px-28 lg:px-28 mb-10">
         <Terms translations={translations} />
@@ -58,7 +63,7 @@ const TermsAndPrivacy = () => {
       <div ref={privacyRef} id="privacy" className="container mx-auto px-6 2xl:px-28 xl:px-28 lg:px-28 mb-16">
         <Privacy translations={translations} />
       </div>
-      <Footer translations={translations ?? {}} currentPage={url} urlData={urlData}></Footer>
+      <Footer translations={translations} currentPage={url} urlData={urlData}></Footer>
     </div>
   )
 }

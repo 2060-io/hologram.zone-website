@@ -10,6 +10,7 @@ import BannerServiceHologram from './components/banners/bannerServiceHologram'
 import { Footer } from './components/footer'
 import { SectionProofOfTrust, SectionStandardsBuilt, SectionWhatIs } from './components/sections'
 import { Header, QRCodeWithLogo, Translations, useDeviceDetect } from './components/utils'
+import LoadingScreen from './components/utils/loadingScreen'
 
 interface OobData {
   imageUrl: string
@@ -30,11 +31,13 @@ export default function HomePage() {
     const userLocale = navigator.language.startsWith('es') ? 'es' : 'en'
     const loadedTranslations = loadTranslations(userLocale)
     setTranslations(loadedTranslations)
+
     const params = new URLSearchParams(window.location.search)
     setSearchParams(params)
     const oobParam = params.get('oob') || params.get('_oob')
 
     setUrl(window.location.href)
+
     if (oobParam) {
       try {
         const decoded = atob(oobParam)
@@ -47,33 +50,37 @@ export default function HomePage() {
     }
   }, [])
 
-  try {
-    if (deviceType === 'mobile') window.location.href = `${didUrl}?${searchParams}`
-  } catch (error) {
-    console.error('Error opening the didcomm URL:', error)
-  }
+  useEffect(() => {
+    if (deviceType === 'mobile' && searchParams) {
+      window.location.href = `${didUrl}?${searchParams}`
+    }
+  }, [deviceType, searchParams])
 
   const urlData: string = (() => {
-    if (null === searchParams) {
+    if (!searchParams) {
       return ''
     }
 
-    if (null !== searchParams.get('oob')) {
+    if (searchParams.get('oob')) {
       return '/?oob=' + searchParams.get('oob')
     }
 
-    if (null !== searchParams.get('_oob')) {
+    if (searchParams.get('_oob')) {
       return '/?_oob=' + searchParams.get('_oob')
     }
 
     return ''
   })()
 
+  if (!translations) {
+    return <LoadingScreen />
+  }
+
   return (
     <React.Fragment>
-      {deviceType === 'mobile' && !oobData ? <BannerHologramMessaging /> : ''}
+      {deviceType === 'mobile' && !oobData && <BannerHologramMessaging />}
       <div className="mt-5 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
-        <Header translations={translations ?? {}} urlData={urlData} />
+        <Header translations={translations} urlData={urlData} />
 
         {oobData && oobData?.type !== didcomm_v2 && (
           // <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center bg-white shadow-lg rounded border border-gray-300 p-6 max-w-lg">
@@ -87,11 +94,11 @@ export default function HomePage() {
           //   />
           //   <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">{oobData.label}</h2>
           //   <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg mb-4">
-          //     {translations?.download.replace('SERVICE', oobData.label ?? 'service')}
+          //     {translations.download.replace('SERVICE', oobData.label ?? 'service')}
           //   </p>
           // </section>
           <BannerServiceHologram
-            translations={translations ?? {}}
+            translations={translations}
             imageUrl={oobData.imageUrl}
             label={oobData.label}
           />
@@ -110,13 +117,13 @@ export default function HomePage() {
                 height={26}
                 className="mr-2 w-[30px] h-[30px] transition duration-300 ease-in-out hover:scale-110"
               />
-              {translations?.valid_credential.split(' ').slice(0, -1).join(' ') + '\u00A0'}
+              {translations.valid_credential.split(' ').slice(0, -1).join(' ') + '\u00A0'}
               <span className="text-[18px] font-bold leading-[16px] text-[#3EBDB6]">
-                {translations?.valid_credential.split(' ').pop()}
+                {translations.valid_credential.split(' ').pop()}
               </span>
             </p>
             &nbsp;
-            <p className="font-bold text-xl">{translations?.continue_qr}</p>
+            <p className="font-bold text-xl">{translations.continue_qr}</p>
           </section>
         )}
 
@@ -126,7 +133,7 @@ export default function HomePage() {
               href={`${didUrl}?${searchParams}`}
               className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300"
             >
-              {translations?.get_service.replace('SERVICE', oobData.label ?? 'service')}
+              {translations.get_service.replace('SERVICE', oobData.label ?? 'service')}
             </a>
           </section>
         )}
@@ -137,7 +144,7 @@ export default function HomePage() {
               href={`${didUrl}?${searchParams}`}
               className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300"
             >
-              {translations?.continue_service}
+              {translations.continue_service}
             </a>
           </section>
         )}
@@ -156,7 +163,7 @@ export default function HomePage() {
         {deviceType === 'mobile' && (
           <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center">
             <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
-              {  translations?.download_msg }
+              {  translations.download_msg }
             </h2>
             <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
               
@@ -186,28 +193,28 @@ export default function HomePage() {
 
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
           <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
-            {  translations?.new_app }
+            {  translations.new_app }
           </h2>
           <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
-            {  translations?.what_is }
+            {  translations.what_is }
           </p>
         </section>
 
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
           <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
-            {  translations?.terms }
+            {  translations.terms }
           </h2>
           <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
-            {  translations?.lorem_ipsum }
+            {  translations.lorem_ipsum }
           </p>
         </section>
 
         <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
           <h2 className="text-2xl font-bold mb-4 md:text-3xl lg:text-4xl">
-            {  translations?.privacy }
+            {  translations.privacy }
           </h2>
           <p className="text-base md:text-lg lg:text-xl leading-relaxed text-justify max-w-lg">
-            {  translations?.lorem_ipsum }
+            {  translations.lorem_ipsum }
           </p>
         </section>
 */}
