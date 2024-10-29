@@ -73,9 +73,7 @@ export default function HomePage() {
   })()
 
   if (!translations) {
-    return (
-      <LoadingScreen />
-    )
+    return <LoadingScreen />
   }
 
   return (

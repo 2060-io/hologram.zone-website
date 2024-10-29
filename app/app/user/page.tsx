@@ -6,10 +6,10 @@ import loadTranslations from '../../utils/loadTranslations'
 import { Footer } from '../components/footer'
 import { NavBarTopPage } from '../components/navBars'
 import { Header, Translations } from '../components/utils'
+import LoadingScreen from '../components/utils/loadingScreen'
 
 import Privacy from './privacy'
 import Terms from './terms'
-import LoadingScreen from '../components/utils/loadingScreen'
 
 const TermsAndPrivacy = () => {
   const [translations, setTranslations] = useState<Translations>()
@@ -47,9 +47,7 @@ const TermsAndPrivacy = () => {
   }, [url])
 
   if (!translations) {
-    return (
-      <LoadingScreen />
-    )
+    return <LoadingScreen />
   }
 
   return (
