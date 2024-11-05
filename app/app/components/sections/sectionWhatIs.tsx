@@ -9,24 +9,22 @@ interface SectionWhatIs {
 
 const SectionWhatIs: React.FC<SectionWhatIs> = ({ translations }) => {
   return (
-    <section className="container mx-auto 2xl:px-28 xl:px-28 lg:px-28 px-6 mt-8">
+    <section className="container mx-auto px-6 mt-16">
       <div className="flex flex-col 2xl:flex-row xl:flex-row lg:flex-row">
-        <div className="flex-1 flex items-center justify-center lg:justify-start xl:justify-start 2xl:justify-start order-2 2xl:order-1 xl:order-1 lg:order-1">
+        <div className="flex-1 flex items-center justify-center">
           <Image
             src={'images/what-is-hologram.png'}
             alt={'what is hologram'}
-            width={340}
-            height={560}
-            className="w-[340px] h-[560px]"
+            width={420}
+            height={543.84}
             priority={true}
             id="image-what-is-hologram-light"
           />
           <Image
             src={'images/what-is-hologram-dark.png'}
             alt={'what is hologram'}
-            width={340}
-            height={560}
-            className="w-[340px] h-[560px]"
+            width={420}
+            height={543.84}
             priority={true}
             id="image-what-is-hologram-dark"
           />
