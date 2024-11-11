@@ -30,10 +30,10 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
                 <Image
                   src={'images/logo-didcomm.svg'}
                   alt="didcomm"
-                  width={170}
-                  height={45}
+                  width={204}
+                  height={60}
                   priority={false}
-                  className="mx-auto p-4 transform transition duration-300 ease-in-out hover:scale-110"
+                  className="mx-auto p-0 -mb-6 transform transition duration-300 ease-in-out hover:scale-110"
                 />
               </Link>
             </div>
@@ -42,8 +42,8 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
                 <Image
                   src={'images/logo-w3c.svg'}
                   alt="w3c"
-                  width={88}
-                  height={42}
+                  width={105}
+                  height={50}
                   priority={false}
                   className="mx-auto pt-3 transition duration-300 ease-in-out hover:scale-110"
                 />
@@ -57,8 +57,8 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
                 <Image
                   src={'images/logo-open-wallet.svg'}
                   alt="open wallet"
-                  width={180}
-                  height={46}
+                  width={196}
+                  height={50}
                   priority={false}
                   className="mx-auto pt-4 pr-4 transition duration-300 ease-in-out hover:scale-110"
                 />
@@ -69,8 +69,8 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
                 <Image
                   src={'images/logo-credo.svg'}
                   alt="credo"
-                  width={60}
-                  height={42}
+                  width={71}
+                  height={50}
                   priority={false}
                   className="mx-auto pt-3 transition duration-300 ease-in-out hover:scale-110"
                 />
@@ -81,8 +81,8 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
                 <Image
                   src={'images/logo-credo.svg'}
                   alt="credo"
-                  width={60}
-                  height={42}
+                  width={71}
+                  height={50}
                   priority={false}
                   className="mx-auto pt-3 transition duration-300 ease-in-out hover:scale-110"
                 />
@@ -93,8 +93,8 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
                 <Image
                   src={'images/logo-dif.png'}
                   alt="dif"
-                  width={124}
-                  height={42}
+                  width={148}
+                  height={50}
                   priority={false}
                   className="mx-auto pt-3 pl-4 transition duration-300 ease-in-out hover:scale-110"
                 />
@@ -107,8 +107,8 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
                 <Image
                   src={'images/logo-trust-over-ip.svg'}
                   alt="trust over ip"
-                  width={110}
-                  height={46}
+                  width={120}
+                  height={50}
                   priority={false}
                   className="mx-auto pt-3 px-2 transition duration-300 ease-in-out hover:scale-110"
                 />
@@ -119,8 +119,8 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
                 <Image
                   src={'images/logo-open-wallet.svg'}
                   alt="open wallet"
-                  width={180}
-                  height={46}
+                  width={196}
+                  height={50}
                   priority={false}
                   className="mx-auto pt-4 pr-4 transition duration-300 ease-in-out hover:scale-110"
                 />
@@ -131,8 +131,8 @@ const SectionStandardsBuilt: React.FC<SectionStandardsBuilt> = ({ translations }
                 <Image
                   src={'images/logo-dif.png'}
                   alt="dif"
-                  width={124}
-                  height={42}
+                  width={148}
+                  height={50}
                   priority={false}
                   className="mx-auto pt-3 pl-4 transition duration-300 ease-in-out hover:scale-110"
                 />
