@@ -35,18 +35,22 @@ export default function HomePage() {
     const params = new URLSearchParams(window.location.search)
     setSearchParams(params)
     const oobParam = params.get('oob') || params.get('_oob')
+    const encodedUrl = params.get('_url')
 
     setUrl(window.location.href)
 
     if (oobParam) {
       try {
-        const decoded = atob(oobParam)
-        const parsedData = JSON.parse(decoded)
-        setOobData(parsedData)
+        setOobData(JSON.parse(atob(oobParam)))
       } catch (error) {
         console.error('Error decoding oob parameter:', error)
         setOobData(null)
       }
+    } else if (encodedUrl) {
+      fetch(atob(encodedUrl))
+        .then(response => response.json())
+        .then(setOobData)
+        .catch(error => console.error('Fetch error:', error))
     }
   }, [])
 
