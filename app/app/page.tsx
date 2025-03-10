@@ -47,7 +47,12 @@ export default function HomePage() {
         setOobData(null)
       }
     } else if (encodedUrl) {
-      fetch(atob(encodedUrl))
+      fetch(atob(encodedUrl), {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+        },
+      })
         .then(response => response.json())
         .then(setOobData)
         .catch(error => console.error('Fetch error:', error))
