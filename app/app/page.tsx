@@ -9,7 +9,7 @@ import { BannerDownloadHolomgram, BannerHologramMessaging } from './components/b
 import BannerServiceHologram from './components/banners/bannerServiceHologram'
 import { Footer } from './components/footer'
 import { SectionProofOfTrust, SectionStandardsBuilt, SectionWhatIs } from './components/sections'
-import { Header, QRCodeWithLogo, Translations, useDeviceDetect } from './components/utils'
+import { APP_URLS, Header, QRCodeWithLogo, Translations, useDeviceDetect } from './components/utils'
 import LoadingScreen from './components/utils/loadingScreen'
 
 interface OobData {
@@ -60,10 +60,9 @@ export default function HomePage() {
 
       setTimeout(() => {
         if (navigator.userAgent.match(/Android/i)) {
-          window.location.href =
-            'https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m&pcampaignid=web_share'
+          window.location.href = APP_URLS.android
         } else if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-          window.location.href = 'https://apps.apple.com/co/app/hologram-messaging/id6474701855'
+          window.location.href = APP_URLS.ios
         }
       }, 2000)
     }

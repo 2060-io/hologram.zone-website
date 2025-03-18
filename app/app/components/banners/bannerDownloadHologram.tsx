@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-import { Translations } from '../utils'
+import { APP_URLS, Translations } from '../utils'
 
 interface BannerHologramMessaging {
   translations: Translations
@@ -41,10 +41,7 @@ const BannerDownloadHolomgram: React.FC<BannerHologramMessaging> = ({ translatio
           {translations.download_msg}
         </div>
         <div className="flex 2xl:flex-1 xl:flex-1 lg:flex-1 justify-center mb-5 2xl:pr-40 xl:pr-40 lg:pr-40">
-          <Link
-            href="https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m&pcampaignid=web_share"
-            target="_blank"
-          >
+          <Link href={APP_URLS.android} target="_blank">
             <Image
               src="images/play-store-button.svg"
               alt="hologram"
@@ -54,7 +51,7 @@ const BannerDownloadHolomgram: React.FC<BannerHologramMessaging> = ({ translatio
               priority={false}
             />
           </Link>
-          <Link href="https://apps.apple.com/co/app/hologram-messaging/id6474701855" target="_blank">
+          <Link href={APP_URLS.ios} target="_blank">
             <Image
               src="images/app-store-button.svg"
               alt="hologram"

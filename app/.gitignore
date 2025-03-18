@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Yarn
+.yarn/cache
+.yarn/install-state.gz
+examples/**/.yarn/cache
+examples/**/.yarn/install-state.gz
