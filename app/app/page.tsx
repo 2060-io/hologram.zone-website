@@ -57,6 +57,15 @@ export default function HomePage() {
   useEffect(() => {
     if (deviceType === 'mobile' && searchParams) {
       window.location.href = `${didUrl}?${searchParams}`
+
+      setTimeout(() => {
+        if (navigator.userAgent.match(/Android/i)) {
+          window.location.href =
+            'https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m&pcampaignid=web_share'
+        } else if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+          window.location.href = 'https://apps.apple.com/co/app/hologram-messaging/id6474701855'
+        }
+      }, 2000)
     }
   }, [deviceType, searchParams])
 
