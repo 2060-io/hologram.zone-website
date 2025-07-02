@@ -24,7 +24,7 @@ const QRCodeWithLogo: React.FC<QRCodeWithLogoProps> = ({
         size={size}
         bgColor={'#ffffff'}
         fgColor={'#000000'}
-        level={'H'}
+        level={'L'}
         includeMargin={false}
       />
       <div
