@@ -57,7 +57,11 @@ export default function HomePage() {
 
   useEffect(() => {
     if (deviceType === 'mobile' && searchParams) {
-      window.location.href = `${didUrl}?${searchParams}`
+      const oobParam = searchParams.get('oob') || searchParams.get('_oob')
+      if (oobParam) {
+        // Only redirect if oob param is present
+        window.location.href = `${didUrl}?${searchParams}`
+      }
     }
   }, [deviceType, searchParams])
 
@@ -83,7 +87,7 @@ export default function HomePage() {
 
   return (
     <React.Fragment>
-      {deviceType === 'mobile' && !oobData && <BannerHologramMessaging />}
+      {deviceType === 'mobile' && !oobData && <BannerHologramMessaging urlParams={urlData} />}
       <div className="mt-5 bg-white dark:bg-gray-900 text-black dark:text-gray-300">
         <Header translations={translations} urlData={urlData} />
 
