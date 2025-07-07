@@ -83,7 +83,7 @@ const BannerHologramMessaging = ({ urlParams = '' }) => {
   }
 
   return (
-    <div className="p-2 flex justify-around dark:bg-indigo-300 bg-indigo-100 align-middle">
+    <div className="p-2 flex justify-around items-center  dark:bg-indigo-300 bg-indigo-100 align-middle">
       <Image
         src="images/ico-hologram.png"
         alt="hologram"
