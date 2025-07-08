@@ -2,9 +2,9 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
 
 import { Translations } from '../utils'
-import React, { useEffect, useState } from 'react'
 
 const BannerRefreshHologram: React.FC<{ translations: Translations; imageUrl: string; label: string }> = ({
   translations,

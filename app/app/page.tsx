@@ -5,13 +5,16 @@ import React, { useEffect, useState } from 'react'
 
 import loadTranslations from '../utils/loadTranslations'
 
-import { BannerDownloadHolomgram, BannerHologramMessaging } from './components/banners'
+import {
+  BannerDownloadHolomgram,
+  BannerHologramMessaging,
+  BannerRefreshgHologram,
+} from './components/banners'
 import BannerServiceHologram from './components/banners/bannerServiceHologram'
 import { Footer } from './components/footer'
 import { SectionProofOfTrust, SectionStandardsBuilt, SectionWhatIs } from './components/sections'
 import { Header, QRCodeWithLogo, Translations, useDeviceDetect } from './components/utils'
 import LoadingScreen from './components/utils/loadingScreen'
-import BannerRefreshHologram from './components/banners/bannerRefreshHologram'
 
 interface OobData {
   imageUrl: string
@@ -120,7 +123,7 @@ export default function HomePage() {
         )}
 
         {oobData && oobData.type !== didcomm_v2 && deviceType === 'mobile' && (
-          <BannerRefreshHologram
+          <BannerRefreshgHologram
             imageUrl={oobData?.imageUrl}
             label={oobData?.label}
             translations={translations}
