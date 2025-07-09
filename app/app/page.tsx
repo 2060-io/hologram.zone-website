@@ -5,7 +5,11 @@ import React, { useEffect, useState } from 'react'
 
 import loadTranslations from '../utils/loadTranslations'
 
-import { BannerDownloadHolomgram, BannerHologramMessaging } from './components/banners'
+import {
+  BannerDownloadHolomgram,
+  BannerHologramMessaging,
+  BannerRefreshgHologram,
+} from './components/banners'
 import BannerServiceHologram from './components/banners/bannerServiceHologram'
 import { Footer } from './components/footer'
 import { SectionProofOfTrust, SectionStandardsBuilt, SectionWhatIs } from './components/sections'
@@ -123,14 +127,11 @@ export default function HomePage() {
         )}
 
         {oobData && oobData.type !== didcomm_v2 && deviceType === 'mobile' && (
-          <section className="container mx-auto my-8 md:my-12 lg:my-16 flex flex-col items-center justify-center text-center">
-            <a
-              href={`${didUrl}?${searchParams}`}
-              className="text-blue-500 hover:underline font-bold py-3 px-6 transition-colors duration-300"
-            >
-              {translations.get_service.replace('SERVICE', oobData.label ?? 'service')}
-            </a>
-          </section>
+          <BannerRefreshgHologram
+            imageUrl={oobData?.imageUrl}
+            label={oobData?.label}
+            translations={translations}
+          />
         )}
 
         {oobData && oobData.type === didcomm_v2 && deviceType === 'mobile' && (
