@@ -5,22 +5,39 @@ meta_title: "Verana | Open Trust Layer for Verifiable Digital Services"
 meta_description: "Discover Verana, the open trust layer that turns digital services into verifiable assets with decentralized identity, trust registries, and developer-first tools."
 bodyClass: "bg-white text-gray-900 overflow-x-hidden font-sans"
 hero:
-  title_lines:
-    - text: "The Open"
-      variant: "light"
-    - text: "Trust Layer"
-      variant: "brand"
-    - text: "for the Internet"
-      variant: "light"
-  description: "Turn digital services into verifiable assets that anyone can find and trust."
+  badge:
+    icon: "fas fa-sparkles"
+    text: "Build Verifiable AI in 5 Minutes"
+  title:
+    gradient: "Hologram"
+    lines:
+      - "Verifiable AI"
+      - "Ecosystem"
+  description: "Create your own decentralized Verifiable AI Agent. Every chatbot you deploy is verifiable, discoverable, and trusted, powered by the Verana Verifiable Trust Network."
   primary_cta:
-    label: "Start Building"
+    label: "Instant Deployment"
     href: "/page/build"
-    icon: "rocket"
-    icon_style: "solid"
+    icon: "fas fa-rocket"
   secondary_cta:
-    label: "Explore Documentation"
-    href: "https://docs.verana.io"
+    label: "Explore Live Services"
+    href: "/page/developers/components"
+    icon: "fas fa-search"
+  features:
+    - icon: "fas fa-id-card"
+      text: "Self-sovereign identity"
+    - icon: "fas fa-brain"
+      text: "Verifiable AI"
+    - icon: "fas fa-globe"
+      text: "Discoverable services"
+  screenshot:
+    src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/1b130e4af4-87ed2e7133d02280f390.png"
+    alt: "futuristic hologram interface with AI chatbot conversation, purple and blue gradient, modern UI design, verifiable credentials floating"
+  overlay_card:
+    icon: "fas fa-robot"
+    title: "AI Support Agent"
+    subtitle: "Verified by Verana Network"
+    status_icon: "fas fa-shield-check"
+    message: "How can I help you today?"
 app_download:
   id: "app-download"
   title: "Get the Hologram App"
