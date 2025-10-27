@@ -29,13 +29,13 @@ params:
     logo: "/logo.svg"
     tagline: "The Open Trust Layer for the Internet"
     testnet:
-      label: "Testnet"
+      label: "Get Started"
       url: "/page/developers/testnet"
 #      icon: "fa-solid fa-umbrella-beach"
       icon: "fa-solid fa-flask-vial"
   footer:
-    company: "Verana Foundation"
-    description: "The open trust layer for the internet, enabling verifiable digital services and true digital sovereignty."
+    company: "2060 OÜ"
+    description: "Hologram, the browser for a new internet of verifiable AI and services: where trust, identity, and privacy are native."
     socials:
       - platform: "github"
         url: "https://github.com/2060-io"
