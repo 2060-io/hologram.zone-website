@@ -1,2 +1,5 @@
 .DS_Store
-public
+themes/.DS_Store
+.hugo_build.lock
+/public/
+/public-tmp/
