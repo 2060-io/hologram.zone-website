@@ -1,9 +1,9 @@
 baseURL: "/"
 languageCode: "en-us"
-title: "Verana"
+title: "Hologram"
 
 module:
-  path: github.com/verana-labs/verana.io-website
+  path: github.com/2060-io/hologram.zone-website
   imports:
   - path: github.com/hugomods/kroki
 
@@ -15,7 +15,7 @@ markup:
       unsafe: true
 
 params:
-  themeMode: SYSTEM
+  themeMode: LIGHT
   themeModeOptions:
     - LIGHT
     - DARK
@@ -38,13 +38,11 @@ params:
     description: "The open trust layer for the internet, enabling verifiable digital services and true digital sovereignty."
     socials:
       - platform: "github"
-        url: "https://github.com/verana-labs"
+        url: "https://github.com/2060-io"
       - platform: "discord"
-        url: "https://discord.gg/edjaFn252q"
+        url: "https://discord.com/invite/pFk6XdC28E"
       - platform: "linkedin"
-        url: "https://www.linkedin.com/company/verana-foundation"
-      - platform: "x"
-        url: "https://x.com/Verana_io"
+        url: "https://www.linkedin.com/company/2060-io"
     legal:
       - label: "Privacy Policy"
         url: "/page/privacy-policy"
@@ -53,10 +51,10 @@ params:
       - label: "Cookie Policy"
         url: "/page/cookie-policy"
     columns:
-      - title: "Verana"
+      - title: "Hologram"
         items:
-          - label: "Foundation"
-            url: "https://verana.foundation"
+          - label: "2060 OÜ"
+            url: "https://2060.io"
           - label: "Press"
             url: "/page/press"
           - label: "Visual Identity"
@@ -64,9 +62,9 @@ params:
       - title: "Developers"
         items:
           - label: "Docs"
-            url: "https://docs.verana.io"
+            url: "https://docs.hologram.zone"
           - label: "Github"
-            url: "https://github.com/verana-labs/"
+            url: "https://github.com/2060-io/"
       - title: "Specifications"
         items:
           - label: "Verifiable Trust Spec"

@@ -8367,6 +8367,11 @@ video {
   background-color: rgb(21 128 61 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:bg-hologram-primary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(118 120 236 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:bg-hologram-primary\/10:hover {
   background-color: rgb(118 120 236 / 0.1);
 }
