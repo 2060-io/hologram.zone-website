@@ -21,325 +21,315 @@ hero:
   secondary_cta:
     label: "Explore Documentation"
     href: "https://docs.verana.io"
-discover:
-  heading: "Discover Verana"
-  subheading: "Reclaiming Your Digital World"
-  features:
-    - title: "Trusted Interactions"
-      description: "Every digital interaction is verifiable, authentic, and privacy-preserving, so you can engage with confidence, without intermediaries."
-      icon: "shield"
-      icon_style: "solid"
-      icon_color: "text-verana"
-      icon_bg: "bg-verana/20"
-    - title: "Digital Sovereignty"
-      description: "Verana enables true digital ownership through autonomous trust networks and self-sovereign verifiable services."
-      icon: "check"
-      icon_style: "solid"
-      icon_color: "text-verana"
-      icon_bg: "bg-verana/20"
-    - title: "Fair Discovery"
-      description: "Be discovered based on what you actually provide, not what you pay for in advertising."
-      icon: "search"
-      icon_style: "solid"
-      icon_color: "text-verana"
-      icon_bg: "bg-verana/20"
-  media:
-    image: "/images/uxpilot/discovery-marketplace.png"
-    alt: "Interactive notebook slides"
-    badge_icon: "play"
-    badge_icon_style: "solid"
-    badge_text: "Watch Demo Video"
-    title: "Interactive Notebook Slides"
-    description: "Explore how Verana transforms digital interactions through verifiable trust networks."
-core_pillars:
-  id: core-pillars-section
-  title: "The Three Pillars of **Digital Freedom**"
-  subtitle: "Transform how you interact with the digital world through verifiable trust, true ownership, and merit-based discovery."
-  pillars:
-    - id: trust-pillar
-      label: Trust
-      icon:
-        name: fa-solid fa-shield-halved
-        color: text-verana text-xl
-        bg: bg-verana/20
-      title: "Don't Trust. Verify."
-      description: "Build confidence in digital interactions through cryptographic verification and transparent trust networks that anyone can validate."
-      highlights:
-        - "Cryptographic proof of identity"
-        - "Transparent verification"
-        - "Decentralized trust networks"
-      image:
-        src: "/images/purple/trust-photo.webp"
-        alt: "Futuristic digital handshake symbolizing cryptographic trust"
-      cta:
-        label: Learn About Trust
-        href: "/page/build/trust-networks/"
-    - id: ownership-pillar
-      label: Ownership
-      icon:
-        name: fa-solid fa-key
-        color: text-verana text-xl
-        bg: bg-verana/20
-      title: "Own Your Services."
-      description: "Take control of your digital assets with verifiable ownership that can't be revoked or manipulated by platform gatekeepers."
-      highlights:
-        - "True data sovereignty and portability"
-        - "Self-custody of digital credentials and assets"
-        - "Platform-independent digital identity"
-      image:
-        src: "/images/purple/ownership-photo.webp"
-        alt: "Digital key unlocking a glowing portal"
-      cta:
-        label: Claim Ownership
-        href: "/page/build/verifiable-services/"
-    - id: discovery-pillar
-      label: Discovery
-      icon:
-        name: fa-solid fa-compass
-        color: text-verana text-xl
-        bg: bg-verana/20
-      title: "Be found for what you prove, not for what you pay."
-      description: "Merit-based discovery that rewards authentic value and verifiable credentials over advertising spend and algorithmic manipulation."
-      highlights:
-        - "Credential-based ranking and discovery"
-        - "Fair competition regardless of budget"
-        - "Transparent, verifiable reputation systems"
-      image:
-        src: "/images/purple/discovery-photo.jpg"
-        alt: "Digital marketplace with verifiable credentials"
-      cta:
-        label: Be Discoverable
-        href: "/page/trust-engine/trust-resolver"
-examples:
-  id: systemic-problems
-  title: "...in Response to the **Three Systemic Problems**"
-  subtitle: "The internet struggles with trust, ownership, and discovery because it was never designed with verifiable identity, self-sovereignty, or fair visibility."
-  merge_impact_cards: true
+app_download:
+  id: "app-download"
+  title: "Get the Hologram App"
+  icon: "fas fa-mobile-alt"
+  description: "Experience verifiable AI services on the go. Download the Hologram mobile app and access trusted AI agents from anywhere in the world."
+  quick_title: "Quick Download"
+  quick_subtitle: "Scan with your phone's camera"
+  platforms_title: "Available on all platforms"
+  screenshot:
+    src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/d2f0aafd9d-d90a3ffb0f663ede9f30.png"
+    alt: "mobile app interface mockup showing Hologram verifiable AI services, smartphone screen with purple gradient UI, holographic elements, modern app design"
+  qr:
+    src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/52dd1527a0-baa2f5231afdd9b9d3b5.png"
+    alt: "QR code for Hologram app download, black and white, clean design"
+  platforms:
+    - label: "App Store"
+      subtitle: "Download on"
+      href: "https://apps.apple.com/us/app/hologram-messaging/id6474701855"
+      icon: "fab fa-apple"
+    - label: "Google Play"
+      subtitle: "Get it on"
+      href: "https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m"
+      icon: "fab fa-google-play"
+    - label: "AppGallery"
+      subtitle: "Available on"
+      href: "https://consumer.huawei.com/en/mobileservices/appgallery/"
+      icon: "fas fa-mobile-alt"
+discovery_section:
+  id: "discovery"
+  title: "Discover Trusted AI Services"
+  icon: "fas fa-search"
+  description: "Search and connect to verifiable AI agents: each identified by a DID, sharing credentials, and registered on Verana."
+  search:
+    placeholder: "Find Verifiable AI Agents or Services..."
   cards:
-    - id: trust-crisis
-      title: "Trust Crisis"
-      description: "We don't know who to trust online because the internet lacks built-in cryptographic proof of identity."
-      base_class: "bg-red-900/10 border border-red-700/30"
-      hover_class: "hover:border-red-500/50"
-      icon:
-        name: fa-solid fa-shield-halved
-        color: text-red-400 text-2xl
-        bg: bg-red-500/20
-        extra_class: "group-hover:scale-110 transition-transform duration-300"
-      highlights:
-        - "No built-in identity assurance"
-        - "Costly manual verification"
-        - "Fraud & impersonation everywhere"
-      image:
-        src: "/images/purple/no-trust1.webp"
-        alt: "Abstract visualization of digital trust"
-        max_height: "10em"
-    - id: ownership-illusion
-      title: "Ownership Illusion"
-      description: "You don't own your digital services or audience: you just rent space from centralized platforms."
-      base_class: "bg-orange-900/10 border border-orange-700/30"
-      hover_class: "hover:border-orange-500/50"
-      icon:
-        name: fa-solid fa-lock
-        color: text-orange-400 text-2xl
-        bg: bg-orange-500/20
-        extra_class: "group-hover:scale-110 transition-transform duration-300"
-      highlights:
-        - "Platform lock-in and rent extraction"
-        - "Accounts can vanish overnight"
-        - "Data custody outside your control"
-      image:
-        src: "/images/purple/no-ownership1.webp"
-        alt: "Representation of digital ownership"
-        max_height: "10em"
-    - id: discovery-monopoly
-      title: "Discovery Monopoly"
-      description: "Giant platforms control visibility through opaque algorithms and expensive advertising."
-      base_class: "bg-yellow-900/10 border border-yellow-700/30"
-      hover_class: "hover:border-yellow-500/50"
-      icon:
-        name: fa-solid fa-magnifying-glass
-        color: text-yellow-400 text-2xl
-        bg: bg-yellow-500/20
-        extra_class: "group-hover:scale-110 transition-transform duration-300"
-      highlights:
-        - "Pay-to-play visibility"
-        - "Opaque, shifting algorithms"
-        - "Merit drowned by ad spend"
-      image:
-        src: "/images/purple/digital-monopoly1.webp"
-        alt: "Futuristic discovery landscape"
-        max_height: "10em"
-impact_stats:
-  id: impact-stats
-  title: "The Scale of the Problem"
-  cards:
-    - class: "bg-red-900/10 border border-red-700/30"
-      icon:
-        name: fa-solid fa-exclamation-triangle
-        color: text-red-400 text-2xl
-        bg: bg-red-500/20
-      value: "$43B"
-      text: "Annual losses to online fraud and cybercrime globally"
-    - class: "bg-orange-900/10 border border-orange-700/30"
-      icon:
-        name: fa-solid fa-building
-        color: text-orange-400 text-2xl
-        bg: bg-orange-500/20
-      value: "5"
-      text: "Tech giants control most of the internet's infrastructure and data"
-    - class: "bg-yellow-900/10 border border-yellow-700/30"
-      icon:
-        name: fa-solid fa-dollar-sign
-        color: text-yellow-400 text-2xl
-        bg: bg-yellow-500/20
-      value: "$700B"
-      text: "Global digital advertising market dominated by few platforms"
-solution_preview:
-  id: solution-preview
-  title: "Verana Solves All Three Problems"
-  subtitle: "An open trust layer that empowers verifiable services, true ownership, and fair discovery grounded in cryptographic proof."
-  icon:
-    logo: "/logo.svg"
-    alt: "Hologram logo"
-  features:
-    - title: "Cryptographic Trust"
-      description: "Built-in verification of identity and credentials."
-      icon:
-        name: fa-solid fa-shield
-        color: text-blue-400 text-xl
-        bg: bg-blue-500/20
-    - title: "True Ownership"
-      description: "Keep control of your data, audience, and digital services."
-      icon:
-        name: fa-solid fa-key
-        color: text-purple-400 text-xl
-        bg: bg-purple-500/20
-    - title: "Fair Discovery"
-      description: "Merit-based visibility powered by verifiable credentials."
-      icon:
-        name: fa-solid fa-balance-scale
-        color: text-green-400 text-xl
-        bg: bg-green-500/20
-impact:
-  heading: "Exploring Real-World Impact"
-  description: "Understand how ecosystems across sectors, from finance to telecom, from AI to government digital ID, can use Verana to build trustworthy, interoperable, and privacy-first digital networks and services."
-  cards:
-    - title: "Government Digital ID"
-      description: "Issue verifiable digital IDs that let citizens prove who they are anywhere, without ever exposing more data than necessary."
-      image: "/images/purple/civilreg2.webp"
-      icon: { name: "id-card", style: "solid", color: "text-blue-400", bg: "bg-blue-500/20" }
-      highlights:
-        - "Control over issuers & verifiers"
-        - "Selective disclosure"
-        - "Privacy by design"
-      href: "/page/industry-use-cases/government-id"
-    - title: "Verifiable Social Channels"
-      description: "Give creators portable audiences and cryptographic proof of provenance, so curators can trust every piece of content in their feeds."
-      image: "/images/purple/social4.webp"
-      icon: { name: "share-nodes", style: "solid", color: "text-purple-400", bg: "bg-purple-500/20" }
-      highlights:
-        - "Proven channel authenticity"
-        - "Sovereign audiences"
-        - "Censorship-resilient discovery"
-      href: "/page/industry-use-cases/decentralized-social-network"
-    - title: "Verifiable AI Agents"
-      description: "AI agents carry verifiable identities and exchange credentials, ensuring clear ownership, accountable actions, and trusted agent-to-agent communication everywhere."
-      image: "/images/purple/medit1.webp"
-      icon: { name: "robot", style: "solid", color: "text-green-400", bg: "bg-green-500/20" }
-      highlights:
-        - "Verifiable agent ownership"
-        - "A2A credential exchange"
-        - "Trusted & accountable actions"
-      href: "/page/industry-use-cases/ai-agents"
-    - title: "Healthcare Workforce Mobility"
-      description: "Move clinicians across borders with verifiable licenses, training, and employment credentials."
-      image: "/images/purple/healthcare3.webp"
-      icon: { name: "user-doctor", style: "solid", color: "text-red-400", bg: "bg-red-500/20" }
-      highlights:
-        - "Cross-jurisdiction verification"
-        - "Real-time revocation checks"
-        - "Automated onboarding flows"
-      href: "/page/industry-use-cases/healthcare-workforce-mobility"
-    - title: "Hotel Discovery"
-      description: "Turn PMS software into discoverable hotel services, powering booking engines with no intermediaries."
-      image: "/images/purple/hotel1.webp"
-      icon: { name: "hotel", style: "solid", color: "text-yellow-400", bg: "bg-yellow-500/20" }
-      highlights:
-        - "Verifiable hotel profiles"
-        - "Direct booking"
-        - "Global discoverability"
-      href: "/page/industry-use-cases/hotel-management"
-    - title: "Notaries and Powers of Attorney"
-      description: "Transform paper-based power-of-attorney process into a verifiable, efficient, and fraud-resistant digital credential system."
-      image: "/images/purple/bank3.png"
-      icon: { name: "stamp", style: "solid", color: "text-blue-400", bg: "bg-blue-500/20" }
-      highlights:
-        - "Simplify processes"
-        - "Preserve privacy"
-        - "Enable business models"
-      href: "/page/industry-use-cases/hotel-management"
-#    - title: "Notaries & Legal"
-#      description: "Prove documents, power of attorney, and notarizations instantly with machine-verifiable certificates."
-#      image: "/images/uxpilot/impact-notaries.png"
-#      icon: { name: "stamp", style: "solid", color: "text-indigo-400", bg: "bg-indigo-500/20" }
-#      highlights:
-#        - "Immutable signing evidence"
-#        - "Credentialed professionals"
-#        - "Lifecycle audit trail"
-technical:
-  heading: "Built on Open Standards"
-  description: "Verana leverages cutting-edge cryptographic protocols and decentralized technologies that combines on-chain and off-chain anchors to create a truly open and interoperable verifiable trust layer."
-  pillars:
-    - title: "Verifiable Credentials"
-      description: "W3C standard implementation for issuing, holding, and verifying digital credentials with cryptographic proof."
-      icon: { name: "code", style: "solid", color: "text-verana", bg: "bg-verana/20" }
-    - title: "Decentralized Identity"
-      description: "Self-sovereign identity management using DIDs for true ownership and control."
-      icon: { name: "fingerprint", style: "solid", color: "text-verana", bg: "bg-verana/20" }
-    - title: "Trust Registries"
-      description: "Governance-backed, cryptographically verifiable source of truth for “who is trusted to issue or verify what”"
-      icon: { name: "network-wired", style: "solid", color: "text-verana", bg: "bg-verana/20" }
-  developer:
-    title: "Developer-First Approach"
-    description: "Simple APIs, comprehensive documentation, and powerful SDKs make it easy to integrate Verana's trust layer into any application."
-    bullets:
-      - "RESTful APIs with OpenAPI specifications"
-      - "SDKs for JavaScript, Python, Go, and Rust"
-      - "Comprehensive documentation and tutorials"
-community:
-  heading: "Join the Community"
-  description: "Connect with developers, researchers, and organizations building the future of digital trust."
-  channels:
-    - title: "Discord"
-      description: "Join real-time discussions with the community"
-      icon: { name: "discord", style: "brands", color: "text-purple-400", bg: "bg-purple-500/20" }
-      cta_label: "Join Discord Server"
-      href: "https://discord.gg/edjaFn252q"
-    - title: "GitHub"
-      description: "Contribute to open-source development"
-      icon: { name: "github", style: "brands", color: "text-gray-400", bg: "bg-gray-600/20" }
-      cta_label: "Verana Repos"
-      href: "https://github.com/verana-labs"
-    - title: "LinkedIn"
-      description: "Professional updates and insights"
-      icon: { name: "linkedin", style: "brands", color: "text-blue-400", bg: "bg-blue-500/20" }
-      cta_label: "Connect on LinkedIn"
-      href: "https://www.linkedin.com/company/verana-verifiable-trust-network"
-    - title: "X (Twitter)"
-      description: "Latest news and announcements"
-      icon: { name: "x-twitter", style: "brands", color: "text-white", bg: "bg-black/20", border: "border border-gray-600" }
-      cta_label: "Follow us on X"
-      href: "https://x.com/Verana_io"
+    - title: "AI Support Agent"
+      subtitle: "Mobiera"
+      description: "Verified customer support AI with instant response capabilities."
+      icon: "fas fa-robot"
+      icon_bg: "bg-hologram-primary"
+      icon_color: "text-white"
+      status_icon: "fas fa-shield-check"
+      status_color: "text-green-500"
+    - title: "Digital ID Issuer"
+      subtitle: "Estonia eGov"
+      description: "Official digital identity verification and credential issuance."
+      icon: "fas fa-id-card"
+      icon_bg: "bg-hologram-secondary"
+      icon_color: "text-white"
+      status_icon: "fas fa-shield-check"
+      status_color: "text-green-500"
+    - title: "Personal AI Companion"
+      subtitle: "OpenVoice Labs"
+      description: "Privacy-focused AI assistant for personal productivity."
+      icon: "fas fa-brain"
+      icon_bg: "bg-hologram-dark"
+      icon_color: "text-white"
+      status_icon: "fas fa-shield-check"
+      status_color: "text-green-500"
   cta:
-    title: "Get Started Today"
-    description: "Ready to build with Verana? Join the community and start experimenting with verifiable trust networks."
-    primary:
-      label: "Build"
-      href: "/page/build"
-      icon: "rocket"
-      icon_style: "solid"
-    secondary:
-      label: "View Documentation"
-      href: "https://docs.verana.io"
+    label: "View All on Verana"
+    href: "#"
+why_hologram:
+  id: "why-hologram"
+  title: "Why Build on Hologram"
+  icon: "fas fa-cube"
+  description: "Traditional AI platforms lack transparency and trust. Hologram solves these fundamental problems with verifiable infrastructure."
+  table:
+    problem_heading: "Problem"
+    solution_heading: "Hologram Solution"
+  rows:
+    - problem_icon: "fas fa-exclamation-triangle text-red-500"
+      problem: "Unverified AI agents"
+      solution_icon: "fas fa-shield-check text-green-500"
+      solution: "Every agent has a DID + Verifiable Credentials"
+    - problem_icon: "fas fa-user-secret text-red-500"
+      problem: "Users can't see who's behind"
+      solution_icon: "fas fa-certificate text-green-500"
+      solution: "Hologram shows a <strong>Proof of Trust</strong>"
+    - problem_icon: "fas fa-eye text-red-500"
+      problem: "Centralized, tracked apps"
+      solution_icon: "fas fa-lock text-green-500"
+      solution: "<strong>End-to-end encrypted</strong> DIDComm channels"
+    - problem_icon: "fas fa-ban text-red-500"
+      problem: "Closed platforms"
+      solution_icon: "fas fa-unlock text-green-500"
+      solution: "Open, permissionless deployment"
+    - problem_icon: "fas fa-search-minus text-red-500"
+      problem: "No discovery"
+      solution_icon: "fas fa-search-plus text-green-500"
+      solution: "Indexed by Verana Trust Resolver"
+  cta:
+    label: "About Verana Integration"
+    href: "#"
+how_it_works:
+  id: "how-it-works"
+  title: "How It Works"
+  icon: "fas fa-cogs"
+  description: "Deploy your verifiable AI agent in four simple steps and join the decentralized trust network."
+  steps:
+    - number: "1"
+      badge_bg: "bg-hologram-primary"
+      title: "Deploy Your Agent"
+      description: "Use Helm chart or SDK to deploy your AI agent and go live instantly."
+      detail_html: '<code class="text-sm text-hologram-dark">helm install my-agent hologram/agent</code>'
+    - number: "2"
+      badge_bg: "bg-hologram-secondary"
+      title: "Launch for the First Time"
+      description: "A unique DID (Decentralized Identifier) is automatically created."
+      detail_html: '<div class="flex items-center justify-center"><i class="fas fa-id-badge text-hologram-primary mr-2"></i><span class="text-sm font-mono">did:webvh:abc123...</span></div>'
+    - number: "3"
+      badge_bg: "bg-hologram-dark"
+      title: "Attach Credentials"
+      description: "Attach credentials to prove ownership, purpose, and trust."
+      detail_html: '<div class="flex items-center justify-center space-x-2"><i class="fas fa-certificate text-green-500"></i><i class="fas fa-shield-check text-blue-500"></i><i class="fas fa-award text-yellow-500"></i></div>'
+    - number: "4"
+      badge_bg: "bg-gradient-to-r from-hologram-primary to-hologram-dark"
+      title: "Get Indexed on Verana"
+      description: "Become discoverable by anyone, globally, through the trust network."
+      detail_html: '<div class="flex items-center justify-center"><i class="fas fa-globe text-hologram-primary mr-2"></i><span class="text-sm">Globally Discoverable</span></div>'
+  highlight:
+    title: "Hologram is the DIDComm browser for Verifiable AI"
+    description: "Your gateway to the verifiable internet:<br>where trust, identity, and privacy are native."
+    buttons:
+      - label: "Documentation"
+        href: "#"
+        style: "primary"
+      - label: "GitHub"
+        href: "#"
+        style: "secondary"
+        icon: "fab fa-github"
+use_cases:
+  id: "use-cases"
+  title: "What You Can Build"
+  icon: "fas fa-lightbulb"
+  description: "From customer support to government services, build any verifiable AI application you can imagine."
+  cards:
+    - image:
+        src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/9525484ca0-e487775fdd39302a333c.png"
+        alt: "AI customer support chatbot interface with holographic elements, modern UI design, purple and blue gradient, professional support agent"
+      icon: "fas fa-comments"
+      icon_bg: "bg-hologram-primary/20"
+      icon_color: "text-hologram-primary"
+      title: "AI Support Agents"
+      description: "Deploy intelligent customer service bots with verifiable credentials and transparent operations."
+      badge_icon: "fas fa-shield-check"
+      badge_text: "Verified & Trusted"
+      badge_color: "text-hologram-primary"
+    - image:
+        src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/5e451af203-bab6dcf498fd0cf4c9ce.png"
+        alt: "digital identity verification system with secure credentials, futuristic ID card design, holographic security elements, government tech"
+      icon: "fas fa-id-card"
+      icon_bg: "bg-hologram-secondary/20"
+      icon_color: "text-hologram-secondary"
+      title: "Digital ID Issuers"
+      description: "Create secure identity verification systems with cryptographic proof and decentralized trust."
+      badge_icon: "fas fa-certificate"
+      badge_text: "Cryptographically Secure"
+      badge_color: "text-hologram-secondary"
+    - image:
+        src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/085b0f054d-da98751c2101bb006165.png"
+        alt: "personal AI companion interface with privacy focus, friendly AI assistant design, secure messaging, holographic brain visualization"
+      icon: "fas fa-brain"
+      icon_bg: "bg-hologram-dark/20"
+      icon_color: "text-hologram-dark"
+      title: "Personal AI Companions"
+      description: "Build privacy-focused AI assistants that users can trust with their personal data."
+      badge_icon: "fas fa-user-shield"
+      badge_text: "Privacy-First"
+      badge_color: "text-hologram-dark"
+    - image:
+        src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/e725df89aa-3b88f1828f51903d8bc0.png"
+        alt: "government digital services portal with official building architecture, transparent AI system, public administration technology, civic tech"
+      icon: "fas fa-landmark"
+      icon_bg: "bg-blue-500/20"
+      icon_color: "text-blue-500"
+      title: "Government Services"
+      description: "Deploy transparent, auditable AI services for public administration and citizen engagement."
+      badge_icon: "fas fa-eye"
+      badge_text: "Transparent & Auditable"
+      badge_color: "text-blue-500"
+    - image:
+        src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/e565215afc-32aa0063b232f97f546d.png"
+        alt: "custom AI service development workspace, coding interface with verifiable credentials, developer tools, holographic code visualization"
+      icon: "fas fa-tools"
+      icon_bg: "bg-green-500/20"
+      icon_color: "text-green-500"
+      title: "Custom Verifiable Services"
+      description: "Build any specialized AI service with built-in verification and trust mechanisms."
+      badge_icon: "fas fa-cog"
+      badge_text: "Fully Customizable"
+      badge_color: "text-green-500"
+    - image:
+        src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/f37e876532-e903ab2e93378261afec.png"
+        alt: "enterprise integration dashboard with network connections, API interfaces, corporate technology, business AI systems, holographic network"
+      icon: "fas fa-network-wired"
+      icon_bg: "bg-purple-500/20"
+      icon_color: "text-purple-500"
+      title: "Enterprise Integration"
+      description: "Integrate verifiable AI into existing enterprise systems with seamless API connections."
+      badge_icon: "fas fa-plug"
+      badge_text: "Enterprise-Ready"
+      badge_color: "text-purple-500"
+  cta:
+    label: "Try Live Demos"
+    href: "#"
+    icon: "fas fa-play"
+future_vision:
+  id: "future-vision"
+  title: "Why It's the Future"
+  icon: "fas fa-globe"
+  quote: >
+    "The new internet of <span class=\"text-hologram-primary\">verifiable AI and services:&nbsp;</span>where trust, identity, and privacy are native."
+  highlights:
+    - icon: "fas fa-network-wired"
+      icon_bg: "bg-hologram-primary"
+      title: "Built on Verana Trust Network"
+      description: "Decentralized infrastructure for verifiable services"
+    - icon: "fas fa-lock"
+      icon_bg: "bg-hologram-secondary"
+      title: "Powered by DIDComm + VC"
+      description: "Secure communication with verifiable credentials"
+    - icon: "fas fa-code"
+      icon_bg: "bg-hologram-dark"
+      title: "Open-source & Auditable"
+      description: "Transparent, censorship-resistant technology"
+  closing:
+    title: "Hologram = The Trust Layer for AI"
+    description: "Join the ecosystem of verifiable AI services and help build the future of trusted digital interactions."
+    cta:
+      label: "Join the Ecosystem"
+      href: "#"
+developer_resources:
+  id: "developer-resources"
+  title: "Developer Resources"
+  icon: "fas fa-code"
+  description: "Everything you need to build, deploy, and manage verifiable AI services on Hologram."
+  cards:
+    - title: "Documentation"
+      description: "Comprehensive guides, API references, and tutorials to get you started quickly."
+      icon: "fas fa-book"
+      icon_bg: "bg-hologram-primary"
+      href: "#"
+      link_label: "Read Docs"
+      link_class: "text-hologram-primary hover:text-hologram-dark font-semibold"
+    - title: "Open Source"
+      description: "Access the full source code, contribute to the project, and build custom solutions."
+      icon: "fab fa-github"
+      icon_bg: "bg-hologram-secondary"
+      href: "#"
+      link_label: "View GitHub"
+      link_class: "text-hologram-secondary hover:text-hologram-dark font-semibold"
+    - title: "Community"
+      description: "Join our developer community for support, discussions, and collaboration."
+      icon: "fas fa-users"
+      icon_bg: "bg-hologram-dark"
+      href: "#"
+      link_label: "Join Discord"
+      link_class: "text-hologram-dark hover:text-hologram-primary font-semibold"
+  snippet:
+    title: "Quick Start Example"
+    code: |
+      # Install Hologram CLI
+      npm install -g @hologram/cli
+
+      # Create new agent
+      hologram create my-ai-agent
+
+      # Deploy to network
+      hologram deploy
+
+      # Your agent is now live with DID:
+      # did:webvh:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK
+    buttons:
+      - label: "Try in Sandbox"
+        icon: "fas fa-terminal"
+        class: "inline-flex items-center bg-hologram-primary text-white px-6 py-3 rounded-lg hover:bg-hologram-secondary transition-colors duration-200 font-semibold"
+      - label: "Download SDK"
+        icon: "fas fa-download"
+        class: "inline-flex items-center border border-gray-600 text-gray-300 px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors duration-200 font-semibold"
+partners:
+  id: "partners-logos"
+  title: "Trusted Partners & Standards"
+  icon: "fas fa-handshake"
+  description: "Built on industry-leading standards and supported by trusted organizations in the decentralized identity ecosystem."
+  logos:
+    - src: "/images/logo-didcomm.svg"
+      alt: "DIDComm logo, decentralized identity messaging protocol, clean minimal design"
+    - src: "/images/logo-w3c.svg"
+      alt: "W3C World Wide Web Consortium logo, web standards organization, official emblem"
+    - src: "/images/logo-credo.svg"
+      alt: "Credo logo, verifiable credentials framework, identity technology"
+    - src: "/images/logo-dif.png"
+      alt: "DIF Decentralized Identity Foundation logo, blockchain identity standards"
+    - src: "/images/logo-trust-over-ip.svg"
+      alt: "Trust Over IP Foundation logo, decentralized trust infrastructure"
+    - src: "/images/logo-open-wallet.svg"
+      alt: "OpenWallet logo, open source digital wallet technology"
+    - src: "/images/daiaa.avif"
+      alt: "DAIAA Digital AI Authentication Alliance logo, AI verification standards"
+  note: "While Hologram is built on open standards, 2060 OÜ actively contributes to the decentralized identity ecosystem."
+  badges:
+    - class: "bg-hologram-primary/10 text-hologram-primary px-4 py-2 rounded-full text-sm font-medium"
+      icon: "fas fa-check-circle"
+      label: "W3C DID Compliant"
+    - class: "bg-hologram-secondary/10 text-hologram-secondary px-4 py-2 rounded-full text-sm font-medium"
+      icon: "fas fa-shield-alt"
+      label: "VC Standards Compatible"
+    - class: "bg-hologram-dark/10 text-hologram-dark px-4 py-2 rounded-full text-sm font-medium"
+      icon: "fas fa-code-branch"
+      label: "Open Source"
 ---

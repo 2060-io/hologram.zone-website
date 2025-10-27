@@ -1,0 +1,47 @@
+{{ $section := .Params.use_cases }}
+{{ with $section }}
+  <section id="{{ .id | default "use-cases" }}" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">
+          {{ with .icon }}<i class="{{ . }} text-hologram-primary mr-3"></i>{{ end }}
+          {{ .title }}
+        </h2>
+        {{ with .description }}
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ . }}</p>
+        {{ end }}
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {{ range .cards }}
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
+            <div class="h-48 overflow-hidden">
+              {{ with .image }}
+                <img src="{{ .src }}" alt="{{ .alt }}" class="w-full h-full object-cover" loading="lazy" />
+              {{ end }}
+            </div>
+            <div class="p-8">
+              <div class="w-16 h-16 {{ .icon_bg }} rounded-xl flex items-center justify-center mb-6 -mt-16 relative z-10 bg-white shadow-lg">
+                {{ $iconColor := .icon_color | default "text-hologram-primary" }}
+                {{ with .icon }}<i class="{{ . }} {{ $iconColor }} text-2xl"></i>{{ end }}
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ .title }}</h3>
+              <p class="text-gray-600 mb-4">{{ .description }}</p>
+              <div class="flex items-center text-sm {{ .badge_color }}">
+                {{ with .badge_icon }}<i class="{{ . }} mr-2"></i>{{ end }}
+                {{ .badge_text }}
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+      {{ with .cta }}
+        <div class="text-center">
+          <a href="{{ .href }}" class="inline-flex items-center bg-hologram-primary text-white px-8 py-4 rounded-lg hover:bg-hologram-secondary transition-colors duration-200 font-semibold text-lg">
+            {{ with .icon }}<i class="{{ . }} mr-2"></i>{{ end }}
+            {{ .label }}
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

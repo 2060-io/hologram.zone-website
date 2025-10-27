@@ -859,9 +859,86 @@
     <div class="container mx-auto px-6 py-16 lg:py-24">
       <div class="max-w-6xl mx-auto">
         
+          <div class="lg:hidden mb-12">
+            <details class="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-[0_0_45px_-28px_rgba(118,62,240,0.55)]">
+              <summary class="text-sm font-semibold text-gray-300 uppercase tracking-[0.2em] cursor-pointer flex items-center justify-between">
+                On this page
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+              </summary>
+              <div class="mt-6 space-y-3" data-legal-toc-mobile>
+                
+                  <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#what-are-cookies">
+                    What Are Cookies?
+                  </a>
+                
+                  <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#how-we-use-cookies">
+                    How We Use Cookies
+                  </a>
+                
+                  <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#third-party-services">
+                    Third-Party Services
+                  </a>
+                
+                  <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#your-choices">
+                    Your Choices
+                  </a>
+                
+                  <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#retention">
+                    Retention
+                  </a>
+                
+                  <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#changes-to-this-policy">
+                    Changes to This Policy
+                  </a>
+                
+                  <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#contact">
+                    Contact
+                  </a>
+                
+              </div>
+            </details>
+          </div>
+        
         <div class="grid lg:grid-cols-4 gap-12">
           
-          <div class="lg:col-span-4 space-y-12">
+            <aside class="lg:col-span-1" aria-label="Page navigation">
+              <div class="bg-gray-900 border border-gray-700 rounded-2xl p-6 shadow-[0_0_45px_-28px_rgba(118,62,240,0.55)] lg:sticky" style="top: calc(var(--header-offset, 90px) + 1.5rem);">
+                <h3 class="text-lg font-semibold text-white mb-6">Table of Contents</h3>
+                <div class="space-y-3 text-sm" data-legal-toc-desktop>
+                  
+                    <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#what-are-cookies">
+                      What Are Cookies?
+                    </a>
+                  
+                    <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#how-we-use-cookies">
+                      How We Use Cookies
+                    </a>
+                  
+                    <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#third-party-services">
+                      Third-Party Services
+                    </a>
+                  
+                    <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#your-choices">
+                      Your Choices
+                    </a>
+                  
+                    <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#retention">
+                      Retention
+                    </a>
+                  
+                    <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#changes-to-this-policy">
+                      Changes to This Policy
+                    </a>
+                  
+                    <a class="block text-gray-400 hover:text-white transition-colors duration-200" href="#contact">
+                      Contact
+                    </a>
+                  
+                </div>
+              </div>
+            </aside>
+          
+          <div class="lg:col-span-3 space-y-12">
             
 <div class="legal-meta-card">
   <div class="legal-meta-icon">
@@ -1098,6 +1175,83 @@
       </div>
     </div>
   </section>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const tocEntries = [{ id: "what-are-cookies" },{ id: "how-we-use-cookies" },{ id: "third-party-services" },{ id: "your-choices" },{ id: "retention" },{ id: "changes-to-this-policy" },{ id: "contact" },
+        ];
+
+        if (!tocEntries.length) {
+          return;
+        }
+
+        const linkGroups = document.querySelectorAll('[data-legal-toc-desktop] a, [data-legal-toc-mobile] a');
+        const sectionMap = new Map();
+
+        linkGroups.forEach(link => {
+          const target = link.getAttribute('href');
+          if (!target || !target.startsWith('#')) {
+            return;
+          }
+          const id = decodeURIComponent(target.substring(1));
+          if (!sectionMap.has(id)) {
+            const sectionEl = document.getElementById(id);
+            if (!sectionEl) {
+              return;
+            }
+            sectionMap.set(id, { element: sectionEl, links: [] });
+          }
+          sectionMap.get(id).links.push(link);
+        });
+
+        const setActive = id => {
+          sectionMap.forEach((value, key) => {
+            value.links.forEach(link => {
+              if (key === id) {
+                link.classList.add('text-verana', 'font-semibold');
+                link.classList.remove('text-gray-400');
+                link.setAttribute('aria-current', 'true');
+              } else {
+                link.classList.remove('text-verana', 'font-semibold');
+                link.classList.add('text-gray-400');
+                link.removeAttribute('aria-current');
+              }
+            });
+          });
+        };
+
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              setActive(entry.target.id);
+            }
+          });
+        }, {
+          rootMargin: '-40% 0px -40% 0px',
+          threshold: [0, 1.0]
+        });
+
+        sectionMap.forEach(value => observer.observe(value.element));
+
+        linkGroups.forEach(link => {
+          link.addEventListener('click', event => {
+            const target = link.getAttribute('href');
+            if (!target || !target.startsWith('#')) {
+              return;
+            }
+            const el = document.getElementById(decodeURIComponent(target.substring(1)));
+            if (!el) {
+              return;
+            }
+            event.preventDefault();
+            const headerOffset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-offset'), 10) || 110;
+            const rect = el.getBoundingClientRect();
+            const offsetTop = window.pageYOffset + rect.top - headerOffset;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+          });
+        });
+      });
+    </script>
   
 
     </main>

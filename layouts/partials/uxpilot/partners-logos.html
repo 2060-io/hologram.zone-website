@@ -1,0 +1,36 @@
+{{ $section := .Params.partners }}
+{{ with $section }}
+  <section id="{{ .id | default "partners-logos" }}" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">
+          {{ with .icon }}<i class="{{ . }} text-hologram-primary mr-3"></i>{{ end }}
+          {{ .title }}
+        </h2>
+        {{ with .description }}
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ . }}</p>
+        {{ end }}
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-items-center">
+        {{ range .logos }}
+          <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 w-full h-24 flex items-center justify-center">
+            <img class="w-full h-auto max-h-16 object-contain grayscale hover:grayscale-0 transition-all duration-200" src="{{ .src }}" alt="{{ .alt }}" loading="lazy" />
+          </div>
+        {{ end }}
+      </div>
+      <div class="text-center mt-12">
+        {{ with .note }}
+          <p class="text-lg text-gray-600 mb-6">{{ . }}</p>
+        {{ end }}
+        <div class="flex flex-wrap justify-center gap-4">
+          {{ range .badges }}
+            <span class="{{ .class }}">
+              {{ with .icon }}<i class="{{ . }} mr-2"></i>{{ end }}
+              {{ .label }}
+            </span>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}
