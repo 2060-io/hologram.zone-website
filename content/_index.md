@@ -232,8 +232,8 @@ future_vision:
   id: "future-vision"
   title: "Why It's the Future"
   icon: "fas fa-globe"
-  quote: >
-    "The new internet of <span class=\"text-hologram-primary\">verifiable AI and services:&nbsp;</span>where trust, identity, and privacy are native."
+  quote: |
+    "The new internet of <span class='text-hologram-primary'>verifiable AI and services:&nbsp;</span>where trust, identity, and privacy are native."
   highlights:
     - icon: "fas fa-network-wired"
       icon_bg: "bg-hologram-primary"
