@@ -1,2 +1,1 @@
-# hologram.zone-website
-Hologram website
+# verana.io-website
