@@ -46,7 +46,7 @@ app_download:
   description: "Experience verifiable AI services on the go. Download the Hologram mobile app and access trusted AI agents from anywhere in the world."
   quick_title: "Quick Download"
   quick_subtitle: "Scan with your phone's camera"
-  platforms_title: "Available on all platforms"
+#  platforms_title: "Available on all platforms"
   screenshot:
     src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/d2f0aafd9d-d90a3ffb0f663ede9f30.png"
     alt: "mobile app interface mockup showing Hologram verifiable AI services, smartphone screen with purple gradient UI, holographic elements, modern app design"
@@ -62,6 +62,10 @@ app_download:
       subtitle: "Get it on"
       href: "https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m"
       button_svg: "/images/download-google.svg"
+    - label: "App Gallery"
+      subtitle: "Get it on"
+      href: "https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m"
+      button_svg: "/images/download-huawei.svg"
 discovery_section:
   id: "discovery"
   title: "Discover Trusted AI Services"

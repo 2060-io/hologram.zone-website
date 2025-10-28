@@ -34,41 +34,43 @@
             {{ end }}
             {{ with .qr }}
               <div class="inline-block p-6 bg-gray-50 rounded-xl mb-8">
-                <div class="relative w-32 h-32 mx-auto">
-                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={{ .src | urlquery }}" alt="{{ or .alt "Download QR code" }}" class="w-32 h-32 object-contain" loading="lazy" />
+                <div class="relative w-48 h-48 mx-auto">
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&ecc=Q&data={{ .src | urlquery }}" alt="{{ or .alt "Download QR code" }}" class="w-48 h-48 object-contain" loading="lazy" />
                   <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div class="w-10 h-10 bg-white rounded-lg shadow-md flex items-center justify-center">
-                      <img src="/logo.svg" alt="Hologram logo" class="w-6 h-6 object-contain" loading="lazy" />
+                    <div class="w-12 h-12 bg-white rounded-lg shadow-md flex items-center justify-center border border-gray-200" style="border-width:5px;">
+                      <img src="/logo.svg" alt="Hologram logo" class="w-7 h-7 object-contain" loading="lazy" />
                     </div>
                   </div>
                 </div>
               </div>
             {{ end }}
-            <div class="space-y-4">
-              <h5 class="text-lg font-semibold text-gray-900 mb-4">{{ .platforms_title | default "Available on all platforms" }}</h5>
-              <div class="grid sm:grid-cols-3 gap-4">
-              {{ range .platforms }}
-                {{ $isExternal := strings.HasPrefix .href "http" }}
-                <a href="{{ .href }}" class="group bg-white border-2 border-gray-200 hover:border-hologram-primary rounded-xl p-4 transition-all duration-200 hover:shadow-lg"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
-                  {{ $badge := or .button_svg .icon_svg }}
-                  {{ if $badge }}
-                    <img src="{{ $badge }}" alt="{{ .label }}" class="h-12 w-auto mx-auto" loading="lazy" />
-                  {{ else }}
-                    <div class="flex items-center justify-center space-x-3">
-                      <div class="w-10 h-10 flex items-center justify-center bg-black rounded-lg group-hover:bg-hologram-primary transition-colors duration-200">
-                        {{ with .icon }}<i class="{{ . }} text-white text-lg"></i>{{ end }}
-                      </div>
-                      <div class="text-center">
-                        <div class="text-xs text-gray-500 uppercase tracking-wide">{{ .subtitle }}</div>
-                        <div class="font-semibold text-gray-900 text-sm">{{ .label }}</div>
-                      </div>
-                    </div>
+            {{ if or .platforms_title (gt (len .platforms) 0) }}
+              <div class="space-y-4">
+                {{ with .platforms_title }}<h5 class="text-lg font-semibold text-gray-900 mb-4">{{ . }}</h5>{{ end }}
+                <div class="grid sm:grid-cols-3 gap-4">
+                  {{ range .platforms }}
+                    {{ $isExternal := strings.HasPrefix .href "http" }}
+                    <a href="{{ .href }}" class="group bg-white border-2 border-gray-200 hover:border-hologram-primary rounded-xl p-4 transition-all duration-200 hover:shadow-lg"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                      {{ $badge := or .button_svg .icon_svg }}
+                      {{ if $badge }}
+                        <img src="{{ $badge }}" alt="{{ .label }}" class="h-12 w-auto mx-auto" loading="lazy" />
+                      {{ else }}
+                        <div class="flex items-center justify-center space-x-3">
+                          <div class="w-10 h-10 flex items-center justify-center bg-black rounded-lg group-hover:bg-hologram-primary transition-colors duration-200">
+                            {{ with .icon }}<i class="{{ . }} text-white text-lg"></i>{{ end }}
+                          </div>
+                          <div class="text-center">
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">{{ .subtitle }}</div>
+                            <div class="font-semibold text-gray-900 text-sm">{{ .label }}</div>
+                          </div>
+                        </div>
+                      {{ end }}
+                      <span class="sr-only">{{ .label }}</span>
+                    </a>
                   {{ end }}
-                  <span class="sr-only">{{ .label }}</span>
-                </a>
-              {{ end }}
+                </div>
               </div>
-            </div>
+            {{ end }}
           </div>
         </div>
       </div>
