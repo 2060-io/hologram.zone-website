@@ -127,7 +127,7 @@ why_hologram:
       solution: "Automatically indexed by the decentralized Verana Trust Resolver"
   cta:
     label: "About Verana Integration"
-    href: "#"
+    href: "https://verana.io"
 how_it_works:
   id: "how-it-works"
   title: "How It Works"
@@ -320,6 +320,9 @@ partners:
   icon: "fas fa-handshake"
   description: "Built on industry-leading standards and supported by trusted organizations in the decentralized identity ecosystem."
   logos:
+    - src: "/images/verana.svg"
+      alt: "Verana Logo"
+      href: "https://verana.io/"
     - src: "/images/logo-didcomm.svg"
       alt: "DIDComm logo, decentralized identity messaging protocol, clean minimal design"
       href: "https://didcomm.org/"
