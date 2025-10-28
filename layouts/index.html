@@ -142,7 +142,7 @@
             {{ range $hero.title.lines }}<br><span class="block text-gray-900 mt-4 lg:mt-6">{{ . }}</span>{{ end }}
           </h1>
           {{ with $hero.description }}
-            <p class="text-xl text-gray-600 leading-relaxed max-w-lg">{{ . }}</p>
+            <p class="text-xl text-gray-600 leading-relaxed max-w-lg">{{ . | safeHTML }}</p>
           {{ end }}
           <div class="flex flex-col sm:flex-row gap-4">
             {{ with $hero.primary_cta }}

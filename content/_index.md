@@ -13,7 +13,7 @@ hero:
     lines:
       - "Verifiable AI"
 #      - "Ecosystem"
-  description: "Deploy AI services you <strong>own</strong>: decentralized, peer-to-peer encrypted, verifiable, and globally discoverable.
+  description: "<strong>Deploy AI services you own:</strong> decentralized, peer-to-peer encrypted, verifiable, and globally discoverable.
   Accessible to anyone through Hologram, the open-source mobile app for trusted, decentralized AI interactions."
   primary_cta:
     label: "Instant Deployment"
