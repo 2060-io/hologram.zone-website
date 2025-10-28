@@ -48,14 +48,14 @@ app_download:
   quick_subtitle: "Scan with your phone's camera"
 #  platforms_title: "Available on all platforms"
   screenshot:
-    src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/d2f0aafd9d-d90a3ffb0f663ede9f30.png"
+    src: "/images/hologram-download-illustration.webp"
     alt: "mobile app interface mockup showing Hologram verifiable AI services, smartphone screen with purple gradient UI, holographic elements, modern app design"
   qr:
     src: "https://hologram.zone"
     alt: "QR code for Hologram app download, black and white, clean design"
   card_background:
     src: "/images/download-background.webp"
-    opacity: 0.1
+    opacity: 0.5
   platforms:
     - label: "App Store"
       subtitle: "Download on"
