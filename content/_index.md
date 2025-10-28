@@ -51,7 +51,7 @@ app_download:
     src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/d2f0aafd9d-d90a3ffb0f663ede9f30.png"
     alt: "mobile app interface mockup showing Hologram verifiable AI services, smartphone screen with purple gradient UI, holographic elements, modern app design"
   qr:
-    src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/52dd1527a0-baa2f5231afdd9b9d3b5.png"
+    src: "https://hologram.zone"
     alt: "QR code for Hologram app download, black and white, clean design"
   platforms:
     - label: "App Store"
