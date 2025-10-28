@@ -12,7 +12,7 @@ hero:
     gradient: "Hologram"
     lines:
       - "Verifiable AI"
-      - "Ecosystem"
+#      - "Ecosystem"
   description: "Create your own decentralized Verifiable AI Agent. Every chatbot you deploy is verifiable, discoverable, and trusted, powered by the Verana Verifiable Trust Network."
   primary_cta:
     label: "Instant Deployment"
