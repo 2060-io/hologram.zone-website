@@ -56,11 +56,11 @@ app_download:
     - label: "App Store"
       subtitle: "Download on"
       href: "https://apps.apple.com/us/app/hologram-messaging/id6474701855"
-      icon_svg: "/images/apple.svg"
+      button_svg: "/images/download-apple.svg"
     - label: "Google Play"
       subtitle: "Get it on"
       href: "https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m"
-      icon_svg: "/images/google-play.svg"
+      button_svg: "/images/download-google.svg"
 discovery_section:
   id: "discovery"
   title: "Discover Trusted AI Services"

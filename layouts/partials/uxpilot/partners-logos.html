@@ -13,9 +13,11 @@
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-items-center">
         {{ range .logos }}
-          <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 w-full h-24 flex items-center justify-center">
+          {{ $href := .href }}
+          {{ $isExternal := or (hasPrefix $href "http://") (hasPrefix $href "https://") }}
+          <a href="{{ $href }}" class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 w-full h-24 flex items-center justify-center" {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>
             <img class="w-full h-auto max-h-16 object-contain grayscale hover:grayscale-0 transition-all duration-200" src="{{ .src }}" alt="{{ .alt }}" loading="lazy" />
-          </div>
+          </a>
         {{ end }}
       </div>
       <div class="text-center mt-12">
