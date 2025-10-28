@@ -40,21 +40,22 @@
             <div class="space-y-4">
               <h5 class="text-lg font-semibold text-gray-900 mb-4">{{ .platforms_title | default "Available on all platforms" }}</h5>
               <div class="grid sm:grid-cols-3 gap-4">
-                {{ range .platforms }}
-                  {{ $wrapClass := default "w-10 h-10 bg-black rounded-lg flex items-center justify-center group-hover:bg-hologram-primary transition-colors duration-200" .icon_wrap_class }}
-                  {{ $isExternal := strings.HasPrefix .href "http" }}
-                  <a href="{{ .href }}" class="group bg-white border-2 border-gray-200 hover:border-hologram-primary rounded-xl p-4 transition-all duration-200 hover:shadow-lg"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
-                    <div class="flex items-center justify-center space-x-3">
-                      <div class="{{ $wrapClass }}">
-                        {{ with .icon }}<i class="{{ . }} text-white text-lg"></i>{{ end }}
-                      </div>
-                      <div class="text-center">
-                        <div class="text-xs text-gray-500 uppercase tracking-wide">{{ .subtitle }}</div>
-                        <div class="font-semibold text-gray-900 text-sm">{{ .label }}</div>
-                      </div>
+              {{ range .platforms }}
+                {{ $isExternal := strings.HasPrefix .href "http" }}
+                <a href="{{ .href }}" class="group bg-white border-2 border-gray-200 hover:border-hologram-primary rounded-xl p-4 transition-all duration-200 hover:shadow-lg"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                  <div class="flex items-center justify-center space-x-3">
+                    <div class="w-10 h-10 flex items-center justify-center">
+                      {{ if .icon_svg }}
+                        <img src="{{ .icon_svg }}" alt="{{ .label }} logo" class="h-6 w-auto" loading="lazy" />
+                      {{ end }}
                     </div>
-                  </a>
-                {{ end }}
+                    <div class="text-center">
+                      <div class="text-xs text-gray-500 uppercase tracking-wide">{{ .subtitle }}</div>
+                      <div class="font-semibold text-gray-900 text-sm">{{ .label }}</div>
+                    </div>
+                  </div>
+                </a>
+              {{ end }}
               </div>
             </div>
           </div>
