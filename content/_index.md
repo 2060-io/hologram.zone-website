@@ -320,7 +320,7 @@ partners:
   icon: "fas fa-handshake"
   description: "Built on industry-leading standards and supported by trusted organizations in the decentralized identity ecosystem."
   logos:
-    - src: "/images/verana.svg"
+    - src: "/images/verana-logo-with-verana.svg"
       alt: "Verana Logo"
       href: "https://verana.io/"
     - src: "/images/logo-didcomm.svg"

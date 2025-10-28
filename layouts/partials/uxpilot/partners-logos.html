@@ -11,12 +11,12 @@
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ . }}</p>
         {{ end }}
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-items-center">
+      <div class="flex flex-wrap justify-center gap-6 lg:gap-8 items-center">
         {{ range .logos }}
           {{ $href := .href }}
           {{ $isExternal := or (hasPrefix $href "http://") (hasPrefix $href "https://") }}
-          <a href="{{ $href }}" class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 w-full h-24 flex items-center justify-center" {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>
-            <img class="w-full h-auto max-h-16 object-contain grayscale hover:grayscale-0 transition-all duration-200" src="{{ .src }}" alt="{{ .alt }}" loading="lazy" />
+          <a href="{{ $href }}" class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200 flex items-center justify-center min-w-[11rem] w-[11rem] h-24 px-4" {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>
+            <img class="h-16 w-auto max-w-[9rem] object-contain grayscale hover:grayscale-0 transition-all duration-200" src="{{ .src }}" alt="{{ .alt }}" loading="lazy" />
           </a>
         {{ end }}
       </div>
