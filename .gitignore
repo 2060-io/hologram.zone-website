@@ -1,5 +1,3 @@
 .DS_Store
 themes/.DS_Store
 .hugo_build.lock
-public/
-public-tmp/
