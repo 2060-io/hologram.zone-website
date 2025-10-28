@@ -2335,6 +2335,11 @@ body.bg-black {
   width: 1px;
 }
 
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .min-w-0 {
   min-width: 0px;
 }
@@ -2389,6 +2394,10 @@ body.bg-black {
 
 .flex-1 {
   flex: 1 1 0%;
+}
+
+.flex-none {
+  flex: none;
 }
 
 .flex-shrink-0 {
@@ -3764,6 +3773,10 @@ body.bg-black {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-\[5px\] {
+  padding: 5px;
 }
 
 .px-2 {

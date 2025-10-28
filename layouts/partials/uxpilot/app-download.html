@@ -53,13 +53,13 @@
             {{ if or .platforms_title (gt (len .platforms) 0) }}
               <div class="space-y-4">
                 {{ with .platforms_title }}<h5 class="text-lg font-semibold text-gray-900 mb-4">{{ . }}</h5>{{ end }}
-                <div class="grid sm:grid-cols-3 gap-4">
+                <div class="flex flex-wrap justify-center gap-4">
                   {{ range .platforms }}
                     {{ $isExternal := strings.HasPrefix .href "http" }}
-                    <a href="{{ .href }}" class="group bg-white border-2 border-gray-200 hover:border-hologram-primary rounded-xl p-4 transition-all duration-200 hover:shadow-lg"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                    <a href="{{ .href }}" class="inline-flex flex-none items-center justify-center w-fit border-2 border-gray-200 hover:border-hologram-primary rounded-xl transition-all duration-200 p-[5px]"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
                       {{ $badge := or .button_svg .icon_svg }}
                       {{ if $badge }}
-                        <img src="{{ $badge }}" alt="{{ .label }}" class="h-12 w-auto mx-auto" loading="lazy" />
+                        <img src="{{ $badge }}" alt="{{ .label }}" class="block h-12 w-auto" loading="lazy" />
                       {{ else }}
                         <div class="flex items-center justify-center space-x-3">
                           <div class="w-10 h-10 flex items-center justify-center bg-black rounded-lg group-hover:bg-hologram-primary transition-colors duration-200">
