@@ -53,6 +53,9 @@ app_download:
   qr:
     src: "https://hologram.zone"
     alt: "QR code for Hologram app download, black and white, clean design"
+  card_background:
+    src: "/images/download-background.webp"
+    opacity: 0.1
   platforms:
     - label: "App Store"
       subtitle: "Download on"
