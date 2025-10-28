@@ -5736,6 +5736,10 @@ body.bg-black {
     grid-column: span 4 / span 4;
   }
 
+  .lg\:mt-6 {
+    margin-top: 1.5rem;
+  }
+
   .lg\:block {
     display: block;
   }

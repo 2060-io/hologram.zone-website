@@ -6,14 +6,15 @@ meta_description: "Discover Verana, the open trust layer that turns digital serv
 bodyClass: "bg-white text-gray-900 overflow-x-hidden font-sans"
 hero:
   badge:
-    icon: "fas fa-sparkles"
-    text: "Build Verifiable AI in 5 Minutes"
+    icon: "fas fa-gauge-high"
+    text: "Build Verifiable AI in Minutes"
   title:
     gradient: "Hologram"
     lines:
       - "Verifiable AI"
 #      - "Ecosystem"
-  description: "Create your own decentralized Verifiable AI Agent. Every chatbot you deploy is verifiable, discoverable, and trusted, powered by the Verana Verifiable Trust Network."
+  description: "Deploy AI services you <strong>own</strong>: decentralized, peer-to-peer encrypted, verifiable, and globally discoverable.
+  Accessible to anyone through Hologram, the open-source mobile app for trusted, decentralized AI interactions."
   primary_cta:
     label: "Instant Deployment"
     href: "/page/build"
@@ -24,20 +25,20 @@ hero:
     icon: "fas fa-search"
   features:
     - icon: "fas fa-id-card"
-      text: "Self-sovereign identity"
-    - icon: "fas fa-brain"
-      text: "Verifiable AI"
+      text: "Self-sovereign"
+    - icon: "fas fa-certificate"
+      text: "Verifiable"
     - icon: "fas fa-globe"
-      text: "Discoverable services"
+      text: "Discoverable"
   screenshot:
-    src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/1b130e4af4-87ed2e7133d02280f390.png"
+    src: "/images/hero-user-hologram.webp"
     alt: "futuristic hologram interface with AI chatbot conversation, purple and blue gradient, modern UI design, verifiable credentials floating"
-  overlay_card:
-    icon: "fas fa-robot"
-    title: "AI Support Agent"
-    subtitle: "Verified by Verana Network"
-    status_icon: "fas fa-shield-check"
-    message: "How can I help you today?"
+#  overlay_card:
+#    icon: "fas fa-robot"
+#    title: "AI Support Agent"
+#    subtitle: "Verified by Verana Network"
+#    status_icon: "fas fa-shield-check"
+#    message: "How can I help you today?"
 app_download:
   id: "app-download"
   title: "Get the Hologram App"

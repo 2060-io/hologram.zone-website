@@ -139,7 +139,7 @@
           {{ end }}
           <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
             <span class="bg-gradient-to-r from-hologram-primary to-hologram-dark bg-clip-text text-transparent">{{ $hero.title.gradient }}</span>
-            {{ range $hero.title.lines }}<br><span class="text-gray-900">{{ . }}</span>{{ end }}
+            {{ range $hero.title.lines }}<br><span class="block text-gray-900 mt-4 lg:mt-6">{{ . }}</span>{{ end }}
           </h1>
           {{ with $hero.description }}
             <p class="text-xl text-gray-600 leading-relaxed max-w-lg">{{ . }}</p>
