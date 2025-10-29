@@ -11,15 +11,35 @@
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ . }}</p>
         {{ end }}
       </div>
-      <div class="flex flex-wrap justify-center gap-6 lg:gap-8 items-center">
-        {{ range .logos }}
-          {{ $href := .href }}
-          {{ $isExternal := or (hasPrefix $href "http://") (hasPrefix $href "https://") }}
-          <a href="{{ $href }}" class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200 flex items-center justify-center min-w-[11rem] w-[11rem] h-24 px-4" {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>
-            <img class="h-16 w-auto max-w-[9rem] object-contain grayscale hover:grayscale-0 transition-all duration-200" src="{{ .src }}" alt="{{ .alt }}" loading="lazy" />
-          </a>
+      {{ $logos := .logos }}
+      {{ $total := len $logos }}
+      {{ if gt $total 0 }}
+        {{ $scratch := newScratch }}
+        {{ $maxColsParam := or .max_cols 6 }}
+        {{ if lt $total $maxColsParam }}
+          {{ $scratch.Set "maxCandidate" $total }}
+        {{ else }}
+          {{ $scratch.Set "maxCandidate" $maxColsParam }}
         {{ end }}
-      </div>
+        {{ $maxCandidate := $scratch.Get "maxCandidate" }}
+        {{ $scratch.Set "col" 1 }}
+        {{ range $c := seq 1 $maxCandidate }}
+          {{ $remainder := mod $total $c }}
+          {{ if or (eq $remainder 0) (and (gt $c 1) (eq $remainder (sub $c 1))) }}
+            {{ $scratch.Set "col" $c }}
+          {{ end }}
+        {{ end }}
+        {{ $colLarge := $scratch.Get "col" }}
+        <div class="grid justify-center gap-6 lg:gap-8 [grid-template-columns:repeat(auto-fit,minmax(11rem,11rem))] mx-auto max-w-[calc(var(--partner-cols)*11rem+(var(--partner-cols)-1)*1.5rem)] lg:[max-width:calc(var(--partner-cols)*11rem+(var(--partner-cols)-1)*2rem)]" style="--partner-cols: {{ $colLarge }};">
+          {{ range $logos }}
+            {{ $href := .href }}
+            {{ $isExternal := or (hasPrefix $href "http://") (hasPrefix $href "https://") }}
+            <a href="{{ $href }}" class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200 flex items-center justify-center min-w-[11rem] max-w-[11rem] h-24 px-4" {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}>
+              <img class="h-16 w-auto max-w-[9rem] object-contain grayscale hover:grayscale-0 transition-all duration-200" src="{{ .src }}" alt="{{ .alt }}" loading="lazy" />
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
       <div class="text-center mt-12">
         {{ with .note }}
           <p class="text-lg text-gray-600 mb-6">{{ . }}</p>
