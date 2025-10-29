@@ -141,41 +141,41 @@ powerful_communication:
       icon_color: "text-white text-xl"
       title: "Monetize ethically"
       description: "Enable credential-based monetization - <strong>pay-per-verification</strong> or <strong>pay-per-issuance</strong> models - that preserve user privacy while rewarding trusted services."
-discovery_section:
-  id: "discovery"
-  title: "Discover Trusted AI Services"
-  icon: "fas fa-search"
-  description: "Search and connect to verifiable AI agents: each identified by a DID, sharing credentials, and registered on Verana."
-  search:
-    placeholder: "Find Verifiable AI Agents or Services..."
-  cards:
-    - title: "AI Support Agent"
-      subtitle: "Mobiera"
-      description: "Verified customer support AI with instant response capabilities."
-      icon: "fas fa-robot"
-      icon_bg: "bg-hologram-primary"
-      icon_color: "text-white"
-      status_icon: "fas fa-shield-check"
-      status_color: "text-green-500"
-    - title: "Digital ID Issuer"
-      subtitle: "Estonia eGov"
-      description: "Official digital identity verification and credential issuance."
-      icon: "fas fa-id-card"
-      icon_bg: "bg-hologram-secondary"
-      icon_color: "text-white"
-      status_icon: "fas fa-shield-check"
-      status_color: "text-green-500"
-    - title: "Personal AI Companion"
-      subtitle: "OpenVoice Labs"
-      description: "Privacy-focused AI assistant for personal productivity."
-      icon: "fas fa-brain"
-      icon_bg: "bg-hologram-dark"
-      icon_color: "text-white"
-      status_icon: "fas fa-shield-check"
-      status_color: "text-green-500"
-  cta:
-    label: "View All on Verana"
-    href: "#"
+# discovery_section:
+#   id: "discovery"
+#   title: "Discover Trusted AI Services"
+#   icon: "fas fa-search"
+#   description: "Search and connect to verifiable AI agents: each identified by a DID, sharing credentials, and registered on Verana."
+#   search:
+#     placeholder: "Find Verifiable AI Agents or Services..."
+#   cards:
+#     - title: "AI Support Agent"
+#       subtitle: "Mobiera"
+#       description: "Verified customer support AI with instant response capabilities."
+#       icon: "fas fa-robot"
+#       icon_bg: "bg-hologram-primary"
+#       icon_color: "text-white"
+#       status_icon: "fas fa-shield-check"
+#       status_color: "text-green-500"
+#     - title: "Digital ID Issuer"
+#       subtitle: "Estonia eGov"
+#       description: "Official digital identity verification and credential issuance."
+#       icon: "fas fa-id-card"
+#       icon_bg: "bg-hologram-secondary"
+#       icon_color: "text-white"
+#       status_icon: "fas fa-shield-check"
+#       status_color: "text-green-500"
+#     - title: "Personal AI Companion"
+#       subtitle: "OpenVoice Labs"
+#       description: "Privacy-focused AI assistant for personal productivity."
+#       icon: "fas fa-brain"
+#       icon_bg: "bg-hologram-dark"
+#       icon_color: "text-white"
+#       status_icon: "fas fa-shield-check"
+#       status_color: "text-green-500"
+#   cta:
+#     label: "View All on Verana"
+#     href: "#"
 why_hologram:
   id: "why-hologram"
   title: "Why Build on Hologram"
@@ -279,7 +279,7 @@ use_cases:
       icon: "fas fa-hashtag"
       icon_bg: "bg-hologram-dark/20"
       icon_color: "text-hologram-dark"
-      title: "Digital Twin"
+      title: "Digital Twins"
       description: "Launch your verifiable AI persona — fully decentralized and under your control."
       badge_icon: "fas fa-user-shield"
       badge_text: "Privacy-First"
@@ -347,59 +347,59 @@ future_vision:
     cta:
       label: "Join the Ecosystem"
       href: "#"
-developer_resources:
-  id: "developer-resources"
-  title: "Developer Resources"
-  icon: "fas fa-code"
-  description: "Everything you need to build, deploy, and manage verifiable AI services on Hologram."
-  cards:
-    - title: "Documentation"
-      description: "Comprehensive guides, API references, and tutorials to get you started quickly."
-      icon: "fas fa-book"
-      icon_bg: "bg-hologram-primary"
-      href: "https://docs.hologram.zone"
-      link_label: "Read Docs"
-      link_class: "text-hologram-primary hover:text-hologram-dark font-semibold"
-    - title: "Open Source"
-      description: "Access the full source code, contribute to the project, and build custom solutions."
-      icon: "fab fa-github"
-      icon_bg: "bg-hologram-secondary"
-      href: "https://github.com/2060-io/"
-      link_label: "View GitHub"
-      link_class: "text-hologram-secondary hover:text-hologram-dark font-semibold"
-    - title: "Community"
-      description: "Join our developer community for support, discussions, and collaboration."
-      icon: "fas fa-users"
-      icon_bg: "bg-hologram-dark"
-      href: "https://discord.com/invite/pFk6XdC28E"
-      link_label: "Join Discord"
-      link_class: "text-hologram-dark hover:text-hologram-primary font-semibold"
-  snippet:
-    title: "Quick Start Example"
-    code: |
-      # Install Hologram CLI
-      npm install -g @hologram/cli
-
-      # Create new agent
-      hologram create my-ai-agent
-
-      # Deploy to network
-      hologram deploy
-
-      # Your agent is now live with DID:
-      # did:webvh:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK
-    buttons:
-      - label: "Try in Sandbox"
-        icon: "fas fa-terminal"
-        class: "inline-flex items-center bg-hologram-primary text-white px-6 py-3 rounded-lg hover:bg-hologram-secondary transition-colors duration-200 font-semibold"
-      - label: "Download SDK"
-        icon: "fas fa-download"
-        class: "inline-flex items-center border border-gray-600 text-gray-300 px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors duration-200 font-semibold"
+# developer_resources:
+#   id: "developer-resources"
+#   title: "Developer Resources"
+#   icon: "fas fa-code"
+#   description: "Everything you need to build, deploy, and manage verifiable AI services on Hologram."
+#   cards:
+#     - title: "Documentation"
+#       description: "Comprehensive guides, API references, and tutorials to get you started quickly."
+#       icon: "fas fa-book"
+#       icon_bg: "bg-hologram-primary"
+#       href: "https://docs.hologram.zone"
+#       link_label: "Read Docs"
+#       link_class: "text-hologram-primary hover:text-hologram-dark font-semibold"
+#     - title: "Open Source"
+#       description: "Access the full source code, contribute to the project, and build custom solutions."
+#       icon: "fab fa-github"
+#       icon_bg: "bg-hologram-secondary"
+#       href: "https://github.com/2060-io/"
+#       link_label: "View GitHub"
+#       link_class: "text-hologram-secondary hover:text-hologram-dark font-semibold"
+#     - title: "Community"
+#       description: "Join our developer community for support, discussions, and collaboration."
+#       icon: "fas fa-users"
+#       icon_bg: "bg-hologram-dark"
+#       href: "https://discord.com/invite/pFk6XdC28E"
+#       link_label: "Join Discord"
+#       link_class: "text-hologram-dark hover:text-hologram-primary font-semibold"
+#   snippet:
+#     title: "Quick Start Example"
+#     code: |
+#       # Install Hologram CLI
+#       npm install -g @hologram/cli
+#
+#       # Create new agent
+#       hologram create my-ai-agent
+#
+#       # Deploy to network
+#       hologram deploy
+#
+#       # Your agent is now live with DID:
+#       # did:webvh:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK
+#     buttons:
+#       - label: "Try in Sandbox"
+#         icon: "fas fa-terminal"
+#         class: "inline-flex items-center bg-hologram-primary text-white px-6 py-3 rounded-lg hover:bg-hologram-secondary transition-colors duration-200 font-semibold"
+#       - label: "Download SDK"
+#         icon: "fas fa-download"
+#         class: "inline-flex items-center border border-gray-600 text-gray-300 px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors duration-200 font-semibold"
 partners:
   id: "partners-logos"
   title: "Trusted Partners & Standards"
   icon: "fas fa-handshake"
-  description: "Built on industry-leading standards and supported by trusted organizations in the decentralized identity ecosystem."
+  description: "Built on industry-leading standards supported by trusted organizations in the decentralized identity ecosystem."
   logos:
     - src: "/images/verana-logo-with-verana.svg"
       alt: "Verana Logo"
@@ -425,15 +425,15 @@ partners:
     - src: "/images/daiaa.avif"
       alt: "DAIAA Digital AI Authentication Alliance logo, AI verification standards"
       href: "https://www.daaia.org/"
-  note: "While Hologram is built on open standards, 2060 OÜ actively contributes to the decentralized identity ecosystem."
+  #note: "While Hologram is built on open standards, 2060 OÜ actively contributes to the decentralized identity ecosystem."
   badges:
-    - class: "bg-hologram-primary/10 text-hologram-primary px-4 py-2 rounded-full text-sm font-medium"
+    - class: "bg-hologram-secondary/10 text-hologram-secondary px-4 py-2 rounded-full text-sm font-medium"
       icon: "fas fa-check-circle"
-      label: "W3C DID Compliant"
+      label: "Decentralized Identifiers"
     - class: "bg-hologram-secondary/10 text-hologram-secondary px-4 py-2 rounded-full text-sm font-medium"
       icon: "fas fa-shield-alt"
-      label: "VC Standards Compatible"
-    - class: "bg-hologram-dark/10 text-hologram-dark px-4 py-2 rounded-full text-sm font-medium"
+      label: "W3C Verifiable Credentials"
+    - class: "bg-hologram-secondary/10 text-hologram-secondary px-4 py-2 rounded-full text-sm font-medium"
       icon: "fas fa-code-branch"
       label: "Open Source"
 ---
