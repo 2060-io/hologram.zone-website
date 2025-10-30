@@ -3399,6 +3399,10 @@ body.bg-black {
   background-color: rgb(113 63 18 / 0.2);
 }
 
+.bg-cyan-500\/20 {
+  background-color: rgb(6 182 212 / 0.2);
+}
+
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }

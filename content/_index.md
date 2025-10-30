@@ -252,7 +252,7 @@ use_cases:
   description: "From customer support to ID verification, build any verifiable AI application you can imagine."
   cards:
     - image:
-        src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/9525484ca0-e487775fdd39302a333c.png"
+        src: "/images/ai-support.webp"
         alt: "AI customer support chatbot interface with holographic elements, modern UI design, purple and blue gradient, professional support agent"
       icon: "fas fa-comments"
       icon_bg: "bg-hologram-primary/20"
@@ -261,7 +261,8 @@ use_cases:
       description: "Deploy intelligent customer service bots with verifiable credentials and transparent operations."
       badge_icon: "fas fa-award"
       badge_text: "Verified & Trusted"
-      badge_color: "text-yellow-500"
+      badge_color: "text-purple-500"
+
     - image:
         src: "/images/nfc.webp"
         alt: "digital identity verification system with secure credentials, futuristic ID card design, holographic security elements, government tech"
@@ -299,13 +300,13 @@ use_cases:
         src: "/images/integration.webp"
         alt: "enterprise integration dashboard with network connections, API interfaces, corporate technology, business AI systems, holographic network"
       icon: "fas fa-network-wired"
-      icon_bg: "bg-purple-500/20"
-      icon_color: "text-purple-500"
+      icon_bg: "bg-yellow-500/20"
+      icon_color: "text-yellow-500"
       title: "Enterprise Integration"
       description: "Add a verifiable communication layer your users can trust — authenticated by credentials, secured by encryption, and controlled by you."
       badge_icon: "fas fa-plug"
       badge_text: "Enterprise-Ready"
-      badge_color: "text-purple-500"
+      badge_color: "text-yellow-500"
     - image:
         src: "/images/dashboard.webp"
         alt: "custom AI service development workspace, coding interface with verifiable credentials, developer tools, holographic code visualization"
