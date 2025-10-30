@@ -296,7 +296,7 @@ use_cases:
       badge_text: "Transparent & Auditable"
       badge_color: "text-blue-500"
     - image:
-        src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/f37e876532-e903ab2e93378261afec.png"
+        src: "/images/dashboard.webp"
         alt: "enterprise integration dashboard with network connections, API interfaces, corporate technology, business AI systems, holographic network"
       icon: "fas fa-network-wired"
       icon_bg: "bg-purple-500/20"
