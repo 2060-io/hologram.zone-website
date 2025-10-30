@@ -285,7 +285,7 @@ use_cases:
       badge_text: "Privacy-First"
       badge_color: "text-hologram-dark"
     - image:
-        src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/e725df89aa-3b88f1828f51903d8bc0.png"
+        src: "/images/gov.webp"
         alt: "government digital services portal with official building architecture, transparent AI system, public administration technology, civic tech"
       icon: "fas fa-landmark"
       icon_bg: "bg-blue-500/20"
@@ -296,7 +296,7 @@ use_cases:
       badge_text: "Transparent & Auditable"
       badge_color: "text-blue-500"
     - image:
-        src: "/images/dashboard.webp"
+        src: "/images/integration.webp"
         alt: "enterprise integration dashboard with network connections, API interfaces, corporate technology, business AI systems, holographic network"
       icon: "fas fa-network-wired"
       icon_bg: "bg-purple-500/20"
@@ -307,7 +307,7 @@ use_cases:
       badge_text: "Enterprise-Ready"
       badge_color: "text-purple-500"
     - image:
-        src: "https://storage.googleapis.com/uxpilot-auth.appspot.com/e565215afc-32aa0063b232f97f546d.png"
+        src: "/images/dashboard.webp"
         alt: "custom AI service development workspace, coding interface with verifiable credentials, developer tools, holographic code visualization"
       icon: "fas fa-tools"
       icon_bg: "bg-green-500/20"
@@ -322,31 +322,31 @@ use_cases:
     label: "Try Live Demos"
     href: "#"
     icon: "fas fa-play"
-future_vision:
-  id: "future-vision"
-  title: "Why It's the Future"
-  icon: "fas fa-globe"
-  quote: |
-    "The new internet of <span class='text-hologram-primary'>verifiable AI and services:&nbsp;</span>where trust, identity, and privacy are native."
-  highlights:
-    - icon: "fas fa-network-wired"
-      icon_bg: "bg-hologram-primary"
-      title: "Built on Verana Trust Network"
-      description: "Decentralized infrastructure for verifiable services"
-    - icon: "fas fa-lock"
-      icon_bg: "bg-hologram-secondary"
-      title: "Powered by DIDComm + VC"
-      description: "Secure communication with verifiable credentials"
-    - icon: "fas fa-code"
-      icon_bg: "bg-hologram-dark"
-      title: "Open-source & Auditable"
-      description: "Transparent, censorship-resistant technology"
-  closing:
-    title: "Hologram = The Trust Layer for AI"
-    description: "Join the ecosystem of verifiable AI services and help build the future of trusted digital interactions."
-    cta:
-      label: "Join the Ecosystem"
-      href: "#"
+# future_vision:
+#   id: "future-vision"
+#   title: "Why It's the Future"
+#   icon: "fas fa-globe"
+#   quote: |
+#     "The new internet of <span class='text-hologram-primary'>verifiable AI and services:&nbsp;</span>where trust, identity, and privacy are native."
+#   highlights:
+#     - icon: "fas fa-network-wired"
+#       icon_bg: "bg-hologram-primary"
+#       title: "Built on Verana Trust Network"
+#       description: "Decentralized infrastructure for verifiable services"
+#     - icon: "fas fa-lock"
+#       icon_bg: "bg-hologram-secondary"
+#       title: "Powered by DIDComm + VC"
+#       description: "Secure communication with verifiable credentials"
+#     - icon: "fas fa-code"
+#       icon_bg: "bg-hologram-dark"
+#       title: "Open-source & Auditable"
+#       description: "Transparent, censorship-resistant technology"
+#   closing:
+#     title: "Hologram = The Trust Layer for AI"
+#     description: "Join the ecosystem of verifiable AI services and help build the future of trusted digital interactions."
+#     cta:
+#       label: "Join the Ecosystem"
+#       href: "#"
 # developer_resources:
 #   id: "developer-resources"
 #   title: "Developer Resources"
