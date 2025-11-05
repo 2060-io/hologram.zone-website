@@ -82,14 +82,14 @@ After many sessions at the Internet Identity Workshop (IIW), Fabrice Rochette an
 {{< team-chronology-highlight
     align="right"
     icon="fa-solid fa-external-link-alt"
-    icon_color_class="text-hologram-primary"
+    icon_color_class="text-green-500"
     icon_size="text-xs"
     text="[Verifiable Trust Specification](https://verana-labs.github.io/verifiable-trust-spec/)"
 >}}
 {{< team-chronology-highlight
     align="right"
     icon="fa-solid fa-external-link-alt"
-    icon_color_class="text-hologram-primary"
+    icon_color_class="text-green-500"
     icon_size="text-xs"
     text="[Verifiable Public Registry Specification](https://verana-labs.github.io/verifiable-trust-vpr-spec/)"
 >}}
@@ -107,7 +107,7 @@ Development of the first Verifiable User Agent, the [Hologram Messaging App](htt
 
 {{< team-chronology-highlight
     icon="fa-solid fa-check-circle"
-    icon_color_class="text-hologram-primary"
+    icon_color_class="text-blue-500"
     icon_size="text-xs"
     text="Hologram.zone launched"
 >}}
@@ -144,13 +144,13 @@ Launch of the Verana Foundation, expanding the ecosystem vision around Verifiabl
 
 {{< team-chronology-highlight
     icon="fa-solid fa-check-circle"
-    icon_color_class="text-hologram-primary"
+    icon_color_class="text-purple-500"
     icon_size="text-xs"
     text="Brand identity established"
 >}}
 {{< team-chronology-highlight
     icon="fa-solid fa-check-circle"
-    icon_color_class="text-hologram-primary"
+    icon_color_class="text-purple-500"
     icon_size="text-xs"
     text="Ecosystem vision expanded"
 >}}
@@ -172,7 +172,7 @@ Launch of the Verana Testnet and its integration with Hologram Messaging, introd
 {{< team-chronology-highlight
     align="right"
     icon="fa-solid fa-globe"
-    icon_color_class="text-hologram-primary"
+    icon_color_class="text-yellow-500"
     icon_size="text-xs"
     text="Testnet launched"
 >}}

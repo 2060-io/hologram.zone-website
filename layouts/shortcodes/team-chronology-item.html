@@ -10,7 +10,7 @@
 {{ $markerClass := default "w-6 h-6 bg-verana rounded-full border-4 border-white shadow-md" (.Get "marker_class") }}
 {{ $markerAnimation := default "" (.Get "marker_animation") }}
 {{ $markerExtraClass := default "" (.Get "marker_extra_class") }}
-{{ $yearClass := default "text-verana font-semibold text-lg mb-4" (.Get "year_class") }}
+{{ $yearClass := default "text-hologram-secondary font-semibold text-lg mb-4" (.Get "year_class") }}
 {{ $content := "" }}
 {{ $inner := trim .Inner "\n\r\t " }}
 {{ if gt (len $inner) 0 }}
