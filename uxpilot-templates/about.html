@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme:
+        {
+          extend:
+          {
+            colors:
+            {
+              'hologram-primary': '#7678ec',
+              'hologram-secondary': '#6161cb',
+              'hologram-dark': '#1c1161',
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      window.FontAwesomeConfig = {
+        autoReplaceSvg: 'nest'
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      .hologram-gradient {
+        background: linear-gradient(135deg, #7678ec 0%, #6161cb 50%, #1c1161 100%);
+      }
+      .hologram-gradient-light {
+        background: linear-gradient(135deg, rgba(118, 120, 236, 0.1) 0%, rgba(97, 97, 203, 0.1) 50%, rgba(28, 17, 97, 0.1) 100%);
+      }
+      .floating-animation {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+      .pulse-glow {
+        animation: pulse-glow 2s infinite;
+      }
+      @keyframes pulse-glow {
+        0%, 100% {
+          box-shadow: 0 0 20px rgba(118, 120, 236, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(118, 120, 236, 0.6);
+        }
+      }
+    </style>
+</head>
+
+<body class="bg-white">
+    <header id="header" class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 hologram-gradient rounded-lg flex items-center justify-center">
+              <i class="fas fa-cube text-white text-lg"></i>
+            </div>
+            <span class="text-2xl font-bold bg-gradient-to-r from-hologram-primary to-hologram-dark bg-clip-text text-transparent">Hologram</span>
+          </div>
+          <nav class="hidden lg:flex items-center space-x-8">
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Platform</a>
+            <div class="relative group">
+              <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium flex items-center">
+                Solutions <i class="fas fa-chevron-down ml-1 text-xs"></i>
+              </a>
+              <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="p-4 space-y-3">
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">AI Support Agents</a>
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">Digital ID Issuers</a>
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">Personal AI Companions</a>
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">Government Services</a>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Developers</a>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Docs</a>
+            <a href="#" class="text-hologram-primary transition-colors duration-200 font-medium">About</a>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Blog</a>
+          </nav>
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Sign In</a>
+            <button class="bg-hologram-primary text-white px-6 py-2.5 rounded-lg hover:bg-hologram-secondary transition-colors duration-200 font-medium">
+              Get Started
+            </button>
+            <button class="lg:hidden text-gray-700">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="about-hero" class="relative bg-gradient-to-br from-gray-50 to-white py-24 overflow-hidden">
+      <div class="absolute inset-0">
+        <div class="absolute top-20 left-10 w-72 h-72 hologram-gradient-light rounded-full blur-3xl opacity-30"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 hologram-gradient-light rounded-full blur-3xl opacity-20"></div>
+      </div>
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="inline-flex items-center px-4 py-2 bg-hologram-primary/10 rounded-full text-hologram-primary text-sm font-medium mb-8">
+            <i class="fas fa-users mr-2"></i>
+            About Hologram
+          </div>
+          <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-8">
+            <span class="text-gray-900">Building the Open</span><br>
+            <span class="bg-gradient-to-r from-hologram-primary to-hologram-dark bg-clip-text text-transparent">Trust Layer</span>
+          </h1>
+          <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            The visionaries and technologists building the open trust layer for the internet, empowering digital sovereignty for everyone.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            <i class="fas fa-crown text-hologram-primary mr-3"></i>
+            Our Leadership
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            The team behind Hologram Messaging, building the first verifiable messaging layer for the Internet, where trust and ownership are built in by design.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class="h-80 overflow-hidden bg-gradient-to-br from-hologram-primary/20 to-hologram-dark/20">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg" alt="Fabrice Rochette portrait" class="w-full h-full object-cover">
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">Fabrice Rochette</h3>
+              <div class="text-hologram-primary font-semibold mb-4">Co-Founder and CEO</div>
+              <p class="text-gray-600 leading-relaxed">
+                Entrepreneur and visionary technologist, driving Verana's mission to establish decentralized, verifiable trust as the foundation of the next-generation internet.
+              </p>
+              <div class="flex space-x-4 mt-6">
+                <a href="#" class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white transition-colors duration-200 text-gray-600">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white transition-colors duration-200 text-gray-600">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class="h-80 overflow-hidden bg-gradient-to-br from-hologram-secondary/20 to-hologram-dark/20">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-9.jpg" alt="Ariel Gentile portrait" class="w-full h-full object-cover">
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">Ariel Gentile</h3>
+              <div class="text-hologram-secondary font-semibold mb-4">Co-Founder and CTO</div>
+              <p class="text-gray-600 leading-relaxed">
+                Electronic engineer and open-source leader, combining technical versatility with strategic guidance to drive teams and projects to success.
+              </p>
+              <div class="flex space-x-4 mt-6">
+                <a href="#" class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-hologram-secondary hover:text-white transition-colors duration-200 text-gray-600">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-hologram-secondary hover:text-white transition-colors duration-200 text-gray-600">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team-values" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            <i class="fas fa-heart text-hologram-primary mr-3"></i>
+            Team Values
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            The principles that guide our mission to build a trustworthy and sovereign digital world.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-hologram-primary/10 rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-door-open text-hologram-primary text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Openness</h3>
+            <p class="text-gray-600 leading-relaxed">
+              We believe in open standards, open source, and transparency. Our protocols are public, auditable, and designed for interoperability.
+            </p>
+          </div>
+          <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-hologram-secondary/10 rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-crown text-hologram-secondary text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Sovereignty</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Individuals and organizations should maintain full control over their digital identities, data, and services without platform dependencies.
+            </p>
+          </div>
+          <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-hologram-dark/10 rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-lightbulb text-hologram-dark text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Innovation</h3>
+            <p class="text-gray-600 leading-relaxed">
+              We push the boundaries of cryptography, distributed systems, and decentralized networks to solve real-world trust problems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="chronology" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            <i class="fas fa-clock text-hologram-primary mr-3"></i>
+            Chronology
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Inspired by 2060-io's mission to rebuild the Internet's foundations, Hologram reimagines private messaging by addressing its deepest flaws: trust, ownership, and discovery.
+          </p>
+        </div>
+        <div class="max-w-4xl mx-auto">
+          <div class="relative">
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-hologram-primary via-hologram-secondary to-hologram-dark"></div>
+            
+            <div class="relative mb-16">
+              <div class="flex items-center mb-8">
+                <div class="flex-1 text-right pr-8">
+                  <h3 class="text-3xl font-bold text-hologram-primary mb-2">Genesis</h3>
+                  <div class="text-2xl font-bold text-gray-900">2020</div>
+                </div>
+                <div class="w-16 h-16 bg-hologram-primary rounded-full flex items-center justify-center z-10 shadow-lg">
+                  <i class="fas fa-star text-white text-xl"></i>
+                </div>
+                <div class="flex-1 pl-8"></div>
+              </div>
+              <div class="bg-gradient-to-br from-hologram-primary/5 to-hologram-dark/5 rounded-xl p-8 ml-auto mr-0 w-full md:w-[calc(50%-4rem)] md:ml-[calc(50%+4rem)]">
+                <p class="text-gray-700 mb-4">
+                  After many sessions at the Internet Identity Workshop (IIW), Fabrice Rochette and Ariel Gentile invent the concept of Verifiable Trust.
+                </p>
+                <div class="space-y-2">
+                  <div class="flex items-center text-sm text-hologram-primary">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <span>Publication of Verifiable Trust Specification</span>
+                  </div>
+                  <div class="flex items-center text-sm text-hologram-primary">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <span>Publication of Verifiable Public Registry Specification</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative mb-16">
+              <div class="flex items-center mb-8">
+                <div class="flex-1 text-right pr-8"></div>
+                <div class="w-16 h-16 bg-hologram-secondary rounded-full flex items-center justify-center z-10 shadow-lg">
+                  <i class="fas fa-flask text-white text-xl"></i>
+                </div>
+                <div class="flex-1 pl-8">
+                  <h3 class="text-3xl font-bold text-hologram-secondary mb-2">First Proofs of Concept</h3>
+                  <div class="text-2xl font-bold text-gray-900">2021–2022</div>
+                </div>
+              </div>
+              <div class="bg-gradient-to-br from-hologram-secondary/5 to-hologram-dark/5 rounded-xl p-8 mr-auto ml-0 w-full md:w-[calc(50%-4rem)]">
+                <p class="text-gray-700 mb-4">
+                  Development of the first Verifiable User Agent, the Hologram Messaging App, demonstrates the model's real-world potential. Creation of Verifiable Service chatbots proves that verifiable trust works in practice.
+                </p>
+                <div class="space-y-2">
+                  <div class="flex items-center text-sm text-hologram-secondary">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <span>Hologram.zone launched</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative mb-16">
+              <div class="flex items-center mb-8">
+                <div class="flex-1 text-right pr-8">
+                  <h3 class="text-3xl font-bold text-hologram-dark mb-2">Network Development</h3>
+                  <div class="text-2xl font-bold text-gray-900">2023</div>
+                </div>
+                <div class="w-16 h-16 bg-hologram-dark rounded-full flex items-center justify-center z-10 shadow-lg">
+                  <i class="fas fa-network-wired text-white text-xl"></i>
+                </div>
+                <div class="flex-1 pl-8"></div>
+              </div>
+              <div class="bg-gradient-to-br from-hologram-dark/5 to-hologram-primary/5 rounded-xl p-8 ml-auto mr-0 w-full md:w-[calc(50%-4rem)] md:ml-[calc(50%+4rem)]">
+                <p class="text-gray-700 mb-4">
+                  The Internet needs a public infrastructure for Trust Registries. We started to work, with other folks, on a prototype of a decentralized, blockchain-based Verifiable Public Registry (VPR) implementation.
+                </p>
+                <div class="space-y-2">
+                  <div class="flex items-center text-sm text-hologram-dark">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <span>Team expansion begins</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative mb-16">
+              <div class="flex items-center mb-8">
+                <div class="flex-1 text-right pr-8"></div>
+                <div class="w-16 h-16 bg-gradient-to-r from-hologram-primary to-hologram-secondary rounded-full flex items-center justify-center z-10 shadow-lg">
+                  <i class="fas fa-rocket text-white text-xl"></i>
+                </div>
+                <div class="flex-1 pl-8">
+                  <h3 class="text-3xl font-bold bg-gradient-to-r from-hologram-primary to-hologram-secondary bg-clip-text text-transparent mb-2">Verana Emerges</h3>
+                  <div class="text-2xl font-bold text-gray-900">2024</div>
+                </div>
+              </div>
+              <div class="bg-gradient-to-br from-hologram-primary/5 to-hologram-secondary/5 rounded-xl p-8 mr-auto ml-0 w-full md:w-[calc(50%-4rem)]">
+                <p class="text-gray-700 mb-4">
+                  Launch of the Verana Foundation, expanding the ecosystem vision around Verifiable Services and Trust Registries.
+                </p>
+                <div class="space-y-2">
+                  <div class="flex items-center text-sm text-hologram-primary">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <span>Brand identity established</span>
+                  </div>
+                  <div class="flex items-center text-sm text-hologram-primary">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <span>Ecosystem vision expanded</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="flex items-center mb-8">
+                <div class="flex-1 text-right pr-8">
+                  <h3 class="text-3xl font-bold text-hologram-primary mb-2">Testnet & Strategic Growth</h3>
+                  <div class="text-2xl font-bold text-gray-900">2025</div>
+                </div>
+                <div class="w-16 h-16 bg-gradient-to-br from-hologram-primary via-hologram-secondary to-hologram-dark rounded-full flex items-center justify-center z-10 shadow-lg pulse-glow">
+                  <i class="fas fa-fire text-white text-xl"></i>
+                </div>
+                <div class="flex-1 pl-8"></div>
+              </div>
+              <div class="bg-gradient-to-br from-hologram-primary/10 to-hologram-dark/10 rounded-xl p-8 ml-auto mr-0 w-full md:w-[calc(50%-4rem)] md:ml-[calc(50%+4rem)] border-2 border-hologram-primary/20">
+                <p class="text-gray-700 mb-4">
+                  Launch of the Verana Testnet and its integration with Hologram Messaging, introducing the first verifiable messaging app that lets users discover and trust decentralized services.
+                </p>
+                <div class="space-y-2">
+                  <div class="flex items-center text-sm text-hologram-primary font-semibold">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    <span>Testnet launched</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="join-mission" class="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-6">
+            <i class="fas fa-handshake text-hologram-primary mr-3"></i>
+            Join Our Mission
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            We're building a trustworthy and sovereign digital world—and we'd love your help.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="h-48 bg-gradient-to-br from-hologram-primary/20 to-hologram-secondary/20 flex items-center justify-center">
+              <i class="fas fa-briefcase text-hologram-primary text-6xl"></i>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Careers</h3>
+              <p class="text-gray-600 mb-6">
+                Explore open positions and join our growing team of innovators.
+              </p>
+              <a href="#" class="inline-flex items-center bg-hologram-primary text-white px-6 py-3 rounded-lg hover:bg-hologram-secondary transition-colors duration-200 font-semibold w-full justify-center">
+                View Openings
+                <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="h-48 bg-gradient-to-br from-hologram-secondary/20 to-hologram-dark/20 flex items-center justify-center">
+              <i class="fas fa-code-branch text-hologram-secondary text-6xl"></i>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Contributors</h3>
+              <p class="text-gray-600 mb-6">
+                Contribute to our open-source projects and help build the future.
+              </p>
+              <a href="#" class="inline-flex items-center bg-hologram-secondary text-white px-6 py-3 rounded-lg hover:bg-hologram-dark transition-colors duration-200 font-semibold w-full justify-center">
+                Start Contributing
+                <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+            <div class="h-48 bg-gradient-to-br from-hologram-dark/20 to-hologram-primary/20 flex items-center justify-center">
+              <i class="fas fa-handshake text-hologram-dark text-6xl"></i>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Partnerships</h3>
+              <p class="text-gray-600 mb-6">
+                Partner with us to integrate verifiable trust into your ecosystem.
+              </p>
+              <a href="#" class="inline-flex items-center bg-hologram-dark text-white px-6 py-3 rounded-lg hover:bg-hologram-primary transition-colors duration-200 font-semibold w-full justify-center">
+                Partner With Us
+                <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="py-20 bg-gradient-to-r from-hologram-primary via-hologram-secondary to-hologram-dark">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+            Ready to Build the Future?
+          </h2>
+          <p class="text-xl mb-8 opacity-90">
+            Join our community and start building verifiable AI services today.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#" class="bg-white text-hologram-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors duration-200 font-semibold text-lg inline-flex items-center justify-center">
+              <i class="fas fa-envelope mr-2"></i>
+              Contact Us
+            </a>
+            <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-hologram-primary transition-colors duration-200 font-semibold text-lg inline-flex items-center justify-center">
+              <i class="fas fa-users mr-2"></i>
+              Join Community
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="bg-gray-50 text-gray-900 py-16">
+      <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-5 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <div class="flex items-center space-x-3 mb-6">
+              <div class="w-10 h-10 hologram-gradient rounded-lg flex items-center justify-center">
+                <i class="fas fa-cube text-white text-lg"></i>
+              </div>
+              <span class="text-2xl font-bold">Hologram</span>
+            </div>
+            <p class="text-gray-600 mb-6 max-w-md">
+              Building the future of verifiable AI services. Create trusted, discoverable, and privacy-preserving AI agents on the decentralized web.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-discord"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-4 text-gray-900">Platform</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">How it Works</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Features</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Pricing</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Security</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Status</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-4 text-gray-900">Developers</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Documentation</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">API Reference</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">SDK</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">GitHub</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Community</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-4 text-gray-900">Company</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">About</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Blog</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Careers</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Press</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-200 pt-8">
+          <div class="flex flex-col lg:flex-row justify-between items-center">
+            <div class="text-gray-600 mb-4 lg:mb-0">
+              © 2024 Hologram. All rights reserved.
+            </div>
+            <div class="flex space-x-6 text-sm">
+              <a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Privacy Policy</a>
+              <a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Terms of Service</a>
+              <a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
