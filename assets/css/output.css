@@ -2982,6 +2982,10 @@ body.bg-black {
   border-color: rgb(118 120 236 / 0.3);
 }
 
+.border-hologram-primary\/20 {
+  border-color: rgb(118 120 236 / 0.2);
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
@@ -3307,6 +3311,10 @@ body.bg-black {
 
 .bg-yellow-900\/20 {
   background-color: rgb(113 63 18 / 0.2);
+}
+
+.bg-hologram-dark\/10 {
+  background-color: rgb(28 17 97 / 0.1);
 }
 
 .bg-gradient-to-br {
@@ -5162,6 +5170,10 @@ body.bg-black {
   border-color: rgb(118 62 240 / 0.6);
 }
 
+.hover\:border-hologram-primary\/60:hover {
+  border-color: rgb(118 120 236 / 0.6);
+}
+
 .hover\:bg-blue-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
@@ -5229,6 +5241,11 @@ body.bg-black {
 .hover\:bg-verana-light:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(159 122 234 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-hologram-dark:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(28 17 97 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-gray-900:hover {

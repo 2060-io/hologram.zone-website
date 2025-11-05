@@ -2273,6 +2273,9 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(118 120 236 / var(--tw-border-opacity, 1));
 }
+.border-hologram-primary\/20 {
+  border-color: rgb(118 120 236 / 0.2);
+}
 .border-hologram-primary\/30 {
   border-color: rgb(118 120 236 / 0.3);
 }
@@ -2390,10 +2393,6 @@ video {
 .bg-cyan-400\/20 {
   background-color: rgb(34 211 238 / 0.2);
 }
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
-}
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
@@ -2464,6 +2463,9 @@ video {
 .bg-hologram-dark {
   --tw-bg-opacity: 1;
   background-color: rgb(28 17 97 / var(--tw-bg-opacity, 1));
+}
+.bg-hologram-dark\/10 {
+  background-color: rgb(28 17 97 / 0.1);
 }
 .bg-hologram-dark\/20 {
   background-color: rgb(28 17 97 / 0.2);
@@ -3381,8 +3383,6 @@ video {
 
 .hover\:bg-gray-800:hover { background-color: #f1f5f9 !important; }
 
-.hover\:bg-gray-600:hover { background-color: #e2e8f0 !important; }
-
 .hover\:bg-verana:hover { color: #fff !important; }
 
 .hover\:bg-verana-dark:hover { color: #fff !important; }
@@ -4101,6 +4101,10 @@ video {
   border-color: rgb(118 120 236 / var(--tw-border-opacity, 1));
 }
 
+.hover\:border-hologram-primary\/60:hover {
+  border-color: rgb(118 120 236 / 0.6);
+}
+
 .hover\:border-verana:hover {
   --tw-border-opacity: 1;
   border-color: rgb(118 62 240 / var(--tw-border-opacity, 1));
@@ -4118,11 +4122,6 @@ video {
   border-color: rgb(118 62 240 / 0.6);
 }
 
-.hover\:bg-blue-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
-}
-
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
@@ -4133,11 +4132,6 @@ video {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:bg-gray-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
-}
-
 .hover\:bg-gray-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
@@ -4146,6 +4140,11 @@ video {
 .hover\:bg-green-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(74 222 128 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-hologram-dark:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(28 17 97 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:bg-hologram-primary:hover {
