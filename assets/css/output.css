@@ -2978,6 +2978,10 @@ body.bg-black {
   border-color: rgb(161 98 7 / 0.5);
 }
 
+.border-hologram-primary\/30 {
+  border-color: rgb(118 120 236 / 0.3);
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));

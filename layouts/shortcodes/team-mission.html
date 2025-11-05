@@ -31,12 +31,12 @@
                 {{ $target = "_blank" }}
                 {{ $rel = "noopener noreferrer" }}
               {{ end }}
-              <a href="{{ $primaryUrl }}" class="bg-verana hover:bg-verana-dark text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105 flex items-center space-x-2"{{ if $target }} target="{{ $target }}" rel="{{ $rel }}"{{ end }}>
+              <a href="{{ $primaryUrl }}" class="bg-hologram-primary hover:bg-hologram-secondary text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105 flex items-center space-x-2"{{ if $target }} target="{{ $target }}" rel="{{ $rel }}"{{ end }}>
                 {{ if $primaryIcon }}<i class="{{ $primaryIcon }}"></i>{{ end }}
                 <span>{{ $label }}</span>
               </a>
             {{ else }}
-              <span class="bg-verana hover:bg-verana-dark text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105 flex items-center space-x-2">
+              <span class="bg-hologram-primary hover:bg-hologram-secondary text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105 flex items-center space-x-2">
                 {{ if $primaryIcon }}<i class="{{ $primaryIcon }}"></i>{{ end }}
                 <span>{{ $label }}</span>
               </span>

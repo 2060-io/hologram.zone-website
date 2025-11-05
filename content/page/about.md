@@ -72,8 +72,8 @@ disable_content_wrapper: true
     year="2020"
     title="Genesis"
     icon="fa-solid fa-star"
-    icon_bg_class="bg-hologram-primary/20"
-    icon_color_class="text-hologram-primary"
+    icon_bg_class="bg-hologram-primary"
+    icon_color_class="text-white"
     side="left"
 >}}
 After many sessions at the Internet Identity Workshop (IIW), Fabrice Rochette and Ariel Gentile invent the concept of Verifiable Trust.
@@ -82,12 +82,14 @@ After many sessions at the Internet Identity Workshop (IIW), Fabrice Rochette an
 {{< team-chronology-highlight
     align="right"
     icon="fa-solid fa-external-link-alt"
+    icon_color_class="text-hologram-primary"
     icon_size="text-xs"
     text="[Verifiable Trust Specification](https://verana-labs.github.io/verifiable-trust-spec/)"
 >}}
 {{< team-chronology-highlight
     align="right"
     icon="fa-solid fa-external-link-alt"
+    icon_color_class="text-hologram-primary"
     icon_size="text-xs"
     text="[Verifiable Public Registry Specification](https://verana-labs.github.io/verifiable-trust-vpr-spec/)"
 >}}
@@ -97,15 +99,15 @@ After many sessions at the Internet Identity Workshop (IIW), Fabrice Rochette an
     year="2021–2022"
     title="First Proofs of Concept"
     icon="fa-solid fa-flask"
-    icon_bg_class="bg-hologram-secondary/20"
-    icon_color_class="text-hologram-secondary"
+    icon_bg_class="bg-hologram-secondary"
+    icon_color_class="text-white"
     side="right"
 >}}
 Development of the first Verifiable User Agent, the [Hologram Messaging App](https://hologram.zone), demonstrates the model’s real-world potential. Creation of Verifiable Service chatbots proves that verifiable trust works in practice.
 
 {{< team-chronology-highlight
     icon="fa-solid fa-check-circle"
-    icon_color_class="text-green-400"
+    icon_color_class="text-hologram-primary"
     icon_size="text-xs"
     text="Hologram.zone launched"
 >}}
@@ -115,8 +117,8 @@ Development of the first Verifiable User Agent, the [Hologram Messaging App](htt
     year="2023"
     title="Network Development"
     icon="fa-solid fa-network-wired"
-    icon_bg_class="bg-hologram-dark/20"
-    icon_color_class="text-hologram-dark"
+    icon_bg_class="bg-hologram-dark"
+    icon_color_class="text-white"
     side="left"
 >}}
 The Internet needs a public infrastructure for Trust Registries. We started to work, with other folks, on a prototype of a decentralized, blockchain-based Verifiable Public Registry (VPR) implementation.
@@ -124,7 +126,7 @@ The Internet needs a public infrastructure for Trust Registries. We started to w
 {{< team-chronology-highlight
     align="right"
     icon="fa-solid fa-users"
-    icon_color_class="text-verana"
+    icon_color_class="text-hologram-primary"
     icon_size="text-xs"
     text="Team expansion begins"
 >}}
@@ -134,21 +136,21 @@ The Internet needs a public infrastructure for Trust Registries. We started to w
     year="2024"
     title="Verana Emerges"
     icon="fa-solid fa-rocket"
-    icon_bg_class="bg-hologram-primary/20"
-    icon_color_class="text-hologram-primary"
+    icon_bg_class="bg-hologram-primary"
+    icon_color_class="text-white"
     side="right"
 >}}
 Launch of the Verana Foundation, expanding the ecosystem vision around Verifiable Services and Trust Registries.
 
 {{< team-chronology-highlight
     icon="fa-solid fa-check-circle"
-    icon_color_class="text-green-400"
+    icon_color_class="text-hologram-primary"
     icon_size="text-xs"
     text="Brand identity established"
 >}}
 {{< team-chronology-highlight
     icon="fa-solid fa-check-circle"
-    icon_color_class="text-green-400"
+    icon_color_class="text-hologram-primary"
     icon_size="text-xs"
     text="Ecosystem vision expanded"
 >}}
@@ -159,10 +161,10 @@ Launch of the Verana Foundation, expanding the ecosystem vision around Verifiabl
     title="Testnet & Strategic Growth"
     icon="fa-solid fa-chart-line"
     side="left"
-    card_class="bg-gradient-to-br from-verana/10 to-verana-dark/10 border border-verana/50 rounded-2xl p-8 hover:border-verana transition-all duration-300"
-    icon_bg_class="bg-hologram-secondary/20"
-    icon_color_class="text-hologram-secondary"
-    marker_class="w-8 h-8 bg-verana rounded-full border-4 border-black"
+    card_class="bg-gradient-to-br from-hologram-primary/10 to-hologram-dark/10 border border-hologram-primary/30 rounded-2xl p-8 hover:border-hologram-primary transition-all duration-300"
+    icon_bg_class="bg-hologram-secondary"
+    icon_color_class="text-white"
+    marker_class="w-8 h-8 bg-hologram-primary rounded-full border-4 border-white"
 >}}
 Launch of the Verana Testnet and its integration with Hologram Messaging, introducing the first verifiable messaging app that lets users discover and trust decentralized services.
 
@@ -170,7 +172,7 @@ Launch of the Verana Testnet and its integration with Hologram Messaging, introd
 {{< team-chronology-highlight
     align="right"
     icon="fa-solid fa-globe"
-    icon_color_class="text-verana"
+    icon_color_class="text-hologram-primary"
     icon_size="text-xs"
     text="Testnet launched"
 >}}
