@@ -4,6 +4,7 @@
 {{ if and (ne $align "left") (ne $align "right") }}{{ $align = "left" }}{{ end }}
 {{ $icon := .Get "icon" }}
 {{ $iconColorClass := default "text-verana" (.Get "icon_color_class") }}
+{{ $textColorClass := default $iconColorClass (.Get "text_color_class") }}
 {{ $iconSize := default "text-sm" (.Get "icon_size") }}
 {{ $extraClasses := default "" (.Get "class") }}
 {{ $textHTML := .Page.RenderString $text }}
@@ -17,5 +18,5 @@
 {{ end }}
 <div class="{{ $baseClasses }} {{ $extraClasses }}">
   {{ if $icon }}<i class="{{ $icon }} {{ $iconColorClass }} {{ $iconSize }}"></i>{{ end }}
-  <span class="leading-relaxed">{{ $textHTML | safeHTML }}</span>
+<span class="leading-relaxed {{ $textColorClass }}">{{ $textHTML | safeHTML }}</span>
 </div>
