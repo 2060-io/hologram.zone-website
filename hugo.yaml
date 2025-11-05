@@ -30,18 +30,18 @@ params:
     tagline: "The Open Trust Layer for the Internet"
     testnet:
       label: "Get Started"
-      url: "/page/developers/testnet"
+      url: "/page/get-started"
       class: "bg-hologram-primary hover:bg-hologram-secondary text-white"
 #      icon: "fa-solid fa-umbrella-beach"
 #      icon: "fa-solid fa-flask-vial"
   footer:
-    company: "2060 OÜ"
+    company: "2060 OÜ for the Verana Foundation"
     description: "Hologram, the browser for a new internet of verifiable AI and services: where trust, identity, and privacy are native."
     socials:
       - platform: "github"
         url: "https://github.com/2060-io"
       - platform: "discord"
-        url: "https://discord.com/invite/pFk6XdC28E"
+        url: "https://discord.gg/edjaFn252q"
       - platform: "linkedin"
         url: "https://www.linkedin.com/company/2060-io"
     legal:
@@ -66,6 +66,8 @@ params:
             url: "https://docs.hologram.zone"
           - label: "Github"
             url: "https://github.com/2060-io/"
+          - label: "Verana Foundation"
+            url: "https://verana.io"
       - title: "Specifications"
         items:
           - label: "Verifiable Trust Spec"
@@ -82,79 +84,18 @@ params:
   # Optional: override menu ordering using this list.
   nav:
     main:
-      - title: "Trust Engine"
-        children:
-          - title: "Building Blocks"
-            url: "/page/trust-engine/building-blocks"
-          - title: "Verifiable Trust Concept"
-            url: "/page/trust-engine/concept"
-          - title: "Trust Resolver"
-            url: "/page/trust-engine/trust-resolver"
-          - title: "Trust Deposit & Reputation"
-            url: "/page/trust-engine/trust-deposit"
-      - title: "Own the Rails"
-        url: "/page/build"
-        children:
-          - title: "Ecosystems & Trust Networks"
-            url: "/page/build/trust-networks"
-          - title: "Verifiable Services"
-            url: "/page/build/verifiable-services"
-          - title: "Verifiable User Agents"
-            url: "/page/build/verifiable-user-agents"
-      - title: "Industry Use Cases"
-        url: "/page/industry-use-cases"
-        children:
-          - title: "Overview"
-            url: "/page/industry-use-cases"
-          - title: "Government Verifiable Citizen ID"
-            url: "/page/industry-use-cases/government-id"
-          - title: "Healthcare Workforce Mobility"
-            url: "/page/industry-use-cases/healthcare-workforce-mobility"
-#          - title: "SEPA Direct Debit payments"
-#            url: "/page/industry-use-cases/payments"
-          - title: "Hotel Discovery"
-            url: "/page/industry-use-cases/hotel-management"
-          - title: "AI Agents"
-            url: "/page/industry-use-cases/ai-agents"
-#          - title: "Verifiable Smart Contracts and RWAs"
-#            url: "/page/industry-use-cases/sc-rwa"
-          - title: "Decentralized Social Networks"
-            url: "/page/industry-use-cases/decentralized-social-network"
-          - title: "Notaries & Powers of Attorney"
-            url: "/page/industry-use-cases/notaries"
+      - title: "Download Hologram"
+        url: "/"
 
       - title: "Developers"
-        children:
-          - title: "Components"
-            url: "/page/developers/components"
-          - title: "Testnet"
-            url: "/page/developers/testnet"
-          
-          
-#      - title: "Community"
-#        children:
-#          - title: "Integrators"
-#           url: "/page/community/integrators"
+        url: "/page/get-started"
+
+      - title: "Demos"
+        url: "/page/demos"
+         
       - title: "About"
-        children:
-          - title: "Team"
-            url: "/page/about/team"
-#          - title: "Whitepaper"
-#            url: "/"
-#          - title: "Roadmap"
-#            url: "/page/about/roadmap"
-          - title: "Governance"
-            url: "/page/about/governance"
-#      - title: "Testnet"
-#        children:
-#          - title: "App"
-#            url: "https://app.testnet.verana.network"
-#          - title: "Chain Explorer"
-#            url: "https://explorer.testnet.verana.network/"
-#          - title: "Purple Pages"
-#            url: "/"
-#          - title: "Statistics"
-#            url: "/"
+        url: "/page/about"
+
          
 
 outputs:

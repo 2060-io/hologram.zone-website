@@ -1,7 +1,7 @@
 ---
 title: Meet the Team
 subtitle: "The visionaries and technologists building the open trust layer for the internet, empowering digital sovereignty for everyone."
-url: "/page/about/team"
+url: "/page/about"
 meta_title: "Verana Team | Founders and Leaders of the Open Trust Layer"
 meta_description: "Meet the Verana leadership team building decentralized trust infrastructure, from network engineering to ecosystem governance and developer relations."
 hero_icon: "fa-solid fa-users"
@@ -10,7 +10,7 @@ disable_content_wrapper: true
 
 {{< team-grid
     title="Our Leadership"
-    description="Meet the founders and advisors who are pioneering the future of verifiable digital trust and decentralized identity systems."
+    description="Meet the founders who are pioneering the future of verifiable digital trust and decentralized identity systems."
 >}}
 {{< team-member
     name="Fabrice Rochette"
@@ -31,22 +31,6 @@ disable_content_wrapper: true
     photo="/images/team/ariel.jpeg"
 >}}
 
-{{< team-member
-    name="Mathieu Gauthron"
-    position="Head of Network"
-    bio="Technology leader with deep expertise in distributed systems, overseeing the development of the Verana Network to ensure scalability, reliability, and long-term resilience."
-    linkedin="https://www.linkedin.com/in/mathieugauthron/"
-    github="https://github.com/matlux"
-    photo="/images/team/mathieu.jpeg"
->}}
-
-{{< team-member
-    name="Philip A. Bildner"
-    position="Strategic Advisor"
-    bio="Advisor with a background spanning law, finance, and blockchain governance, guiding Verana’s strategic direction, ecosystem partnerships, and capital strategy."
-    linkedin="https://www.linkedin.com/in/pbildner/"
-    photo="/images/team/philip.jpeg"
->}}
 {{< /team-grid >}}
 
 {{< team-values
@@ -58,6 +42,7 @@ disable_content_wrapper: true
     description="We believe in open standards, open source, and transparency. Our protocols are public, auditable, and designed for interoperability."
     icon="fa-solid fa-lock-open"
 >}}
+
 
 {{< team-value
     title="Sovereignty"
@@ -71,6 +56,7 @@ disable_content_wrapper: true
     icon="fa-solid fa-lightbulb"
 >}}
 {{< /team-values >}}
+
 
 {{< team-chronology
     title="Chronology"
@@ -186,7 +172,7 @@ Philip A. Bildner joins as Strategic Advisor to guide governance, fundraising, a
     title="Join Our Mission"
     description="We’re building a trustworthy and sovereign digital world—and we’d love your help."
     primary_label="Contact Us"
-    primary_url="mailto:hello@verana.io"
+    primary_url="mailto:hello@2060.io"
     secondary_label="Join Community"
     secondary_url="https://discord.gg/edjaFn252q"
     secondary_icon="fa-solid fa-users"
@@ -196,7 +182,7 @@ Philip A. Bildner joins as Strategic Advisor to guide governance, fundraising, a
     description="Explore open positions and join our growing team of innovators."
     icon="fa-solid fa-briefcase"
     cta_label="View Openings"
-    cta_url="https://www.linkedin.com/company/verana-foundation/"
+    cta_url="https://www.linkedin.com/company/2060-io/"
 >}}
 
 {{< team-mission-card
@@ -204,7 +190,7 @@ Philip A. Bildner joins as Strategic Advisor to guide governance, fundraising, a
     description="Contribute to our open-source projects and help build the future."
     icon="fa-solid fa-code-branch"
     cta_label="Start Contributing"
-    cta_url="https://github.com/verana-labs"
+    cta_url="https://github.com/2060-io"
 >}}
 
 {{< team-mission-card
@@ -212,6 +198,6 @@ Philip A. Bildner joins as Strategic Advisor to guide governance, fundraising, a
     description="Partner with us to integrate verifiable trust into your ecosystem."
     icon="fa-solid fa-handshake"
     cta_label="Partner With Us"
-    cta_url="https://www.linkedin.com/company/verana-foundation/"
+    cta_url="https://www.linkedin.com/company/2060-io/"
 >}}
 {{< /team-mission >}}
