@@ -76,11 +76,11 @@
             {{ end }}
           {{ end }}
         </nav>
-        <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-snug flex items-baseline flex-wrap gap-4 pb-2">
+        <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-snug flex items-baseline flex-wrap gap-4 pb-2 text-gray-900">
           {{ if $icon }}
-            <i class="{{ $icon }} text-verana"></i>
+            <i class="{{ $icon }} text-hologram-primary"></i>
           {{ end }}
-          <span class="block py-1 pb-2 bg-gradient-to-r from-hologram-dark via-hologram-secondary to-hologram-primary bg-clip-text text-transparent drop-shadow-lg">{{ $title }}</span>
+          <span class="block py-1 pb-2 text-gray-900 drop-shadow-lg">{{ $title }}</span>
         </h1>
         {{ with $subtitle }}
           <p class="text-xl lg:text-2xl text-gray-600 max-w-3xl leading-relaxed">{{ . }}</p>

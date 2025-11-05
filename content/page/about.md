@@ -1,5 +1,5 @@
 ---
-title: Meet the Team
+title: About
 subtitle: "The visionaries and technologists building the open trust layer for the internet, empowering digital sovereignty for everyone."
 url: "/page/about"
 meta_title: "Verana Team | Founders and Leaders of the Open Trust Layer"
@@ -10,7 +10,7 @@ disable_content_wrapper: true
 
 {{< team-grid
     title="Our Leadership"
-    description="Meet the founders who are pioneering the future of verifiable digital trust and decentralized identity systems."
+    description="The team behind Hologram Messaging, building the first verifiable messaging layer for the Internet, where trust and ownership are built in by design."
 >}}
 {{< team-member
     name="Fabrice Rochette"
@@ -60,7 +60,7 @@ disable_content_wrapper: true
 
 {{< team-chronology
     title="Chronology"
-    description="Inspired by 2060 OÜ’s mission to rebuild the Internet’s foundations, Hologram reimagines private messaging by addressing its deepest flaws: trust, ownership, and discovery."
+    description="Inspired by 2060-io's mission to rebuild the Internet’s foundations, Hologram reimagines private messaging by addressing its deepest flaws: trust, ownership, and discovery."
 >}}
 {{< team-chronology-item
     year="2020"

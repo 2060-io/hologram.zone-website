@@ -1,7 +1,7 @@
 ---
-title: Developers
+title: Getting Started
 subtitle: "Learn how to get started with Verana as a developer, and where to find documentation and access community channels."
-url: "/page/developers"
+url: "/page/get-started"
 meta_title: "Developers and Verana | Learn how to get started with Verana, and where to find documentation and access community channels."
 hero_icon: "fa-solid fa-hammer"
 disable_content_wrapper: true
