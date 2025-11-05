@@ -1,5 +1,5 @@
 ---
-title: About
+title: About Us
 subtitle: "The visionaries and technologists building the open trust layer for the internet, empowering digital sovereignty for everyone."
 url: "/page/about"
 meta_title: "Verana Team | Founders and Leaders of the Open Trust Layer"

@@ -1,9 +1,17 @@
 {{ $page := . }}
 {{ if not $page.IsHome }}
-  {{/* Determine hero content */}}
+  {{ $params := $page.Params }}
   {{ $title := $page.Title }}
-  {{ $subtitle := or ($page.Params.subtitle) ($page.Params.Subtitle) ($page.Params.description) ($page.Params.Description) }}
-  {{ $icon := or ($page.Params.hero_icon) ($page.Params.heroIcon) ($page.Params.heroicon) }}
+  {{ $fallbackSubtitle := or ($params.subtitle) ($params.Subtitle) ($params.description) ($params.Description) }}
+  {{ $icon := or ($params.hero_icon) ($params.heroIcon) ($params.heroicon) }}
+  {{ $badgeText := or ($params.hero_badge_text) ($params.heroBadgeText) ($params.hero_label) ($params.heroLabel) ($params.hero_kicker) ($params.heroKicker) "" }}
+  {{ $badgeIcon := or ($params.hero_badge_icon) ($params.heroBadgeIcon) $icon }}
+  {{ $heading := or ($params.hero_heading) ($params.heroHeading) ($params.hero_title) ($params.heroTitle) $title }}
+  {{ $highlight := or ($params.hero_highlight) ($params.hero_highlight_text) ($params.heroHighlight) ($params.heroHighlightText) "" }}
+  {{ $description := or ($params.hero_description) ($params.heroDescription) $fallbackSubtitle }}
+  {{ $heroImage := or ($params.hero_image) ($params.heroImage) ($params.hero_media) ($params.heroMedia) "" }}
+  {{ $heroImageAlt := or ($params.hero_image_alt) ($params.heroImageAlt) ($params.hero_media_alt) ($params.heroMediaAlt) (printf "%s hero image" $title) }}
+  {{ $heroImageCaption := or ($params.hero_image_caption) ($params.heroImageCaption) "" }}
 
   {{/* Build breadcrumb slice */}}
   {{ $crumbs := slice (dict "title" "Home" "url" site.Home.RelPermalink) }}
@@ -57,33 +65,59 @@
     {{ $crumbs = slice (dict "title" $title) }}
     {{ $crumbCount = len $crumbs }}
   {{ end }}
-  <section class="relative bg-gradient-to-br from-gray-50 to-white py-16 lg:py-24 overflow-hidden min-h-[320px] flex items-center">
-    <div class="absolute inset-0">
-      <div class="absolute top-10 left-0 w-72 h-72 bg-hologram-primary/20 rounded-full blur-3xl opacity-40"></div>
-      <div class="absolute bottom-10 right-0 w-96 h-96 bg-hologram-secondary/20 rounded-full blur-3xl opacity-30"></div>
+  {{ $showBreadcrumbs := gt (len $crumbs) 1 }}
+  <section class="relative overflow-hidden py-20 lg:py-28 bg-gradient-to-br from-gray-50 via-white to-white">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-10 left-0 w-64 h-64 bg-hologram-primary/15 blur-3xl rounded-full opacity-60"></div>
+      <div class="absolute bottom-10 right-16 w-80 h-80 bg-hologram-secondary/20 blur-3xl rounded-full opacity-40"></div>
+      <div class="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-hologram-primary/20 to-transparent"></div>
     </div>
     <div class="container mx-auto px-6 relative z-10">
-      <div class="max-w-4xl mx-auto">
-        <nav class="flex flex-wrap items-center gap-2 text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
-          {{ range $i, $crumb := $crumbs }}
-            {{ if gt $i 0 }}
-              <i class="fa-solid fa-chevron-right text-xs"></i>
+      <div class="max-w-4xl mx-auto text-center">
+        {{ if $showBreadcrumbs }}
+          <nav class="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
+            {{ range $i, $crumb := $crumbs }}
+              {{ if gt $i 0 }}
+                <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
+              {{ end }}
+              {{ with index $crumb "url" }}
+                <a class="hover:text-hologram-primary transition-colors duration-200" href="{{ . }}">{{ index $crumb "title" }}</a>
+              {{ else }}
+                <span class="{{ if eq $i (sub (len $crumbs) 1) }}text-hologram-primary font-semibold{{ else }}text-gray-600{{ end }}">{{ index $crumb "title" }}</span>
+              {{ end }}
             {{ end }}
-            {{ with index $crumb "url" }}
-              <a class="hover:text-hologram-primary transition-colors duration-200" href="{{ . }}">{{ index $crumb "title" }}</a>
-            {{ else }}
-              <span class="{{ if eq $i (sub (len $crumbs) 1) }}text-hologram-primary{{ else }}text-gray-600{{ end }}">{{ index $crumb "title" }}</span>
+          </nav>
+        {{ end }}
+        {{ if or $badgeText $badgeIcon }}
+          <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-hologram-primary/10 text-hologram-primary mb-8">
+            {{ if $badgeIcon }}
+              <i class="{{ $badgeIcon }} mr-2"></i>
             {{ end }}
+            {{ if $badgeText }}
+              <span>{{ $badgeText }}</span>
+            {{ end }}
+          </div>
+        {{ end }}
+        <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6 text-balance">
+          {{ if $heading }}
+            <span class="block text-gray-900">{{ $heading }}</span>
           {{ end }}
-        </nav>
-        <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-snug flex items-baseline flex-wrap gap-4 pb-2 text-gray-900">
-          {{ if $icon }}
-            <i class="{{ $icon }} text-hologram-primary"></i>
+          {{ with $highlight }}
+            <span class="block bg-gradient-to-r from-hologram-primary via-hologram-secondary to-hologram-dark bg-clip-text text-transparent">{{ . }}</span>
           {{ end }}
-          <span class="block py-1 pb-2 text-gray-900 drop-shadow-lg">{{ $title }}</span>
         </h1>
-        {{ with $subtitle }}
-          <p class="text-xl lg:text-2xl text-gray-600 max-w-3xl leading-relaxed">{{ . }}</p>
+        {{ with $description }}
+          <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">{{ . }}</p>
+        {{ end }}
+        {{ with $heroImage }}
+          <div class="mt-14">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/60 bg-gradient-to-br from-gray-100/60 via-white to-white">
+              <img src="{{ . }}" alt="{{ $heroImageAlt }}" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+            </div>
+            {{ with $heroImageCaption }}
+              <p class="text-sm text-gray-500 mt-4">{{ . }}</p>
+            {{ end }}
+          </div>
         {{ end }}
       </div>
     </div>
