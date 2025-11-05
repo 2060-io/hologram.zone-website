@@ -2655,11 +2655,6 @@ video {
   --tw-gradient-to: rgb(20 83 45 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
-.from-hologram-dark {
-  --tw-gradient-from: #1c1161 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(28 17 97 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
 .from-hologram-primary {
   --tw-gradient-from: #7678ec var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(118 120 236 / 0) var(--tw-gradient-to-position);
@@ -2730,10 +2725,6 @@ video {
   --tw-gradient-to: rgb(118 62 240 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
-.via-hologram-secondary {
-  --tw-gradient-to: rgb(97 97 203 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #6161cb var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
 .via-white\/20 {
   --tw-gradient-to: rgb(255 255 255 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), rgb(255 255 255 / 0.2) var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -2773,9 +2764,6 @@ video {
 }
 .to-hologram-dark\/5 {
   --tw-gradient-to: rgb(28 17 97 / 0.05) var(--tw-gradient-to-position);
-}
-.to-hologram-primary {
-  --tw-gradient-to: #7678ec var(--tw-gradient-to-position);
 }
 .to-hologram-secondary\/20 {
   --tw-gradient-to: rgb(97 97 203 / 0.2) var(--tw-gradient-to-position);
