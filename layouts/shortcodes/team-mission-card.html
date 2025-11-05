@@ -7,13 +7,13 @@
 {{ $ctaLabel := .Get "cta_label" }}
 {{ $ctaUrl := .Get "cta_url" }}
 {{ $ctaIcon := .Get "cta_icon" }}
-<div class="bg-black border border-gray-700 rounded-2xl p-8 hover:border-verana/50 transition-all duration-300 text-center">
+<div class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-verana/50 transition-all duration-300 text-center shadow-sm">
   <div class="w-16 h-16 {{ $iconBgClass }} rounded-2xl flex items-center justify-center mx-auto mb-6">
     <i class="{{ $icon }} {{ $iconColorClass }} text-2xl"></i>
   </div>
-  <h3 class="text-xl font-semibold text-white mb-4">{{ $title }}</h3>
+  <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ $title }}</h3>
   {{ with $description }}
-    <p class="text-gray-300 mb-6">{{ . }}</p>
+    <p class="text-gray-600 mb-6">{{ . }}</p>
   {{ end }}
   {{ with $ctaLabel }}
     {{ $label := . }}

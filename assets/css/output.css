@@ -1741,6 +1741,10 @@ body.bg-black {
   bottom: 0px;
 }
 
+.bottom-10 {
+  bottom: 2.5rem;
+}
+
 .bottom-20 {
   bottom: 5rem;
 }
@@ -1847,6 +1851,10 @@ body.bg-black {
 
 .top-1\/3 {
   top: 33.333333%;
+}
+
+.top-10 {
+  top: 2.5rem;
 }
 
 .top-16 {
@@ -2800,6 +2808,11 @@ body.bg-black {
   border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
+
 .border-gray-400 {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity, 1));
@@ -2952,6 +2965,11 @@ body.bg-black {
   border-color: rgb(118 62 240 / 0.6);
 }
 
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
 .border-white\/10 {
   border-color: rgb(255 255 255 / 0.1);
 }
@@ -3012,6 +3030,11 @@ body.bg-black {
 
 .bg-cyan-400\/20 {
   background-color: rgb(34 211 238 / 0.2);
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
 .bg-gray-50 {
@@ -3348,6 +3371,12 @@ body.bg-black {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-hologram-dark {
+  --tw-gradient-from: #1c1161 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(28 17 97 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-hologram-primary {
   --tw-gradient-from: #7678ec var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(118 120 236 / 0) var(--tw-gradient-to-position);
@@ -3432,10 +3461,9 @@ body.bg-black {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-white {
-  --tw-gradient-from: #fff var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+.via-hologram-secondary {
+  --tw-gradient-to: rgb(97 97 203 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #6161cb var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .via-white\/20 {
@@ -3461,10 +3489,6 @@ body.bg-black {
 
 .to-cyan-400\/20 {
   --tw-gradient-to: rgb(34 211 238 / 0.2) var(--tw-gradient-to-position);
-}
-
-.to-gray-200 {
-  --tw-gradient-to: #e5e7eb var(--tw-gradient-to-position);
 }
 
 .to-gray-800 {
@@ -3493,6 +3517,10 @@ body.bg-black {
 
 .to-hologram-dark\/5 {
   --tw-gradient-to: rgb(28 17 97 / 0.05) var(--tw-gradient-to-position);
+}
+
+.to-hologram-primary {
+  --tw-gradient-to: #7678ec var(--tw-gradient-to-position);
 }
 
 .to-hologram-secondary\/20 {
@@ -4122,6 +4150,12 @@ body.bg-black {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .outline {
   outline-style: solid;
 }
@@ -4138,6 +4172,11 @@ body.bg-black {
 
 .blur-xl {
   --tw-blur: blur(24px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.drop-shadow-lg {
+  --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -5063,13 +5102,7 @@ body.bg-black {
     --tw-bg-opacity: 1 !important;
     background-color: #ede9fe !important;
   }
-}
 
-.\[\&\>ul\>li\]\:text-gray-300>ul>li {
-  color: #334155 !important;
-}
-
-@media (prefers-color-scheme: dark) {
   .dark\:prose-invert {
     --tw-prose-body: var(--tw-prose-invert-body);
     --tw-prose-headings: var(--tw-prose-invert-headings);
@@ -5543,6 +5576,10 @@ body.bg-black {
     min-width: 14rem;
   }
 
+  .lg\:scroll-mt-48 {
+    scroll-margin-top: 12rem;
+  }
+
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -5786,9 +5823,9 @@ body.bg-black {
   }
 }
 
-.\[\&\>ul\>li\]\:text-gray-300>ul>li {
+.\[\&\>ul\>li\]\:text-gray-600>ul>li {
   --tw-text-opacity: 1;
-  color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+  color: rgb(75 85 99 / var(--tw-text-opacity, 1));
 }
 
 .\[\&\>ul\]\:list-disc>ul {

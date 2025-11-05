@@ -9,7 +9,7 @@
 {{ $textHTML := .Page.RenderString $text }}
 {{ $textHTML = trim $textHTML "\n\r\t " }}
 {{ $textHTML = replaceRE "^<p>(?s)(.*)</p>$" "${1}" $textHTML }}
-{{ $baseClasses := "flex w-full items-center gap-2 text-gray-400 text-sm" }}
+{{ $baseClasses := "flex w-full items-center gap-2 text-gray-500 text-sm" }}
 {{ if eq $align "right" }}
   {{ $baseClasses = printf "%s justify-end text-right" $baseClasses }}
 {{ else }}

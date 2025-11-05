@@ -85,7 +85,7 @@ params:
   nav:
     main:
       - title: "Download Hologram"
-        url: "/"
+        url: "/#app-download"
 
       - title: "Developers"
         url: "/page/get-started"

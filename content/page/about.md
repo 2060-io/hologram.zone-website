@@ -60,7 +60,7 @@ disable_content_wrapper: true
 
 {{< team-chronology
     title="Chronology"
-    description="Verana’s journey is rooted in solving the three systemic problems of the internet — trust, ownership, and discovery."
+    description="Inspired by 2060 OÜ’s mission to rebuild the Internet’s foundations, Hologram reimagines private messaging by addressing its deepest flaws: trust, ownership, and discovery."
 >}}
 {{< team-chronology-item
     year="2020"
@@ -107,7 +107,7 @@ Development of the first Verifiable User Agent, the [Hologram Messaging App](htt
     icon="fa-solid fa-network-wired"
     side="left"
 >}}
-Mathieu Gauthron joins to lead the first decentralized, blockchain-based Verifiable Public Registry (VPR) implementation.
+The Internet needs a public infrastructure for Trust Registries. We started to work, with other folks, on a prototype of a decentralized, blockchain-based Verifiable Public Registry (VPR) implementation.
 
 {{< team-chronology-highlight
     align="right"
@@ -124,7 +124,7 @@ Mathieu Gauthron joins to lead the first decentralized, blockchain-based Verifia
     icon="fa-solid fa-rocket"
     side="right"
 >}}
-The project adopts its permanent name, Verana, expanding the ecosystem vision around Verifiable Services and Trust Registries.
+Launch of the Verana Foundation, expanding the ecosystem vision around Verifiable Services and Trust Registries.
 
 {{< team-chronology-highlight
     icon="fa-solid fa-check-circle"
@@ -149,15 +149,9 @@ The project adopts its permanent name, Verana, expanding the ecosystem vision ar
     icon_bg_class="bg-verana/30"
     marker_class="w-8 h-8 bg-verana rounded-full border-4 border-black"
 >}}
-Philip A. Bildner joins as Strategic Advisor to guide governance, fundraising, and partnerships. Launch of the [Verana Network Testnet](/page/testnet.md) marks the network’s next phase.
+Launch of the Verana Testnet and its integration with Hologram Messaging, introducing the first verifiable messaging app that lets users discover and trust decentralized services.
 
-{{< team-chronology-highlight
-    align="right"
-    icon="fa-solid fa-handshake"
-    icon_color_class="text-verana"
-    icon_size="text-xs"
-    text="Strategic advisor onboarded"
->}}
+
 {{< team-chronology-highlight
     align="right"
     icon="fa-solid fa-globe"

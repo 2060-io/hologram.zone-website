@@ -57,20 +57,22 @@
     {{ $crumbs = slice (dict "title" $title) }}
     {{ $crumbCount = len $crumbs }}
   {{ end }}
-  <section class="relative bg-gray-900 py-16 lg:py-24 overflow-hidden min-h-[320px] flex items-center">
-    <div class="absolute inset-0 opacity-50" style="background: radial-gradient(circle at 20% 50%, rgba(118, 62, 240, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(118, 62, 240, 0.1) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(118, 62, 240, 0.08) 0%, transparent 50%);"></div>
-    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 25% 25%, rgba(118, 62, 240, 0.1) 2px, transparent 2px), radial-gradient(circle at 75% 75%, rgba(118, 62, 240, 0.08) 1px, transparent 1px); background-size: 60px 60px, 40px 40px;"></div>
+  <section class="relative bg-gradient-to-br from-gray-50 to-white py-16 lg:py-24 overflow-hidden min-h-[320px] flex items-center">
+    <div class="absolute inset-0">
+      <div class="absolute top-10 left-0 w-72 h-72 bg-hologram-primary/20 rounded-full blur-3xl opacity-40"></div>
+      <div class="absolute bottom-10 right-0 w-96 h-96 bg-hologram-secondary/20 rounded-full blur-3xl opacity-30"></div>
+    </div>
     <div class="container mx-auto px-6 relative z-10">
       <div class="max-w-4xl mx-auto">
-        <nav class="flex flex-wrap items-center gap-2 text-sm text-gray-400 mb-8" aria-label="Breadcrumb">
+        <nav class="flex flex-wrap items-center gap-2 text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
           {{ range $i, $crumb := $crumbs }}
             {{ if gt $i 0 }}
               <i class="fa-solid fa-chevron-right text-xs"></i>
             {{ end }}
             {{ with index $crumb "url" }}
-              <a class="hover:text-white transition-colors duration-200" href="{{ . }}">{{ index $crumb "title" }}</a>
+              <a class="hover:text-hologram-primary transition-colors duration-200" href="{{ . }}">{{ index $crumb "title" }}</a>
             {{ else }}
-              <span class="{{ if eq $i (sub (len $crumbs) 1) }}text-verana{{ else }}text-gray-300{{ end }}">{{ index $crumb "title" }}</span>
+              <span class="{{ if eq $i (sub (len $crumbs) 1) }}text-hologram-primary{{ else }}text-gray-600{{ end }}">{{ index $crumb "title" }}</span>
             {{ end }}
           {{ end }}
         </nav>
@@ -78,10 +80,10 @@
           {{ if $icon }}
             <i class="{{ $icon }} text-verana"></i>
           {{ end }}
-          <span class="block py-1 pb-2 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">{{ $title }}</span>
+          <span class="block py-1 pb-2 bg-gradient-to-r from-hologram-dark via-hologram-secondary to-hologram-primary bg-clip-text text-transparent drop-shadow-lg">{{ $title }}</span>
         </h1>
         {{ with $subtitle }}
-          <p class="text-xl lg:text-2xl text-gray-300 max-w-3xl leading-relaxed">{{ . }}</p>
+          <p class="text-xl lg:text-2xl text-gray-600 max-w-3xl leading-relaxed">{{ . }}</p>
         {{ end }}
       </div>
     </div>
