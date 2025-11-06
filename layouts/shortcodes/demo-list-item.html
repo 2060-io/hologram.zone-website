@@ -1,0 +1,11 @@
+{{- $icon := .Get "icon" | default "fa-solid fa-check-circle" -}}
+{{- $iconColor := .Get "icon_color_class" | default "text-hologram-primary" -}}
+{{- $iconSize := .Get "icon_size_class" | default "text-base" -}}
+{{- $iconSpacing := .Get "icon_spacing_class" | default "mr-3 mt-1" -}}
+{{- $textClass := .Get "text_class" | default "text-gray-700" -}}
+{{- $raw := markdownify .Inner -}}
+{{- $content := replaceRE "^<p>(?s)(.*)</p>$" "${1}" $raw -}}
+<li class="flex items-start {{ $textClass }}">
+  <i class="{{ $icon }} {{ $iconColor }} {{ $iconSize }} {{ $iconSpacing }}"></i>
+  <span>{{ $content | safeHTML }}</span>
+</li>

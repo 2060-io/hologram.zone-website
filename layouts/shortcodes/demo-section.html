@@ -1,0 +1,57 @@
+{{- $id := .Get "id" | default "demo-section" -}}
+{{- $background := .Get "background" | default "bg-white" -}}
+{{- $reverse := false -}}
+{{- with .Get "reverse" }}
+  {{- if eq (lower .) "true" -}}
+    {{- $reverse = true -}}
+  {{- end -}}
+{{- end -}}
+{{- $kickerText := .Get "kicker_text" -}}
+{{- $kickerIcon := .Get "kicker_icon" -}}
+{{- $kickerClass := .Get "kicker_class" | default "bg-hologram-primary/10 text-hologram-primary" -}}
+{{- $title := .Get "title" -}}
+{{- $titleIcon := .Get "title_icon" -}}
+{{- $titleIconColor := .Get "title_icon_color" | default "text-hologram-primary" -}}
+{{- $description := "" -}}
+{{- with .Get "description" }}
+  {{- $description = markdownify . -}}
+{{- end -}}
+{{- $body := "" -}}
+{{- with .Inner }}
+  {{- $body = markdownify . -}}
+{{- end -}}
+{{- $imageSrc := .Get "image_src" -}}
+{{- $imageAlt := .Get "image_alt" | default "" -}}
+{{- $imageGradient := .Get "image_gradient_class" | default "from-hologram-primary/10 to-hologram-secondary/10" -}}
+{{- $imageHeight := .Get "image_height_class" | default "h-96" -}}
+{{- $primaryLabel := .Get "primary_label" -}}
+{{- $primary := "" -}}
+{{- if $primaryLabel }}
+  {{- $primary = dict "label" $primaryLabel "url" (.Get "primary_url") "icon" (.Get "primary_icon") "style" (.Get "primary_style") -}}
+{{- end -}}
+{{- $secondaryLabel := .Get "secondary_label" -}}
+{{- $secondary := "" -}}
+{{- if $secondaryLabel }}
+  {{- $secondary = dict "label" $secondaryLabel "url" (.Get "secondary_url") "icon" (.Get "secondary_icon") "style" (.Get "secondary_style") -}}
+{{- end -}}
+{{- $mediaHTML := .Get "media_html" -}}
+{{ partial "demo/feature.html" (dict
+    "id" $id
+    "background" $background
+    "reverse" $reverse
+    "kicker_text" $kickerText
+    "kicker_icon" $kickerIcon
+    "kicker_class" $kickerClass
+    "title" $title
+    "title_icon" $titleIcon
+    "title_icon_color" $titleIconColor
+    "description" $description
+    "body" $body
+    "image_src" $imageSrc
+    "image_alt" $imageAlt
+    "image_gradient_class" $imageGradient
+    "image_height_class" $imageHeight
+    "primary" $primary
+    "secondary" $secondary
+    "media_html" $mediaHTML
+  ) }}

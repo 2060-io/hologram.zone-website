@@ -1,8 +1,8 @@
 ---
-title: "Verana"
+title: "Hologram Verifiable AI"
 layout: "uxpilot"
-meta_title: "Verana | Open Trust Layer for Verifiable Digital Services"
-meta_description: "Discover Verana, the open trust layer that turns digital services into verifiable assets with decentralized identity, trust registries, and developer-first tools."
+meta_title: "Hologram Verifiable AI | Where Agentic AI meets Verifiable Credentials"
+meta_description: "Discover Hologram Verifiable AI"
 bodyClass: "bg-white text-gray-900 overflow-x-hidden font-sans"
 hero:
   badge:
@@ -13,7 +13,7 @@ hero:
     lines:
       - "Verifiable AI"
 #      - "Ecosystem"
-  description: "<strong>Deploy AI services you own:</strong> decentralized, peer-to-peer encrypted, verifiable, and globally discoverable.
+  description: "<strong>Build AI services users can trust:</strong> decentralized, peer-to-peer encrypted, verifiable, and globally discoverable.
   Accessible to anyone through Hologram, the open-source mobile app for trusted, decentralized AI interactions."
   primary_cta:
     label: "Instant Deployment"
