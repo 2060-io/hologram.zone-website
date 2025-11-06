@@ -203,21 +203,16 @@ Launch of the Verana Testnet and its integration with Hologram Messaging, introd
     icon="fa-solid fa-handshake"
     icon_color_class="text-hologram-primary"
     description="We’re building a trustworthy and sovereign digital world—and we’d love your help."
-    primary_label="Contact Us"
-    primary_url="mailto:hello@2060.io"
-    secondary_label="Join Community"
-    secondary_url="https://discord.gg/edjaFn252q"
-    secondary_icon="fa-solid fa-users"
 >}}
 {{< team-mission-card
-    title="Careers"
-    description="Explore open positions and join our growing team of innovators."
-    icon="fa-solid fa-briefcase"
+    title="Join Community"
+    description="Connect with builders, founders, and researchers."
+    icon="fa-solid fa-users"
     icon_color_class="text-hologram-primary"
     header_gradient_class="from-hologram-primary/20 to-hologram-secondary/20"
     cta_variant="primary"
-    cta_label="View Openings"
-    cta_url="https://www.linkedin.com/company/2060-io/"
+    cta_label="Join Discord"
+    cta_url="https://discord.gg/edjaFn252q"
 >}}
 
 {{< team-mission-card

@@ -2,12 +2,6 @@
 {{ $description := .Get "description" }}
 {{ $icon := .Get "icon" }}
 {{ $iconColor := default "text-hologram-primary" (.Get "icon_color_class") }}
-{{ $primaryLabel := .Get "primary_label" }}
-{{ $primaryUrl := .Get "primary_url" }}
-{{ $primaryIcon := default "fa-solid fa-envelope" (.Get "primary_icon") }}
-{{ $secondaryLabel := .Get "secondary_label" }}
-{{ $secondaryUrl := .Get "secondary_url" }}
-{{ $secondaryIcon := .Get "secondary_icon" }}
 <section id="join-mission" class="py-20 bg-gradient-to-br from-gray-50 to-white">
   <div class="container mx-auto px-6">
     <div class="max-w-6xl mx-auto">
@@ -27,50 +21,6 @@
       <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
         {{ .Inner }}
       </div>
-      {{ if or $primaryLabel $secondaryLabel }}
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-          {{ with $primaryLabel }}
-            {{ $label := . }}
-            {{ if $primaryUrl }}
-              {{ $target := "" }}
-              {{ $rel := "" }}
-              {{ if or (hasPrefix $primaryUrl "http://") (hasPrefix $primaryUrl "https://") }}
-                {{ $target = "_blank" }}
-                {{ $rel = "noopener noreferrer" }}
-              {{ end }}
-              <a href="{{ $primaryUrl }}" class="inline-flex items-center justify-center bg-hologram-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-hologram-secondary transition-colors duration-200"{{ if $target }} target="{{ $target }}" rel="{{ $rel }}"{{ end }}>
-                {{ if $primaryIcon }}<i class="{{ $primaryIcon }} mr-2"></i>{{ end }}
-                <span>{{ $label }}</span>
-              </a>
-            {{ else }}
-              <span class="inline-flex items-center justify-center bg-hologram-primary text-white px-8 py-4 rounded-lg font-semibold text-lg">
-                {{ if $primaryIcon }}<i class="{{ $primaryIcon }} mr-2"></i>{{ end }}
-                <span>{{ $label }}</span>
-              </span>
-            {{ end }}
-          {{ end }}
-          {{ with $secondaryLabel }}
-            {{ $label := . }}
-            {{ if $secondaryUrl }}
-              {{ $target := "" }}
-              {{ $rel := "" }}
-              {{ if or (hasPrefix $secondaryUrl "http://") (hasPrefix $secondaryUrl "https://") }}
-                {{ $target = "_blank" }}
-                {{ $rel = "noopener noreferrer" }}
-              {{ end }}
-              <a href="{{ $secondaryUrl }}" class="inline-flex items-center justify-center border-2 border-gray-200 text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg hover:border-hologram-primary transition-colors duration-200"{{ if $target }} target="{{ $target }}" rel="{{ $rel }}"{{ end }}>
-                {{ if $secondaryIcon }}<i class="{{ $secondaryIcon }} mr-2"></i>{{ end }}
-                <span>{{ $label }}</span>
-              </a>
-            {{ else }}
-              <span class="inline-flex items-center justify-center border-2 border-gray-200 text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg">
-                {{ if $secondaryIcon }}<i class="{{ $secondaryIcon }} mr-2"></i>{{ end }}
-                <span>{{ $label }}</span>
-              </span>
-            {{ end }}
-          {{ end }}
-        </div>
-      {{ end }}
     </div>
   </div>
 </section>
