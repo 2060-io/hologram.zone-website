@@ -2988,6 +2988,11 @@ body.bg-black {
   border-color: rgb(255 255 255 / 0.1);
 }
 
+.border-yellow-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(250 204 21 / var(--tw-border-opacity, 1));
+}
+
 .border-yellow-700\/50 {
   border-color: rgb(161 98 7 / 0.5);
 }
@@ -3343,6 +3348,11 @@ body.bg-black {
 
 .bg-white\/95 {
   background-color: rgb(255 255 255 / 0.95);
+}
+
+.bg-yellow-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 252 232 / var(--tw-bg-opacity, 1));
 }
 
 .bg-yellow-500 {
@@ -4225,6 +4235,11 @@ body.bg-black {
 .text-yellow-500 {
   --tw-text-opacity: 1;
   color: rgb(234 179 8 / var(--tw-text-opacity, 1));
+}
+
+.text-yellow-600 {
+  --tw-text-opacity: 1;
+  color: rgb(202 138 4 / var(--tw-text-opacity, 1));
 }
 
 .underline {

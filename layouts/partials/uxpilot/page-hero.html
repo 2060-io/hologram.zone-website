@@ -25,6 +25,15 @@
   {{ end }}
   {{ $highlight := or ($params.hero_highlight) ($params.hero_highlight_text) ($params.heroHighlight) ($params.heroHighlightText) "" }}
   {{ $description := or ($params.hero_description) ($params.heroDescription) $defaultDescription }}
+  {{ $heroNote := "" }}
+  {{ $heroNoteRaw := or ($params.hero_note) ($params.heroNote) ($params.hero_notice) ($params.heroNotice) "" }}
+  {{ if $heroNoteRaw }}
+    {{ $heroNote = markdownify $heroNoteRaw }}
+  {{ end }}
+  {{ $noteBgClass := or ($params.hero_note_bg_class) ($params.heroNoteBgClass) "bg-yellow-50" }}
+  {{ $noteBorderClass := or ($params.hero_note_border_class) ($params.heroNoteBorderClass) "border-yellow-400" }}
+  {{ $noteIcon := or ($params.hero_note_icon) ($params.heroNoteIcon) "fa-solid fa-exclamation-triangle" }}
+  {{ $noteIconColor := or ($params.hero_note_icon_color_class) ($params.heroNoteIconColorClass) "text-yellow-600" }}
 
   <section class="relative overflow-hidden py-20 lg:py-28 bg-gradient-to-br from-gray-50 via-white to-white">
     <div class="absolute inset-0 pointer-events-none">
@@ -53,6 +62,16 @@
         </h1>
         {{ with $description }}
           <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">{{ . | safeHTML }}</p>
+        {{ end }}
+        {{ with $heroNote }}
+          <div class="mt-10 max-w-3xl mx-auto text-left">
+            <div class="{{ $noteBgClass }} border-l-4 {{ $noteBorderClass }} p-6 rounded-lg">
+              <div class="flex items-start">
+                <i class="{{ $noteIcon }} {{ $noteIconColor }} text-xl mr-4 mt-1"></i>
+                <div class="space-y-3 text-gray-700">{{ . | safeHTML }}</div>
+              </div>
+            </div>
+          </div>
         {{ end }}
         {{ with $heroImage }}
           <div class="mt-14">

@@ -38,7 +38,8 @@
     {{- $features = $features | append (dict "title" $titleTrim "description" $desc "icon" $icon "icon_bg" $iconBg "icon_color" $iconColor) -}}
   {{- end -}}
 {{- end -}}
-{{- $statValues := split (.Get "stat_values") "|" -}}
+{{- $statValuesRaw := .Get "stat_values" | default "" -}}
+{{- $statValues := split $statValuesRaw "|" -}}
 {{- $statLabels := split (.Get "stat_labels") "|" -}}
 {{- $statColors := split (.Get "stat_color_classes") "|" -}}
 {{- $stats := slice -}}

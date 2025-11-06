@@ -1,10 +1,19 @@
 ---
-title: Demos
-subtitle: "Explore live Verifiable Services built on Hologram--issue credentials, authenticate with trust, and deploy AI agents in minutes."
+title: "Explore Verifiable AI"
+subtitle1: "Explore <strong>Verifiable AI</strong> in Action"
+subtitle2: "Explore a selection of Verifiable AI Agents and other Verifiable Services built using the <strong>Hologram SDK</strong>."
 url: "/page/demos"
 meta_title: "Hologram Demos | Verifiable Services in Action"
 meta_description: "Issue verifiable credentials, log in without passwords, launch AI agents, and verify government IDs with live demos powered by Hologram."
 hero_icon: "fa-solid fa-laptop-code"
+hero_badge_text: "Live Demonstrations"
+hero_badge_icon: "fa-solid fa-flask"
+hero_heading: "Explore <strong>Verifiable AI</strong> in Action"
+hero_description: "Explore a selection of Verifiable AI Agents and other Verifiable Services built using the <strong>Hologram SDK</strong>."
+hero_note: |-
+  **Note:** No personal data is collected or stored in these demos.<br>Some demos may request an NFC-enabled passport or ID card.
+
+  All services are **open source** and available in our [GitHub repository](https://github.com/2060-io) under the **Apache 2.0 license**.
 disable_content_wrapper: true
 ---
 
@@ -15,7 +24,7 @@ disable_content_wrapper: true
     kicker_icon="fa-solid fa-globe"
     kicker_class="bg-green-100 text-green-700"
     title="Hello World"
-    title_icon="fa-solid fa-hand-wave"
+    title_icon="fa-solid fa-handshake"
     title_icon_color="text-hologram-primary"
     description="A simple starter Verifiable Service. It issues a basic **Verifiable Credential** that can be used to authenticate yourself in other demo services."
     primary_label="Try the Demo"
@@ -200,7 +209,7 @@ This demo was created by deploying the open-source <a href="https://github.com/2
     feature_icons="fa-solid fa-rocket|fa-solid fa-shield-alt|fa-solid fa-globe"
     feature_icon_bg_classes="bg-hologram-primary/10|bg-hologram-secondary/10|bg-hologram-dark/10"
     feature_icon_color_classes="text-hologram-primary|text-hologram-secondary|text-hologram-dark"
-    stat_values="5min|100%|&#8734;"
+    stat_values="5min|100%|∞"
     stat_labels="Setup Time|Open Source|Possibilities"
     stat_color_classes="text-hologram-primary|text-hologram-secondary|text-hologram-dark"
     terminal_title="terminal"
