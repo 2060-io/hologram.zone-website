@@ -24,15 +24,19 @@
 {{- $imageAlt := .Get "image_alt" | default "" -}}
 {{- $imageGradient := .Get "image_gradient_class" | default "from-hologram-primary/10 to-hologram-secondary/10" -}}
 {{- $imageHeight := .Get "image_height_class" | default "h-96" -}}
+{{- $qrURL := or (.Get "qr_url") (.Get "primary_url") "" -}}
+{{- $qrLabel := .Get "qr_label" | default "Scan to open this demo" -}}
+{{- $qrHint := .Get "qr_hint" | default "Use the Hologram app or any QR reader to start instantly." -}}
+{{- $qrClose := .Get "qr_close_label" | default "Back to preview" -}}
 {{- $primaryLabel := .Get "primary_label" -}}
 {{- $primary := "" -}}
 {{- if $primaryLabel }}
-  {{- $primary = dict "label" $primaryLabel "url" (.Get "primary_url") "icon" (.Get "primary_icon") "style" (.Get "primary_style") -}}
+  {{- $primary = dict "label" $primaryLabel "url" (.Get "primary_url") "icon" (.Get "primary_icon") "style" (.Get "primary_style") "class" (.Get "primary_class") -}}
 {{- end -}}
 {{- $secondaryLabel := .Get "secondary_label" -}}
 {{- $secondary := "" -}}
 {{- if $secondaryLabel }}
-  {{- $secondary = dict "label" $secondaryLabel "url" (.Get "secondary_url") "icon" (.Get "secondary_icon") "style" (.Get "secondary_style") -}}
+  {{- $secondary = dict "label" $secondaryLabel "url" (.Get "secondary_url") "icon" (.Get "secondary_icon") "style" (.Get "secondary_style") "class" (.Get "secondary_class") -}}
 {{- end -}}
 {{- $mediaHTML := .Get "media_html" -}}
 {{ partial "demo/feature.html" (dict
@@ -54,4 +58,9 @@
     "primary" $primary
     "secondary" $secondary
     "media_html" $mediaHTML
+    "qr_url" $qrURL
+    "qr_label" $qrLabel
+    "qr_hint" $qrHint
+    "qr_close_label" $qrClose
+    "Page" .Page
   ) }}

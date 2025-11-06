@@ -10,6 +10,7 @@
 {{- $titleIconColor := default "text-hologram-primary" .title_icon_color -}}
 {{- $description := .description -}}
 {{- $body := .body -}}
+{{- $page := .Page -}}
 {{- $imageSrc := .image_src -}}
 {{- $imageAlt := default "" .image_alt -}}
 {{- $imageGradient := default "from-hologram-primary/10 to-hologram-secondary/10" .image_gradient_class -}}
@@ -26,6 +27,11 @@
 {{- $primary := .primary -}}
 {{- $secondary := .secondary -}}
 {{- $mediaHTML := .media_html -}}
+{{- $qrURL := .qr_url -}}
+{{- $qrLabel := or .qr_label "Scan to open this demo" -}}
+{{- $qrHint := or .qr_hint "Use the Hologram app or any QR reader to start instantly." -}}
+{{- $qrCloseLabel := or .qr_close_label "Back to preview" -}}
+{{- $hasQr := and $qrURL (gt (len (trim $qrURL " ")) 0) -}}
 <section id="{{ $id }}" class="py-20 {{ $background }}">
   <div class="container mx-auto px-6">
     <div class="max-w-6xl mx-auto">
@@ -68,7 +74,7 @@
                   {{ end }}
                 {{ end }}
                 {{ $isExternal := or (strings.HasPrefix $url "http") (strings.HasPrefix $url "mailto:") }}
-                <a href="{{ $url }}" class="{{ $btnClass }}"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                <a href="{{ $url }}" class="{{ $btnClass }}"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}{{ if $hasQr }} data-demo-qr-btn data-demo-qr-target="{{ $id }}" data-demo-qr-url="{{ $qrURL }}"{{ end }}>
                   {{ if $icon }}<i class="{{ $icon }} mr-2"></i>{{ end }}
                   <span>{{ $label }}</span>
                 </a>
@@ -101,13 +107,25 @@
         {{ if or $imageSrc $mediaHTML }}
           <div class="{{ $imageOrder }} relative">
             <div class="bg-gradient-to-br {{ $imageGradient }} rounded-2xl p-8">
-              {{ if $mediaHTML }}
-                {{ $mediaHTML | safeHTML }}
-              {{ else }}
-                <div class="{{ $imageHeight }} overflow-hidden rounded-xl">
-                  <img class="w-full h-full object-contain" src="{{ $imageSrc }}" alt="{{ $imageAlt }}">
+              <div class="{{ $imageHeight }} overflow-hidden rounded-xl relative" data-demo-media="{{ $id }}" data-demo-media-state="image">
+                <div data-demo-media-image class="h-full">
+                  {{ if $mediaHTML }}
+                    {{ $mediaHTML | safeHTML }}
+                  {{ else }}
+                    <img class="w-full h-full object-contain" src="{{ $imageSrc }}" alt="{{ $imageAlt }}">
+                  {{ end }}
                 </div>
-              {{ end }}
+                {{ if $hasQr }}
+                  <div data-demo-media-qr class="hidden absolute inset-0 bg-white/95 backdrop-blur rounded-xl flex flex-col items-center justify-center text-center px-6">
+                    <div class="bg-white rounded-2xl shadow-lg p-6 mb-4 border border-gray-100">
+                      <img data-demo-qr-img src="" alt="QR code for {{ $title }}" class="w-48 h-48 object-contain">
+                    </div>
+                    <p class="text-gray-900 font-semibold mb-1">{{ $qrLabel }}</p>
+                    <p class="text-gray-500 text-sm mb-4">{{ $qrHint }}</p>
+                    <button type="button" class="text-sm font-semibold text-hologram-primary hover:text-hologram-secondary" data-demo-qr-close>{{ $qrCloseLabel }}</button>
+                  </div>
+                {{ end }}
+              </div>
             </div>
           </div>
         {{ end }}
@@ -115,3 +133,7 @@
     </div>
   </div>
 </section>
+{{ if and $hasQr (not ($page.Scratch.Get "demo-qr-script")) }}
+  {{ $page.Scratch.Set "demo-qr-script" true }}
+  {{ partial "demo/qr-script.html" $page }}
+{{ end }}

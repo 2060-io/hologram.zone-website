@@ -1,0 +1,86 @@
+<script>
+(function(){
+  if (window.hologramDemoQrInit) return;
+  window.hologramDemoQrInit = true;
+  const qrBase = 'https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=';
+  let activeId = null;
+
+  const escapeAttr = typeof CSS !== 'undefined' && CSS.escape ? CSS.escape : function(value){
+    return value.replace(/["\\]/g, '\\$&');
+  };
+
+  function getMedia(id){
+    if (!id) return null;
+    const selector = '[data-demo-media="' + escapeAttr(id) + '"]';
+    return document.querySelector(selector) || document.querySelector('[data-demo-media="' + id + '"]');
+  }
+
+  function setState(media, state){
+    if (!media) return;
+    const imageBlock = media.querySelector('[data-demo-media-image]');
+    const qrBlock = media.querySelector('[data-demo-media-qr]');
+    if (!imageBlock || !qrBlock) return;
+    if (state === 'qr'){
+      imageBlock.classList.add('hidden');
+      qrBlock.classList.remove('hidden');
+      media.dataset.demoMediaState = 'qr';
+    } else {
+      imageBlock.classList.remove('hidden');
+      qrBlock.classList.add('hidden');
+      media.dataset.demoMediaState = 'image';
+    }
+  }
+
+  function hideActive(){
+    if (!activeId) return;
+    const media = getMedia(activeId);
+    if (media){
+      setState(media, 'image');
+      const img = media.querySelector('[data-demo-qr-img]');
+      if (img) img.removeAttribute('src');
+    }
+    activeId = null;
+  }
+
+  function showQr(targetId, url){
+    const media = getMedia(targetId);
+    if (!media) return;
+    const qrImg = media.querySelector('[data-demo-qr-img]');
+    if (!qrImg) return;
+    if (activeId && activeId !== targetId){
+      hideActive();
+    }
+    const encoded = encodeURIComponent(url);
+    qrImg.src = qrBase + encoded;
+    setState(media, 'qr');
+    activeId = targetId;
+  }
+
+  document.addEventListener('click', function(event){
+    const btn = event.target.closest('[data-demo-qr-btn]');
+    if (btn){
+      const url = btn.getAttribute('data-demo-qr-url');
+      const targetId = btn.getAttribute('data-demo-qr-target');
+      if (!url || !targetId) return;
+      event.preventDefault();
+      if (activeId === targetId){
+        hideActive();
+        return;
+      }
+      showQr(targetId, url);
+      return;
+    }
+    const closeBtn = event.target.closest('[data-demo-qr-close]');
+    if (closeBtn){
+      const media = closeBtn.closest('[data-demo-media]');
+      if (!media) return;
+      const mediaId = media.getAttribute('data-demo-media');
+      if (mediaId && mediaId === activeId){
+        hideActive();
+      } else {
+        setState(media, 'image');
+      }
+    }
+  });
+})();
+</script>

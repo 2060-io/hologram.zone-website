@@ -4357,6 +4357,11 @@ video {
   color: rgb(118 120 236 / var(--tw-text-opacity, 1));
 }
 
+.hover\:text-hologram-secondary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(97 97 203 / var(--tw-text-opacity, 1));
+}
+
 .hover\:text-primary-700:hover {
   --tw-text-opacity: 1;
   color: rgb(67 56 202 / var(--tw-text-opacity, 1));

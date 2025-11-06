@@ -5454,6 +5454,11 @@ body.bg-black {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.hover\:text-hologram-secondary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(97 97 203 / var(--tw-text-opacity, 1));
+}
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
