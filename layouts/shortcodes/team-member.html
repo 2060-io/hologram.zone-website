@@ -23,38 +23,40 @@
 {{ $name := .Get "name" }}
 {{ if not $name }}{{ errorf "team-member shortcode requires name param" }}{{ end }}
 {{ $position := .Get "position" }}
+{{ $positionColor := default "text-hologram-primary" (.Get "position_color_class") }}
 {{ $bio := .Get "bio" }}
 {{ $photo := .Get "photo" }}
 {{ if not $photo }}{{ errorf "team-member shortcode requires photo param" }}{{ end }}
 {{ $linkedin := .Get "linkedin" }}
 {{ $github := .Get "github" }}
 {{ $x := .Get "x" }}
+{{ $cardGradient := default "from-hologram-primary/20 to-hologram-dark/20" (.Get "card_gradient_class") }}
 
-{{ $photoURL := $photo }}
-
-<div class="bg-white border border-hologram-primary/20 rounded-2xl p-8 shadow-sm transition-all duration-300 hover:border-hologram-primary/60 hover:-translate-y-2">
-  <div class="flex flex-col items-center text-center">
-    <div class="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-hologram-primary/40 hover:border-hologram-primary transition-all duration-300 bg-gray-50">
-      <img src="{{ $photoURL }}" alt="{{ $name }} portrait" class="w-full h-full object-cover" loading="lazy">
-    </div>
+<div class="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+  <div class="h-80 overflow-hidden bg-gradient-to-br {{ $cardGradient }}">
+    <img src="{{ $photo }}" alt="{{ $name }} portrait" class="w-full h-full object-cover" loading="lazy">
+  </div>
+  <div class="p-8">
     <h3 class="text-2xl font-bold text-gray-900 mb-2">{{ $name }}</h3>
     {{ if $position }}
-      <div class="text-hologram-primary font-semibold mb-4">{{ $position }}</div>
+      <div class="{{ $positionColor }} font-semibold mb-4">{{ $position }}</div>
     {{ end }}
     {{ if $bio }}
-      <p class="text-gray-600 leading-relaxed mb-6">{{ $bio }}</p>
+      <p class="text-gray-600 leading-relaxed">
+        {{ $bio }}
+      </p>
     {{ end }}
     {{ if or $linkedin (or $github $x) }}
-      <div class="flex space-x-4">
+      <div class="flex space-x-4 mt-6">
         {{ with $linkedin }}
           <a href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-             class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center text-hologram-primary hover:text-white hover:bg-hologram-primary transition-all duration-200">
-            <i class="fa-brands fa-linkedin text-lg"></i>
+             class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white transition-colors duration-200 text-gray-600">
+            <i class="fa-brands fa-linkedin"></i>
           </a>
         {{ end }}
         {{ with $x }}
           <a href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="X"
-             class="w-10 h-10 bg-hologram-secondary/10 rounded-lg flex items-center justify-center text-hologram-secondary hover:text-white hover:bg-hologram-secondary transition-all duration-200">
+             class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-hologram-secondary hover:text-white transition-colors duration-200 text-gray-600">
             <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true">
               <g>
                 <path d="M21.742 21.75l-7.563-11.179 7.056-8.321h-2.456l-5.691 6.714-4.54-6.714H2.359l7.29 10.776L2.25 21.75h2.456l6.035-7.118 4.818 7.118h6.191-.008zM7.739 3.818L18.81 20.182h-2.447L5.29 3.818h2.447z" fill="currentColor" />
@@ -64,8 +66,8 @@
         {{ end }}
         {{ with $github }}
           <a href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-             class="w-10 h-10 bg-hologram-dark/10 rounded-lg flex items-center justify-center text-hologram-dark hover:text-white hover:bg-hologram-dark transition-all duration-200">
-            <i class="fa-brands fa-github text-lg"></i>
+             class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-hologram-dark hover:text-white transition-colors duration-200 text-gray-600">
+            <i class="fa-brands fa-github"></i>
           </a>
         {{ end }}
       </div>

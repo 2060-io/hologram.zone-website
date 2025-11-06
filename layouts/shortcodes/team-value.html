@@ -7,10 +7,10 @@
 {{ $iconBgClass := default "bg-verana/20" (.Get "icon_bg_class") }}
 {{ $iconColorClass := default "text-verana" (.Get "icon_color_class") }}
 
-<div class="bg-white border border-gray-200 rounded-2xl p-8 text-center hover:border-verana/50 transition-all duration-300 shadow-sm">
-  <div class="w-16 h-16 {{ $iconBgClass }} rounded-2xl flex items-center justify-center mx-auto mb-6">
+<div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+  <div class="w-16 h-16 {{ $iconBgClass }} rounded-xl flex items-center justify-center mb-6">
     <i class="{{ $iconClass }} {{ $iconColorClass }} text-2xl"></i>
   </div>
-  <h3 class="text-2xl font-semibold text-gray-900 mb-4">{{ $title }}</h3>
+  <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $title }}</h3>
   <p class="text-gray-600 leading-relaxed">{{ $description | safeHTML }}</p>
 </div>

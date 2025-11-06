@@ -11,6 +11,8 @@ disable_content_wrapper: true
 
 {{< team-grid
     title="Our Leadership"
+    icon="fa-solid fa-crown"
+    icon_color_class="text-hologram-primary"
     description="The team behind Hologram Messaging, building the first verifiable messaging layer for the Internet, where trust and ownership are built in by design."
 >}}
 {{< team-member
@@ -21,6 +23,8 @@ disable_content_wrapper: true
     x="https://x.com/fabricerochette"
     github="https://github.com/mjfelis"
     photo="/images/team/fabrice.jpeg"
+    card_gradient_class="from-hologram-primary/20 to-hologram-dark/20"
+    position_color_class="text-hologram-primary"
 >}}
 
 {{< team-member
@@ -30,12 +34,15 @@ disable_content_wrapper: true
     linkedin="https://www.linkedin.com/in/aogentile/"
     github="https://github.com/genaris"
     photo="/images/team/ariel.jpeg"
+    card_gradient_class="from-hologram-secondary/20 to-hologram-dark/20"
+    position_color_class="text-hologram-secondary"
 >}}
 
 {{< /team-grid >}}
 
 {{< team-values
     title="Team Values"
+    icon="fa-solid fa-heart"
     description="The principles that guide our mission to build a trustworthy and sovereign digital world."
 >}}
 {{< team-value
@@ -67,6 +74,7 @@ disable_content_wrapper: true
 
 {{< team-chronology
     title="Chronology"
+    icon="fa-solid fa-clock"
     description="Inspired by 2060-io's mission to rebuild the Internet’s foundations, Hologram reimagines private messaging by addressing its deepest flaws: trust, ownership, and discovery."
 >}}
 {{< team-chronology-item
@@ -76,6 +84,7 @@ disable_content_wrapper: true
     icon_bg_class="bg-hologram-primary"
     icon_color_class="text-white"
     side="left"
+    card_gradient_class="from-hologram-primary/5 to-hologram-dark/5"
 >}}
 After many sessions at the Internet Identity Workshop (IIW), Fabrice Rochette and Ariel Gentile invent the concept of Verifiable Trust.
 
@@ -105,6 +114,7 @@ After many sessions at the Internet Identity Workshop (IIW), Fabrice Rochette an
     icon_bg_class="bg-hologram-secondary"
     icon_color_class="text-white"
     side="right"
+    card_gradient_class="from-hologram-secondary/5 to-hologram-dark/5"
 >}}
 Development of the first Verifiable User Agent, the [Hologram Messaging App](https://hologram.zone), demonstrates the model’s real-world potential. Creation of Verifiable Service chatbots proves that verifiable trust works in practice.
 
@@ -124,6 +134,7 @@ Development of the first Verifiable User Agent, the [Hologram Messaging App](htt
     icon_bg_class="bg-hologram-dark"
     icon_color_class="text-white"
     side="left"
+    card_gradient_class="from-hologram-dark/5 to-hologram-primary/5"
 >}}
 The Internet needs a public infrastructure for Trust Registries. We started to work, with other folks, on a prototype of a decentralized, blockchain-based Verifiable Public Registry (VPR) implementation.
 
@@ -141,9 +152,10 @@ The Internet needs a public infrastructure for Trust Registries. We started to w
     year="2024"
     title="Verana Emerges"
     icon="fa-solid fa-rocket"
-    icon_bg_class="bg-hologram-primary"
+    icon_bg_class="bg-gradient-to-r from-hologram-primary to-hologram-secondary"
     icon_color_class="text-white"
     side="right"
+    card_gradient_class="from-hologram-primary/5 to-hologram-secondary/5"
 >}}
 Launch of the Verana Foundation, expanding the ecosystem vision around Verifiable Services and Trust Registries.
 
@@ -168,10 +180,9 @@ Launch of the Verana Foundation, expanding the ecosystem vision around Verifiabl
     title="Testnet & Strategic Growth"
     icon="fa-solid fa-chart-line"
     side="left"
-    card_class="bg-gradient-to-br from-hologram-primary/10 to-hologram-dark/10 border border-hologram-primary/30 rounded-2xl p-8 hover:border-hologram-primary transition-all duration-300"
-    icon_bg_class="bg-hologram-secondary"
+    card_gradient_class="from-hologram-primary/10 to-hologram-dark/10"
+    icon_bg_class="bg-gradient-to-br from-hologram-primary via-hologram-secondary to-hologram-dark"
     icon_color_class="text-white"
-    marker_class="w-8 h-8 bg-hologram-primary rounded-full border-4 border-white"
 >}}
 Launch of the Verana Testnet and its integration with Hologram Messaging, introducing the first verifiable messaging app that lets users discover and trust decentralized services.
 
@@ -189,6 +200,8 @@ Launch of the Verana Testnet and its integration with Hologram Messaging, introd
 
 {{< team-mission
     title="Join Our Mission"
+    icon="fa-solid fa-handshake"
+    icon_color_class="text-hologram-primary"
     description="We’re building a trustworthy and sovereign digital world—and we’d love your help."
     primary_label="Contact Us"
     primary_url="mailto:hello@2060.io"
@@ -200,8 +213,9 @@ Launch of the Verana Testnet and its integration with Hologram Messaging, introd
     title="Careers"
     description="Explore open positions and join our growing team of innovators."
     icon="fa-solid fa-briefcase"
-    icon_bg_class="bg-hologram-primary"
-    icon_color_class="text-white"
+    icon_color_class="text-hologram-primary"
+    header_gradient_class="from-hologram-primary/20 to-hologram-secondary/20"
+    cta_variant="primary"
     cta_label="View Openings"
     cta_url="https://www.linkedin.com/company/2060-io/"
 >}}
@@ -210,8 +224,9 @@ Launch of the Verana Testnet and its integration with Hologram Messaging, introd
     title="Contributors"
     description="Contribute to our open-source projects and help build the future."
     icon="fa-solid fa-code-branch"
-    icon_bg_class="bg-hologram-secondary"
-    icon_color_class="text-white"
+    icon_color_class="text-hologram-secondary"
+    header_gradient_class="from-hologram-secondary/20 to-hologram-dark/20"
+    cta_variant="secondary"
     cta_label="Start Contributing"
     cta_url="https://github.com/2060-io"
 >}}
@@ -220,8 +235,9 @@ Launch of the Verana Testnet and its integration with Hologram Messaging, introd
     title="Partnerships"
     description="Partner with us to integrate verifiable trust into your ecosystem."
     icon="fa-solid fa-handshake"
-    icon_bg_class="bg-hologram-dark"
-    icon_color_class="text-white"
+    icon_color_class="text-hologram-dark"
+    header_gradient_class="from-hologram-dark/20 to-hologram-primary/20"
+    cta_variant="dark"
     cta_label="Partner With Us"
     cta_url="https://www.linkedin.com/company/2060-io/"
 >}}

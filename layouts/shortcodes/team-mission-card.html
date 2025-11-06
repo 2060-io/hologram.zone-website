@@ -2,37 +2,46 @@
 {{ if not $title }}{{ errorf "team-mission-card shortcode requires title param" }}{{ end }}
 {{ $description := .Get "description" }}
 {{ $icon := default "fa-solid fa-circle" (.Get "icon") }}
-{{ $iconBgClass := default "bg-verana/20" (.Get "icon_bg_class") }}
 {{ $iconColorClass := default "text-verana" (.Get "icon_color_class") }}
 {{ $ctaLabel := .Get "cta_label" }}
 {{ $ctaUrl := .Get "cta_url" }}
-{{ $ctaIcon := .Get "cta_icon" }}
-<div class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-verana/50 transition-all duration-300 text-center shadow-sm">
-  <div class="w-16 h-16 {{ $iconBgClass }} rounded-2xl flex items-center justify-center mx-auto mb-6">
-    <i class="{{ $icon }} {{ $iconColorClass }} text-2xl"></i>
+{{ $ctaIcon := default "fa-solid fa-arrow-right" (.Get "cta_icon") }}
+{{ $ctaVariant := lower (default "primary" (.Get "cta_variant")) }}
+{{ $headerGradient := default "from-hologram-primary/20 to-hologram-secondary/20" (.Get "header_gradient_class") }}
+{{ $buttonClass := "bg-hologram-primary hover:bg-hologram-secondary" }}
+{{ if eq $ctaVariant "secondary" }}
+  {{ $buttonClass = "bg-hologram-secondary hover:bg-hologram-dark" }}
+{{ else if eq $ctaVariant "dark" }}
+  {{ $buttonClass = "bg-hologram-dark hover:bg-hologram-primary" }}
+{{ end }}
+<div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+  <div class="h-48 bg-gradient-to-br {{ $headerGradient }} flex items-center justify-center">
+    <i class="{{ $icon }} {{ $iconColorClass }} text-6xl"></i>
   </div>
-  <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ $title }}</h3>
-  {{ with $description }}
-    <p class="text-gray-600 mb-6">{{ . }}</p>
-  {{ end }}
-  {{ with $ctaLabel }}
-    {{ $label := . }}
-    {{ if $ctaUrl }}
-      {{ $target := "" }}
-      {{ $rel := "" }}
-      {{ if or (hasPrefix $ctaUrl "http://") (hasPrefix $ctaUrl "https://") }}
-        {{ $target = "_blank" }}
-        {{ $rel = "noopener noreferrer" }}
-      {{ end }}
-      <a href="{{ $ctaUrl }}" class="text-verana hover:text-verana-light font-medium inline-flex items-center gap-2 justify-center transition-colors"{{ if $target }} target="{{ $target }}" rel="{{ $rel }}"{{ end }}>
-        {{ if $ctaIcon }}<i class="{{ $ctaIcon }}"></i>{{ end }}
-        <span>{{ $label }}</span>
-      </a>
-    {{ else }}
-      <span class="text-verana hover:text-verana-light font-medium inline-flex items-center gap-2 justify-center transition-colors cursor-pointer">
-        {{ if $ctaIcon }}<i class="{{ $ctaIcon }}"></i>{{ end }}
-        <span>{{ $label }}</span>
-      </span>
+  <div class="p-8 text-center">
+    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $title }}</h3>
+    {{ with $description }}
+      <p class="text-gray-600 mb-6">{{ . }}</p>
     {{ end }}
-  {{ end }}
+    {{ with $ctaLabel }}
+      {{ $label := . }}
+      {{ if $ctaUrl }}
+        {{ $target := "" }}
+        {{ $rel := "" }}
+        {{ if or (hasPrefix $ctaUrl "http://") (hasPrefix $ctaUrl "https://") }}
+          {{ $target = "_blank" }}
+          {{ $rel = "noopener noreferrer" }}
+        {{ end }}
+        <a href="{{ $ctaUrl }}" class="inline-flex items-center justify-center {{ $buttonClass }} text-white px-6 py-3 rounded-lg font-semibold w-full transition-colors duration-200"{{ if $target }} target="{{ $target }}" rel="{{ $rel }}"{{ end }}>
+          {{ if $ctaIcon }}<i class="{{ $ctaIcon }} mr-2"></i>{{ end }}
+          <span>{{ $label }}</span>
+        </a>
+      {{ else }}
+        <span class="inline-flex items-center justify-center {{ $buttonClass }} text-white px-6 py-3 rounded-lg font-semibold w-full">
+          {{ if $ctaIcon }}<i class="{{ $ctaIcon }} mr-2"></i>{{ end }}
+          <span>{{ $label }}</span>
+        </span>
+      {{ end }}
+    {{ end }}
+  </div>
 </div>
