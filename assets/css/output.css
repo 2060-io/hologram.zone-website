@@ -1733,11 +1733,6 @@ body.bg-black {
   right: 0px;
 }
 
-.inset-y-0 {
-  top: 0px;
-  bottom: 0px;
-}
-
 .-top-3 {
   top: -0.75rem;
 }
@@ -3324,10 +3319,6 @@ body.bg-black {
   background-color: rgb(113 63 18 / 0.2);
 }
 
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
@@ -3482,11 +3473,6 @@ body.bg-black {
   --tw-gradient-from: rgb(118 62 240 / 0.2) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(118 62 240 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-hologram-primary\/20 {
-  --tw-gradient-to: rgb(118 120 236 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), rgb(118 120 236 / 0.2) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .via-hologram-secondary {

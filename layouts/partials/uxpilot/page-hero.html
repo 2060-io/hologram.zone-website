@@ -2,112 +2,57 @@
 {{ if not $page.IsHome }}
   {{ $params := $page.Params }}
   {{ $title := $page.Title }}
-  {{ $fallbackSubtitle := or ($params.subtitle) ($params.Subtitle) ($params.description) ($params.Description) }}
+  {{ $subtitle1 := or ($params.subtitle1) ($params.Subtitle1) "" }}
+  {{ $subtitle2 := or ($params.subtitle2) ($params.Subtitle2) "" }}
   {{ $icon := or ($params.hero_icon) ($params.heroIcon) ($params.heroicon) }}
-  {{ $badgeText := or ($params.hero_badge_text) ($params.heroBadgeText) ($params.hero_label) ($params.heroLabel) ($params.hero_kicker) ($params.heroKicker) "" }}
-  {{ $badgeIcon := or ($params.hero_badge_icon) ($params.heroBadgeIcon) $icon }}
-  {{ $heading := or ($params.hero_heading) ($params.heroHeading) ($params.hero_title) ($params.heroTitle) $title }}
-  {{ $highlight := or ($params.hero_highlight) ($params.hero_highlight_text) ($params.heroHighlight) ($params.heroHighlightText) "" }}
-  {{ $description := or ($params.hero_description) ($params.heroDescription) $fallbackSubtitle }}
+  {{ $defaultDescription := or ($params.subtitle) ($params.Subtitle) ($params.description) ($params.Description) $subtitle2 }}
   {{ $heroImage := or ($params.hero_image) ($params.heroImage) ($params.hero_media) ($params.heroMedia) "" }}
   {{ $heroImageAlt := or ($params.hero_image_alt) ($params.heroImageAlt) ($params.hero_media_alt) ($params.heroMediaAlt) (printf "%s hero image" $title) }}
   {{ $heroImageCaption := or ($params.hero_image_caption) ($params.heroImageCaption) "" }}
+  {{ $scratch := newScratch }}
+  {{ $scratch.Set "badgeText" (or ($params.hero_badge_text) ($params.heroBadgeText) ($params.hero_label) ($params.heroLabel) ($params.hero_kicker) ($params.heroKicker) "") }}
+  {{ $hideBadge := or ($params.hero_hide_badge) ($params.heroHideBadge) false }}
+  {{ if and (eq (len ($scratch.Get "badgeText")) 0) (not $hideBadge) }}
+    {{ $scratch.Set "badgeText" $title }}
+  {{ end }}
+  {{ $badgeText := $scratch.Get "badgeText" }}
+  {{ $badgeIcon := or ($params.hero_badge_icon) ($params.heroBadgeIcon) $icon }}
+  {{ $heading := or ($params.hero_heading) ($params.heroHeading) ($params.hero_title) ($params.heroTitle) $subtitle1 $title }}
+  {{ $headingClass := "bg-gradient-to-r from-hologram-primary to-hologram-dark bg-clip-text text-transparent" }}
+  {{ $processedHeading := $heading }}
+  {{ with $heading }}
+    {{ $processedHeading = . | replaceRE "(?i)<strong>(.*?)</strong>" (printf "<span class=\"%s\">${1}</span>" $headingClass) }}
+  {{ end }}
+  {{ $highlight := or ($params.hero_highlight) ($params.hero_highlight_text) ($params.heroHighlight) ($params.heroHighlightText) "" }}
+  {{ $description := or ($params.hero_description) ($params.heroDescription) $defaultDescription }}
 
-  {{/* Build breadcrumb slice */}}
-  {{ $crumbs := slice (dict "title" "Home" "url" site.Home.RelPermalink) }}
-  {{ with $page.File }}
-    {{ $path := .Path }}
-    {{ $dir := path.Dir $path }}
-    {{ if ne $dir "." }}
-      {{ $segments := split $dir "/" }}
-      {{ if and (ge (len $segments) 1) (eq (index $segments 0) "page") }}
-        {{ $segments = after 1 $segments }}
-      {{ end }}
-      {{ $built := slice }}
-      {{ range $segments }}
-        {{ $built = $built | append . }}
-        {{ $contentPath := printf "page/%s" (delimit $built "/") }}
-        {{ $p := site.GetPage $contentPath }}
-        {{ if not $p }}
-          {{ $contentPath = printf "page/%s/_index" (delimit $built "/") }}
-          {{ $p = site.GetPage $contentPath }}
-        {{ end }}
-        {{ $name := humanize (replaceRE "\\.md$" "" .) }}
-        {{ if $p }}
-          {{ $name = $p.Title }}
-        {{ end }}
-        {{ if $p }}
-          {{ $crumbs = $crumbs | append (dict "title" $name "url" $p.RelPermalink) }}
-        {{ else }}
-          {{ $crumbs = $crumbs | append (dict "title" $name) }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-  {{ $crumbCount := len $crumbs }}
-  {{ if gt $crumbCount 0 }}
-    {{ $last := index $crumbs (sub $crumbCount 1) }}
-    {{ if and (isset $last "url") (eq (index $last "url") $page.RelPermalink) }}
-      {{ $adjusted := slice }}
-      {{ range $i, $crumb := $crumbs }}
-        {{ if eq $i (sub $crumbCount 1) }}
-          {{ $adjusted = $adjusted | append (dict "title" (index $crumb "title")) }}
-        {{ else }}
-          {{ $adjusted = $adjusted | append $crumb }}
-        {{ end }}
-      {{ end }}
-      {{ $crumbs = $adjusted }}
-    {{ else }}
-      {{ $crumbs = $crumbs | append (dict "title" $title) }}
-      {{ $crumbCount = len $crumbs }}
-    {{ end }}
-  {{ else }}
-    {{ $crumbs = slice (dict "title" $title) }}
-    {{ $crumbCount = len $crumbs }}
-  {{ end }}
-  {{ $showBreadcrumbs := gt (len $crumbs) 1 }}
   <section class="relative overflow-hidden py-20 lg:py-28 bg-gradient-to-br from-gray-50 via-white to-white">
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-10 left-0 w-64 h-64 bg-hologram-primary/15 blur-3xl rounded-full opacity-60"></div>
       <div class="absolute bottom-10 right-16 w-80 h-80 bg-hologram-secondary/20 blur-3xl rounded-full opacity-40"></div>
-      <div class="absolute inset-y-0 left-1/2 w-px bg-gradient-to-b from-transparent via-hologram-primary/20 to-transparent"></div>
     </div>
     <div class="container mx-auto px-6 relative z-10">
       <div class="max-w-4xl mx-auto text-center">
-        {{ if $showBreadcrumbs }}
-          <nav class="flex flex-wrap items-center justify-center gap-2 text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
-            {{ range $i, $crumb := $crumbs }}
-              {{ if gt $i 0 }}
-                <i class="fa-solid fa-chevron-right text-xs text-gray-400"></i>
-              {{ end }}
-              {{ with index $crumb "url" }}
-                <a class="hover:text-hologram-primary transition-colors duration-200" href="{{ . }}">{{ index $crumb "title" }}</a>
-              {{ else }}
-                <span class="{{ if eq $i (sub (len $crumbs) 1) }}text-hologram-primary font-semibold{{ else }}text-gray-600{{ end }}">{{ index $crumb "title" }}</span>
-              {{ end }}
-            {{ end }}
-          </nav>
-        {{ end }}
-        {{ if or $badgeText $badgeIcon }}
+        {{ if and (not $hideBadge) (or $badgeText $badgeIcon) }}
           <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-hologram-primary/10 text-hologram-primary mb-8">
             {{ if $badgeIcon }}
               <i class="{{ $badgeIcon }} mr-2"></i>
             {{ end }}
             {{ if $badgeText }}
-              <span>{{ $badgeText }}</span>
+              <span>{{ $badgeText | safeHTML }}</span>
             {{ end }}
           </div>
         {{ end }}
         <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6 text-balance">
-          {{ if $heading }}
-            <span class="block text-gray-900">{{ $heading }}</span>
+          {{ if $processedHeading }}
+            <span class="block text-gray-900">{{ $processedHeading | safeHTML }}</span>
           {{ end }}
           {{ with $highlight }}
-            <span class="block bg-gradient-to-r from-hologram-primary via-hologram-secondary to-hologram-dark bg-clip-text text-transparent">{{ . }}</span>
+            <span class="block bg-gradient-to-r from-hologram-primary via-hologram-secondary to-hologram-dark bg-clip-text text-transparent">{{ . | safeHTML }}</span>
           {{ end }}
         </h1>
         {{ with $description }}
-          <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">{{ . }}</p>
+          <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">{{ . | safeHTML }}</p>
         {{ end }}
         {{ with $heroImage }}
           <div class="mt-14">
@@ -115,7 +60,7 @@
               <img src="{{ . }}" alt="{{ $heroImageAlt }}" loading="lazy" decoding="async" class="w-full h-full object-cover" />
             </div>
             {{ with $heroImageCaption }}
-              <p class="text-sm text-gray-500 mt-4">{{ . }}</p>
+              <p class="text-sm text-gray-500 mt-4">{{ . | safeHTML }}</p>
             {{ end }}
           </div>
         {{ end }}
