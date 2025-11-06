@@ -56,13 +56,16 @@
                 {{ $url := .url }}
                 {{ $label := .label }}
                 {{ $icon := .icon }}
-                {{ $btnClass := "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-primary text-white hover:bg-hologram-secondary" }}
-                {{ if eq $style "secondary" }}
-                  {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-secondary text-white hover:bg-hologram-dark" }}
-                {{ else if eq $style "dark" }}
-                  {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-gray-900 text-white hover:bg-hologram-primary" }}
-                {{ else if eq $style "light" }}
-                  {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-white border border-gray-200 text-gray-900 hover:border-hologram-primary" }}
+                {{ $btnClass := .class }}
+                {{ if not $btnClass }}
+                  {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-primary text-white hover:bg-hologram-secondary" }}
+                  {{ if eq $style "secondary" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-secondary text-white hover:bg-hologram-dark" }}
+                  {{ else if eq $style "dark" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-gray-900 text-white hover:bg-hologram-primary" }}
+                  {{ else if eq $style "light" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-white border border-gray-200 text-gray-900 hover:border-hologram-primary" }}
+                  {{ end }}
                 {{ end }}
                 {{ $isExternal := or (strings.HasPrefix $url "http") (strings.HasPrefix $url "mailto:") }}
                 <a href="{{ $url }}" class="{{ $btnClass }}"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
@@ -75,13 +78,16 @@
                 {{ $url := .url }}
                 {{ $label := .label }}
                 {{ $icon := .icon }}
-                {{ $btnClass := "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200" }}
-                {{ if eq $style "outline" }}
-                  {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 border-2 border-hologram-primary text-hologram-primary hover:bg-hologram-primary hover:text-white" }}
-                {{ else if eq $style "secondary" }}
-                  {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-hologram-secondary text-white hover:bg-hologram-dark" }}
-                {{ else if eq $style "dark" }}
-                  {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-900 text-white hover:bg-hologram-primary" }}
+                {{ $btnClass := .class }}
+                {{ if not $btnClass }}
+                  {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200" }}
+                  {{ if eq $style "outline" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 border-2 border-hologram-primary text-hologram-primary hover:bg-hologram-primary hover:text-white" }}
+                  {{ else if eq $style "secondary" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-hologram-secondary text-white hover:bg-hologram-dark" }}
+                  {{ else if eq $style "dark" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-900 text-white hover:bg-hologram-primary" }}
+                  {{ end }}
                 {{ end }}
                 {{ $isExternal := or (strings.HasPrefix $url "http") (strings.HasPrefix $url "mailto:") }}
                 <a href="{{ $url }}" class="{{ $btnClass }}"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
