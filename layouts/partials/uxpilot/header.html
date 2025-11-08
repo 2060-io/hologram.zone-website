@@ -194,8 +194,10 @@
       <nav class="hidden lg:flex justify-self-center items-center justify-center gap-6 min-w-0" data-primary-nav>
         {{ range $item := $navItems }}
           {{ $hasChildren := gt (len $item.children) 0 }}
+          {{ $href := default "#" $item.href }}
+          {{ $isActive := or (eq $.RelPermalink $href) (and (ne $href "#") (hasPrefix $.RelPermalink (print $href "/"))) }}
           <div class="relative group flex-shrink-0">
-            <a class="text-gray-600 hover:text-gray-900 whitespace-nowrap transition-colors duration-200 dark:text-gray-300 dark:hover:text-verana" href="{{ default "#" $item.href }}">
+            <a class="whitespace-nowrap transition-colors duration-200 {{ if $isActive }}text-hologram-primary font-semibold{{ else }}text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-verana{{ end }}" href="{{ $href }}">
               {{ $item.label }}
             </a>
             {{ if $hasChildren }}
@@ -204,7 +206,9 @@
                 <ul class="pt-2 pb-4">
                   {{ range $child := $item.children }}
                     <li>
-                      <a class="block px-5 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-150 dark:text-gray-300 dark:hover:text-verana dark:hover:bg-verana/10" href="{{ $child.href }}">
+                      {{ $childHref := $child.href }}
+                      {{ $childActive := or (eq $.RelPermalink $childHref) (and (ne $childHref "#") (hasPrefix $.RelPermalink (print $childHref "/"))) }}
+                      <a class="block px-5 py-2 transition-colors duration-150 hover:bg-gray-100 dark:hover:bg-verana/10 {{ if $childActive }}text-hologram-primary font-semibold dark:text-verana{{ else }}text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-verana{{ end }}" href="{{ $childHref }}">
                         {{ $child.label }}
                       </a>
                     </li>
@@ -232,12 +236,18 @@
     <nav class="container mx-auto px-6 py-4 space-y-4">
       {{ range $item := $navItems }}
         {{ $hasChildren := gt (len $item.children) 0 }}
+        {{ $href := default "#" $item.href }}
+        {{ $isActive := or (eq $.RelPermalink $href) (and (ne $href "#") (hasPrefix $.RelPermalink (print $href "/"))) }}
         <div>
-          <a class="block text-gray-900 font-medium hover:text-gray-900 transition-colors duration-200 whitespace-nowrap dark:text-gray-200 dark:hover:text-verana" href="{{ default "#" $item.href }}">{{ $item.label }}</a>
+          <a class="block transition-colors duration-200 whitespace-nowrap {{ if $isActive }}text-hologram-primary font-semibold dark:text-verana{{ else }}text-gray-900 hover:text-gray-900 dark:text-gray-200 dark:hover:text-verana{{ end }}" href="{{ $href }}">{{ $item.label }}</a>
           {{ if $hasChildren }}
             <ul class="mt-2 space-y-2 border-l border-gray-200 pl-4 dark:border-gray-700/60">
               {{ range $child := $item.children }}
-                <li><a class="block text-gray-600 hover:text-gray-900 transition-colors duration-150 whitespace-nowrap dark:text-gray-400 dark:hover:text-verana" href="{{ $child.href }}">{{ $child.label }}</a></li>
+                {{ $childHref := $child.href }}
+                {{ $childActive := or (eq $.RelPermalink $childHref) (and (ne $childHref "#") (hasPrefix $.RelPermalink (print $childHref "/"))) }}
+                <li>
+                  <a class="block transition-colors duration-150 whitespace-nowrap {{ if $childActive }}text-hologram-primary font-semibold dark:text-verana{{ else }}text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-verana{{ end }}" href="{{ $childHref }}">{{ $child.label }}</a>
+                </li>
               {{ end }}
             </ul>
           {{ end }}
