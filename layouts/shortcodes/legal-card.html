@@ -1,0 +1,17 @@
+{{- $icon := .Get "icon" | default "fa-solid fa-circle" -}}
+{{- $iconBg := .Get "icon_bg_class" | default "bg-gray-100" -}}
+{{- $iconColor := .Get "icon_color_class" | default "text-gray-600" -}}
+{{- $title := .Get "title" | default "" -}}
+<div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+  <div class="flex items-start mb-3">
+    <div class="w-8 h-8 {{ $iconBg }} rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+      <i class="{{ $icon }} {{ $iconColor }}"></i>
+    </div>
+    <div>
+      {{ if $title }}<h3 class="font-semibold text-gray-900 mb-1">{{ $title }}</h3>{{ end }}
+      <div class="text-sm text-gray-700">
+        {{ .Inner | markdownify | safeHTML }}
+      </div>
+    </div>
+  </div>
+</div>

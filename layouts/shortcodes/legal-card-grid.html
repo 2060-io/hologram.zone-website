@@ -1,0 +1,5 @@
+{{- $cols := .Get "cols" | default "2" -}}
+{{- $gridClass := printf "md:grid-cols-%s" $cols -}}
+<div class="grid gap-4 {{ $gridClass }}">
+  {{ .Inner }}
+</div>
