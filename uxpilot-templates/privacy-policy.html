@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme:
+        {
+          extend:
+          {
+            colors:
+            {
+              'hologram-primary': '#7678ec',
+              'hologram-secondary': '#6161cb',
+              'hologram-dark': '#1c1161',
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      window.FontAwesomeConfig = {
+        autoReplaceSvg: 'nest'
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      .hologram-gradient {
+        background: linear-gradient(135deg, #7678ec 0%, #6161cb 50%, #1c1161 100%);
+      }
+      .hologram-gradient-light {
+        background: linear-gradient(135deg, rgba(118, 120, 236, 0.1) 0%, rgba(97, 97, 203, 0.1) 50%, rgba(28, 17, 97, 0.1) 100%);
+      }
+    </style>
+</head>
+
+<body class="bg-white">
+    <header id="header" class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 hologram-gradient rounded-lg flex items-center justify-center">
+              <i class="fas fa-cube text-white text-lg"></i>
+            </div>
+            <span class="text-2xl font-bold bg-gradient-to-r from-hologram-primary to-hologram-dark bg-clip-text text-transparent">Hologram</span>
+          </div>
+          <nav class="hidden lg:flex items-center space-x-8">
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Platform</a>
+            <div class="relative group">
+              <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium flex items-center">
+                Solutions <i class="fas fa-chevron-down ml-1 text-xs"></i>
+              </a>
+              <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="p-4 space-y-3">
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">AI Support Agents</a>
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">Digital ID Issuers</a>
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">Personal AI Companions</a>
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">Government Services</a>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Developers</a>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Docs</a>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">About</a>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Demos</a>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Blog</a>
+          </nav>
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Sign In</a>
+            <button class="bg-hologram-primary text-white px-6 py-2.5 rounded-lg hover:bg-hologram-secondary transition-colors duration-200 font-medium">
+              Get Started
+            </button>
+            <button class="lg:hidden text-gray-700">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="legal-hero" class="bg-gradient-to-br from-gray-50 to-white py-16 border-b border-gray-100">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="flex items-center space-x-3 mb-6">
+            <a href="#" class="text-hologram-primary hover:text-hologram-secondary transition-colors duration-200 flex items-center text-sm font-medium">
+              <i class="fas fa-arrow-left mr-2"></i>
+              Back to Home
+            </a>
+          </div>
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="w-12 h-12 bg-hologram-primary/10 rounded-lg flex items-center justify-center">
+              <i class="fa-solid fa-shield-heart text-hologram-primary text-xl"></i>
+            </div>
+            <h1 class="text-4xl lg:text-5xl font-bold text-gray-900">Privacy Policy</h1>
+          </div>
+          <div class="flex items-center space-x-4 text-sm text-gray-600">
+            <div class="flex items-center">
+              <i class="fas fa-calendar-alt mr-2 text-hologram-primary"></i>
+              <span>Last updated: September 26, 2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="legal-content" class="py-16">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg mb-12">
+            <div class="flex items-start">
+              <i class="fas fa-info-circle text-blue-600 text-xl mr-4 mt-1"></i>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-2">Quick Summary</h3>
+                <p class="text-gray-700">
+                  This Privacy Policy explains how Verana Foundation collects, uses, and protects your personal information when you interact with our services. We are committed to transparency, security, and giving you control over your data. We do not sell your personal information.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <article id="privacy-content" class="prose prose-lg max-w-none">
+            <div id="scope" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-crosshairs text-hologram-primary text-lg"></i>
+                </span>
+                Scope & Applicability
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-0">
+                  This Privacy Policy describes how Verana Foundation ("Verana", "we", "us", or "our") collects, uses, discloses, and protects personal information when you interact with our websites, documentation, developer playgrounds, trust network services, or community programs. It applies to individuals acting on their own behalf or on behalf of an organization. Additional notices may apply to specific products or jurisdictions; those notices prevail in the event of a conflict.
+                </p>
+              </div>
+            </div>
+
+            <div id="data-we-collect" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-database text-hologram-primary text-lg"></i>
+                </span>
+                Information We Collect
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <div class="space-y-6">
+                  <div class="flex items-start">
+                    <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                      <i class="fas fa-user-circle text-purple-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-900 mb-2">Account & Contact Information</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                        Names, professional titles, organization affiliation, country, preferred language, and contact details submitted when requesting access to the developer playground, newsletters, or ecosystem programs.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                      <i class="fas fa-chart-bar text-blue-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-900 mb-2">Service Usage Data</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                        Log files, event metadata, IP addresses, device identifiers, browser details, session timestamps, and clickstream analytics that help us secure and improve our services. Wherever possible we aggregate or anonymize this information.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                      <i class="fas fa-network-wired text-green-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-900 mb-2">Trust Network Records</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                        When you publish verifiable services, register identifiers, or issue credentials, certain data may be written to decentralized infrastructure or trust registries. These records are designed to minimize personal data, but may still reference identifiers you choose to disclose.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                      <i class="fas fa-headset text-orange-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-900 mb-2">Support Communications</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                        Messages, attachments, or recordings you share with our support or community teams so we can investigate requests and provide assistance.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-8 h-8 bg-pink-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                      <i class="fas fa-envelope-open-text text-pink-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-900 mb-2">Marketing Preferences</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                        Opt-in status, areas of interest, and engagement metrics that help us deliver relevant updates. You may opt out at any time.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="how-we-use-data" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-cogs text-hologram-primary text-lg"></i>
+                </span>
+                How We Use Information
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                  We process information to:
+                </p>
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <div class="w-6 h-6 bg-hologram-primary/10 rounded flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                      <span class="text-hologram-primary font-bold text-sm">1</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                      Provide, operate, and improve Verana services, documentation, and developer experiences.
+                    </p>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-6 h-6 bg-hologram-primary/10 rounded flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                      <span class="text-hologram-primary font-bold text-sm">2</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                      Enable trust network functionality, including credential issuance, verification, discovery, and reputation scoring.
+                    </p>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-6 h-6 bg-hologram-primary/10 rounded flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                      <span class="text-hologram-primary font-bold text-sm">3</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                      Safeguard the platform by monitoring for abuse, fraud, or violations of our Terms of Service.
+                    </p>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-6 h-6 bg-hologram-primary/10 rounded flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                      <span class="text-hologram-primary font-bold text-sm">4</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                      Communicate updates, release notes, security notifications, and ecosystem news where you have subscribed or where communications are operationally required.
+                    </p>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-6 h-6 bg-hologram-primary/10 rounded flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                      <span class="text-hologram-primary font-bold text-sm">5</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                      Analyze usage trends to understand adoption, plan capacity, and prioritize roadmap investments.
+                    </p>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-6 h-6 bg-hologram-primary/10 rounded flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                      <span class="text-hologram-primary font-bold text-sm">6</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                      Comply with legal obligations, enforce agreements, and defend against legal claims.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="legal-bases" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-balance-scale text-hologram-primary text-lg"></i>
+                </span>
+                Legal Bases for Processing
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                  Where required by law (e.g., GDPR or UK GDPR), we rely on the following legal bases:
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center mb-3">
+                      <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-file-contract text-blue-600"></i>
+                      </div>
+                      <h3 class="font-semibold text-gray-900">Performance of a Contract</h3>
+                    </div>
+                    <p class="text-sm text-gray-700">
+                      When providing requested services, sandbox access, or ecosystem participation.
+                    </p>
+                  </div>
+                  <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center mb-3">
+                      <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-check-circle text-green-600"></i>
+                      </div>
+                      <h3 class="font-semibold text-gray-900">Legitimate Interests</h3>
+                    </div>
+                    <p class="text-sm text-gray-700">
+                      Such as securing infrastructure, preventing abuse, understanding adoption, and developing new capabilities.
+                    </p>
+                  </div>
+                  <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center mb-3">
+                      <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-hand-paper text-purple-600"></i>
+                      </div>
+                      <h3 class="font-semibold text-gray-900">Consent</h3>
+                    </div>
+                    <p class="text-sm text-gray-700">
+                      For optional communications, beta programs, or when you publish data about yourself or your organization.
+                    </p>
+                  </div>
+                  <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-center mb-3">
+                      <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-gavel text-orange-600"></i>
+                      </div>
+                      <h3 class="font-semibold text-gray-900">Legal Obligations</h3>
+                    </div>
+                    <p class="text-sm text-gray-700">
+                      Including responding to lawful requests or maintaining necessary business records.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="data-sharing" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-share-alt text-hologram-primary text-lg"></i>
+                </span>
+                Data Sharing & Disclosure
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <div class="bg-green-50 border-l-4 border-green-400 p-5 rounded-lg mb-6">
+                  <div class="flex items-start">
+                    <i class="fas fa-shield-alt text-green-600 text-xl mr-4 mt-1"></i>
+                    <p class="text-gray-700 leading-relaxed mb-0">
+                      <strong>We do not sell personal data.</strong> Your information is never sold to third parties for marketing or advertising purposes.
+                    </p>
+                  </div>
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                  We may disclose information to:
+                </p>
+                <div class="space-y-5">
+                  <div class="flex items-start">
+                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                      <i class="fas fa-server text-blue-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-900 mb-2">Trusted Service Providers</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                        That deliver hosting, email delivery, analytics, or security tooling under documented data protection agreements.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                      <i class="fas fa-handshake text-purple-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-900 mb-2">Ecosystem Partners</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                        When you explicitly connect your Verana identity, verifiable services, or credentials to their trust networks.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                      <i class="fas fa-landmark text-orange-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-900 mb-2">Public Authorities or Regulators</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                        When legally required, to protect the rights, property, or safety of Verana, our users, or the public.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                      <i class="fas fa-exchange-alt text-gray-600"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-900 mb-2">Successors</h3>
+                      <p class="text-gray-700 leading-relaxed">
+                        In the event of a merger, reorganization, or transfer of assets, subject to continued compliance with this policy.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="decentralized-data" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-project-diagram text-hologram-primary text-lg"></i>
+                </span>
+                Decentralized Data & On-Chain Records
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                  Verana encourages privacy-preserving credential design, yet decentralized infrastructure may create immutable records. Before publishing identifiers, credentials, or metadata to public networks:
+                </p>
+                <div class="space-y-4 mb-6">
+                  <div class="flex items-start">
+                    <i class="fas fa-circle text-hologram-primary text-xs mr-3 mt-2"></i>
+                    <p class="text-gray-700 leading-relaxed">
+                      Avoid embedding unnecessary personal data in decentralized identifiers (DIDs), schemas, or attestations.
+                    </p>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="fas fa-circle text-hologram-primary text-xs mr-3 mt-2"></i>
+                    <p class="text-gray-700 leading-relaxed">
+                      Use selective disclosure and zero-knowledge techniques whenever possible.
+                    </p>
+                  </div>
+                  <div class="flex items-start">
+                    <i class="fas fa-circle text-hologram-primary text-xs mr-3 mt-2"></i>
+                    <p class="text-gray-700 leading-relaxed">
+                      Understand that third parties may independently replicate or index public blockchain data outside Verana's control.
+                    </p>
+                  </div>
+                </div>
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-5 rounded-lg">
+                  <div class="flex items-start">
+                    <i class="fas fa-exclamation-triangle text-yellow-600 text-xl mr-4 mt-1"></i>
+                    <p class="text-gray-700 leading-relaxed mb-0">
+                      We provide guidance and tooling to minimize exposure, but <strong>you remain responsible</strong> for the data you choose to record on-chain.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="international-transfer" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-globe-americas text-hologram-primary text-lg"></i>
+                </span>
+                International Data Transfers
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-0">
+                  Verana operates globally using infrastructure located in the European Union, the United States, and other jurisdictions. When personal information is transferred across borders, we implement appropriate safeguards such as standard contractual clauses or rely on adequacy decisions where available. By using our services, you acknowledge that data may be processed in countries that may have different data protection rules than your jurisdiction.
+                </p>
+              </div>
+            </div>
+
+            <div id="retention" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-clock text-hologram-primary text-lg"></i>
+                </span>
+                Data Retention
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-0">
+                  We keep personal information only for as long as necessary to fulfill the purposes outlined in this policy, meet regulatory or contractual requirements, resolve disputes, and enforce agreements. Criteria used to determine retention periods include the nature of the information, legal obligations, and potential risk of harm from unauthorized use.
+                </p>
+              </div>
+            </div>
+
+            <div id="security" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-lock text-hologram-primary text-lg"></i>
+                </span>
+                Security Measures
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                  We employ administrative, technical, and organizational safeguards such as access controls, encryption in transit, continuous monitoring, and secure development practices. Despite these measures, no method of transmission or storage is completely secure.
+                </p>
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-5 rounded-lg">
+                  <div class="flex items-start">
+                    <i class="fas fa-info-circle text-blue-600 text-xl mr-4 mt-1"></i>
+                    <p class="text-gray-700 leading-relaxed mb-0">
+                      <strong>Your Responsibility:</strong> You are responsible for protecting credentials, keys, and secrets associated with your Verana accounts or verifiable services.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="rights" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-user-shield text-hologram-primary text-lg"></i>
+                </span>
+                Your Rights & Choices
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                  Depending on your location, you may have rights to:
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                  <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-start">
+                      <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                        <i class="fas fa-eye text-blue-600"></i>
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-gray-900 mb-1">Access</h3>
+                        <p class="text-sm text-gray-700">Request access to the personal data we hold about you.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-start">
+                      <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                        <i class="fas fa-edit text-green-600"></i>
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-gray-900 mb-1">Correction</h3>
+                        <p class="text-sm text-gray-700">Request correction, update, or deletion of inaccurate or outdated information.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-start">
+                      <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                        <i class="fas fa-ban text-orange-600"></i>
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-gray-900 mb-1">Object/Restrict</h3>
+                        <p class="text-sm text-gray-700">Object to or restrict certain processing activities, including profiling for security purposes.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-start">
+                      <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                        <i class="fas fa-download text-purple-600"></i>
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-gray-900 mb-1">Portability</h3>
+                        <p class="text-sm text-gray-700">Port your data to another provider where technically feasible.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                    <div class="flex items-start">
+                      <div class="w-8 h-8 bg-pink-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                        <i class="fas fa-hand-paper text-pink-600"></i>
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-gray-900 mb-1">Withdraw Consent</h3>
+                        <p class="text-sm text-gray-700">Withdraw consent for communications or optional programs at any time.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-hologram-primary/5 border border-hologram-primary/20 rounded-lg p-6">
+                  <p class="text-gray-700 leading-relaxed mb-4">
+                    Submit requests to <a href="mailto:privacy@verana.io" class="text-hologram-primary font-semibold hover:text-hologram-secondary">privacy@verana.io</a>. We will respond in accordance with applicable data protection laws.
+                  </p>
+                  <p class="text-gray-700 leading-relaxed mb-0 text-sm">
+                    For unresolved concerns, you may lodge a complaint with your local supervisory authority.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div id="cookies" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-cookie-bite text-hologram-primary text-lg"></i>
+                </span>
+                Cookies & Similar Technologies
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                  We use cookies, pixels, and local storage to operate our sites, remember preferences, and analyze aggregated traffic patterns. For detailed information about the types of cookies we use and how to manage them, please review our <a href="/page/cookie-policy" class="text-hologram-primary font-semibold hover:text-hologram-secondary">Cookie Policy</a>.
+                </p>
+                <a href="/page/cookie-policy" class="inline-flex items-center text-hologram-primary hover:text-hologram-secondary font-semibold">
+                  <i class="fas fa-arrow-right mr-2"></i>
+                  Read Our Cookie Policy
+                </a>
+              </div>
+            </div>
+
+            <div id="children" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-child text-hologram-primary text-lg"></i>
+                </span>
+                Children's Privacy
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-0">
+                  Verana services are not directed to children under 16. We do not knowingly collect personal information from children. If we become aware that a child has provided personal data, we will delete it promptly and terminate the associated access unless parental consent is obtained.
+                </p>
+              </div>
+            </div>
+
+            <div id="changes" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-sync-alt text-hologram-primary text-lg"></i>
+                </span>
+                Updates to This Policy
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-0">
+                  We may revise this Privacy Policy to reflect changes in technology, legal requirements, or our services. When we make material changes we will update the "Last updated" date above and provide additional notice when required. Continued use of the services after changes become effective constitutes acceptance of the updated policy.
+                </p>
+              </div>
+            </div>
+
+            <div id="contact" class="mb-12">
+              <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                <span class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-envelope text-hologram-primary text-lg"></i>
+                </span>
+                Contact Us
+              </h2>
+              <div class="bg-white border border-gray-200 rounded-xl p-8">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                  Questions or privacy requests may be directed to:
+                </p>
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                  <h3 class="font-semibold text-gray-900 mb-4">Verana Foundation</h3>
+                  <div class="space-y-3">
+                    <a href="mailto:privacy@verana.io" class="flex items-center text-hologram-primary hover:text-hologram-secondary font-semibold">
+                      <i class="fas fa-envelope mr-3 w-5"></i>
+                      privacy@verana.io
+                    </a>
+                    <a href="https://verana.io" class="flex items-center text-hologram-primary hover:text-hologram-secondary font-semibold">
+                      <i class="fas fa-globe mr-3 w-5"></i>
+                      https://verana.io
+                    </a>
+                  </div>
+                </div>
+                <div class="mt-6 bg-blue-50 border-l-4 border-blue-400 p-5 rounded-lg">
+                  <p class="text-gray-700 leading-relaxed text-sm mb-0">
+                    If you are located in the European Economic Area or United Kingdom, you may also contact your local data protection authority regarding unresolved concerns.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <div id="legal-navigation" class="mt-16 pt-8 border-t border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-900 mb-6">Related Legal Documents</h3>
+            <div class="grid md:grid-cols-3 gap-4">
+              <a href="#" class="bg-white border border-gray-200 rounded-lg p-6 hover:border-hologram-primary hover:shadow-lg transition-all duration-200 group">
+                <div class="flex items-center mb-3">
+                  <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-cookie-bite text-hologram-primary"></i>
+                  </div>
+                  <h4 class="font-semibold text-gray-900 group-hover:text-hologram-primary transition-colors duration-200">Cookie Policy</h4>
+                </div>
+                <p class="text-sm text-gray-600">Learn about our use of cookies and tracking technologies</p>
+              </a>
+              <a href="#" class="bg-white border border-gray-200 rounded-lg p-6 hover:border-hologram-primary hover:shadow-lg transition-all duration-200 group">
+                <div class="flex items-center mb-3">
+                  <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-file-contract text-hologram-primary"></i>
+                  </div>
+                  <h4 class="font-semibold text-gray-900 group-hover:text-hologram-primary transition-colors duration-200">Terms of Service</h4>
+                </div>
+                <p class="text-sm text-gray-600">Review our terms and conditions of use</p>
+              </a>
+              <a href="#" class="bg-white border border-gray-200 rounded-lg p-6 hover:border-hologram-primary hover:shadow-lg transition-all duration-200 group">
+                <div class="flex items-center mb-3">
+                  <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-balance-scale text-hologram-primary"></i>
+                  </div>
+                  <h4 class="font-semibold text-gray-900 group-hover:text-hologram-primary transition-colors duration-200">Legal Notice</h4>
+                </div>
+                <p class="text-sm text-gray-600">Important legal information and disclaimers</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="legal-cta" class="py-16 bg-gradient-to-br from-gray-50 to-white border-t border-gray-100">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-white border border-gray-200 rounded-2xl p-12 text-center">
+            <div class="w-16 h-16 bg-hologram-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-question-circle text-hologram-primary text-3xl"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Have Questions About Your Privacy?</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              If you have any questions about this Privacy Policy, how we handle your data, or want to exercise your rights, our privacy team is here to help.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="mailto:privacy@verana.io" class="inline-flex items-center justify-center bg-hologram-primary text-white px-8 py-3 rounded-lg hover:bg-hologram-secondary transition-colors duration-200 font-semibold">
+                <i class="fas fa-envelope mr-2"></i>
+                Contact Privacy Team
+              </a>
+              <a href="#" class="inline-flex items-center justify-center bg-gray-100 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-200 transition-colors duration-200 font-semibold">
+                <i class="fas fa-book mr-2"></i>
+                Visit Help Center
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="bg-gray-50 text-gray-900 py-16">
+      <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-5 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <div class="flex items-center space-x-3 mb-6">
+              <div class="w-10 h-10 hologram-gradient rounded-lg flex items-center justify-center">
+                <i class="fas fa-cube text-white text-lg"></i>
+              </div>
+              <span class="text-2xl font-bold">Hologram</span>
+            </div>
+            <p class="text-gray-600 mb-6 max-w-md">
+              Building the future of verifiable AI services. Create trusted, discoverable, and privacy-preserving AI agents on the decentralized web.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-discord"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-4 text-gray-900">Platform</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">How it Works</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Features</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Pricing</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Security</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Status</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-4 text-gray-900">Developers</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Documentation</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">API Reference</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">SDK</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">GitHub</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Community</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-4 text-gray-900">Company</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">About</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Blog</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Careers</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Press</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-200 pt-8">
+          <div class="flex flex-col lg:flex-row justify-between items-center">
+            <div class="text-gray-600 mb-4 lg:mb-0">
+              © 2024 Hologram. All rights reserved.
+            </div>
+            <div class="flex space-x-6 text-sm">
+              <a href="#" class="text-hologram-primary font-semibold">Privacy Policy</a>
+              <a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Terms of Service</a>
+              <a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>

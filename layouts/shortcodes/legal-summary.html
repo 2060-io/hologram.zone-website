@@ -1,0 +1,16 @@
+{{- $title := .Get "title" | default "Quick Summary" -}}
+{{- $icon := .Get "icon" | default "fa-solid fa-info-circle" -}}
+{{- $iconColor := .Get "icon_color_class" | default "text-blue-600" -}}
+{{- $bgClass := .Get "background_class" | default "bg-blue-50" -}}
+{{- $borderClass := .Get "border_class" | default "border-blue-400" -}}
+<div class="{{ $bgClass }} border-l-4 {{ $borderClass }} p-6 rounded-lg mb-12">
+  <div class="flex items-start">
+    <i class="{{ $icon }} {{ $iconColor }} text-xl mr-4 mt-1"></i>
+    <div>
+      <h3 class="font-semibold text-gray-900 mb-2">{{ $title }}</h3>
+      <div class="text-gray-700 leading-relaxed">
+        {{ .Inner | markdownify | safeHTML }}
+      </div>
+    </div>
+  </div>
+</div>

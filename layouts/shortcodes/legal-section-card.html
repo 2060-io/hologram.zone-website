@@ -1,0 +1,16 @@
+{{- $id := .Get "id" | default "legal-section" -}}
+{{- $title := .Get "title" | default "Section" -}}
+{{- $icon := .Get "icon" | default "fa-solid fa-circle" -}}
+{{- $iconBg := .Get "icon_bg_class" | default "bg-hologram-primary/10" -}}
+{{- $iconColor := .Get "icon_color_class" | default "text-hologram-primary" -}}
+<section id="{{ $id }}" class="mb-12 scroll-mt-24">
+  <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="w-10 h-10 {{ $iconBg }} rounded-lg flex items-center justify-center mr-4">
+      <i class="{{ $icon }} {{ $iconColor }} text-lg"></i>
+    </span>
+    {{ $title }}
+  </h2>
+  <div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+    {{ .Inner | markdownify | safeHTML }}
+  </div>
+</section>
