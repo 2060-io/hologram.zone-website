@@ -1,9 +1,9 @@
 ---
 title: Cookie Policy
 url: "/page/cookie-policy"
-meta_title: "Verana Cookie Policy | Understanding Tracking Technologies"
-meta_description: "See how Verana uses cookies, analytics tags, and similar technologies to deliver secure, reliable trust network services."
-subtitle: "Understand how Verana uses cookies, related technologies, and the choices you can make."
+meta_title: "2060 OÜ Cookie Policy | Understanding Tracking Technologies"
+meta_description: "See how 2060 OÜ uses cookies, analytics tags, and similar technologies to deliver secure, reliable trust network services."
+subtitle: "Understand how 2060 OÜ uses cookies, related technologies, and the choices you can make."
 hero_icon: "fa-solid fa-cookie-bite"
 disable_content_wrapper: true
 hero_last_updated: "September 26, 2025"
@@ -22,7 +22,7 @@ Cookies are small text files stored on your device when you visit a website. The
 {{< /legal-section-card >}}
 
 {{< legal-section-card id="section-how-we-use" title="How We Use Cookies" icon="fa-solid fa-cogs" icon_bg_class="bg-hologram-primary/10" icon_color_class="text-hologram-primary" >}}
-Verana utilizes cookies for the following purposes:
+2060 OÜ utilizes cookies for the following purposes:
 
 {{< legal-feature-list >}}
   {{< legal-feature-item title="Essential cookies" icon="fa-solid fa-shield-alt" icon_bg_class="bg-green-100" icon_color_class="text-green-600" >}}
@@ -42,11 +42,11 @@ Remember your preferences, including locale or participation in trust registries
 {{< /legal-section-card >}}
 
 {{< legal-section-card id="section-third-party" title="Third-Party Services" icon="fa-solid fa-users" icon_bg_class="bg-hologram-primary/10" icon_color_class="text-hologram-primary" >}}
-We rely on trusted providers to deliver analytics, infrastructure, or security services. These partners may set their own cookies subject to their privacy policies. We contractually require them to safeguard data, restrict use to Verana’s instructions, and comply with applicable regulations.
+We rely on trusted providers to deliver analytics, infrastructure, or security services. These partners may set their own cookies subject to their privacy policies. We contractually require them to safeguard data, restrict use to 2060 OÜ’s instructions, and comply with applicable regulations.
 {{< /legal-section-card >}}
 
 {{< legal-section-card id="section-your-choices" title="Your Choices" icon="fa-solid fa-hand-pointer" icon_bg_class="bg-hologram-primary/10" icon_color_class="text-hologram-primary" >}}
-Most browsers automatically accept cookies, but you can adjust settings to block or delete them. Blocking essential cookies may impact the availability or functionality of Verana services. You can also opt out of analytics cookies through browser settings or industry opt-out tools where available.
+Most browsers automatically accept cookies, but you can adjust settings to block or delete them. Blocking essential cookies may impact the availability or functionality of 2060 OÜ services. You can also opt out of analytics cookies through browser settings or industry opt-out tools where available.
 
 {{< legal-note icon="fa-solid fa-exclamation-triangle" icon_color_class="text-yellow-600" background_class="bg-yellow-50" border_class="border-yellow-400" >}}
 **Note:** Blocking essential cookies may prevent you from accessing core features such as developer tools, dashboards, or trust registries.
@@ -62,7 +62,7 @@ We may update this Cookie Policy to reflect changes in technology, legal require
 {{< /legal-section-card >}}
 
 {{< legal-section-card id="section-contact" title="Contact" icon="fa-solid fa-envelope" icon_bg_class="bg-hologram-primary/10" icon_color_class="text-hologram-primary" >}}
-If you have questions about this Cookie Policy, contact us at [privacy@verana.io](mailto:privacy@verana.io).
+If you have questions about this Cookie Policy, contact us at privacy at hologram dot zone.
 {{< /legal-section-card >}}
 
 {{< /legal-content >}}
