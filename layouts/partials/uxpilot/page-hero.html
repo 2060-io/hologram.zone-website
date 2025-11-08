@@ -9,6 +9,9 @@
   {{ $heroImage := or ($params.hero_image) ($params.heroImage) ($params.hero_media) ($params.heroMedia) "" }}
   {{ $heroImageAlt := or ($params.hero_image_alt) ($params.heroImageAlt) ($params.hero_media_alt) ($params.heroMediaAlt) (printf "%s hero image" $title) }}
   {{ $heroImageCaption := or ($params.hero_image_caption) ($params.heroImageCaption) "" }}
+  {{ $lastUpdatedValue := or ($params.hero_last_updated) ($params.heroLastUpdated) "" }}
+  {{ $lastUpdatedLabel := or ($params.hero_last_updated_label) ($params.heroLastUpdatedLabel) "Last Updated" }}
+  {{ $lastUpdatedIcon := or ($params.hero_last_updated_icon) ($params.heroLastUpdatedIcon) "fa-solid fa-clock" }}
   {{ $scratch := newScratch }}
   {{ $scratch.Set "badgeText" (or ($params.hero_badge_text) ($params.heroBadgeText) ($params.hero_label) ($params.heroLabel) ($params.hero_kicker) ($params.heroKicker) "") }}
   {{ $hideBadge := or ($params.hero_hide_badge) ($params.heroHideBadge) false }}
@@ -62,6 +65,13 @@
         </h1>
         {{ with $description }}
           <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">{{ . | safeHTML }}</p>
+        {{ end }}
+        {{ if $lastUpdatedValue }}
+          <div class="mt-6 inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white/80 border border-gray-200 shadow-sm text-sm font-semibold text-gray-700">
+            <i class="{{ $lastUpdatedIcon }} text-hologram-primary"></i>
+            <span class="uppercase tracking-wide text-gray-500">{{ $lastUpdatedLabel }}</span>
+            <span class="text-gray-900">{{ $lastUpdatedValue }}</span>
+          </div>
         {{ end }}
         {{ with $heroNote }}
           <div class="mt-10 max-w-3xl mx-auto text-left">

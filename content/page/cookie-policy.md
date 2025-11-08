@@ -6,12 +6,13 @@ meta_description: "See how Verana uses cookies, analytics tags, and similar tech
 subtitle: "Understand how Verana uses cookies, related technologies, and the choices you can make."
 hero_icon: "fa-solid fa-cookie-bite"
 disable_content_wrapper: true
+hero_last_updated: "September 26, 2025"
+hero_last_updated_label: "Last Updated"
+hero_last_updated_icon: "fa-solid fa-clock"
 
 ---
 
 {{< legal-content >}}
-{{< legal-meta-grid doc_type="Cookie Policy" updated_value="September 26, 2025" badge_label="Trust & Privacy" badge_icon="fa-solid fa-shield-alt" >}}
-
 {{< legal-summary title="Quick Summary" icon="fa-solid fa-info-circle" icon_color_class="text-blue-600" >}}
 This Cookie Policy explains how Hologram uses cookies and similar technologies to provide, improve, and secure our services. We use essential cookies for functionality, performance cookies for analytics, and functional cookies to remember your preferences.
 {{< /legal-summary >}}
