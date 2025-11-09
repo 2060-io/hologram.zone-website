@@ -1,8 +1,8 @@
 ---
 title: Getting Started
-subtitle: "Learn how to get started with Verana as a developer, and where to find documentation and access community channels."
+subtitle: "Learn how to get started with Hologram as a developer, and where to find documentation and access community channels."
 url: "/page/get-started"
-meta_title: "Developers and Verana | Learn how to get started with Verana, and where to find documentation and access community channels."
+meta_title: "Developers and Hologram | Learn how to get started with Hologram, and where to find documentation and access community channels."
 hero_icon: "fa-solid fa-hammer"
 disable_content_wrapper: true
 ---
