@@ -36,10 +36,10 @@
             <div class="relative z-10">
             <h4 class="text-2xl font-semibold text-gray-900 mb-6">{{ .quick_title | default "Quick Download" }}</h4>
             {{ with .quick_subtitle }}
-              <p class="text-gray-600 mb-6">{{ . }}</p>
+              <p class="text-gray-600 mb-6" data-app-download-subtitle>{{ . }}</p>
             {{ end }}
             {{ with .qr }}
-              <div class="inline-block p-6 bg-gray-50 rounded-xl mb-8 border border-hologram-primary/40">
+              <div class="inline-block p-6 bg-gray-50 rounded-xl mb-8 border border-hologram-primary/40" data-app-download-qr>
                 <div class="relative w-48 h-48 mx-auto">
                   <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&ecc=Q&data={{ .src | urlquery }}" alt="{{ or .alt "Download QR code" }}" class="w-48 h-48 object-contain" loading="lazy" />
                   <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -51,8 +51,8 @@
               </div>
             {{ end }}
             {{ if or .platforms_title (gt (len .platforms) 0) }}
-              <div class="space-y-4">
-                {{ with .platforms_title }}<h5 class="text-lg font-semibold text-gray-900 mb-4">{{ . }}</h5>{{ end }}
+              <div class="space-y-4" data-app-download-platforms>
+                {{ with .platforms_title }}<h5 class="text-lg font-semibold text-gray-900 mb-4" data-app-download-platforms-title>{{ . }}</h5>{{ end }}
                 <div class="flex flex-wrap justify-center gap-4">
                   {{ range .platforms }}
                     {{ $isExternal := strings.HasPrefix .href "http" }}
@@ -84,3 +84,11 @@
     </div>
   </section>
 {{ end }}
+<script>
+  (function () {
+    const isMobile = /android|webos|iphone|ipod|blackberry|iemobile|opera mini/i.test((navigator.userAgent || '').toLowerCase());
+    if (!isMobile) return;
+    document.querySelectorAll('[data-app-download-qr]').forEach(el => el.remove());
+    document.querySelectorAll('[data-app-download-subtitle]').forEach(el => el.remove());
+  })();
+</script>

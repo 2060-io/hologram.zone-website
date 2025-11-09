@@ -1700,10 +1700,6 @@ body.bg-black {
   pointer-events: none;
 }
 
-.visible {
-  visibility: visible;
-}
-
 .collapse {
   visibility: collapse;
 }
@@ -1891,14 +1887,6 @@ body.bg-black {
 
 .z-30 {
   z-index: 30;
-}
-
-.z-40 {
-  z-index: 40;
-}
-
-.z-\[60\] {
-  z-index: 60;
 }
 
 .z-50 {
@@ -3265,11 +3253,6 @@ body.bg-black {
 .bg-indigo-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(224 231 255 / var(--tw-bg-opacity, 1));
-}
-
-.bg-indigo-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 102 241 / var(--tw-bg-opacity, 1));
 }
 
 .bg-orange-100 {
@@ -6094,12 +6077,12 @@ body.bg-black {
     border-color: rgb(31 41 55 / 0.5);
   }
 
-  .dark\:border-gray-800\/80 {
-    border-color: rgb(31 41 55 / 0.8);
-  }
-
   .dark\:border-gray-800\/60 {
     border-color: rgb(31 41 55 / 0.6);
+  }
+
+  .dark\:border-gray-800\/80 {
+    border-color: rgb(31 41 55 / 0.8);
   }
 
   .dark\:bg-black\/75 {
