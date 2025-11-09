@@ -67,7 +67,7 @@ app_download:
       button_svg: "/images/download-google.svg"
     - label: "App Gallery"
       subtitle: "Get it on"
-      href: "https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m"
+      href: "https://appgallery.huawei.com/app/C110964449"
       button_svg: "/images/download-huawei.svg"
 powerful_communication:
   id: "powerful-communication"

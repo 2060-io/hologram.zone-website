@@ -165,19 +165,14 @@ To exercise these rights, contact us using the details below. We may request add
 We may update this Privacy Policy to reflect changes in technology, legal requirements, or our services. The “Last Updated” date at the top of this page indicates when the most recent revisions were made. Material changes will be communicated through our website or direct notices where appropriate.
 {{< /legal-section-card >}}
 
-{{< legal-section-card id="contact" title="Contact" icon="fa-solid fa-envelope" icon_bg_class="bg-hologram-primary/10" icon_color_class="text-hologram-primary" >}}
+{{< legal-section-card id="contact" title="Contact Us" icon="fa-solid fa-envelope" icon_bg_class="bg-hologram-primary/10" icon_color_class="text-hologram-primary" >}}
+{{< legal-paragraph >}}
 Questions or privacy requests may be directed to:
+{{< /legal-paragraph >}}
 
-{{< legal-card-grid cols="1" >}}
-  {{< legal-card title="2060 OÜ Privacy Team" icon="fa-solid fa-building" icon_bg_class="bg-gray-100" icon_color_class="text-gray-600" >}}
-{{< legal-link-list >}}
-  {{< legal-link href="mailto:privacy@hologram.zone" icon="fa-solid fa-envelope" >}}privacy@hologram.zone{{< /legal-link >}}
-  {{< legal-link href="https://hologram.zone" icon="fa-solid fa-globe" >}}https://hologram.zone{{< /legal-link >}}
-{{< /legal-link-list >}}
-  {{< /legal-card >}}
-{{< /legal-card-grid >}}
+{{< legal-contact-card name="Verana Foundation" email="privacy@verana.io" website="https://verana.io" >}}
 
-{{< legal-note background_class="bg-blue-50" border_class="border-blue-400" icon="fa-solid fa-info-circle" icon_color_class="text-blue-600" >}}
+{{< legal-note background_class="bg-blue-50" border_class="border-blue-400" icon="fa-solid fa-info-circle" icon_color_class="text-blue-600" margin_class="mt-6" padding_class="p-5" text_class="text-gray-700 leading-relaxed text-sm mb-0" >}}
 If you are located in the European Economic Area or United Kingdom, you may also contact your local data protection authority regarding unresolved concerns.
 {{< /legal-note >}}
 {{< /legal-section-card >}}

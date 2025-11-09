@@ -5,10 +5,11 @@
 {{- $padding := .Get "padding_class" | default "p-6" -}}
 {{- $rounded := .Get "rounded_class" | default "rounded-lg" -}}
 {{- $margin := .Get "margin_class" | default "mb-6" -}}
+{{- $textClass := .Get "text_class" | default "text-gray-700 leading-relaxed" -}}
 <div class="{{ $background }} border-l-4 {{ $border }} {{ $padding }} {{ $rounded }} {{ $margin }}">
   <div class="flex items-start">
     <i class="{{ $icon }} {{ $iconColor }} text-xl mr-4 mt-1"></i>
-    <div class="text-gray-700 leading-relaxed">
+    <div class="{{ $textClass }}">
       {{ .Inner | markdownify | safeHTML }}
     </div>
   </div>

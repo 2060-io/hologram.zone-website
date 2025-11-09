@@ -1,0 +1,23 @@
+{{- $name := .Get "name" | default "" -}}
+{{- $email := .Get "email" -}}
+{{- $website := .Get "website" -}}
+{{- $class := .Get "class" | default "" -}}
+<div class="bg-gray-50 border border-gray-200 rounded-lg p-6 {{ $class }}">
+{{- if $name }}
+<h3 class="font-semibold text-gray-900 mb-4">{{ $name }}</h3>
+{{- end }}
+<div class="space-y-3">
+{{- with $email }}
+<a href="mailto:{{ . }}" class="flex items-center text-hologram-primary hover:text-hologram-secondary font-semibold">
+  <i class="fa-solid fa-envelope mr-3 w-5"></i>
+  {{ . }}
+</a>
+{{- end }}
+{{- with $website }}
+<a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="flex items-center text-hologram-primary hover:text-hologram-secondary font-semibold">
+  <i class="fa-solid fa-globe mr-3 w-5"></i>
+  {{ . }}
+</a>
+{{- end }}
+</div>
+</div>
