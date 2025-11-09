@@ -59,10 +59,7 @@
         if (!base) return;
         const separator = base.includes('?') ? '&' : '?';
         const target = referrer ? `${base}${separator}referrer=${encodeURIComponent(referrer)}` : base;
-        const opened = window.open(target, '_blank');
-        if (!opened) {
-          window.location.assign(target);
-        }
+        window.location.href = target;
       }
 
       if (isIOS && iosBtn) {
