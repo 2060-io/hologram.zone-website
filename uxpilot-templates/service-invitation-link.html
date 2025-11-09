@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Invitation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme:
+        {
+          extend:
+          {
+            colors:
+            {
+              'hologram-primary': '#7678ec',
+              'hologram-secondary': '#6161cb',
+              'hologram-dark': '#1c1161',
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      window.FontAwesomeConfig = {
+        autoReplaceSvg: 'nest'
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      .hologram-gradient {
+        background: linear-gradient(135deg, #7678ec 0%, #6161cb 50%, #1c1161 100%);
+      }
+      .hologram-gradient-light {
+        background: linear-gradient(135deg, rgba(118, 120, 236, 0.1) 0%, rgba(97, 97, 203, 0.1) 50%, rgba(28, 17, 97, 0.1) 100%);
+      }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-50 to-white min-h-screen">
+    <header id="header" class="bg-white/95 backdrop-blur-md border-b border-gray-100">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 hologram-gradient rounded-lg flex items-center justify-center">
+              <i class="fas fa-cube text-white text-lg"></i>
+            </div>
+            <span class="text-2xl font-bold bg-gradient-to-r from-hologram-primary to-hologram-dark bg-clip-text text-transparent">Hologram</span>
+          </div>
+          <nav class="hidden lg:flex items-center space-x-8">
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Platform</a>
+            <div class="relative group">
+              <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium flex items-center">
+                Solutions <i class="fas fa-chevron-down ml-1 text-xs"></i>
+              </a>
+              <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="p-4 space-y-3">
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">AI Support Agents</a>
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">Digital ID Issuers</a>
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">Personal AI Companions</a>
+                  <a href="#" class="block text-gray-700 hover:text-hologram-primary">Government Services</a>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Developers</a>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Docs</a>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">About</a>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Demos</a>
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Blog</a>
+          </nav>
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Sign In</a>
+            <button class="bg-hologram-primary text-white px-6 py-2.5 rounded-lg hover:bg-hologram-secondary transition-colors duration-200 font-medium">
+              Get Started
+            </button>
+            <button class="lg:hidden text-gray-700">
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="invitation-hero" class="py-12">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full mb-6">
+              <i class="fas fa-envelope-open-text"></i>
+              <span class="font-semibold text-sm">Service Invitation</span>
+            </div>
+            <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">You've been invited</h1>
+            <p class="text-lg text-gray-600">Connect only to this service if you trust it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="invitation-content" class="pb-16">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto">
+          <div id="service-card" class="bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden mb-8">
+            <div class="bg-gradient-to-r from-hologram-primary/10 to-hologram-secondary/10 p-8 border-b border-gray-200">
+              <div class="flex items-center space-x-6">
+                <div class="w-20 h-20 bg-white rounded-2xl shadow-md flex items-center justify-center flex-shrink-0">
+                  <div class="w-16 h-16 hologram-gradient rounded-xl flex items-center justify-center">
+                    <i class="fas fa-faucet text-white text-2xl"></i>
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <h2 class="text-2xl font-bold text-gray-900 mb-2">Verana vna-testnet-1 Faucet</h2>
+                  <div class="flex items-center space-x-2">
+                    <div class="flex items-center bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                      <i class="fas fa-check-circle mr-2"></i>
+                      Verified Service
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-8">
+              
+              
+              <div id="tap-section" class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 mb-8">
+                <div class="flex flex-col lg:flex-row items-center gap-8">
+                  <div class="flex-1 text-center lg:text-left">
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Tap to Continue</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      The credential of this service is valid.
+                    </p>
+                  </div>
+                  <div id="action-buttons" class="flex flex-col sm:flex-row gap-4">
+                <button class="flex-1 bg-hologram-primary text-white px-8 py-4 rounded-xl hover:bg-hologram-secondary transition-colors duration-200 font-semibold text-lg flex items-center justify-center">
+                  <i class="fas fa-mobile-alt mr-3"></i>
+                  Open in Hologram App
+                </button>
+                
+              </div>
+                </div>
+              </div>
+
+              <div id="invitation-details" class="space-y-6">
+                <div class="flex items-center justify-between pb-4 border-b border-gray-200">
+                  <h3 class="text-xl font-bold text-gray-900">Invitation Details</h3>
+                  
+                </div>
+
+                <div class="space-y-4">
+                  <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-start">
+                      <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                        <i class="fas fa-server text-hologram-primary"></i>
+                      </div>
+                      <div class="flex-1">
+                        <h4 class="font-semibold text-gray-900 mb-2">Service</h4>
+                        <p class="text-gray-700 font-mono text-sm break-all">Verana vna-testnet-1 Faucet</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-start">
+                      <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                        <i class="fas fa-network-wired text-hologram-primary"></i>
+                      </div>
+                      <div class="flex-1">
+                        <h4 class="font-semibold text-gray-900 mb-3">Supported Protocols</h4>
+                        <div class="space-y-2">
+                          <div class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span class="text-gray-700 font-mono">https://didcomm.org/didexchange/1.1</span>
+                          </div>
+                          <div class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span class="text-gray-700 font-mono">https://didcomm.org/connections/1.0</span>
+                          </div>
+                          <div class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span class="text-gray-700 font-mono">didcomm/aip1</span>
+                          </div>
+                          <div class="flex items-center text-sm">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span class="text-gray-700 font-mono">didcomm/aip2;env=rfc19</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-start">
+                      <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                        <i class="fas fa-fingerprint text-hologram-primary"></i>
+                      </div>
+                      <div class="flex-1">
+                        <h4 class="font-semibold text-gray-900 mb-2">Service DID</h4>
+                        <p class="text-gray-700 font-mono text-sm break-all">did:web:faucet-vs.testnet.verana.network</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-start">
+                      <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                        <i class="fas fa-tag text-hologram-primary"></i>
+                      </div>
+                      <div class="flex-1">
+                        <h4 class="font-semibold text-gray-900 mb-2">Invitation Type</h4>
+                        <p class="text-gray-700 font-mono text-sm break-all">https://didcomm.org/out-of-band/1.1/invitation</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+    
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="bg-gray-50 text-gray-900 py-16 border-t border-gray-200">
+      <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-5 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <div class="flex items-center space-x-3 mb-6">
+              <div class="w-10 h-10 hologram-gradient rounded-lg flex items-center justify-center">
+                <i class="fas fa-cube text-white text-lg"></i>
+              </div>
+              <span class="text-2xl font-bold">Hologram</span>
+            </div>
+            <p class="text-gray-600 mb-6 max-w-md">
+              Building the future of verifiable AI services. Create trusted, discoverable, and privacy-preserving AI agents on the decentralized web.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-discord"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-4 text-gray-900">Platform</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">How it Works</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Features</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Pricing</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Security</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Status</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-4 text-gray-900">Developers</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Documentation</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">API Reference</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">SDK</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">GitHub</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Community</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-4 text-gray-900">Company</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">About</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Blog</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Careers</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Press</a></li>
+              <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-200 pt-8">
+          <div class="flex flex-col lg:flex-row justify-between items-center">
+            <div class="text-gray-600 mb-4 lg:mb-0">
+              © 2024 Hologram. All rights reserved.
+            </div>
+            <div class="flex space-x-6 text-sm">
+              <a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Privacy Policy</a>
+              <a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Terms of Service</a>
+              <a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

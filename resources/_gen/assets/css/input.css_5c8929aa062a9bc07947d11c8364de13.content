@@ -2049,9 +2049,6 @@ video {
 .gap-1 {
   gap: 0.25rem;
 }
-.gap-10 {
-  gap: 2.5rem;
-}
 .gap-12 {
   gap: 3rem;
 }
@@ -3114,6 +3111,9 @@ video {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+.pb-12 {
+  padding-bottom: 3rem;
 }
 .pb-4 {
   padding-bottom: 1rem;
@@ -4910,6 +4910,11 @@ video {
   .lg\:py-1 {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
+  }
+
+  .lg\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   .lg\:py-20 {

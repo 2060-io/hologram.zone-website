@@ -12,7 +12,7 @@ disable_content_wrapper: true
 markup: html
 ---
 
-<section class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 py-12" data-service-invitation-root>
+<section class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-6 pb-12" data-service-invitation-root>
   <div class="container mx-auto px-6 lg:px-12 space-y-10">
     <div data-service-loading class="text-center space-y-4">
       <svg class="animate-spin h-10 w-10 text-hologram-primary mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -29,7 +29,6 @@ markup: html
 
     <div data-service-content class="hidden space-y-10">
       <div data-service-banner class="hidden text-center space-y-6">
-        <p class="text-lg text-gray-600 dark:text-gray-300">You have been invited to connect to:</p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl px-6 py-5 shadow-sm">
           <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-white/10 flex items-center justify-center overflow-hidden">
             <img data-service-image src="/images/ico-hologram.png" alt="Service avatar" class="w-full h-full object-contain" loading="lazy" decoding="async" />
@@ -41,7 +40,7 @@ markup: html
         </div>
       </div>
 
-      <div class="grid gap-10 lg:grid-cols-2 items-start">
+      <div class="flex flex-col items-center gap-8">
         <div data-service-qr class="hidden space-y-4 text-center">
           <div class="mx-auto w-[280px] md:w-[315px] aspect-square flex items-center justify-center bg-white dark:bg-gray-800 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg p-4">
             <img data-qr-image src="" alt="QR code" class="w-full h-full object-contain" loading="lazy" decoding="async" />
@@ -54,17 +53,9 @@ markup: html
           </p>
         </div>
 
-        <div class="space-y-6">
-          <div data-service-mobile-cta class="hidden text-center bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded-2xl p-6">
-            <p class="text-sm uppercase tracking-wide text-indigo-600 dark:text-indigo-300 mb-4 font-semibold">Open with Hologram</p>
-            <button type="button" data-mobile-link class="inline-flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold text-base md:text-lg px-6 py-3 rounded-xl shadow-lg w-full transition-colors">
-              Continue with this service
-            </button>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-3" data-mobile-subtext>This will switch to the Hologram app if it&rsquo;s installed.</p>
-          </div>
-
-          <div class="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 space-y-6">
-            <h3 class="text-lg font-semibold">Invitation details</h3>
+        <div class="w-full max-w-2xl space-y-6 text-center">
+          <div class="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 space-y-6 text-left">
+            <h3 class="text-lg font-semibold text-center">Invitation details</h3>
             <dl class="space-y-4 text-sm">
               <div class="flex flex-col gap-1">
                 <dt class="uppercase tracking-wide text-gray-500 dark:text-gray-400 text-xs">Service</dt>
@@ -83,6 +74,14 @@ markup: html
                 <dd class="text-base text-gray-900 dark:text-gray-50 font-medium" data-service-type>&mdash;</dd>
               </div>
             </dl>
+          </div>
+
+          <div data-service-mobile-cta class="hidden text-center bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded-2xl p-6">
+            <p class="text-sm uppercase tracking-wide text-indigo-600 dark:text-indigo-300 mb-4 font-semibold">Open with Hologram</p>
+            <button type="button" data-mobile-link class="inline-flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold text-base md:text-lg px-6 py-3 rounded-xl shadow-lg w-full transition-colors">
+              Continue with this service
+            </button>
+            <p class="text-xs text-gray-600 dark:text-gray-300 mt-3" data-mobile-subtext>This will switch to the Hologram app if it&rsquo;s installed.</p>
           </div>
         </div>
       </div>

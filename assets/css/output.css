@@ -3986,6 +3986,10 @@ body.bg-black {
   padding-top: 2rem;
 }
 
+.pb-12 {
+  padding-bottom: 3rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -6042,6 +6046,11 @@ body.bg-black {
   .lg\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
+  }
+
+  .lg\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   .lg\:pb-2 {
