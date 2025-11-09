@@ -3992,6 +3992,10 @@ body.bg-black {
   line-height: 1rem;
 }
 
+.text-\[8px\] {
+  font-size: 8px;
+}
+
 .font-black {
   font-weight: 900;
 }

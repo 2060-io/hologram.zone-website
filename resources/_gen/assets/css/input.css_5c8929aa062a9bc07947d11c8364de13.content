@@ -3120,6 +3120,9 @@ video {
 .text-\[10px\] {
   font-size: 10px;
 }
+.text-\[8px\] {
+  font-size: 8px;
+}
 .text-\[9px\] {
   font-size: 9px;
 }
