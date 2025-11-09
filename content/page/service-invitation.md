@@ -12,76 +12,120 @@ disable_content_wrapper: true
 markup: html
 ---
 
-<section class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 pt-6 pb-12" data-service-invitation-root>
-  <div class="container mx-auto px-6 lg:px-12 space-y-10">
-    <div data-service-loading class="text-center space-y-4">
-      <svg class="animate-spin h-10 w-10 text-hologram-primary mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
-      </svg>
-      <p class="text-lg font-medium">Preparing your invitation&hellip;</p>
-    </div>
-
-    <div data-service-error class="hidden bg-red-50 dark:bg-red-900/40 border border-red-200 dark:border-red-800 rounded-2xl p-6">
-      <h2 class="text-xl font-semibold text-red-700 dark:text-red-300 mb-2">We couldn&rsquo;t open this invitation</h2>
-      <p class="text-red-600 dark:text-red-200" data-service-error-text>Please double-check the link or request a new invitation.</p>
-    </div>
-
-    <div data-service-content class="hidden space-y-10">
-      <div data-service-banner class="hidden text-center space-y-6">
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl px-6 py-5 shadow-sm">
-          <div class="w-20 h-20 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-white/10 flex items-center justify-center overflow-hidden">
-            <img data-service-image src="/images/ico-hologram.png" alt="Service avatar" class="w-full h-full object-contain" loading="lazy" decoding="async" />
-          </div>
-          <div class="text-left space-y-1">
-            <p class="text-2xl font-semibold" data-service-name>Pending invitation</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400">Open this invitation in the Hologram app to continue.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-col items-center gap-8">
-        <div data-service-qr class="hidden space-y-4 text-center">
-          <div class="mx-auto w-[280px] md:w-[315px] aspect-square flex items-center justify-center bg-white dark:bg-gray-800 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-3xl shadow-lg p-4">
-            <img data-qr-image src="" alt="QR code" class="w-full h-full object-contain" loading="lazy" decoding="async" />
-          </div>
-          <p class="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 text-sm md:text-base text-gray-600 dark:text-gray-300">
-            <span class="inline-flex items-center justify-center bg-white dark:bg-gray-800 rounded-full w-10 h-10 mx-auto sm:mx-0">
-              <img src="/images/valid_credential.svg" alt="Valid credential" class="w-6 h-6" loading="lazy" decoding="async" />
-            </span>
-            <span data-service-status>The credential of this service is valid. Continue on your mobile phone by scanning this QR.</span>
-          </p>
+<section id="invitation-content" class="bg-gradient-to-br from-gray-50 via-white to-white pt-6 pb-16" data-service-invitation-root>
+  <div class="container mx-auto px-6">
+    <div class="max-w-3xl mx-auto bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden">
+      <div class="px-6 md:px-10 py-8 space-y-8">
+        <div data-service-loading class="text-center space-y-4 py-10">
+          <svg class="animate-spin h-10 w-10 text-hologram-primary mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+          </svg>
+          <p class="text-lg font-medium text-gray-700">Preparing your invitation&hellip;</p>
         </div>
 
-        <div class="w-full max-w-2xl space-y-6 text-center">
-          <div class="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-6 space-y-6 text-left">
-            <h3 class="text-lg font-semibold text-center">Invitation details</h3>
-            <dl class="space-y-4 text-sm">
-              <div class="flex flex-col gap-1">
-                <dt class="uppercase tracking-wide text-gray-500 dark:text-gray-400 text-xs">Service</dt>
-                <dd class="text-base text-gray-900 dark:text-gray-50 font-medium" data-service-name-secondary>Pending invitation</dd>
+        <div data-service-error class="hidden bg-red-50 border border-red-200 rounded-2xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div>
+              <h2 class="text-xl font-semibold text-red-700 mb-2">We couldn&rsquo;t open this invitation</h2>
+              <p class="text-red-600" data-service-error-text>Please double-check the link or request a new invitation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div data-service-content class="hidden space-y-8">
+          <div data-service-banner class="hidden" id="service-card">
+            <div class="bg-gradient-to-r from-hologram-primary/10 to-hologram-secondary/10 p-8 border border-gray-200 rounded-2xl shadow-sm flex items-center space-x-6">
+              <div class="w-20 h-20 bg-white rounded-2xl shadow-md flex items-center justify-center overflow-hidden">
+                <img data-service-image src="/images/ico-hologram.png" alt="Service avatar" class="w-16 h-16 object-contain" loading="lazy" decoding="async" />
               </div>
-              <div class="flex flex-col gap-1">
-                <dt class="uppercase tracking-wide text-gray-500 dark:text-gray-400 text-xs">Supported protocols</dt>
-                <dd class="text-base text-gray-900 dark:text-gray-50 font-medium" data-service-protocols>&mdash;</dd>
+              <div class="flex-1">
+                <p class="text-sm uppercase tracking-wide text-gray-500 mb-1">You&rsquo;re connecting to</p>
+                <p class="text-2xl font-bold text-gray-900" data-service-name>Pending invitation</p>
+                <div class="inline-flex items-center bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold mt-3">
+                  <i class="fa-solid fa-check-circle mr-2"></i>
+                  Verified service
+                </div>
               </div>
-              <div class="flex flex-col gap-1">
-                <dt class="uppercase tracking-wide text-gray-500 dark:text-gray-400 text-xs">Available services</dt>
-                <dd class="text-base text-gray-900 dark:text-gray-50 font-medium" data-service-services>&mdash;</dd>
-              </div>
-              <div class="flex flex-col gap-1">
-                <dt class="uppercase tracking-wide text-gray-500 dark:text-gray-400 text-xs">Invitation type</dt>
-                <dd class="text-base text-gray-900 dark:text-gray-50 font-medium" data-service-type>&mdash;</dd>
-              </div>
-            </dl>
+            </div>
           </div>
 
-          <div data-service-mobile-cta class="hidden text-center bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded-2xl p-6">
-            <p class="text-sm uppercase tracking-wide text-indigo-600 dark:text-indigo-300 mb-4 font-semibold">Open with Hologram</p>
-            <button type="button" data-mobile-link class="inline-flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold text-base md:text-lg px-6 py-3 rounded-xl shadow-lg w-full transition-colors">
-              Continue with this service
-            </button>
-            <p class="text-xs text-gray-600 dark:text-gray-300 mt-3" data-mobile-subtext>This will switch to the Hologram app if it&rsquo;s installed.</p>
+          <div class="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 space-y-8">
+            <div id="qr-section" data-service-qr class="hidden bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8">
+              <div class="flex flex-col lg:flex-row items-center gap-8">
+                <div class="flex-1 text-center lg:text-left">
+                  <h3 class="text-xl font-bold text-gray-900 mb-3">Scan to continue</h3>
+                  <p class="text-gray-600 leading-relaxed" data-service-status>
+                    The credential of this service is valid. Continue on your mobile phone by scanning this QR code with the Hologram app.
+                  </p>
+                </div>
+                <div class="flex-shrink-0">
+                  <div class="bg-white p-6 rounded-2xl shadow-lg border-2 border-hologram-primary/20">
+                    <div class="w-52 h-52 md:w-60 md:h-60 bg-gray-100 rounded-xl flex items-center justify-center">
+                      <img data-qr-image src="" alt="QR code" class="w-full h-full object-contain" loading="lazy" decoding="async" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="tap-section" data-service-mobile-cta class="hidden bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 text-center">
+              <p class="text-sm uppercase tracking-wide text-indigo-600 font-semibold mb-4">Open with Hologram</p>
+              <p class="text-gray-600 mb-6" data-mobile-subtext>Tap continue to switch to the Hologram app.</p>
+              <button type="button" data-mobile-link class="inline-flex items-center justify-center gap-3 bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold text-lg px-6 py-4 rounded-2xl shadow-lg transition-colors">
+                Continue with this service
+              </button>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center justify-between pb-4 border-b border-gray-200">
+                <h3 class="text-xl font-bold text-gray-900">Invitation details</h3>
+              </div>
+              <div class="space-y-4">
+                <div class="bg-gray-50 rounded-xl p-6 flex items-start gap-4">
+                  <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-server text-hologram-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Service</h4>
+                    <p class="text-gray-700 font-mono text-sm break-all" data-service-name-secondary>Pending invitation</p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 flex items-start gap-4">
+                  <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-network-wired text-hologram-primary"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-gray-900 mb-2">Supported protocols</h4>
+                    <p class="text-gray-700 font-mono text-sm break-all" data-service-protocols>&mdash;</p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 flex items-start gap-4">
+                  <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-fingerprint text-hologram-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Service DID</h4>
+                    <p class="text-gray-700 font-mono text-sm break-all" data-service-did>&mdash;</p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 flex items-start gap-4">
+                  <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-tag text-hologram-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900 mb-2">Invitation type</h4>
+                    <p class="text-gray-700 font-mono text-sm break-all" data-service-type>&mdash;</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -111,7 +155,7 @@ markup: html
     const namePrimary = root.querySelector('[data-service-name]');
     const nameSecondary = root.querySelector('[data-service-name-secondary]');
     const protocolsEl = root.querySelector('[data-service-protocols]');
-    const servicesEl = root.querySelector('[data-service-services]');
+    const serviceDidEl = root.querySelector('[data-service-did]');
     const typeEl = root.querySelector('[data-service-type]');
     const qrWrapper = root.querySelector('[data-service-qr]');
     const qrImage = root.querySelector('[data-qr-image]');
@@ -220,8 +264,8 @@ markup: html
       if (protocolsEl) {
         protocolsEl.textContent = uniqueProtocols.length ? uniqueProtocols.join(', ') : '—';
       }
-      if (servicesEl) {
-        servicesEl.textContent = services.length ? services.join(', ') : '—';
+      if (serviceDidEl) {
+        serviceDidEl.textContent = services.length ? services[0] : '—';
       }
       if (typeEl) {
         typeEl.textContent = invitationType || '—';
@@ -236,7 +280,9 @@ markup: html
         qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=315x315&data=${encodeURIComponent(qrTarget)}`;
         qrImage.alt = 'QR code to continue this invitation on mobile';
         toggleVisibility(qrWrapper, true);
+        if (mobileCtaWrapper) toggleVisibility(mobileCtaWrapper, false);
       } else if (mobileCtaWrapper && mobileButton) {
+        if (qrWrapper) toggleVisibility(qrWrapper, false);
         toggleVisibility(mobileCtaWrapper, true);
         mobileButton.textContent = isDidcommV2 ? 'Continue with this service' : `Get ${inviteLabel} in Hologram`;
         mobileButton.addEventListener('click', () => {
