@@ -8,6 +8,9 @@
     {{ .Scratch.Set "meta_description" $meta.description }}
     <title>{{ $meta.title }}</title>
     <meta name="description" content="{{ $meta.description }}" />
+    {{ with .Site.Params.appBanner.iosAppId }}
+      <meta name="apple-itunes-app" content="app-id={{ . }}{{ with $.Site.Params.appBanner.appArgument }}, app-argument={{ . }}{{ end }}">
+    {{ end }}
     {{ $css := resources.Get "css/input.css" | postCSS (dict "config" "postcss.config.cjs") }}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" />
     {{ partial "head-fonts.html" . }}

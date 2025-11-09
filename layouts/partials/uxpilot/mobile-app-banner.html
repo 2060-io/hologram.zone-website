@@ -3,7 +3,7 @@
   {{ $bannerJSON := $banner | jsonify }}
   <div
     id="mobile-app-download-banner"
-    class="w-full p-2 flex md:hidden flex-wrap sm:flex-nowrap justify-center sm:justify-between items-center gap-4 dark:bg-indigo-300 bg-indigo-100 align-middle text-sm sm:text-base border-b border-gray-200 dark:border-gray-800/60"
+    class="hidden w-full p-2 flex flex-wrap sm:flex-nowrap justify-center sm:justify-between items-center gap-4 dark:bg-indigo-300 bg-indigo-100 align-middle text-sm sm:text-base border-b border-gray-200 dark:border-gray-800/60"
     data-mobile-banner
   >
     <div class="flex items-center gap-3">
@@ -28,66 +28,67 @@
   <script>
     (function(){
       const config = {{ $bannerJSON | safeJS }};
+      const banner = document.getElementById('mobile-app-download-banner');
+      if (!banner || !config) return;
 
-      function init(){
-        const banner = document.getElementById('mobile-app-download-banner');
-        if (!banner || !config) return;
+      const search = window.location.search || '';
+      const params = new URLSearchParams(search);
+      const hasOob = params.has('oob') || params.has('_oob');
 
-        const search = window.location.search || '';
-        const params = new URLSearchParams(search);
-        const hasOob = params.has('oob') || params.has('_oob');
+      const ua = (navigator.userAgent || '').toLowerCase();
+      const isIOS = /iphone|ipod/.test(ua);
+      const isAndroid = /android/.test(ua);
+      const isMobile = isIOS || isAndroid;
+      const isHuawei = /huawei|honor/.test(ua) || typeof window.hms !== 'undefined';
 
-        const ua = (navigator.userAgent || '').toLowerCase();
-        const isIOS = /iphone|ipod/.test(ua);
-        const isAndroid = /android/.test(ua);
-        const isTablet = /ipad|tablet/.test(ua);
-        const isMobile = (isIOS || isAndroid) && !isTablet;
-        const isHuawei = /huawei|honor/.test(ua) || typeof window.hms !== 'undefined';
+      if (!isMobile || hasOob) return;
 
-        if (!isMobile || hasOob) return;
+      const referrer = search ? search.replace(/^\?/, '') : '';
+      const buttons = banner.querySelector('[data-banner-buttons]');
+      if (!buttons) return;
 
-        const referrer = search || '';
-        const buttons = banner.querySelector('[data-banner-buttons]');
-        if (!buttons) return;
+      const iosBtn = buttons.querySelector('[data-store-button="ios"]');
+      const googleBtn = buttons.querySelector('[data-store-button="google"]');
+      const huaweiBtn = buttons.querySelector('[data-store-button="huawei"]');
 
-        const iosBtn = buttons.querySelector('[data-store-link="ios"]');
-        const googleBtn = buttons.querySelector('[data-store-link="google"]');
-        const huaweiBtn = buttons.querySelector('[data-store-link="huawei"]');
+      const linkMap = {
+        ios: config.iosUrl || '',
+        google: config.googleUrl || '',
+        huawei: config.huaweiUrl || '',
+      };
 
-        const linkMap = {
-          ios: config.iosUrl || '',
-          google: config.googleUrl || '',
-          huawei: config.huaweiUrl || '',
-        };
+      function navigate(store){
+        const base = linkMap[store];
+        if (!base) return;
+        const separator = base.includes('?') ? '&' : '?';
+        const target = referrer ? `${base}${separator}referrer=${encodeURIComponent(referrer)}` : base;
+        window.location.href = target;
+      }
 
-        function configureLink(el, store){
-          const base = linkMap[store];
-          if (!el || !base) return false;
-          const separator = base.includes('?') ? '&' : '?';
-          const target = referrer ? `${base}${separator}referrer=${encodeURIComponent(referrer)}` : base;
-          el.href = target;
-          el.target = '_blank';
-          el.rel = 'noopener noreferrer';
-          el.classList.remove('hidden');
-          return true;
-        }
+      if (isIOS && iosBtn) {
+        iosBtn.classList.remove('hidden');
+        iosBtn.addEventListener('click', () => navigate('ios'));
+      }
 
-        const iosVisible = isIOS && configureLink(iosBtn, 'ios');
-        const googleVisible =
-          !isIOS &&
-          (!isHuawei || typeof window.google !== 'undefined') &&
-          configureLink(googleBtn, 'google');
-        const huaweiVisible = isHuawei && configureLink(huaweiBtn, 'huawei');
-
-        if (iosVisible || googleVisible || huaweiVisible) {
-          banner.classList.remove('hidden');
+      if (googleBtn) {
+        const showGoogle = !isIOS && (!isHuawei || typeof window.google !== 'undefined');
+        if (showGoogle) {
+          googleBtn.classList.remove('hidden');
+          googleBtn.addEventListener('click', () => navigate('google'));
         }
       }
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init, { once: true });
-      } else {
-        init();
+      if (huaweiBtn && isHuawei) {
+        huaweiBtn.classList.remove('hidden');
+        huaweiBtn.addEventListener('click', () => navigate('huawei'));
+      }
+
+      if (
+        (isIOS && iosBtn && !iosBtn.classList.contains('hidden')) ||
+        (googleBtn && !googleBtn.classList.contains('hidden')) ||
+        (huaweiBtn && !huaweiBtn.classList.contains('hidden'))
+      ) {
+        banner.classList.remove('hidden');
       }
     })();
   </script>
