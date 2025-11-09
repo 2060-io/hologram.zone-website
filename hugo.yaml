@@ -29,6 +29,8 @@ params:
     iosUrl: "https://apps.apple.com/app/hologram-messaging/id6474701855"
     googleUrl: "https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m"
     huaweiUrl: "https://appgallery.huawei.com/app/C110964449"
+    iosAppId: "6474701855"
+#    appArgument: "didcomm://aries_proof-request"
     subtitle: "Private Messaging and Verifiable AI"
 
   header:

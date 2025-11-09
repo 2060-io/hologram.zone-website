@@ -17,7 +17,7 @@ hero:
   Accessible to anyone through Hologram, the open-source mobile app for trusted, decentralized interactions."
   primary_cta:
     label: "Instant Deployment"
-    href: "/page/build"
+    href: "/page/get-started"
     icon: "fas fa-rocket"
   secondary_cta:
     label: "Explore Live Services"
