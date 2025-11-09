@@ -12,7 +12,7 @@ hero_last_updated_icon: "fa-solid fa-clock"
 
 ---
 
-{{< legal-content >}}
+{{< legal-sections >}}
 {{< legal-summary title="Quick Summary" icon="fa-solid fa-info-circle" icon_color_class="text-blue-600" >}}
 This Cookie Policy explains how Hologram uses cookies and similar technologies to provide, improve, and secure our services. We use essential cookies for functionality, performance cookies for analytics, and functional cookies to remember your preferences.
 {{< /legal-summary >}}
@@ -65,4 +65,4 @@ We may update this Cookie Policy to reflect changes in technology, legal require
 If you have questions about this Cookie Policy, contact us at privacy at hologram dot zone.
 {{< /legal-section-card >}}
 
-{{< /legal-content >}}
+{{< /legal-sections >}}

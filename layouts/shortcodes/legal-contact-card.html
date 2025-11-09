@@ -2,7 +2,8 @@
 {{- $email := .Get "email" -}}
 {{- $website := .Get "website" -}}
 {{- $class := .Get "class" | default "" -}}
-<div class="bg-gray-50 border border-gray-200 rounded-lg p-6 {{ $class }}">
+{{- $wrapper := .Get "wrapper_class" | default "bg-gray-50 border border-gray-200 rounded-lg p-6" -}}
+<div class="{{ $wrapper }} {{ $class }}">
 {{- if $name }}
 <h3 class="font-semibold text-gray-900 mb-4">{{ $name }}</h3>
 {{- end }}

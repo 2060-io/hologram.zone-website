@@ -35,7 +35,7 @@ params:
 #      icon: "fa-solid fa-umbrella-beach"
 #      icon: "fa-solid fa-flask-vial"
   footer:
-    company: "2060 OÜ for the Verana Foundation"
+    company: "2060 OÜ"
     description: "Hologram, the browser for a new internet of verifiable AI and services: where trust, identity, and privacy are native."
     socials:
       - platform: "github"

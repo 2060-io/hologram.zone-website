@@ -2070,6 +2070,10 @@ body.bg-black {
   margin-top: auto;
 }
 
+.mt-0 {
+  margin-top: 0px;
+}
+
 .block {
   display: block;
 }
@@ -2780,6 +2784,10 @@ body.bg-black {
   border-width: 2px;
 }
 
+.border-0 {
+  border-width: 0px;
+}
+
 .border-y {
   border-top-width: 1px;
   border-bottom-width: 1px;
@@ -3400,6 +3408,11 @@ body.bg-black {
   background-color: rgb(113 63 18 / 0.2);
 }
 
+.bg-red-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity, 1));
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -3790,6 +3803,10 @@ body.bg-black {
 
 .p-\[5px\] {
   padding: 5px;
+}
+
+.p-0 {
+  padding: 0px;
 }
 
 .px-2 {

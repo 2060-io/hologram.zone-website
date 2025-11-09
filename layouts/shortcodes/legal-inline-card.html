@@ -1,0 +1,15 @@
+{{- $icon := .Get "icon" | default "fa-solid fa-circle" -}}
+{{- $iconBg := .Get "icon_bg_class" | default "bg-gray-100" -}}
+{{- $iconColor := .Get "icon_color_class" | default "text-gray-600" -}}
+{{- $wrapper := .Get "wrapper_class" | default "bg-gray-50 border border-gray-200 rounded-lg p-6" -}}
+{{- $contentClass := .Get "content_class" | default "text-gray-700 leading-relaxed" -}}
+<div class="{{ $wrapper }}">
+  <div class="flex items-start">
+    <div class="w-12 h-12 {{ $iconBg }} rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+      <i class="{{ $icon }} {{ $iconColor }} text-xl"></i>
+    </div>
+    <div class="{{ $contentClass }}">
+      {{ .Inner | markdownify | safeHTML }}
+    </div>
+  </div>
+</div>

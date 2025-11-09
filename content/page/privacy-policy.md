@@ -12,7 +12,7 @@ hero_last_updated_icon: "fa-solid fa-clock"
 
 ---
 
-{{< legal-content >}}
+{{< legal-sections >}}
 
 {{< legal-summary title="Quick Summary" icon="fa-solid fa-info-circle" icon_color_class="text-blue-600" >}}
 This Privacy Policy explains how 2060 OÜ collects, uses, and protects personal information when you interact with our services. We are committed to transparency, security, and giving you control over your data. We do not sell personal information.
@@ -177,4 +177,4 @@ If you are located in the European Economic Area or United Kingdom, you may also
 {{< /legal-note >}}
 {{< /legal-section-card >}}
 
-{{< /legal-content >}}
+{{< /legal-sections >}}
