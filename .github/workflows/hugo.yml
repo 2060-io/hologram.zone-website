@@ -40,11 +40,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          lfs: true
-      - name: Ensure LFS files are present
-        run: |
-          git lfs install --local
-          git lfs pull
+          lfs: false
       - name: Vendor Hugo modules
         run: |
           hugo mod vendor
