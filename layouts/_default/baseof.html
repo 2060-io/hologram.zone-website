@@ -20,6 +20,20 @@
 
       gtag('config', 'G-9H5406F02W');
     </script>
+    <script>
+      (function () {
+        if (typeof window === 'undefined') return;
+        var search = window.location.search;
+        if (!search) return;
+        var params = new URLSearchParams(search);
+        var hasInvitationParam = params.has('oob') || params.has('_oob') || params.has('_url');
+        if (!hasInvitationParam) return;
+        var target = '/page/service-invitation';
+        var pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+        if (pathname === target) return;
+        window.location.replace(target + search);
+      })();
+    </script>
   </head>
   {{ $bodyClass := .Params.bodyClass }}
   {{ if not $bodyClass }}{{ $bodyClass = "min-h-screen flex flex-col bg-white text-gray-900 overflow-x-hidden font-sans" }}{{ end }}
