@@ -96,21 +96,21 @@ markup: html
 
                 <div class="bg-gray-50 rounded-xl p-6 flex items-start gap-4">
                   <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <i class="fa-solid fa-network-wired text-hologram-primary"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-gray-900 mb-2">Supported protocols</h4>
-                    <p class="text-gray-700 font-mono text-sm break-all" data-service-protocols>&mdash;</p>
-                  </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-xl p-6 flex items-start gap-4">
-                  <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <i class="fa-solid fa-fingerprint text-hologram-primary"></i>
                   </div>
                   <div>
                     <h4 class="font-semibold text-gray-900 mb-2">Service DID</h4>
                     <p class="text-gray-700 font-mono text-sm break-all" data-service-did>&mdash;</p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 flex items-start gap-4">
+                  <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-network-wired text-hologram-primary"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-gray-900 mb-2">Supported protocols</h4>
+                    <p class="text-gray-700 font-mono text-sm break-all" data-service-protocols>&mdash;</p>
                   </div>
                 </div>
 
@@ -289,7 +289,11 @@ markup: html
           window.location.href = `${didUrl}${querySuffix}`;
         });
         if (mobileSubtext) {
-          mobileSubtext.textContent = 'Tap to open ${inviteLabel} in Hologram';
+          mobileSubtext.textContent = 'Tap to open ';
+          const strong = document.createElement('strong');
+          strong.textContent = inviteLabel;
+          mobileSubtext.appendChild(strong);
+          mobileSubtext.append(' in Hologram.');
         }
       }
 
