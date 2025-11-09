@@ -21,7 +21,7 @@ hero:
     icon: "fas fa-rocket"
   secondary_cta:
     label: "Explore Live Services"
-    href: "/page/developers/components"
+    href: "#"
     icon: "fas fa-search"
   features:
     - icon: "fas fa-id-card"
