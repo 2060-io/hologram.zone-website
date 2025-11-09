@@ -14,15 +14,15 @@
       </p>
     </div>
     <div class="flex gap-2" data-banner-buttons>
-      <a data-store-link="ios" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex items-center justify-center">
+      <button type="button" data-store-button="ios" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
         Get
-      </a>
-      <a data-store-link="google" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex items-center justify-center">
+      </button>
+      <button type="button" data-store-button="google" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
         Install
-      </a>
-      <a data-store-link="huawei" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex items-center justify-center">
+      </button>
+      <button type="button" data-store-button="huawei" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
         Install
-      </a>
+      </button>
     </div>
   </div>
   <script>
@@ -38,24 +38,20 @@
         const hasOob = params.has('oob') || params.has('_oob');
 
         const ua = (navigator.userAgent || '').toLowerCase();
-        const coarse = typeof window.matchMedia === 'function' && window.matchMedia('(pointer:coarse)').matches;
         const isIOS = /iphone|ipod/.test(ua);
         const isAndroid = /android/.test(ua);
-        const isMobile = isIOS || isAndroid || coarse;
+        const isMobile = isIOS || isAndroid;
         const isHuawei = /huawei|honor/.test(ua) || typeof window.hms !== 'undefined';
 
-        if (!isMobile || hasOob) {
-          banner.classList.add('hidden');
-          return;
-        }
+        if (!isMobile || hasOob) return;
 
         const referrer = search ? search.replace(/^\?/, '') : '';
         const buttons = banner.querySelector('[data-banner-buttons]');
         if (!buttons) return;
 
-        const iosBtn = buttons.querySelector('[data-store-link="ios"]');
-        const googleBtn = buttons.querySelector('[data-store-link="google"]');
-        const huaweiBtn = buttons.querySelector('[data-store-link="huawei"]');
+        const iosBtn = buttons.querySelector('[data-store-button="ios"]');
+        const googleBtn = buttons.querySelector('[data-store-button="google"]');
+        const huaweiBtn = buttons.querySelector('[data-store-button="huawei"]');
 
         const linkMap = {
           ios: config.iosUrl || '',
@@ -63,29 +59,38 @@
           huawei: config.huaweiUrl || '',
         };
 
-        function buildTarget(store){
+        function navigate(store){
           const base = linkMap[store];
           if (!base) return;
           const separator = base.includes('?') ? '&' : '?';
-          return referrer ? `${base}${separator}referrer=${encodeURIComponent(referrer)}` : base;
+          const target = referrer ? `${base}${separator}referrer=${encodeURIComponent(referrer)}` : base;
+          window.location.href = target;
         }
 
-        function configureLink(el, store){
-          const target = buildTarget(store);
-          if (!el || !target) return false;
-          el.href = target;
-          el.target = '_blank';
-          el.rel = 'noopener noreferrer';
-          el.classList.remove('hidden');
-          return true;
+        if (isIOS && iosBtn) {
+          iosBtn.classList.remove('hidden');
+          iosBtn.addEventListener('click', () => navigate('ios'));
         }
 
-        const iosVisible = isIOS && configureLink(iosBtn, 'ios');
-        const googleVisible = !isIOS && (!isHuawei || typeof window.google !== 'undefined') && configureLink(googleBtn, 'google');
-        const huaweiVisible = isHuawei && configureLink(huaweiBtn, 'huawei');
+        if (googleBtn) {
+          const showGoogle = !isIOS && (!isHuawei || typeof window.google !== 'undefined');
+          if (showGoogle) {
+            googleBtn.classList.remove('hidden');
+            googleBtn.addEventListener('click', () => navigate('google'));
+          }
+        }
 
-        if (!iosVisible && !googleVisible && !huaweiVisible) {
-          banner.classList.add('hidden');
+        if (huaweiBtn && isHuawei) {
+          huaweiBtn.classList.remove('hidden');
+          huaweiBtn.addEventListener('click', () => navigate('huawei'));
+        }
+
+        if (
+          (isIOS && iosBtn && !iosBtn.classList.contains('hidden')) ||
+          (googleBtn && !googleBtn.classList.contains('hidden')) ||
+          (huaweiBtn && !huaweiBtn.classList.contains('hidden'))
+        ) {
+          banner.classList.remove('hidden');
         }
       }
 
