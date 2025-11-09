@@ -91,7 +91,7 @@ params:
   nav:
     main:
       
-      - title: "Developers"
+      - title: "Getting Started"
         url: "/page/get-started"
 
       - title: "Demos"
