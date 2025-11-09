@@ -1,0 +1,140 @@
+{{ $section := .Params.powerful_communication }}
+{{ with $section }}
+  <section id="{{ .id | default "powerful-communication" }}" class="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">
+          {{ with .icon }}<i class="{{ . }} text-hologram-primary mr-3"></i>{{ end }}
+          {{ .title }}
+        </h2>
+        {{ with .intro }}
+          <div class="max-w-4xl mx-auto">
+            {{ with .lead }}<p class="text-xl text-gray-600 mb-8">{{ . | safeHTML }}</p>{{ end }}
+            {{ with .sub }}<p class="text-lg text-gray-600">{{ . | safeHTML }}</p>{{ end }}
+          </div>
+        {{ end }}
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div class="space-y-8">
+          {{ range .features_left }}
+            {{ $iconBg := .icon_bg | default "bg-hologram-primary" }}
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 {{ $iconBg }} rounded-lg flex items-center justify-center flex-shrink-0">
+                  {{ if .icon_svg }}
+                    <img src="{{ .icon_svg }}" alt="{{ .title }}" class="w-6 h-6" loading="lazy" />
+                  {{ else if .icon }}
+                    <i class="{{ .icon }} {{ .icon_color | default "text-white text-xl" }}"></i>
+                  {{ end }}
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ .title }}</h3>
+                  <p class="text-gray-600">{{ .description | safeHTML }}</p>
+                </div>
+              </div>
+            </div>
+          {{ end }}
+        </div>
+        {{ with .primary_visual }}
+          {{ $gradient := .gradient | default "from-hologram-primary/20 to-hologram-secondary/20" }}
+          <div class="relative">
+            <div class="bg-white rounded-2xl shadow-2xl p-8 animate-float">
+              <div class="h-96 w-full bg-gradient-to-br {{ $gradient }} rounded-xl flex items-center justify-center relative overflow-hidden">
+                {{ with .screenshot }}
+                  <img src="{{ .src }}" alt="{{ .alt }}" class="w-full h-full object-cover rounded-xl" loading="lazy" />
+                {{ end }}
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                {{ with .overlay }}
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4">
+                      <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center space-x-3">
+                          {{ with .badge }}
+                            {{ $badgeBg := .icon_bg | default "bg-hologram-primary" }}
+                            <div class="w-8 h-8 {{ $badgeBg }} rounded-full flex items-center justify-center">
+                              {{ if .icon_svg }}
+                                <img src="{{ .icon_svg }}" alt="{{ .alt | default $.title }}" class="w-4 h-4" loading="lazy" />
+                              {{ else if .icon }}
+                                <i class="{{ .icon }} {{ .icon_color | default "text-white text-sm" }}"></i>
+                              {{ end }}
+                            </div>
+                          {{ end }}
+                          <div>
+                            <div class="font-semibold text-gray-900">{{ .title }}</div>
+                            {{ with .subtitle }}<div class="text-xs text-gray-500">{{ . }}</div>{{ end }}
+                          </div>
+                        </div>
+                        {{ with .status_icons }}
+                          <div class="flex space-x-2">
+                            {{ range . }}
+                              <i class="{{ . }}"></i>
+                            {{ end }}
+                          </div>
+                        {{ end }}
+                      </div>
+                      {{ with .message }}<div class="text-sm text-gray-700">{{ . | safeHTML }}</div>{{ end }}
+                    </div>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        {{ with .secondary_visual }}
+          {{ $secondaryGradient := .gradient | default "from-hologram-secondary/20 to-hologram-dark/20" }}
+          <div class="order-2 lg:order-1">
+            <div class="bg-white rounded-2xl shadow-2xl p-8">
+              <div class="h-96 w-full bg-gradient-to-br {{ $secondaryGradient }} rounded-xl flex items-center justify-center relative overflow-hidden">
+                {{ with .screenshot }}
+                  <img src="{{ .src }}" alt="{{ .alt }}" class="w-full h-full object-cover rounded-xl" loading="lazy" />
+                {{ end }}
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                {{ with .overlay }}
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4">
+                      {{ with .stats }}
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                          {{ range . }}
+                            <div>
+                              <div class="text-lg font-bold {{ .class }}">{{ .label }}</div>
+                              {{ with .sublabel }}<div class="text-xs text-gray-600">{{ . }}</div>{{ end }}
+                            </div>
+                          {{ end }}
+                        </div>
+                      {{ end }}
+                    </div>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        {{ end }}
+
+        <div class="order-1 lg:order-2 space-y-8">
+          {{ range .features_right }}
+            {{ $iconBg := .icon_bg | default "bg-hologram-primary" }}
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 {{ $iconBg }} rounded-lg flex items-center justify-center flex-shrink-0">
+                  {{ if .icon_svg }}
+                    <img src="{{ .icon_svg }}" alt="{{ .title }}" class="w-6 h-6" loading="lazy" />
+                  {{ else if .icon }}
+                    <i class="{{ .icon }} {{ .icon_color | default "text-white text-xl" }}"></i>
+                  {{ end }}
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ .title }}</h3>
+                  <p class="text-gray-600">{{ .description | safeHTML }}</p>
+                </div>
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

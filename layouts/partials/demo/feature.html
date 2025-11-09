@@ -1,0 +1,139 @@
+{{- $id := default "demo-section" .id -}}
+{{- $background := default "bg-white" .background -}}
+{{- $reverseRaw := printf "%v" (default false .reverse) -}}
+{{- $reverse := in (slice "true" "1" "True" "TRUE" "yes") $reverseRaw -}}
+{{- $kickerText := .kicker_text -}}
+{{- $kickerIcon := .kicker_icon -}}
+{{- $kickerClass := default "bg-hologram-primary/10 text-hologram-primary" .kicker_class -}}
+{{- $title := .title -}}
+{{- $titleIcon := .title_icon -}}
+{{- $titleIconColor := default "text-hologram-primary" .title_icon_color -}}
+{{- $description := .description -}}
+{{- $body := .body -}}
+{{- $page := .Page -}}
+{{- $imageSrc := .image_src -}}
+{{- $imageAlt := default "" .image_alt -}}
+{{- $imageGradient := default "from-hologram-primary/10 to-hologram-secondary/10" .image_gradient_class -}}
+{{- $imageHeight := default "h-96" .image_height_class -}}
+{{- $textOrder := "order-1" -}}
+{{- $imageOrder := "order-2" -}}
+{{- if $reverse -}}
+  {{- $textOrder = "order-1 lg:order-2" -}}
+  {{- $imageOrder = "order-2 lg:order-1" -}}
+{{- else -}}
+  {{- $textOrder = "order-1" -}}
+  {{- $imageOrder = "order-2" -}}
+{{- end -}}
+{{- $primary := .primary -}}
+{{- $secondary := .secondary -}}
+{{- $mediaHTML := .media_html -}}
+{{- $qrURL := .qr_url -}}
+{{- $qrLabel := or .qr_label "Scan to open this demo" -}}
+{{- $qrHint := or .qr_hint "Use the Hologram app or any QR reader to start instantly." -}}
+{{- $qrCloseLabel := or .qr_close_label "Back to preview" -}}
+{{- $hasQr := and $qrURL (gt (len (trim $qrURL " ")) 0) -}}
+<section id="{{ $id }}" class="py-20 {{ $background }}">
+  <div class="container mx-auto px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="{{ $textOrder }}">
+          {{ if $kickerText }}
+            <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold mb-4 {{ $kickerClass }}">
+              {{ if $kickerIcon }}<i class="{{ $kickerIcon }} mr-2"></i>{{ end }}
+              <span>{{ $kickerText }}</span>
+            </div>
+          {{ end }}
+          {{ if $title }}
+            <h2 class="text-4xl font-bold text-gray-900 mb-6">
+              {{ if $titleIcon }}<i class="{{ $titleIcon }} {{ $titleIconColor }} mr-3"></i>{{ end }}
+              {{ $title | safeHTML }}
+            </h2>
+          {{ end }}
+          {{ with $description }}
+            <div class="text-lg text-gray-600 mb-6 leading-relaxed">{{ . | safeHTML }}</div>
+          {{ end }}
+          {{ with $body }}
+            <div class="space-y-4 mb-8">{{ . | safeHTML }}</div>
+          {{ end }}
+          {{ if or $primary $secondary }}
+            <div class="flex flex-col sm:flex-row gap-4 mb-8">
+              {{ with $primary }}
+                {{ $style := lower (default "primary" .style) }}
+                {{ $url := .url }}
+                {{ $label := .label }}
+                {{ $icon := .icon }}
+                {{ $btnClass := .class }}
+                {{ if not $btnClass }}
+                  {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-primary text-white hover:bg-hologram-secondary" }}
+                  {{ if eq $style "secondary" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-secondary text-white hover:bg-hologram-dark" }}
+                  {{ else if eq $style "dark" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-gray-900 text-white hover:bg-hologram-primary" }}
+                  {{ else if eq $style "light" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-white border border-gray-200 text-gray-900 hover:border-hologram-primary" }}
+                  {{ end }}
+                {{ end }}
+                {{ $isExternal := or (strings.HasPrefix $url "http") (strings.HasPrefix $url "mailto:") }}
+                <a href="{{ $url }}" class="{{ $btnClass }}"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}{{ if $hasQr }} data-demo-qr-btn data-demo-qr-target="{{ $id }}" data-demo-qr-url="{{ $qrURL }}"{{ end }}>
+                  {{ if $icon }}<i class="{{ $icon }} mr-2"></i>{{ end }}
+                  <span>{{ $label }}</span>
+                </a>
+              {{ end }}
+              {{ with $secondary }}
+                {{ $style := lower (default "light" .style) }}
+                {{ $url := .url }}
+                {{ $label := .label }}
+                {{ $icon := .icon }}
+                {{ $btnClass := .class }}
+                {{ if not $btnClass }}
+                  {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200" }}
+                  {{ if eq $style "outline" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 border-2 border-hologram-primary text-hologram-primary hover:bg-hologram-primary hover:text-white" }}
+                  {{ else if eq $style "secondary" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-hologram-secondary text-white hover:bg-hologram-dark" }}
+                  {{ else if eq $style "dark" }}
+                    {{ $btnClass = "inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-900 text-white hover:bg-hologram-primary" }}
+                  {{ end }}
+                {{ end }}
+                {{ $isExternal := or (strings.HasPrefix $url "http") (strings.HasPrefix $url "mailto:") }}
+                <a href="{{ $url }}" class="{{ $btnClass }}"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                  {{ if $icon }}<i class="{{ $icon }} mr-2"></i>{{ end }}
+                  <span>{{ $label }}</span>
+                </a>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+        {{ if or $imageSrc $mediaHTML }}
+          <div class="{{ $imageOrder }} relative">
+            <div class="bg-gradient-to-br {{ $imageGradient }} rounded-2xl p-8">
+              <div class="{{ $imageHeight }} overflow-hidden rounded-xl relative" data-demo-media="{{ $id }}" data-demo-media-state="image">
+                <div data-demo-media-image class="h-full">
+                  {{ if $mediaHTML }}
+                    {{ $mediaHTML | safeHTML }}
+                  {{ else }}
+                    <img class="w-full h-full object-contain" src="{{ $imageSrc }}" alt="{{ $imageAlt }}">
+                  {{ end }}
+                </div>
+                {{ if $hasQr }}
+                  <div data-demo-media-qr class="hidden absolute inset-0 bg-white/95 backdrop-blur rounded-xl flex flex-col items-center justify-center text-center px-6">
+                    <div class="bg-white rounded-2xl shadow-lg p-6 mb-4 border border-gray-100">
+                      <img data-demo-qr-img src="" alt="QR code for {{ $title }}" class="w-48 h-48 object-contain">
+                    </div>
+                    <p class="text-gray-900 font-semibold mb-1">{{ $qrLabel }}</p>
+                    <p class="text-gray-500 text-sm mb-4">{{ $qrHint }}</p>
+                    <button type="button" class="text-sm font-semibold text-hologram-primary hover:text-hologram-secondary" data-demo-qr-close>{{ $qrCloseLabel }}</button>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ if and $hasQr (not ($page.Scratch.Get "demo-qr-script")) }}
+  {{ $page.Scratch.Set "demo-qr-script" true }}
+  {{ partial "demo/qr-script.html" $page }}
+{{ end }}

@@ -1,0 +1,50 @@
+{{ $section := .Params.how_it_works }}
+{{ with $section }}
+  <section id="{{ .id | default "how-it-works" }}" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">
+          {{ with .icon }}<i class="{{ . }} text-hologram-primary mr-3"></i>{{ end }}
+          {{ .title }}
+        </h2>
+        {{ with .description }}
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ . }}</p>
+        {{ end }}
+      </div>
+      <div class="grid lg:grid-cols-4 gap-8">
+        {{ range .steps }}
+          <div class="text-center group">
+            <div class="w-20 h-20 {{ .badge_bg }} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-200">
+              <span class="text-white font-bold text-2xl">{{ .number }}</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ .title }}</h3>
+            <p class="text-gray-600 mb-4">{{ .description }}</p>
+            {{ with .detail_html }}
+              <div class="bg-gray-50 rounded-lg p-4">
+                {{ . | safeHTML }}
+              </div>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+      {{ with .highlight }}
+        <div class="text-center mt-16">
+          <div class="bg-hologram-primary/10 rounded-xl p-8 max-w-4xl mx-auto">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ .title }}</h3>
+            {{ with .description }}
+              <p class="text-lg text-gray-700 mb-6">{{ . | safeHTML }}</p>
+            {{ end }}
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              {{ range .buttons }}
+                <a href="{{ .href }}" class="inline-flex items-center {{ if eq .style "secondary" }}border-2 border-hologram-primary text-hologram-primary hover:bg-hologram-primary hover:text-white{{ else }}bg-hologram-primary text-white hover:bg-hologram-secondary{{ end }} px-6 py-3 rounded-lg transition-colors duration-200 font-semibold">
+                  {{ if .icon }}<i class="{{ .icon }} mr-2"></i>{{ end }}
+                  {{ .label }}
+                </a>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

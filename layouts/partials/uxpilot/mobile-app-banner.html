@@ -1,0 +1,92 @@
+{{ $banner := .Site.Params.appBanner }}
+{{ if $banner }}
+  {{ $bannerJSON := $banner | jsonify }}
+  <div
+    id="mobile-app-download-banner"
+    class="hidden w-full p-2 flex flex-wrap sm:flex-nowrap justify-center sm:justify-between items-center gap-4 dark:bg-indigo-300 bg-indigo-100 align-middle text-sm sm:text-base border-b border-gray-200 dark:border-gray-800/60"
+    data-mobile-banner
+  >
+    <div class="flex items-center gap-3">
+      <img src="/images/ico-hologram.png" alt="Hologram" width="32" height="32" class="w-8 h-8 flex-shrink-0" loading="lazy" decoding="async" />
+      <p>
+        <span class="font-semibold block">Hologram Messaging</span>
+        <span class="text-gray-700 dark:text-gray-900 text-xs sm:text-sm">Chat &amp; Verificable Credentials</span>
+      </p>
+    </div>
+    <div class="flex gap-2" data-banner-buttons>
+      <button type="button" data-store-button="ios" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+        Get
+      </button>
+      <button type="button" data-store-button="google" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+        Install
+      </button>
+      <button type="button" data-store-button="huawei" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+        Install
+      </button>
+    </div>
+  </div>
+  <script>
+    (function(){
+      const config = {{ $bannerJSON | safeJS }};
+      const banner = document.getElementById('mobile-app-download-banner');
+      if (!banner || !config) return;
+
+      const search = window.location.search || '';
+      const ua = (navigator.userAgent || '').toLowerCase();
+      const isIOS = /iphone|ipad|ipod/.test(ua);
+      const isAndroid = /android/.test(ua);
+      const isHuawei = /huawei|honor/.test(ua) || typeof window.hms !== 'undefined';
+      const isMobile = isIOS || isAndroid;
+
+      if (!isMobile) return;
+
+      const referrer = search ? search.replace(/^\?/, '') : '';
+      const buttons = banner.querySelector('[data-banner-buttons]');
+      if (!buttons) return;
+
+      const iosBtn = buttons.querySelector('[data-store-button="ios"]');
+      const googleBtn = buttons.querySelector('[data-store-button="google"]');
+      const huaweiBtn = buttons.querySelector('[data-store-button="huawei"]');
+
+      const linkMap = {
+        ios: config.iosUrl || '',
+        google: config.googleUrl || '',
+        huawei: config.huaweiUrl || '',
+      };
+
+      function navigate(store){
+        const base = linkMap[store];
+        if (!base) return;
+        const separator = base.includes('?') ? '&' : '?';
+        const target = referrer ? `${base}${separator}referrer=${encodeURIComponent(referrer)}` : base;
+        window.location.href = target;
+      }
+
+      if (isIOS && iosBtn) {
+        iosBtn.classList.remove('hidden');
+        iosBtn.addEventListener('click', () => navigate('ios'));
+      }
+
+      if (googleBtn) {
+        const showGoogle = !isIOS && (!isHuawei || typeof window.google !== 'undefined');
+        if (showGoogle) {
+          googleBtn.classList.remove('hidden');
+          googleBtn.addEventListener('click', () => navigate('google'));
+        }
+      }
+
+      if (huaweiBtn && isHuawei) {
+        huaweiBtn.classList.remove('hidden');
+        huaweiBtn.addEventListener('click', () => navigate('huawei'));
+      }
+
+      if (
+        (isIOS && iosBtn && !iosBtn.classList.contains('hidden')) ||
+        (googleBtn && !googleBtn.classList.contains('hidden')) ||
+        (huaweiBtn && !huaweiBtn.classList.contains('hidden'))
+      ) {
+        banner.classList.remove('hidden');
+      }
+    })();
+  </script>
+{{ end }}

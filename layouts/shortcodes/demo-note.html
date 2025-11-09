@@ -1,0 +1,9 @@
+{{- $background := .Get "background_class" | default "bg-blue-50" -}}
+{{- $border := .Get "border_class" | default "border-blue-400" -}}
+{{- $padding := .Get "padding_class" | default "p-4" -}}
+{{- $rounded := .Get "rounded_class" | default "rounded" -}}
+{{- $textClass := .Get "text_class" | default "text-sm text-gray-700" -}}
+{{- $content := markdownify .Inner -}}
+<div class="{{ $background }} border-l-4 {{ $border }} {{ $padding }} {{ $rounded }} mb-6">
+  <div class="{{ $textClass }}">{{ $content | safeHTML }}</div>
+</div>

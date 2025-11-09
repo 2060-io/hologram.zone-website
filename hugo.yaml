@@ -1,0 +1,109 @@
+baseURL: "/"
+languageCode: "en-us"
+title: "Hologram"
+
+module:
+  path: github.com/2060-io/hologram.zone-website
+  imports:
+  - path: github.com/hugomods/kroki
+
+markup:
+  goldmark:
+    parser:
+      attribute: true
+    renderer:
+      unsafe: true
+
+params:
+  themeMode: LIGHT
+  themeModeOptions:
+    - LIGHT
+    - DARK
+    - SYSTEM
+#  eventArea: "📍 Meet us at TOKEN2049 and discover how Verana is combining Web3, DIDs and Verifiable Credentials to build the Open Trust Layer"
+#  eventAreaLink: "https://www.linkedin.com/posts/verana-foundation_token2049-token2049-token2049sg-activity-7378930606291984384-Rv9y?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAA-4igBOrk0YI7gLaRquPdIH4JmobiuEzo"
+  kroki:
+    enable: true
+    server: "https://kroki.testnet.verana.network/"
+  appBanner:
+    iosUrl: "https://apps.apple.com/app/hologram-messaging/id6474701855"
+    googleUrl: "https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m"
+    huaweiUrl: "https://appgallery.huawei.com/app/C110964449"
+  header:
+    logo: "/logo.svg"
+    tagline: "The Open Trust Layer for the Internet"
+    testnet:
+      label: "Get Started"
+      url: "/page/get-started"
+      class: "bg-hologram-primary hover:bg-hologram-secondary text-white"
+#      icon: "fa-solid fa-umbrella-beach"
+#      icon: "fa-solid fa-flask-vial"
+  footer:
+    company: "2060 OÜ"
+    description: "Hologram, the browser for a new internet of verifiable AI and services: where trust, identity, and privacy are native."
+    socials:
+      - platform: "github"
+        url: "https://github.com/2060-io"
+      - platform: "discord"
+        url: "https://discord.gg/edjaFn252q"
+      - platform: "linkedin"
+        url: "https://www.linkedin.com/company/2060-io"
+    legal:
+      - label: "Privacy Policy"
+        url: "/page/privacy-policy"
+      - label: "Terms of Service"
+        url: "/page/terms-of-service"
+      - label: "Cookie Policy"
+        url: "/page/cookie-policy"
+    columns:
+      - title: "Hologram"
+        items:
+          - label: "2060 OÜ"
+            url: "https://2060.io"
+          - label: "Press"
+            url: "/page/press"
+          - label: "Visual Identity"
+            url: "/page/identity"
+      - title: "Developers"
+        items:
+          - label: "Docs"
+            url: "https://docs.hologram.zone"
+          - label: "Github"
+            url: "https://github.com/2060-io/"
+          - label: "Verana Foundation"
+            url: "https://verana.io"
+      - title: "Specifications"
+        items:
+          - label: "Verifiable Trust Spec"
+            url: "https://verana-labs.github.io/verifiable-trust-spec/"
+          - label: "Verifiable Public Registry Spec"
+            url: "https://verana-labs.github.io/verifiable-trust-vpr-spec/"
+          - label: "Trust Registry Query Protocol"
+            url: "https://trustoverip.github.io/tswg-trust-registry-protocol/"
+          
+
+  seo:
+    ogImage: "/images/verana-og.jpg"
+
+  # Optional: override menu ordering using this list.
+  nav:
+    main:
+      - title: "Download Hologram"
+        url: "/#app-download"
+
+      - title: "Developers"
+        url: "/page/get-started"
+
+      - title: "Demos"
+        url: "/page/demos"
+         
+      - title: "About"
+        url: "/page/about"
+
+         
+
+outputs:
+  home: ["HTML"]
+
+taxonomies: {}
+disableKinds: ["RSS"]

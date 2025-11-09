@@ -1,0 +1,86 @@
+{{ $section := .Params.app_download }}
+{{ with $section }}
+  <section id="{{ .id | default "app-download" }}" class="py-20 bg-white scroll-mt-32 lg:scroll-mt-48">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">
+          {{ with .icon }}<i class="{{ . }} text-hologram-primary mr-3"></i>{{ end }}
+          {{ .title }}
+        </h2>
+        {{ with .description }}
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ . }}</p>
+        {{ end }}
+      </div>
+      <div class="bg-gradient-to-br from-hologram-primary/5 to-hologram-dark/5 rounded-3xl p-12 mb-16">
+        <div class="grid lg:grid-cols-3 gap-12 items-center">
+          <div class="relative">
+            <div class="relative z-10">
+              <div class="bg-white rounded-3xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                <div class="h-96 overflow-hidden rounded-2xl bg-gradient-to-br from-hologram-primary/20 to-hologram-dark/20 relative">
+                  {{ with .screenshot }}
+                    <img src="{{ .src }}" alt="{{ .alt }}" class="w-full h-full object-cover" loading="lazy" />
+                  {{ end }}
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-8 right-8 w-32 h-32 bg-hologram-primary/10 rounded-full blur-2xl"></div>
+            <div class="absolute bottom-8 left-8 w-24 h-24 bg-hologram-secondary/10 rounded-full blur-xl"></div>
+          </div>
+          {{ $bg := .card_background }}
+          <div class="rounded-xl p-8 shadow-lg text-center lg:col-span-2 relative overflow-hidden {{ if not $bg }}bg-white{{ end }}">
+            {{ with $bg }}
+              <div class="absolute inset-0" style="background-image:url('{{ .src }}'); background-size:cover; background-position:center; opacity:{{ .opacity | default 0.1 }};"></div>
+              <div class="absolute inset-0 bg-white/80"></div>
+            {{ end }}
+            <div class="relative z-10">
+            <h4 class="text-2xl font-semibold text-gray-900 mb-6">{{ .quick_title | default "Quick Download" }}</h4>
+            {{ with .quick_subtitle }}
+              <p class="text-gray-600 mb-6">{{ . }}</p>
+            {{ end }}
+            {{ with .qr }}
+              <div class="inline-block p-6 bg-gray-50 rounded-xl mb-8 border border-hologram-primary/40">
+                <div class="relative w-48 h-48 mx-auto">
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&ecc=Q&data={{ .src | urlquery }}" alt="{{ or .alt "Download QR code" }}" class="w-48 h-48 object-contain" loading="lazy" />
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div class="w-12 h-12 bg-white rounded-lg shadow-md flex items-center justify-center border border-gray-200" style="border-width:5px;">
+                      <img src="/logo.svg" alt="Hologram logo" class="w-7 h-7 object-contain" loading="lazy" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{ end }}
+            {{ if or .platforms_title (gt (len .platforms) 0) }}
+              <div class="space-y-4">
+                {{ with .platforms_title }}<h5 class="text-lg font-semibold text-gray-900 mb-4">{{ . }}</h5>{{ end }}
+                <div class="flex flex-wrap justify-center gap-4">
+                  {{ range .platforms }}
+                    {{ $isExternal := strings.HasPrefix .href "http" }}
+                    <a href="{{ .href }}" class="inline-flex flex-none items-center justify-center w-fit border border-gray-200 hover:border-hologram-primary rounded-xl transition-all duration-200 p-[5px]"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                      {{ $badge := or .button_svg .icon_svg }}
+                      {{ if $badge }}
+                        <img src="{{ $badge }}" alt="{{ .label }}" class="block h-12 w-auto" loading="lazy" />
+                      {{ else }}
+                        <div class="flex items-center justify-center space-x-3">
+                          <div class="w-10 h-10 flex items-center justify-center bg-black rounded-lg group-hover:bg-hologram-primary transition-colors duration-200">
+                            {{ with .icon }}<i class="{{ . }} text-white text-lg"></i>{{ end }}
+                          </div>
+                          <div class="text-center">
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">{{ .subtitle }}</div>
+                            <div class="font-semibold text-gray-900 text-sm">{{ .label }}</div>
+                          </div>
+                        </div>
+                      {{ end }}
+                      <span class="sr-only">{{ .label }}</span>
+                    </a>
+                  {{ end }}
+                </div>
+              </div>
+            {{ end }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

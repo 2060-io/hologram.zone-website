@@ -1,0 +1,53 @@
+{{ $section := .Params.why_hologram }}
+{{ with $section }}
+  <section id="{{ .id | default "why-hologram" }}" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">
+          {{ with .icon }}<i class="{{ . }} text-hologram-primary mr-3"></i>{{ end }}
+          {{ .title }}
+        </h2>
+        {{ with .description }}
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ . }}</p>
+        {{ end }}
+      </div>
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-8 py-6 text-left text-lg font-semibold text-gray-900">{{ .table.problem_heading }}</th>
+                <th class="px-8 py-6 text-left text-lg font-semibold text-hologram-primary">{{ .table.solution_heading }}</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              {{ range .rows }}
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                  <td class="px-8 py-6">
+                    <div class="flex items-center">
+                      {{ with .problem_icon }}<i class="{{ . }} mr-3"></i>{{ end }}
+                      <span class="text-gray-900 font-medium">{{ .problem }}</span>
+                    </div>
+                  </td>
+                  <td class="px-8 py-6">
+                    <div class="flex items-center">
+                      {{ with .solution_icon }}<i class="{{ . }} mr-3"></i>{{ end }}
+                      <span class="text-gray-900">{{ .solution | safeHTML }}</span>
+                    </div>
+                  </td>
+                </tr>
+              {{ end }}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {{ with .cta }}
+        <div class="text-center mt-8">
+          <a href="{{ .href }}" class="inline-flex items-center text-hologram-primary hover:text-hologram-dark transition-colors duration-200 font-semibold">
+            {{ .label }} <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

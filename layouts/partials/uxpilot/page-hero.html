@@ -1,0 +1,99 @@
+{{ $page := . }}
+{{ if not $page.IsHome }}
+  {{ $params := $page.Params }}
+  {{ $title := $page.Title }}
+  {{ $subtitle1 := or ($params.subtitle1) ($params.Subtitle1) "" }}
+  {{ $subtitle2 := or ($params.subtitle2) ($params.Subtitle2) "" }}
+  {{ $icon := or ($params.hero_icon) ($params.heroIcon) ($params.heroicon) }}
+  {{ $defaultDescription := or ($params.subtitle) ($params.Subtitle) ($params.description) ($params.Description) $subtitle2 }}
+  {{ $heroImage := or ($params.hero_image) ($params.heroImage) ($params.hero_media) ($params.heroMedia) "" }}
+  {{ $heroImageAlt := or ($params.hero_image_alt) ($params.heroImageAlt) ($params.hero_media_alt) ($params.heroMediaAlt) (printf "%s hero image" $title) }}
+  {{ $heroImageCaption := or ($params.hero_image_caption) ($params.heroImageCaption) "" }}
+  {{ $lastUpdatedValue := or ($params.hero_last_updated) ($params.heroLastUpdated) "" }}
+  {{ $lastUpdatedLabel := or ($params.hero_last_updated_label) ($params.heroLastUpdatedLabel) "Last Updated" }}
+  {{ $lastUpdatedIcon := or ($params.hero_last_updated_icon) ($params.heroLastUpdatedIcon) "fa-solid fa-clock" }}
+  {{ $scratch := newScratch }}
+  {{ $scratch.Set "badgeText" (or ($params.hero_badge_text) ($params.heroBadgeText) ($params.hero_label) ($params.heroLabel) ($params.hero_kicker) ($params.heroKicker) "") }}
+  {{ $hideBadge := or ($params.hero_hide_badge) ($params.heroHideBadge) false }}
+  {{ if and (eq (len ($scratch.Get "badgeText")) 0) (not $hideBadge) }}
+    {{ $scratch.Set "badgeText" $title }}
+  {{ end }}
+  {{ $badgeText := $scratch.Get "badgeText" }}
+  {{ $badgeIcon := or ($params.hero_badge_icon) ($params.heroBadgeIcon) $icon }}
+  {{ $heading := or ($params.hero_heading) ($params.heroHeading) ($params.hero_title) ($params.heroTitle) $subtitle1 $title }}
+  {{ $headingClass := "bg-gradient-to-r from-hologram-primary to-hologram-dark bg-clip-text text-transparent" }}
+  {{ $processedHeading := $heading }}
+  {{ with $heading }}
+    {{ $processedHeading = . | replaceRE "(?i)<strong>(.*?)</strong>" (printf "<span class=\"%s\">${1}</span>" $headingClass) }}
+  {{ end }}
+  {{ $highlight := or ($params.hero_highlight) ($params.hero_highlight_text) ($params.heroHighlight) ($params.heroHighlightText) "" }}
+  {{ $description := or ($params.hero_description) ($params.heroDescription) $defaultDescription }}
+  {{ $heroNote := "" }}
+  {{ $heroNoteRaw := or ($params.hero_note) ($params.heroNote) ($params.hero_notice) ($params.heroNotice) "" }}
+  {{ if $heroNoteRaw }}
+    {{ $heroNote = markdownify $heroNoteRaw }}
+  {{ end }}
+  {{ $noteBgClass := or ($params.hero_note_bg_class) ($params.heroNoteBgClass) "bg-yellow-50" }}
+  {{ $noteBorderClass := or ($params.hero_note_border_class) ($params.heroNoteBorderClass) "border-yellow-400" }}
+  {{ $noteIcon := or ($params.hero_note_icon) ($params.heroNoteIcon) "fa-solid fa-exclamation-triangle" }}
+  {{ $noteIconColor := or ($params.hero_note_icon_color_class) ($params.heroNoteIconColorClass) "text-yellow-600" }}
+
+  <section class="relative overflow-hidden py-12 lg:py-16 bg-gradient-to-br from-gray-50 via-white to-white">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-10 left-0 w-64 h-64 bg-hologram-primary/15 blur-3xl rounded-full opacity-60"></div>
+      <div class="absolute bottom-10 right-16 w-80 h-80 bg-hologram-secondary/20 blur-3xl rounded-full opacity-40"></div>
+    </div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        {{ if and (not $hideBadge) (or $badgeText $badgeIcon) }}
+          <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-hologram-primary/10 text-hologram-primary mb-8">
+            {{ if $badgeIcon }}
+              <i class="{{ $badgeIcon }} mr-2"></i>
+            {{ end }}
+            {{ if $badgeText }}
+              <span>{{ $badgeText | safeHTML }}</span>
+            {{ end }}
+          </div>
+        {{ end }}
+        <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6 text-balance">
+          {{ if $processedHeading }}
+            <span class="block text-gray-900">{{ $processedHeading | safeHTML }}</span>
+          {{ end }}
+          {{ with $highlight }}
+            <span class="block bg-gradient-to-r from-hologram-primary via-hologram-secondary to-hologram-dark bg-clip-text text-transparent">{{ . | safeHTML }}</span>
+          {{ end }}
+        </h1>
+        {{ with $description }}
+          <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">{{ . | safeHTML }}</p>
+        {{ end }}
+        {{ if $lastUpdatedValue }}
+          <div class="mt-6 inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white/80 border border-gray-200 shadow-sm text-sm font-semibold text-gray-700">
+            <i class="{{ $lastUpdatedIcon }} text-hologram-primary"></i>
+            <span class="uppercase tracking-wide text-gray-500">{{ $lastUpdatedLabel }}</span>
+            <span class="text-gray-900">{{ $lastUpdatedValue }}</span>
+          </div>
+        {{ end }}
+        {{ with $heroNote }}
+          <div class="mt-10 max-w-3xl mx-auto text-left">
+            <div class="{{ $noteBgClass }} border-l-4 {{ $noteBorderClass }} p-6 rounded-lg">
+              <div class="flex items-start">
+                <i class="{{ $noteIcon }} {{ $noteIconColor }} text-xl mr-4 mt-1"></i>
+                <div class="space-y-3 text-gray-700">{{ . | safeHTML }}</div>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+        {{ with $heroImage }}
+          <div class="mt-14">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/60 bg-gradient-to-br from-gray-100/60 via-white to-white">
+              <img src="{{ . }}" alt="{{ $heroImageAlt }}" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+            </div>
+            {{ with $heroImageCaption }}
+              <p class="text-sm text-gray-500 mt-4">{{ . | safeHTML }}</p>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

@@ -1,0 +1,5 @@
+{{- $class := .Get "class" | default "text-gray-700 leading-relaxed mb-6" -}}
+{{- $content := .Inner | markdownify -}}
+{{- $content = strings.TrimSpace $content -}}
+{{- $content = replaceRE "^<p>(?s)(.*)</p>$" "$1" $content -}}
+<p class="{{ $class }}">{{ $content | safeHTML }}</p>

@@ -1,0 +1,53 @@
+{{ $section := .Params.discovery_section }}
+{{ with $section }}
+  <section id="{{ .id | default "discovery" }}" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">
+          {{ with .icon }}<i class="{{ . }} text-hologram-primary mr-3"></i>{{ end }}
+          {{ .title }}
+        </h2>
+        {{ with .description }}
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">{{ . }}</p>
+        {{ end }}
+        {{ with .search }}
+          <div class="max-w-2xl mx-auto mb-12">
+            <div class="relative">
+              <input type="text" placeholder="{{ .placeholder }}" class="w-full px-6 py-4 text-lg border-2 border-gray-200 rounded-xl focus:border-hologram-primary focus:outline-none" />
+              <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-hologram-primary text-white px-6 py-2 rounded-lg hover:bg-hologram-secondary transition-colors duration-200" type="button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        {{ range .cards }}
+          <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow duration-200">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 {{ .icon_bg | default "bg-hologram-primary" }} rounded-lg flex items-center justify-center mr-4">
+                {{ $iconColor := .icon_color | default "text-white" }}
+                {{ with .icon }}<i class="{{ . }} {{ $iconColor }} text-xl"></i>{{ end }}
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900">{{ .title }}</h3>
+                {{ with .subtitle }}<p class="text-sm text-gray-600">{{ . }}</p>{{ end }}
+              </div>
+              <div class="ml-auto">
+                <i class="{{ .status_icon | default "fas fa-shield-check" }} {{ .status_color | default "text-green-500" }} text-lg"></i>
+              </div>
+            </div>
+            <p class="text-gray-700 text-sm">{{ .description }}</p>
+          </div>
+        {{ end }}
+      </div>
+      {{ with .cta }}
+        <div class="text-center">
+          <a href="{{ .href }}" class="inline-flex items-center text-hologram-primary hover:text-hologram-dark transition-colors duration-200 font-semibold">
+            {{ .label }} <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

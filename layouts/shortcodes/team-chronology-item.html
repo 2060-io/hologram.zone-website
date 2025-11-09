@@ -1,0 +1,50 @@
+{{ $title := .Get "title" }}
+{{ if not $title }}{{ errorf "team-chronology-item shortcode requires title param" }}{{ end }}
+{{ $side := lower (default "left" (.Get "side")) }}
+{{ if and (ne $side "left") (ne $side "right") }}{{ $side = "left" }}{{ end }}
+{{ $year := .Get "year" }}
+{{ $icon := .Get "icon" }}
+{{ $iconBgClass := default "bg-hologram-primary" (.Get "icon_bg_class") }}
+{{ $iconColorClass := default "text-white" (.Get "icon_color_class") }}
+{{ $cardGradient := default (cond (eq $side "left") "from-hologram-primary/5 to-hologram-dark/5" "from-hologram-secondary/5 to-hologram-dark/5") (.Get "card_gradient_class") }}
+{{ $content := "" }}
+{{ $inner := trim .Inner "\n\r\t " }}
+{{ if gt (len $inner) 0 }}
+  {{ $content = .Page.RenderString $inner }}
+{{ end }}
+{{ $headingColor := default (cond (eq $side "left") "text-hologram-primary" "text-hologram-secondary") (.Get "title_color_class") }}
+{{ $yearColor := default "text-2xl font-bold text-gray-900" (.Get "year_class") }}
+{{ $iconSize := default "text-xl" (.Get "icon_size_class") }}
+{{ $cardBase := printf "bg-gradient-to-br %s rounded-xl p-8 shadow-lg" $cardGradient }}
+{{ $cardWidth := "w-full md:w-[calc(50%-4rem)]" }}
+{{ $cardPositionClasses := cond (eq $side "left") "ml-auto mr-0 md:ml-[calc(50%+4rem)]" "mr-auto ml-0" }}
+<div class="relative mb-16">
+  <div class="flex items-center mb-8">
+    {{ if eq $side "left" }}
+      <div class="flex-1 text-right pr-8">
+        <h3 class="text-3xl font-bold {{ $headingColor }} mb-2">{{ $title }}</h3>
+        {{ with $year }}<div class="{{ $yearColor }}">{{ . }}</div>{{ end }}
+      </div>
+      <div class="w-16 h-16 {{ $iconBgClass }} rounded-full flex items-center justify-center z-10 shadow-lg">
+        {{ if $icon }}<i class="{{ $icon }} {{ $iconColorClass }} {{ $iconSize }}"></i>{{ end }}
+      </div>
+      <div class="flex-1 pl-8"></div>
+    {{ else }}
+      <div class="flex-1 text-right pr-8"></div>
+      <div class="w-16 h-16 {{ $iconBgClass }} rounded-full flex items-center justify-center z-10 shadow-lg">
+        {{ if $icon }}<i class="{{ $icon }} {{ $iconColorClass }} {{ $iconSize }}"></i>{{ end }}
+      </div>
+      <div class="flex-1 pl-8">
+        <h3 class="text-3xl font-bold {{ $headingColor }} mb-2">{{ $title }}</h3>
+        {{ with $year }}<div class="{{ $yearColor }}">{{ . }}</div>{{ end }}
+      </div>
+    {{ end }}
+  </div>
+  <div class="{{ $cardBase }} {{ $cardWidth }} {{ $cardPositionClasses }}">
+    {{ if $content }}
+      <div class="text-gray-700 space-y-4 leading-relaxed">
+        {{ $content | safeHTML }}
+      </div>
+    {{ end }}
+  </div>
+</div>

@@ -1,0 +1,4 @@
+{{- $class := .Get "class" | default "space-y-3 mb-6" -}}
+<ul class="{{ $class }}">
+  {{- .Inner | safeHTML -}}
+</ul>

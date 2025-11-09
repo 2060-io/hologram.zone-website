@@ -1,0 +1,26 @@
+{{ $title := .Get "title" }}
+{{ $description := .Get "description" }}
+{{ $icon := .Get "icon" }}
+{{ $iconColor := default "text-hologram-primary" (.Get "icon_color_class") }}
+<section id="team-values" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        {{ with $title }}
+          <h2 class="text-4xl font-bold text-gray-900 mb-6 flex items-center justify-center gap-3">
+            {{ if $icon }}
+              <i class="{{ $icon }} {{ $iconColor }} text-3xl"></i>
+            {{ end }}
+            <span>{{ . }}</span>
+          </h2>
+        {{ end }}
+        {{ with $description }}
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ . }}</p>
+        {{ end }}
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {{ .Inner }}
+      </div>
+    </div>
+  </div>
+</section>

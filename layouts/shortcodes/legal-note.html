@@ -1,0 +1,17 @@
+{{- $icon := .Get "icon" | default "fa-solid fa-exclamation-triangle" -}}
+{{- $iconColor := .Get "icon_color_class" | default "text-yellow-600" -}}
+{{- $background := .Get "background_class" | default "bg-yellow-50" -}}
+{{- $border := .Get "border_class" | default "border-yellow-400" -}}
+{{- $padding := .Get "padding_class" | default "p-6" -}}
+{{- $rounded := .Get "rounded_class" | default "rounded-lg" -}}
+{{- $margin := .Get "margin_class" | default "mb-6" -}}
+{{- $textClass := .Get "text_class" | default "text-gray-700 leading-relaxed" -}}
+{{- $borderSide := .Get "border_side_class" | default "border-l-4" -}}
+<div class="{{ $background }} {{ $borderSide }} {{ $border }} {{ $padding }} {{ $rounded }} {{ $margin }}">
+  <div class="flex items-start">
+    <i class="{{ $icon }} {{ $iconColor }} text-xl mr-4 mt-1"></i>
+    <div class="{{ $textClass }}">
+      {{ .Inner | markdownify | safeHTML }}
+    </div>
+  </div>
+</div>

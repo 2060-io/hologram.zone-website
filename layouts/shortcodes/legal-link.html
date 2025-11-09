@@ -1,0 +1,7 @@
+{{- $href := .Get "href" | default "#" -}}
+{{- $icon := .Get "icon" | default "fa-solid fa-link" -}}
+{{- $isExternal := or (strings.HasPrefix $href "http") (strings.HasPrefix $href "mailto:") -}}
+<a href="{{ $href }}" class="flex items-center text-hologram-primary hover:text-hologram-secondary font-semibold"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>
+  <i class="{{ $icon }} mr-3 w-5"></i>
+  <span>{{ .Inner | markdownify | safeHTML }}</span>
+</a>

@@ -1,0 +1,11 @@
+{{- $number := .Get "number" | default "" -}}
+{{- $iconBg := .Get "icon_bg_class" | default "bg-hologram-primary/10" -}}
+{{- $iconColor := .Get "icon_color_class" | default "text-hologram-primary" -}}
+<div class="flex items-start">
+  <div class="w-6 h-6 {{ $iconBg }} rounded flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+    <i class="fa-solid fa-circle {{ $iconColor }} text-[8px]"></i>
+  </div>
+  <p class="text-gray-700 leading-relaxed mb-0">
+    {{ .Inner | markdownify | safeHTML }}
+  </p>
+</div>
