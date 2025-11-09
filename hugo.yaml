@@ -33,8 +33,8 @@ params:
     logo: "/logo.svg"
     tagline: "The Open Trust Layer for the Internet"
     testnet:
-      label: "Get Started"
-      url: "/page/get-started"
+      label: "Download"
+      url: "/#app-download"
       class: "bg-hologram-primary hover:bg-hologram-secondary text-white"
 #      icon: "fa-solid fa-umbrella-beach"
 #      icon: "fa-solid fa-flask-vial"
@@ -88,9 +88,7 @@ params:
   # Optional: override menu ordering using this list.
   nav:
     main:
-      - title: "Download Hologram"
-        url: "/#app-download"
-
+      
       - title: "Developers"
         url: "/page/get-started"
 

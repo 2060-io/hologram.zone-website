@@ -1,17 +1,14 @@
 {{/* Open Graph and Twitter Card meta */}}
 {{ $siteTitle := .Site.Title }}
-{{ $title := cond (isset .Params "meta_title") .Params.meta_title $siteTitle }}
-{{ if and (not (isset .Params "meta_title")) .Title }}{{ $title = printf "%s | %s" .Title $siteTitle }}{{ end }}
-{{ if not (strings.Contains (lower $title) "verana") }}
-  {{ $title = printf "%s | Verana Trust Layer" $title }}
+{{ $title := or (.Scratch.Get "meta_title") "" }}
+{{ $desc := or (.Scratch.Get "meta_description") "" }}
+{{ if not $title }}
+  {{ $resolved := partial "meta/resolved.html" . }}
+  {{ $title = $resolved.title }}
+  {{ if not $desc }}{{ $desc = $resolved.description }}{{ end }}
 {{ end }}
-
-{{ $baseDesc := "Verifiable trust for digital ecosystems" }}
-{{ with .Site.Params.header.tagline }}{{ $baseDesc = . }}{{ end }}
-{{ $desc := cond (isset .Params "meta_description") .Params.meta_description $baseDesc }}
-{{ if and (not (isset .Params "meta_description")) (.Params.description) }}{{ $desc = .Params.description }}{{ end }}
-{{ if not (strings.Contains (lower $desc) "verana") }}
-  {{ $desc = printf "%s | Verana trust layer, verifiable credentials, decentralized identity." $desc }}
+{{ if not $desc }}
+  {{ $desc = .Site.Params.header.tagline | default "Verifiable trust for digital ecosystems" }}
 {{ end }}
 
 {{ $type := "website" }}
