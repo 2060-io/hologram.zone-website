@@ -1,0 +1,27 @@
+{{- $ctx := . -}}
+{{- $siteTitle := $ctx.Site.Title -}}
+
+{{- $title := cond (isset $ctx.Params "meta_title") ($ctx.Params.meta_title | plainify) "" -}}
+{{- if not $title -}}
+  {{- if $ctx.Title -}}
+    {{- $title = printf "%s | %s" ($ctx.Title | plainify) $siteTitle -}}
+  {{- else -}}
+    {{- $title = $siteTitle -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $desc := "" -}}
+{{- if isset $ctx.Params "meta_description" -}}
+  {{- $desc = $ctx.Params.meta_description | plainify -}}
+{{- end -}}
+{{- if not $desc -}}
+  {{- with $ctx.Summary -}}
+    {{- $desc = . | plainify -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $desc -}}
+  {{- $desc = $ctx.Content | plainify | replaceRE "\\s+" " " | truncate 170 -}}
+{{- end -}}
+{{- $desc = trim $desc " " -}}
+
+{{- return (dict "title" $title "description" $desc) -}}
