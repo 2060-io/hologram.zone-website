@@ -7,7 +7,7 @@ bodyClass: "bg-white text-gray-900 overflow-x-hidden font-sans"
 hero:
   badge:
     icon: "fas fa-gauge-high"
-    text: "Build Verifiable AI in Minutes"
+    text: "Build verifiable chatbots in minutes"
   title:
     gradient: "Hologram"
     lines:
