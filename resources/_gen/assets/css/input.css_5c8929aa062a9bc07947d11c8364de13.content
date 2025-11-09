@@ -4676,10 +4676,6 @@ video {
     display: inline-flex;
   }
 
-  .md\:hidden {
-    display: none;
-  }
-
   .md\:h-60 {
     height: 15rem;
   }
