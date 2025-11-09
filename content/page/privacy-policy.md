@@ -77,7 +77,7 @@ Responding to lawful requests, maintaining necessary business records, and meeti
 {{< /legal-section-card >}}
 
 {{< legal-section-card id="data-sharing" title="Data Sharing & Disclosure" icon="fa-solid fa-share-alt" icon_bg_class="bg-hologram-primary/10" icon_color_class="text-hologram-primary" >}}
-{{< legal-note background_class="bg-green-50" border_class="border-green-400" icon="fa-solid fa-shield-alt" icon_color_class="text-green-600" >}}
+{{< legal-note background_class="bg-green-50" border_class="border-green-400" icon="fa-solid fa-shield-alt" icon_color_class="text-green-600" margin_class="mb-8" >}}
 **We do not sell personal data.** Your information is never sold to third parties for marketing or advertising purposes.
 {{< /legal-note >}}
 
@@ -126,7 +126,7 @@ We keep personal information only for as long as necessary to fulfill the purpos
 {{< legal-section-card id="security" title="Security Measures" icon="fa-solid fa-lock" icon_bg_class="bg-hologram-primary/10" icon_color_class="text-hologram-primary" >}}
 We employ administrative, technical, and organizational safeguards such as access controls, encryption in transit, continuous monitoring, and secure development practices. Despite these measures, no method of transmission or storage is completely secure.
 
-{{< legal-note background_class="bg-blue-50" border_class="border-blue-400" icon="fa-solid fa-info-circle" icon_color_class="text-blue-600" >}}
+{{< legal-note background_class="bg-blue-50" border_class="border-blue-400" icon="fa-solid fa-info-circle" icon_color_class="text-blue-600" margin_class="mt-6 mb-6" >}}
 **Your responsibility:** You are responsible for protecting credentials, keys, and secrets associated with your 2060 accounts or verifiable services.
 {{< /legal-note >}}
 {{< /legal-section-card >}}
@@ -152,7 +152,7 @@ Withdraw consent for communications or optional programs at any time.
   {{< /legal-card >}}
 {{< /legal-card-grid >}}
 
-{{< legal-note background_class="bg-hologram-primary/5" border_class="border-hologram-primary/20" icon="fa-solid fa-scale-balanced" icon_color_class="text-hologram-primary" >}}
+{{< legal-note background_class="bg-hologram-primary/5" border_class="border-hologram-primary/20" icon="fa-solid fa-scale-balanced" icon_color_class="text-hologram-primary" margin_class="mt-6 mb-6" >}}
 To exercise these rights, contact us using the details below. We may request additional information to verify your identity before processing a request.
 {{< /legal-note >}}
 {{< /legal-section-card >}}

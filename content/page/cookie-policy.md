@@ -36,7 +36,7 @@ Remember your preferences, including locale or participation in trust registries
   {{< /legal-feature-item >}}
 {{< /legal-feature-list >}}
 
-{{< legal-note background_class="bg-gray-50" border_class="border-gray-200" rounded_class="rounded-lg mt-8" icon="fa-solid fa-circle-info" icon_color_class="text-hologram-primary" >}}
+{{< legal-note background_class="bg-gray-50" border_class="border-gray-200" rounded_class="rounded-lg" icon="fa-solid fa-circle-info" icon_color_class="text-hologram-primary" margin_class="mt-8 mb-6" >}}
 **Important:** We do not use advertising cookies or sell cookie-derived data to third parties.
 {{< /legal-note >}}
 {{< /legal-section-card >}}
