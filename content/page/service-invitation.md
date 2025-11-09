@@ -7,7 +7,7 @@ hero_icon: "fa-solid fa-laptop-code"
 hero_badge_text: "Service Invitation"
 hero_badge_icon: "fa-solid fa-flask"
 hero_heading: "<strong>You've been invited</strong>"
-hero_description: "Connect only to this service if you trust it."
+hero_description: "Connect to this service only if you trust it."
 disable_content_wrapper: true
 markup: html
 ---
@@ -43,7 +43,6 @@ markup: html
                 <img data-service-image src="/images/ico-hologram.png" alt="Service avatar" class="w-16 h-16 object-contain" loading="lazy" decoding="async" />
               </div>
               <div class="flex-1">
-                <p class="text-sm uppercase tracking-wide text-gray-500 mb-1">You&rsquo;re connecting to</p>
                 <p class="text-2xl font-bold text-gray-900" data-service-name>Pending invitation</p>
                 <div class="inline-flex items-center bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold mt-3">
                   <i class="fa-solid fa-check-circle mr-2"></i>
@@ -74,7 +73,7 @@ markup: html
 
             <div id="tap-section" data-service-mobile-cta class="hidden bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 text-center">
               <p class="text-sm uppercase tracking-wide text-indigo-600 font-semibold mb-4">Open with Hologram</p>
-              <p class="text-gray-600 mb-6" data-mobile-subtext>Tap continue to switch to the Hologram app.</p>
+              <p class="text-gray-600 mb-6" data-mobile-subtext>Tap to open in Hologram.</p>
               <button type="button" data-mobile-link class="inline-flex items-center justify-center gap-3 bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold text-lg px-6 py-4 rounded-2xl shadow-lg transition-colors">
                 Continue with this service
               </button>
@@ -97,21 +96,21 @@ markup: html
 
                 <div class="bg-gray-50 rounded-xl p-6 flex items-start gap-4">
                   <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <i class="fa-solid fa-network-wired text-hologram-primary"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-semibold text-gray-900 mb-2">Supported protocols</h4>
-                    <p class="text-gray-700 font-mono text-sm break-all" data-service-protocols>&mdash;</p>
-                  </div>
-                </div>
-
-                <div class="bg-gray-50 rounded-xl p-6 flex items-start gap-4">
-                  <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <i class="fa-solid fa-fingerprint text-hologram-primary"></i>
                   </div>
                   <div>
                     <h4 class="font-semibold text-gray-900 mb-2">Service DID</h4>
                     <p class="text-gray-700 font-mono text-sm break-all" data-service-did>&mdash;</p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 flex items-start gap-4">
+                  <div class="w-10 h-10 bg-hologram-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-network-wired text-hologram-primary"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-gray-900 mb-2">Supported protocols</h4>
+                    <p class="text-gray-700 font-mono text-sm break-all" data-service-protocols>&mdash;</p>
                   </div>
                 </div>
 
@@ -284,13 +283,17 @@ markup: html
       } else if (mobileCtaWrapper && mobileButton) {
         if (qrWrapper) toggleVisibility(qrWrapper, false);
         toggleVisibility(mobileCtaWrapper, true);
-        mobileButton.textContent = isDidcommV2 ? 'Continue with this service' : `Get ${inviteLabel} in Hologram`;
+        mobileButton.textContent = isDidcommV2 ? 'Continue with this service' : `Open in Hologram`;
         mobileButton.addEventListener('click', () => {
           const querySuffix = searchString ? `?${searchString}` : '';
           window.location.href = `${didUrl}${querySuffix}`;
         });
         if (mobileSubtext) {
-          mobileSubtext.textContent = 'Tap continue to switch to the Hologram app.';
+          mobileSubtext.textContent = 'Tap to open ';
+          const strong = document.createElement('strong');
+          strong.textContent = inviteLabel;
+          mobileSubtext.appendChild(strong);
+          mobileSubtext.append(' in Hologram.');
         }
       }
 
