@@ -126,7 +126,7 @@
 {{ $logo := or .Params.header.logo .Site.Params.header.logo "/logo.svg" }}
 {{ $eventText := .Site.Params.eventArea }}
 {{ $eventLink := .Site.Params.eventAreaLink }}
-<header id="header" data-collapse="false" class="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50 dark:bg-black/75 dark:border-gray-800/50 dark:backdrop-blur-lg">
+<header id="header" data-collapse="false" class="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50 dark:bg-black/75 dark:border-gray-800/50 dark:backdrop-blur-lg" data-header>
   <style>
     #header [data-header-row] {
       grid-template-columns: auto minmax(0,1fr) auto;
@@ -183,6 +183,7 @@
       </div>
     </div>
   {{ end }}
+  {{ partial "uxpilot/mobile-app-banner.html" . }}
   <div class="w-full py-4" data-header-container>
     <div class="grid grid-cols-[auto_auto_auto] items-center gap-[var(--header-gap)] px-[var(--header-gap)]" data-header-row style="--header-gap:clamp(2.25rem, 5vw, 3rem);">
       <div class="flex items-center" data-header-left>

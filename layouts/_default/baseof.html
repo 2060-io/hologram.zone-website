@@ -38,7 +38,6 @@
   {{ $bodyClass := .Params.bodyClass }}
   {{ if not $bodyClass }}{{ $bodyClass = "min-h-screen flex flex-col bg-white text-gray-900 overflow-x-hidden font-sans" }}{{ end }}
   <body class="{{ $bodyClass }}">
-    {{ partial "uxpilot/mobile-app-banner.html" . }}
     {{ partial "uxpilot/header.html" . }}
     <main id="content" class="flex-1">
       {{ block "main" . }}{{ end }}
