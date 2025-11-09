@@ -2567,10 +2567,6 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(224 231 255 / var(--tw-bg-opacity, 1));
 }
-.bg-indigo-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 102 241 / var(--tw-bg-opacity, 1));
-}
 .bg-orange-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(255 237 213 / var(--tw-bg-opacity, 1));
@@ -4986,6 +4982,10 @@ video {
 
   .dark\:border-gray-800\/50 {
     border-color: rgb(31 41 55 / 0.5);
+  }
+
+  .dark\:border-gray-800\/60 {
+    border-color: rgb(31 41 55 / 0.6);
   }
 
   .dark\:border-gray-800\/80 {

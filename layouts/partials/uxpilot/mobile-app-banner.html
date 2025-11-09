@@ -3,7 +3,7 @@
   {{ $bannerJSON := $banner | jsonify }}
   <div
     id="mobile-app-download-banner"
-    class="hidden w-full p-2 flex flex-wrap sm:flex-nowrap justify-center sm:justify-between items-center gap-4 dark:bg-indigo-300 bg-indigo-100 align-middle text-sm sm:text-base shadow-md"
+    class="hidden w-full p-2 flex flex-wrap sm:flex-nowrap justify-center sm:justify-between items-center gap-4 dark:bg-indigo-300 bg-indigo-100 align-middle text-sm sm:text-base border-b border-gray-200 dark:border-gray-800/60"
     data-mobile-banner
   >
     <div class="flex items-center gap-3">
@@ -14,13 +14,13 @@
       </p>
     </div>
     <div class="flex gap-2" data-banner-buttons>
-      <button type="button" data-store-button="ios" class="hidden bg-indigo-500 text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+      <button type="button" data-store-button="ios" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
         Get
       </button>
-      <button type="button" data-store-button="google" class="hidden bg-indigo-500 text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+      <button type="button" data-store-button="google" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
         Install
       </button>
-      <button type="button" data-store-button="huawei" class="hidden bg-indigo-500 text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+      <button type="button" data-store-button="huawei" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
         Install
       </button>
     </div>
