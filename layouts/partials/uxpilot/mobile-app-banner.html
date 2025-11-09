@@ -14,15 +14,15 @@
       </p>
     </div>
     <div class="flex gap-2" data-banner-buttons>
-      <button type="button" data-store-button="ios" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+      <a data-store-link="ios" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex items-center justify-center">
         Get
-      </button>
-      <button type="button" data-store-button="google" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+      </a>
+      <a data-store-link="google" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex items-center justify-center">
         Install
-      </button>
-      <button type="button" data-store-button="huawei" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
+      </a>
+      <a data-store-link="huawei" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex items-center justify-center">
         Install
-      </button>
+      </a>
     </div>
   </div>
   <script>
@@ -44,9 +44,9 @@
       const buttons = banner.querySelector('[data-banner-buttons]');
       if (!buttons) return;
 
-      const iosBtn = buttons.querySelector('[data-store-button="ios"]');
-      const googleBtn = buttons.querySelector('[data-store-button="google"]');
-      const huaweiBtn = buttons.querySelector('[data-store-button="huawei"]');
+      const iosBtn = buttons.querySelector('[data-store-link="ios"]');
+      const googleBtn = buttons.querySelector('[data-store-link="google"]');
+      const huaweiBtn = buttons.querySelector('[data-store-link="huawei"]');
 
       const linkMap = {
         ios: config.iosUrl || '',
@@ -54,37 +54,31 @@
         huawei: config.huaweiUrl || '',
       };
 
-      function navigate(store){
+      function buildTarget(store){
         const base = linkMap[store];
         if (!base) return;
         const separator = base.includes('?') ? '&' : '?';
-        const target = referrer ? `${base}${separator}referrer=${encodeURIComponent(referrer)}` : base;
-        window.location.href = target;
+        return referrer ? `${base}${separator}referrer=${encodeURIComponent(referrer)}` : base;
       }
 
-      if (isIOS && iosBtn) {
-        iosBtn.classList.remove('hidden');
-        iosBtn.addEventListener('click', () => navigate('ios'));
+      function configureLink(el, store){
+        const target = buildTarget(store);
+        if (!el || !target) return false;
+        el.href = target;
+        el.target = '_blank';
+        el.rel = 'noopener noreferrer';
+        el.classList.remove('hidden');
+        return true;
       }
 
-      if (googleBtn) {
-        const showGoogle = !isIOS && (!isHuawei || typeof window.google !== 'undefined');
-        if (showGoogle) {
-          googleBtn.classList.remove('hidden');
-          googleBtn.addEventListener('click', () => navigate('google'));
-        }
-      }
+      const iosVisible = isIOS && configureLink(iosBtn, 'ios');
 
-      if (huaweiBtn && isHuawei) {
-        huaweiBtn.classList.remove('hidden');
-        huaweiBtn.addEventListener('click', () => navigate('huawei'));
-      }
+      const showGoogle = !isIOS && (!isHuawei || typeof window.google !== 'undefined');
+      const googleVisible = showGoogle && configureLink(googleBtn, 'google');
 
-      if (
-        (isIOS && iosBtn && !iosBtn.classList.contains('hidden')) ||
-        (googleBtn && !googleBtn.classList.contains('hidden')) ||
-        (huaweiBtn && !huaweiBtn.classList.contains('hidden'))
-      ) {
+      const huaweiVisible = isHuawei && configureLink(huaweiBtn, 'huawei');
+
+      if (iosVisible || googleVisible || huaweiVisible) {
         banner.classList.remove('hidden');
       }
     })();
