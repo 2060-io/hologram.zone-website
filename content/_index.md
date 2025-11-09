@@ -13,8 +13,8 @@ hero:
     lines:
       - "Verifiable AI"
 #      - "Ecosystem"
-  description: "<strong>Build AI services users can trust:</strong> decentralized, peer-to-peer encrypted, verifiable, and globally discoverable.
-  Accessible to anyone through Hologram, the open-source mobile app for trusted, decentralized AI interactions."
+  description: "<strong>Build chat-based services users can trust:</strong> decentralized, peer-to-peer encrypted, verifiable, and globally discoverable.
+  Accessible to anyone through Hologram, the open-source mobile app for trusted, decentralized interactions."
   primary_cta:
     label: "Instant Deployment"
     href: "/page/build"
@@ -43,7 +43,7 @@ app_download:
   id: "app-download"
   title: "Get the App"
   icon: "fas fa-mobile-alt"
-  description: "Experience verifiable AI services on the go. Download the Hologram mobile app and access trusted AI agents from anywhere in the world."
+  description: "Experience verifiable services on the go. Download the Hologram mobile app and access trusted services and AI agents from anywhere in the world."
   quick_title: "Download Hologram"
   quick_subtitle: "Scan with your phone's camera"
 #  platforms_title: "Available on all platforms"
@@ -75,7 +75,7 @@ powerful_communication:
   icon: "fas fa-comments"
   intro:
     lead: "The <strong>Hologram</strong> app is a <strong>Verifiable User Agent</strong> that enables secure, private, and verifiable <strong>chat-based</strong> communication between users and AI-based services."
-    sub: "Everything you need to connect, authenticate, and interact in a chat with full <strong>privacy</strong>."
+    sub: "Combine AI and everything you need to connect, authenticate, and interact in a chat with full <strong>privacy</strong>."
   features_left:
     - icon: "fas fa-passport"
       icon_bg: "bg-hologram-primary"
