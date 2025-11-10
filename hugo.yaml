@@ -35,7 +35,7 @@ params:
 
   header:
     logo: "/logo.svg"
-    tagline: "Build chat-based services users can trust"
+    tagline: "Private Messaging and Verifiable AI"
     testnet:
       label: "Download"
       url: "/#app-download"
