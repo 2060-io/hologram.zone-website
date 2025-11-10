@@ -87,7 +87,7 @@ params:
           
 
   seo:
-    ogImage: "/images/verana-og.jpg"
+    ogImage: "/images/hologram-og.jpg"
 
   # Optional: override menu ordering using this list.
   nav:

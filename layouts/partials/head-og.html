@@ -16,7 +16,7 @@
 
 {{ $firstImg := "" }}
 {{ with .Params.images }}{{ if ge (len .) 1 }}{{ $firstImg = index . 0 }}{{ end }}{{ end }}
-{{ $img := or .Params.og_image (or $firstImg (or .Site.Params.seo.ogImage "/images/verana-og.jpg")) }}
+{{ $img := or .Params.og_image (or $firstImg (or .Site.Params.seo.ogImage "/images/hologram-og.jpg")) }}
 {{ $imgURL := $img | absURL }}
 
 <meta property="og:type" content="{{ $type }}">
