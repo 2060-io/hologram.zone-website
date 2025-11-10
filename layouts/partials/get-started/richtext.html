@@ -14,6 +14,7 @@
 {{- $pClass := .p_class -}}
 {{- $aClass := .a_class -}}
 {{- $codeClass := .code_class -}}
+{{- $strongClass := .strong_class -}}
 
 {{- $html := $content | markdownify -}}
 
@@ -29,6 +30,10 @@
 
 {{- if $codeClass -}}
   {{- $html = replace $html "<code>" (printf "<code class=\"%s\">" $codeClass) -}}
+{{- end -}}
+
+{{- if $strongClass -}}
+  {{- $html = replace $html "<strong>" (printf "<strong class=\"%s\">" $strongClass) -}}
 {{- end -}}
 
 {{- $html | safeHTML -}}

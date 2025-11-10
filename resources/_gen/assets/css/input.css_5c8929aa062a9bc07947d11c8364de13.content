@@ -1360,6 +1360,60 @@ video {
   --tw-prose-invert-th-borders: #475569;
   --tw-prose-invert-td-borders: #334155;
 }
+body.get-started-page .step-number {
+    background: linear-gradient(135deg, #7678ec 0%, #6161cb 100%);
+  }
+body.get-started-page .code-block {
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+    border-left: 4px solid #7678ec;
+  }
+body.get-started-page .code-block pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+body.get-started-page .gradient-border {
+    position: relative;
+    background: #ffffff;
+    border-radius: 1rem;
+    z-index: 0;
+  }
+body.get-started-page .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, #7678ec, #6161cb);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+body.get-started-page .run-container-card {
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #f8fafc;
+  }
+body.get-started-page .run-container-card h3 {
+    color: #f8fafc;
+  }
+body.get-started-page .run-container-card .bg-black {
+    background-color: #050505 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+body.get-started-page .run-container-card pre {
+    color: #86efac;
+  }
+body.get-started-page code.text-hologram-primary.font-mono {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    background: #ffffff;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
 .sr-only {
   position: absolute;
   width: 1px;
@@ -4345,6 +4399,31 @@ video {
     .bg-gradient-to-t { color: #fff !important; }
 
   .dark\:hover\:bg-verana\/10:hover { --tw-bg-opacity: 1 !important; background-color: #ede9fe !important; }
+}
+
+body.get-started-page .hover\:text-hologram-primary:hovercode.font-mono {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    background: #ffffff;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+body.get-started-page .group:hover .group-hover\:text-hologram-primarycode.font-mono {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    background: #ffffff;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+@media (prefers-color-scheme: dark) {
 
   .dark\:prose-invert {
     --tw-prose-body: var(--tw-prose-invert-body);

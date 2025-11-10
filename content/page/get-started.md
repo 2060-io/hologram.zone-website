@@ -5,6 +5,7 @@ url: "/page/get-started"
 meta_title: "Developers and Hologram | Learn how to get started with Hologram, and where to find documentation and access community channels."
 hero_icon: "fa-solid fa-hammer"
 disable_content_wrapper: true
+bodyClass: "min-h-screen flex flex-col bg-white text-gray-900 overflow-x-hidden font-sans get-started-page"
 intro:
   icon: "fas fa-terminal"
   title: "What is Verifiable Service Agent?"
@@ -18,20 +19,9 @@ installation:
       icon: "fab fa-docker"
       icon_bg: "bg-hologram-primary/10"
       icon_color: "text-hologram-primary"
-      description: "Pull the image from DockerHub and run it in any environment."
+      description: "Pull the image from DockerHub and run it in any environment"
       code_block: |
         docker pull io2060/vs-agent:dev
-    - title: "Local Setup"
-      icon: "fab fa-github"
-      icon_bg: "bg-hologram-secondary/10"
-      icon_color: "text-hologram-secondary"
-      description: "Clone and run locally for development and customization."
-      button:
-        label: "VS Agent Repository"
-        url: "https://github.com/2060-io/vs-agent"
-        icon_left: "fab fa-github"
-        icon_right: "fas fa-external-link-alt"
-        class: "inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 font-semibold"
   note:
     icon: "fas fa-info-circle"
     title: "Getting Started"
@@ -57,13 +47,13 @@ configuration:
       icon_bg: "bg-hologram-secondary"
       icon_color: "text-white"
       card_class: "bg-gradient-to-br from-hologram-secondary/5 to-hologram-dark/5 border border-hologram-secondary/20 rounded-xl p-8"
-      description: "String to be shown in invitations."
+      description: "String to be shown in invitations"
     - title: "AGENT_INVITATION_IMAGE_URL"
       icon: "fas fa-image"
       icon_bg: "bg-hologram-dark"
       icon_color: "text-white"
       card_class: "bg-gradient-to-br from-hologram-dark/5 to-hologram-primary/5 border border-hologram-dark/20 rounded-xl p-8"
-      description: "URL of a logo to be shown in invitations alongside the label."
+      description: "URL of a logo to be shown in invitations alongside the label"
   command_block:
     title: "Run the Container"
     icon: "fas fa-terminal"
@@ -109,7 +99,7 @@ messaging:
   actions:
     - kind: "link"
       title: "API Documentation"
-      description: "Complete reference for all VS Agent API endpoints."
+      description: "Complete reference for all VS Agent API endpoints"
       icon: "fas fa-book"
       icon_bg: "bg-hologram-primary/10"
       icon_color: "text-hologram-primary"
