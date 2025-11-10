@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'hologram-primary': '#7678ec',
+                        'hologram-secondary': '#6161cb',
+                        'hologram-dark': '#1c1161',
+                    }
+                }
+            }
+        }
+    </script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar { display: none;}
+        body { font-family: 'Inter', sans-serif; }
+        .code-block {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+            border-left: 4px solid #7678ec;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #7678ec 0%, #6161cb 100%);
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .gradient-border {
+            position: relative;
+            background: white;
+        }
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1rem;
+            padding: 2px;
+            background: linear-gradient(135deg, #7678ec, #6161cb);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header id="header" class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-hologram-primary to-hologram-dark rounded-lg flex items-center justify-center">
+                        <i class="fas fa-cube text-white text-lg"></i>
+                    </div>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-hologram-primary to-hologram-dark bg-clip-text text-transparent">Hologram</span>
+                </div>
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Platform</a>
+                    <div class="relative group">
+                        <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium flex items-center">
+                            Solutions <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                    <a href="#" class="text-hologram-primary transition-colors duration-200 font-semibold">Developers</a>
+                    <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Docs</a>
+                    <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">About</a>
+                    <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Blog</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-700 hover:text-hologram-primary transition-colors duration-200 font-medium">Sign In</a>
+                    <button class="bg-hologram-primary text-white px-6 py-2.5 rounded-lg hover:bg-hologram-secondary transition-colors duration-200 font-medium">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="hero-get-started" class="relative bg-gradient-to-br from-hologram-primary/5 via-hologram-secondary/5 to-hologram-dark/5 py-20 overflow-hidden">
+            <div class="absolute inset-0">
+                <div class="absolute top-20 left-10 w-96 h-96 bg-hologram-primary/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-20 right-10 w-96 h-96 bg-hologram-secondary/10 rounded-full blur-3xl"></div>
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="inline-flex items-center px-4 py-2 bg-hologram-primary/10 rounded-full text-hologram-primary text-sm font-semibold mb-6">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Developer Documentation
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">Get Started</h1>
+                    <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                        Build verifiable services compatible with Hologram using VS Agent. Deploy trustworthy, conversational AI agents in minutes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="intro-section" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-12 shadow-sm">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-hologram-primary to-hologram-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-terminal text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h2 class="text-3xl font-bold text-gray-900 mb-6">What is VS Agent?</h2>
+                                <p class="text-lg text-gray-700 leading-relaxed">
+                                    To build services compatible with Hologram, all you need is <strong class="text-hologram-primary">VS Agent</strong>, a web application that can be used as a framework for building conversational Verifiable Services (VS). It enables developers to create, deploy, and manage agents that provide trustworthy, verifiable information and actions in chat conversations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="installation-section" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex items-center space-x-4 mb-12">
+                        <div class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl">1</div>
+                        <h2 class="text-4xl font-bold text-gray-900">Get VS Agent</h2>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                        <div class="gradient-border rounded-2xl p-8">
+                            <div class="flex items-center space-x-3 mb-6">
+                                <div class="w-12 h-12 bg-hologram-primary/10 rounded-lg flex items-center justify-center">
+                                    <i class="fab fa-docker text-hologram-primary text-2xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900">Docker</h3>
+                            </div>
+                            <p class="text-gray-600 mb-6">Pull the image from DockerHub and run it in any environment</p>
+                            <div class="code-block rounded-xl p-6 overflow-x-auto">
+                                <pre class="text-green-400 text-sm font-mono"><code>docker pull io2060/vs-agent:dev</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="gradient-border rounded-2xl p-8">
+                            <div class="flex items-center space-x-3 mb-6">
+                                <div class="w-12 h-12 bg-hologram-secondary/10 rounded-lg flex items-center justify-center">
+                                    <i class="fab fa-github text-hologram-secondary text-2xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900">Local Setup</h3>
+                            </div>
+                            <p class="text-gray-600 mb-6">Clone and run locally for development and customization</p>
+                            <a href="https://github.com/2060-io/vs-agent" class="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 font-semibold">
+                                <i class="fab fa-github mr-2"></i>
+                                VS Agent Repository
+                                <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6">
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-info-circle text-blue-500 text-xl mt-1"></i>
+                            <div>
+                                <p class="text-gray-800 font-medium mb-2">Getting Started</p>
+                                <p class="text-gray-700">You can run it locally or by using Docker, pulling the image from DockerHub. If you want to run it locally, refer to VS Agent repository for full details.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="configuration-section" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex items-center space-x-4 mb-12">
+                        <div class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl">2</div>
+                        <h2 class="text-4xl font-bold text-gray-900">Run your own Hologram Verifiable Service</h2>
+                    </div>
+
+                    <p class="text-lg text-gray-700 mb-12 leading-relaxed">
+                        Running VS Agent is easy: it only needs a few environment variables for its basic configuration. These are the most important ones:
+                    </p>
+
+                    <div class="space-y-6 mb-12">
+                        <div class="bg-gradient-to-br from-hologram-primary/5 to-hologram-secondary/5 border border-hologram-primary/20 rounded-xl p-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-hologram-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-fingerprint text-white"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-3">AGENT_PUBLIC_DID</h3>
+                                    <p class="text-gray-700 mb-4">In order to conform with Verifiable Trust concepts, a service needs to have a public decentralized identifier (DID). Hologram supports <a href="https://identity.foundation/didwebvh/v1.0/" class="text-hologram-primary hover:text-hologram-dark font-semibold underline">did:webvh Method</a>, a web-based identifier. For this you'll need to have a public endpoint for your agent and prefix it with <code class="px-2 py-1 bg-gray-100 rounded text-hologram-primary font-mono text-sm">did:webvh</code>.</p>
+                                    <div class="bg-white rounded-lg p-4 border border-gray-200">
+                                        <p class="text-sm text-gray-600 mb-2">Example:</p>
+                                        <code class="text-hologram-primary font-mono text-sm">did:webvh:mypublichost.com</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-hologram-secondary/5 to-hologram-dark/5 border border-hologram-secondary/20 rounded-xl p-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-hologram-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-tag text-white"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-3">AGENT_LABEL</h3>
+                                    <p class="text-gray-700">String to be shown in invitations</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-hologram-dark/5 to-hologram-primary/5 border border-hologram-dark/20 rounded-xl p-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-hologram-dark rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-image text-white"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-3">AGENT_INVITATION_IMAGE_URL</h3>
+                                    <p class="text-gray-700">URL of a logo to be shown in invitations alongside the label</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 rounded-2xl p-8 shadow-2xl">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold text-white flex items-center">
+                                <i class="fas fa-terminal mr-3"></i>
+                                Run the Container
+                            </h3>
+                            <button class="px-4 py-2 bg-hologram-primary text-white rounded-lg hover:bg-hologram-secondary transition-colors duration-200 text-sm font-semibold">
+                                <i class="fas fa-copy mr-2"></i>Copy
+                            </button>
+                        </div>
+                        <div class="bg-black rounded-lg p-6 overflow-x-auto">
+                            <pre class="text-green-400 text-sm font-mono leading-relaxed"><code>docker run -p 80:3001 -p 3000:3000 \
+  -e AGENT_PUBLIC_DID=did:webvh:myhost.com \
+  -e AGENT_LABEL="My First Hologram VS" \
+  -e AGENT_INVITATION_IMAGE_URL=https://hologram.zone/images/ico-hologram.png \
+  --name io2060/vs-agent:dev</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-amber-50 border-l-4 border-amber-500 rounded-lg p-6">
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-exclamation-triangle text-amber-500 text-xl mt-1"></i>
+                            <div>
+                                <p class="text-gray-800 font-semibold mb-2">Important Note</p>
+                                <p class="text-gray-700">Note that it uses two ports: a public one (3001) and a private one (3000), used for its Admin API. It is important that the public endpoint is reachable at the same host you've set up in agent's public DID.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="invitations-section" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex items-center space-x-4 mb-12">
+                        <div class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl">3</div>
+                        <h2 class="text-4xl font-bold text-gray-900">Create QR codes for invitations</h2>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                                Hologram users connect with your VS using invitation codes. For that purpose you can call the endpoint <code class="px-2 py-1 bg-white rounded text-hologram-primary font-mono border border-gray-200">/invitation</code>, which generates an invitation URL, or <code class="px-2 py-1 bg-white rounded text-hologram-primary font-mono border border-gray-200">/qr</code>, which renders this URL as a QR code so the user can simply scan it using their Hologram app.
+                            </p>
+
+                            <div class="space-y-4">
+                                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-semibold text-gray-900 flex items-center">
+                                            <i class="fas fa-link text-hologram-primary mr-2"></i>
+                                            Invitation URL
+                                        </h4>
+                                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">GET</span>
+                                    </div>
+                                    <code class="text-sm text-gray-600 font-mono">/invitation</code>
+                                </div>
+
+                                <div class="bg-white border border-gray-200 rounded-xl p-6">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-semibold text-gray-900 flex items-center">
+                                            <i class="fas fa-qrcode text-hologram-secondary mr-2"></i>
+                                            QR Code
+                                        </h4>
+                                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">GET</span>
+                                    </div>
+                                    <code class="text-sm text-gray-600 font-mono">/qr</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-hologram-primary/10 rounded-xl flex items-center justify-center mx-auto mb-6">
+                                    <i class="fas fa-qrcode text-hologram-primary text-3xl"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-4">Example QR Code</h4>
+                                <div class="bg-gray-50 rounded-xl p-8 mb-6">
+                                    <div class="w-48 h-48 mx-auto bg-white rounded-lg border-2 border-gray-200 flex items-center justify-center">
+                                        <i class="fas fa-qrcode text-gray-300 text-8xl"></i>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600">Users scan this QR code with the Hologram app to connect to your verifiable service</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="messaging-section" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex items-center space-x-4 mb-12">
+                        <div class="step-number w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl">4</div>
+                        <h2 class="text-4xl font-bold text-gray-900">Sending chat messages</h2>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-hologram-primary/5 to-hologram-secondary/5 rounded-2xl p-12 border border-hologram-primary/20">
+                        <div class="flex items-start space-x-6 mb-8">
+                            <div class="w-16 h-16 bg-gradient-to-br from-hologram-primary to-hologram-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-comments text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4">Admin API</h3>
+                                <p class="text-lg text-gray-700 leading-relaxed">
+                                    You can send messages to users using VS Agent Admin API. Check out <a href="https://github.com/2060-io/vs-agent/blob/main/doc/vs-agent-api.md" class="text-hologram-primary hover:text-hologram-dark font-semibold underline">VS Agent API</a> documentation and the Swagger UI of your deployed Agent at <code class="px-2 py-1 bg-white rounded text-hologram-primary font-mono border border-gray-200">/api</code> to know more.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <a href="https://github.com/2060-io/vs-agent/blob/main/doc/vs-agent-api.md" class="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-200 border border-gray-200 group">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 bg-hologram-primary/10 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-book text-hologram-primary text-xl"></i>
+                                    </div>
+                                    <i class="fas fa-arrow-right text-gray-400 group-hover:text-hologram-primary transition-colors duration-200"></i>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 mb-2">API Documentation</h4>
+                                <p class="text-gray-600 text-sm">Complete reference for all VS Agent API endpoints</p>
+                            </a>
+
+                            <div class="bg-white rounded-xl p-6 border border-gray-200">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-12 h-12 bg-hologram-secondary/10 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-code text-hologram-secondary text-xl"></i>
+                                    </div>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">Swagger UI</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-gray-900 mb-2">Interactive API</h4>
+                                <p class="text-gray-600 text-sm mb-3">Access Swagger UI at:</p>
+                                <code class="text-sm text-hologram-secondary font-mono bg-gray-50 px-3 py-2 rounded block">/api</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="next-steps" class="py-20 bg-gradient-to-br from-hologram-dark to-hologram-primary text-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold mb-6">Ready to Build?</h2>
+                    <p class="text-xl mb-12 text-white/90">You now have everything you need to deploy your first verifiable AI service on Hologram</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-12">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-rocket text-white text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2">Deploy</h3>
+                            <p class="text-white/80 text-sm">Launch your VS Agent in minutes</p>
+                        </div>
+
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-users text-white text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2">Connect</h3>
+                            <p class="text-white/80 text-sm">Share QR codes with users</p>
+                        </div>
+
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-shield-check text-white text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-lg mb-2">Verify</h3>
+                            <p class="text-white/80 text-sm">Build trust with verifiable credentials</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://github.com/2060-io/vs-agent" class="inline-flex items-center px-8 py-4 bg-white text-hologram-dark rounded-lg hover:bg-gray-100 transition-colors duration-200 font-bold text-lg">
+                            <i class="fab fa-github mr-2"></i>
+                            View on GitHub
+                        </a>
+                        <a href="#" class="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-lg hover:bg-white/20 transition-colors duration-200 font-bold text-lg">
+                            <i class="fas fa-book mr-2"></i>
+                            Full Documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="bg-gray-50 text-gray-900 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-5 gap-8 mb-12">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-hologram-primary to-hologram-dark rounded-lg flex items-center justify-center">
+                            <i class="fas fa-cube text-white text-lg"></i>
+                        </div>
+                        <span class="text-2xl font-bold">Hologram</span>
+                    </div>
+                    <p class="text-gray-600 mb-6 max-w-md">
+                        Building the future of verifiable AI services. Create trusted, discoverable, and privacy-preserving AI agents on the decentralized web.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:bg-hologram-primary hover:text-white hover:border-hologram-primary transition-colors duration-200 text-gray-600">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4 text-gray-900">Platform</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">How it Works</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Features</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Pricing</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Security</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Status</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4 text-gray-900">Developers</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Documentation</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">API Reference</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">SDK</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">GitHub</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4 text-gray-900">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">About</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Blog</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Press</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8">
+                <div class="flex flex-col lg:flex-row justify-between items-center">
+                    <div class="text-gray-600 mb-4 lg:mb-0">
+                        © 2024 Hologram. All rights reserved.
+                    </div>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Privacy Policy</a>
+                        <a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Terms of Service</a>
+                        <a href="#" class="text-gray-600 hover:text-hologram-primary transition-colors duration-200">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,96 @@
+{{- $data := .Page.Params.installation -}}
+{{- if not $data -}}
+  {{- warnf "get-started-installation shortcode: installation data not provided for %s" .Page.File.Path -}}
+  {{- return -}}
+{{- end -}}
+
+<section id="installation-section" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center space-x-4 mb-12">
+        {{- with $data.step_number -}}
+          <div class="step-number w-12 h-12 bg-gradient-to-br from-hologram-primary to-hologram-secondary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">{{ . }}</div>
+        {{- end -}}
+        {{- with $data.title -}}
+          <h2 class="text-4xl font-bold text-gray-900">{{ . }}</h2>
+        {{- end -}}
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 mb-12">
+        {{- range $data.cards -}}
+          {{- $wrapperClass := .wrapper_class | default "gradient-border rounded-2xl p-8" -}}
+          <div class="{{ $wrapperClass }}">
+            <div class="flex items-center space-x-3 mb-6">
+              {{- $iconBg := .icon_bg | default "bg-hologram-primary/10" -}}
+              {{- $iconColor := .icon_color | default "text-hologram-primary" -}}
+              <div class="w-12 h-12 {{ $iconBg }} rounded-lg flex items-center justify-center">
+                {{- with .icon -}}
+                  <i class="{{ . }} {{ $iconColor }} text-2xl"></i>
+                {{- end -}}
+              </div>
+              {{- with .title -}}
+                <h3 class="text-2xl font-bold text-gray-900">{{ . }}</h3>
+              {{- end -}}
+            </div>
+
+            {{- with .description -}}
+              {{- partial "get-started/richtext.html" (dict
+                "content" .
+                "p_class" "text-gray-600 mb-6"
+                "a_class" "text-hologram-primary hover:text-hologram-dark font-semibold underline"
+                "code_class" "px-2 py-1 bg-gray-100 rounded text-hologram-primary font-mono text-sm"
+              ) -}}
+            {{- end -}}
+
+            {{- with .code_block -}}
+              {{- $code := strings.TrimSpace (replace (replace . "\r\n" "\n") "\r" "\n") -}}
+              <div class="code-block rounded-xl p-6 overflow-x-auto">
+                <pre class="text-green-400 text-sm font-mono"><code>{{ $code | htmlEscape }}</code></pre>
+              </div>
+            {{- end -}}
+
+            {{- with .button -}}
+              {{- $label := .label -}}
+              {{- $url := .url -}}
+              {{- if and $label $url -}}
+                {{- $btnClass := .class | default "inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 font-semibold" -}}
+                <a href="{{ $url }}" class="{{ $btnClass }}">
+                  {{- with .icon_left -}}
+                    <i class="{{ . }} mr-2"></i>
+                  {{- end -}}
+                  {{- $label -}}
+                  {{- with .icon_right -}}
+                    <i class="{{ . }} ml-2 text-sm"></i>
+                  {{- end -}}
+                </a>
+              {{- end -}}
+            {{- end -}}
+          </div>
+        {{- end -}}
+      </div>
+
+      {{- with $data.note -}}
+        <div class="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6">
+          <div class="flex items-start space-x-4">
+            {{- with .icon -}}
+              <i class="{{ . }} text-blue-500 text-xl mt-1"></i>
+            {{- end -}}
+            <div>
+              {{- with .title -}}
+                <p class="text-gray-800 font-medium mb-2">{{ . }}</p>
+              {{- end -}}
+              {{- with .text -}}
+                {{- partial "get-started/richtext.html" (dict
+                  "content" .
+                  "p_class" "text-gray-700"
+                  "a_class" "text-hologram-primary hover:text-hologram-dark font-semibold underline"
+                  "code_class" "px-2 py-1 bg-white rounded text-hologram-primary font-mono text-sm border border-gray-200"
+                ) -}}
+              {{- end -}}
+            </div>
+          </div>
+        </div>
+      {{- end -}}
+    </div>
+  </div>
+</section>

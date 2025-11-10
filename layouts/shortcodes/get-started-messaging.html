@@ -1,0 +1,102 @@
+{{- $data := .Page.Params.messaging -}}
+{{- if not $data -}}
+  {{- warnf "get-started-messaging shortcode: messaging data not provided for %s" .Page.File.Path -}}
+  {{- return -}}
+{{- end -}}
+
+<section id="messaging-section" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex items-center space-x-4 mb-12">
+        {{- with $data.step_number -}}
+          <div class="step-number w-12 h-12 bg-gradient-to-br from-hologram-primary to-hologram-secondary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">{{ . }}</div>
+        {{- end -}}
+        {{- with $data.title -}}
+          <h2 class="text-4xl font-bold text-gray-900">{{ . }}</h2>
+        {{- end -}}
+      </div>
+
+      <div class="bg-gradient-to-br from-hologram-primary/5 to-hologram-secondary/5 rounded-2xl p-12 border border-hologram-primary/20">
+        {{- with $data.card -}}
+          <div class="flex items-start space-x-6 mb-8">
+            <div class="w-16 h-16 bg-gradient-to-br from-hologram-primary to-hologram-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+              {{- with .icon -}}
+                <i class="{{ . }} text-white text-2xl"></i>
+              {{- end -}}
+            </div>
+            <div>
+              {{- with .title -}}
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ . }}</h3>
+              {{- end -}}
+              {{- with .description -}}
+                {{- partial "get-started/richtext.html" (dict
+                  "content" .
+                  "p_class" "text-lg text-gray-700 leading-relaxed"
+                  "a_class" "text-hologram-primary hover:text-hologram-dark font-semibold underline"
+                  "code_class" "px-2 py-1 bg-white rounded text-hologram-primary font-mono border border-gray-200"
+                ) -}}
+              {{- end -}}
+            </div>
+          </div>
+        {{- end -}}
+
+        {{- with $data.actions -}}
+          <div class="grid md:grid-cols-2 gap-6">
+            {{- range . -}}
+              {{- $action := . -}}
+              {{- $kind := lower ($action.kind | default "link") -}}
+              {{- if eq $kind "link" -}}
+                {{- if and $action.href $action.title -}}
+                  <a href="{{ $action.href }}" class="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-200 border border-gray-200 group">
+                    <div class="flex items-center justify-between mb-4">
+                      <div class="w-12 h-12 {{ $action.icon_bg | default "bg-hologram-primary/10" }} rounded-lg flex items-center justify-center">
+                        {{- with $action.icon -}}
+                          <i class="{{ . }} {{ $action.icon_color | default "text-hologram-primary" }} text-xl"></i>
+                        {{- end -}}
+                      </div>
+                      <i class="fas fa-arrow-right text-gray-400 group-hover:text-hologram-primary transition-colors duration-200"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2">{{ $action.title }}</h4>
+                    {{- with $action.description -}}
+                      {{- partial "get-started/richtext.html" (dict
+                        "content" .
+                        "p_class" "text-gray-600 text-sm"
+                        "a_class" "text-hologram-primary hover:text-hologram-dark font-semibold underline"
+                        "code_class" "px-2 py-1 bg-gray-50 rounded text-hologram-primary font-mono border border-gray-200"
+                      ) -}}
+                    {{- end -}}
+                  </a>
+                {{- end -}}
+              {{- else -}}
+                <div class="bg-white rounded-xl p-6 border border-gray-200">
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 {{ $action.icon_bg | default "bg-hologram-secondary/10" }} rounded-lg flex items-center justify-center">
+                      {{- with $action.icon -}}
+                        <i class="{{ . }} {{ $action.icon_color | default "text-hologram-secondary" }} text-xl"></i>
+                      {{- end -}}
+                    </div>
+                    {{- with $action.badge_text -}}
+                      <span class="px-3 py-1 {{ $action.badge_class | default "bg-blue-100 text-blue-700" }} rounded-full text-xs font-semibold">{{ . }}</span>
+                    {{- end -}}
+                  </div>
+                  <h4 class="text-lg font-bold text-gray-900 mb-2">{{ $action.title }}</h4>
+                  {{- with $action.description -}}
+                    {{- partial "get-started/richtext.html" (dict
+                      "content" .
+                      "p_class" "text-gray-600 text-sm mb-3"
+                      "a_class" "text-hologram-primary hover:text-hologram-dark font-semibold underline"
+                      "code_class" "px-2 py-1 bg-white rounded text-hologram-primary font-mono border border-gray-200"
+                    ) -}}
+                  {{- end -}}
+                  {{- with $action.code -}}
+                    <code class="text-sm text-hologram-secondary font-mono bg-gray-50 px-3 py-2 rounded block">{{ . }}</code>
+                  {{- end -}}
+                </div>
+              {{- end -}}
+            {{- end -}}
+          </div>
+        {{- end -}}
+      </div>
+    </div>
+  </div>
+</section>
