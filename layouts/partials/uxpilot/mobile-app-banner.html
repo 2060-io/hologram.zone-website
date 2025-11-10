@@ -14,15 +14,15 @@
       </p>
     </div>
     <div class="flex gap-2" data-banner-buttons>
-      <a data-store-link="ios" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex items-center justify-center">
+      <button type="button" data-store-button="ios" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
         Get
-      </a>
-      <a data-store-link="google" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex items-center justify-center">
+      </button>
+      <button type="button" data-store-button="google" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
         Install
-      </a>
-      <a data-store-link="huawei" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 flex items-center justify-center">
+      </button>
+      <button type="button" data-store-button="huawei" class="hidden bg-hologram-primary hover:bg-hologram-secondary text-white font-semibold h-8 w-20 px-4 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
         Install
-      </a>
+      </button>
     </div>
   </div>
   <script>
@@ -41,7 +41,7 @@
       const isMobile = isIOS || isAndroid;
       const isHuawei = /huawei|honor/.test(ua) || typeof window.hms !== 'undefined';
 
-      if (!isMobile || hasOob) return;
+      if (!isMobile || isIOS || hasOob) return;
 
       const referrer = search ? search.replace(/^\?/, '') : '';
       const buttons = banner.querySelector('[data-banner-buttons]');
@@ -62,7 +62,10 @@
         if (!base) return;
         const separator = base.includes('?') ? '&' : '?';
         const target = referrer ? `${base}${separator}referrer=${encodeURIComponent(referrer)}` : base;
-        window.location.href = target;
+        const opened = window.open(target, '_blank');
+        if (!opened) {
+          window.location.href = target;
+        }
       }
 
       if (isIOS && iosBtn) {
