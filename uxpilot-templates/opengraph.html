@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenGraph Banner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'hologram-primary': '#7678ec',
+                        'hologram-secondary': '#6161cb',
+                        'hologram-dark': '#1c1161'
+                    }
+                }
+            }
+        }
+    </script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>::-webkit-scrollbar { display: none;}</style>
+</head>
+<body>
+    <div id="opengraph-banner" class="w-[1200px] h-[630px] bg-white relative overflow-hidden">
+        <div class="absolute top-10 right-10 w-96 h-96 bg-gradient-to-br from-hologram-primary/10 to-hologram-secondary/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 left-10 w-80 h-80 bg-gradient-to-br from-hologram-secondary/10 to-hologram-dark/10 rounded-full blur-3xl"></div>
+        
+        <div class="relative z-10 h-full flex items-center px-20">
+            <div class="w-1/2 space-y-8">
+                <div class="flex items-center space-x-4">
+                    <img src="https://hologram.zone/logo.svg" alt="Hologram logo" class="w-20 h-20 drop-shadow-lg">
+                    <span class="inline-block text-5xl font-bold leading-tight pb-1 bg-gradient-to-r from-hologram-primary to-hologram-dark bg-clip-text text-transparent">Hologram</span>
+                </div>
+                
+                <h1 class="text-6xl font-bold leading-tight text-gray-900">
+                    Build Verifiable AI<br>
+                    <span class="bg-gradient-to-r from-hologram-primary to-hologram-dark bg-clip-text text-transparent">You Own</span>
+                </h1>
+                
+                <p class="text-2xl text-gray-600 leading-relaxed">
+                    Create decentralized AI agents that are verifiable, discoverable, and trusted
+                </p>
+                
+                <div class="flex items-center space-x-8 pt-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-hologram-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-shield-halved text-hologram-primary text-xl"></i>
+                        </div>
+                        <span class="text-lg font-medium text-gray-700">Verifiable</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-hologram-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-crown text-hologram-primary text-xl"></i>
+                        </div>
+                        <span class="text-lg font-medium text-gray-700">Sovereign</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-hologram-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-globe text-hologram-primary text-xl"></i>
+                        </div>
+                        <span class="text-lg font-medium text-gray-700">Discoverable</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-1/2 flex justify-end">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-hologram-primary/20 to-hologram-dark/20 rounded-3xl blur-2xl"></div>
+                    <div class="relative bg-white rounded-3xl shadow-2xl p-8 w-[450px]">
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-hologram-primary to-hologram-secondary rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-robot text-white text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-gray-900 text-lg">AI Support Agent</div>
+                                        <div class="text-sm text-gray-500">Acme LLC</div>
+                                    </div>
+                                </div>
+                                <i class="fas fa-award text-green-500 text-2xl"></i>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <div class="text-sm text-gray-600 mb-2">DID Verified</div>
+                                    <div class="font-mono text-xs text-hologram-primary break-all">did:webvh:z6MkhaXgBZDvot...</div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between p-4 bg-gradient-to-r from-hologram-primary/5 to-hologram-secondary/5 rounded-xl">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-lock text-hologram-primary text-lg"></i>
+                                        <span class="text-sm font-medium text-gray-700">End-to-end Encrypted</span>
+                                    </div>
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                
+                                <div class="flex items-center justify-between p-4 bg-gradient-to-r from-hologram-primary/5 to-hologram-secondary/5 rounded-xl">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-certificate text-hologram-primary text-lg"></i>
+                                        <span class="text-sm font-medium text-gray-700">Proof of Trust</span>
+                                    </div>
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-20 right-20 flex items-center justify-between">
+            <div class="text-sm text-gray-500">Built on the Verana Infrastructure</div>
+            <div class="flex items-center space-x-6 text-sm text-gray-400">
+                <span>Decentralized Identifiers</span>
+                <span>•</span>
+                <span>Verifiable Credentials</span>
+                <span>•</span>
+                <span>Trust Registries</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
