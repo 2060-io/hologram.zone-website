@@ -32,22 +32,20 @@
       if (!banner || !config) return;
 
       const search = window.location.search || '';
-      const params = new URLSearchParams(search);
-      const hasOob = params.has('oob') || params.has('_oob');
-
       const ua = (navigator.userAgent || '').toLowerCase();
       const isIOS = /iphone|ipod/.test(ua);
       const isAndroid = /android/.test(ua);
       const isMobile = isIOS || isAndroid;
       const isHuawei = /huawei|honor/.test(ua) || typeof window.hms !== 'undefined';
 
-      if (!isMobile || isIOS || hasOob) return;
+      console.debug('[mobile-banner] ua', { ua, isIOS, isAndroid, isMobile, isHuawei });
+
+      if (!isMobile || isIOS) return;
 
       const referrer = search ? search.replace(/^\?/, '') : '';
       const buttons = banner.querySelector('[data-banner-buttons]');
       if (!buttons) return;
 
-      const iosBtn = buttons.querySelector('[data-store-button="ios"]');
       const googleBtn = buttons.querySelector('[data-store-button="google"]');
       const huaweiBtn = buttons.querySelector('[data-store-button="huawei"]');
 
@@ -62,19 +60,17 @@
         if (!base) return;
         const separator = base.includes('?') ? '&' : '?';
         const target = referrer ? `${base}${separator}referrer=${encodeURIComponent(referrer)}` : base;
+        console.debug('[mobile-banner] navigating to store', { store, target });
         const opened = window.open(target, '_blank');
         if (!opened) {
+          console.warn('[mobile-banner] window.open blocked, falling back', { store, target });
           window.location.href = target;
         }
       }
 
-      if (isIOS && iosBtn) {
-        iosBtn.classList.remove('hidden');
-        iosBtn.addEventListener('click', () => navigate('ios'));
-      }
-
       if (googleBtn) {
-        const showGoogle = !isIOS && (!isHuawei || typeof window.google !== 'undefined');
+        const showGoogle = !isHuawei || typeof window.google !== 'undefined';
+        console.debug('[mobile-banner] google visibility', { showGoogle });
         if (showGoogle) {
           googleBtn.classList.remove('hidden');
           googleBtn.addEventListener('click', () => navigate('google'));
@@ -87,11 +83,12 @@
       }
 
       if (
-        (isIOS && iosBtn && !iosBtn.classList.contains('hidden')) ||
         (googleBtn && !googleBtn.classList.contains('hidden')) ||
         (huaweiBtn && !huaweiBtn.classList.contains('hidden'))
       ) {
+        console.debug('[mobile-banner] showing banner');
         banner.classList.remove('hidden');
+        banner.style.display = 'flex';
       }
     })();
   </script>
