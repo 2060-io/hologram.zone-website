@@ -372,7 +372,7 @@ use_cases:
 #       description: "Join our developer community for support, discussions, and collaboration."
 #       icon: "fas fa-users"
 #       icon_bg: "bg-hologram-dark"
-#       href: "https://discord.com/invite/pFk6XdC28E"
+#       href: "https://discord.gg/uJVTB3bU"
 #       link_label: "Join Discord"
 #       link_class: "text-hologram-dark hover:text-hologram-primary font-semibold"
 #   snippet:

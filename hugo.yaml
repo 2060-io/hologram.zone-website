@@ -49,7 +49,7 @@ params:
       - platform: "github"
         url: "https://github.com/2060-io"
       - platform: "discord"
-        url: "https://discord.gg/edjaFn252q"
+        url: "https://discord.gg/uJVTB3bU"
       - platform: "linkedin"
         url: "https://www.linkedin.com/company/2060-io"
     legal:
@@ -74,7 +74,7 @@ params:
             url: "https://docs.hologram.zone"
           - label: "Github"
             url: "https://github.com/2060-io/"
-          - label: "Verana Foundation"
+          - label: "Verana"
             url: "https://verana.io"
       - title: "Specifications"
         items:
