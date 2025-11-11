@@ -11,7 +11,7 @@ disable_content_wrapper: true
 bodyClass: "min-h-screen flex flex-col bg-white text-gray-900 overflow-x-hidden font-sans get-started-page"
 intro:
   icon: "fas fa-terminal"
-  title: "What is Verifiable Service Agent?"
+  title: "What is a Verifiable Service Agent?"
   description: |-
     To build services compatible with Hologram, all you need is **VS Agent**, a web application that can be used as a framework for building conversational Verifiable Services (VS). It enables developers to create, deploy, and manage agents that provide trustworthy, verifiable information and actions in chat conversations.
 installation:
