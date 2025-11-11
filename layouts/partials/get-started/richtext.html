@@ -1,0 +1,39 @@
+{{- /*
+  Renders markdown content with consistent styling for the Get Started page.
+  Supported options (passed via dict):
+    content   - markdown string to render (required)
+    p_class   - classes to apply to every <p> element
+    a_class   - classes to apply to every <a> element
+    code_class - classes to apply to every <code> element (inline)
+*/ -}}
+{{- $content := .content | default "" -}}
+{{- if not (strings.TrimSpace $content) -}}
+  {{- return -}}
+{{- end -}}
+
+{{- $pClass := .p_class -}}
+{{- $aClass := .a_class -}}
+{{- $codeClass := .code_class -}}
+{{- $strongClass := .strong_class -}}
+
+{{- $html := $content | markdownify -}}
+
+{{- if $pClass -}}
+  {{- $html = replace $html "<p>" (printf "<p class=\"%s\">" $pClass) -}}
+{{- end -}}
+
+{{- if $aClass -}}
+  {{- $pattern := `<a href="([^"]+)"` -}}
+  {{- $replacement := printf `<a class="%s" href="$1"` $aClass -}}
+  {{- $html = replaceRE $pattern $replacement $html -}}
+{{- end -}}
+
+{{- if $codeClass -}}
+  {{- $html = replace $html "<code>" (printf "<code class=\"%s\">" $codeClass) -}}
+{{- end -}}
+
+{{- if $strongClass -}}
+  {{- $html = replace $html "<strong>" (printf "<strong class=\"%s\">" $strongClass) -}}
+{{- end -}}
+
+{{- $html | safeHTML -}}

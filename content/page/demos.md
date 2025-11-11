@@ -1,7 +1,5 @@
 ---
 title: "Explore Verifiable AI"
-subtitle1: "Explore <strong>Verifiable AI</strong> in Action"
-subtitle2: "Explore a selection of Verifiable AI Agents and other Verifiable Services built using the <strong>Hologram SDK</strong>."
 url: "/page/demos"
 meta_title: "Hologram Demos | Verifiable Services in Action"
 meta_description: "Issue verifiable credentials, log in without passwords, launch AI agents, and verify government IDs with live demos powered by Hologram."

@@ -1,0 +1,35 @@
+{{- $data := .Page.Params.intro -}}
+{{- if not $data -}}
+  {{- warnf "get-started-intro shortcode: intro data not provided for %s" .Page.File.Path -}}
+  {{- return -}}
+{{- end -}}
+
+<section id="intro-section" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-12 shadow-sm">
+        <div class="flex items-start space-x-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-hologram-primary to-hologram-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+            {{- with $data.icon -}}
+              <i class="{{ . }} text-white text-2xl"></i>
+            {{- end -}}
+          </div>
+          <div>
+            {{- with $data.title -}}
+              <h2 class="text-3xl font-bold text-gray-900 mb-6">{{ . }}</h2>
+            {{- end -}}
+            {{- with $data.description -}}
+              {{- partial "get-started/richtext.html" (dict
+                "content" .
+                "p_class" "text-lg text-gray-700 leading-relaxed"
+                "a_class" "text-hologram-primary hover:text-hologram-dark font-semibold underline"
+                "code_class" "px-2 py-1 bg-white rounded text-hologram-primary font-mono border border-gray-200"
+                "strong_class" "text-hologram-primary"
+              ) -}}
+            {{- end -}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
