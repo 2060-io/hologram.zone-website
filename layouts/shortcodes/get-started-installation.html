@@ -16,56 +16,116 @@
         {{- end -}}
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-8 mb-12">
-        {{- range $data.cards -}}
-          {{- $wrapperClass := .wrapper_class | default "gradient-border rounded-2xl p-8" -}}
-          <div class="{{ $wrapperClass }}">
-            <div class="flex items-center space-x-3 mb-6">
-              {{- $iconBg := .icon_bg | default "bg-hologram-primary/10" -}}
-              {{- $iconColor := .icon_color | default "text-hologram-primary" -}}
-              <div class="w-12 h-12 {{ $iconBg }} rounded-lg flex items-center justify-center">
-                {{- with .icon -}}
-                  <i class="{{ . }} {{ $iconColor }} text-2xl"></i>
+      <div class="space-y-8 mb-12">
+        {{- range $index, $card := $data.cards -}}
+          {{- with $card.lede -}}
+            {{- partial "get-started/richtext.html" (dict
+              "content" .
+              "p_class" "text-gray-600 leading-relaxed"
+              "a_class" "text-hologram-primary hover:text-hologram-dark font-semibold underline"
+              "code_class" "px-2 py-1 bg-gray-100 rounded text-hologram-primary font-mono text-sm"
+            ) -}}
+          {{- end -}}
+
+          {{- $variant := $card.variant | default "gradient" -}}
+          {{- $codeId := printf "get-started-installation-code-%d" $index -}}
+          {{- if eq (lower $variant) "run" -}}
+            <div class="run-container-card rounded-2xl p-8 shadow-2xl mt-6">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-white flex items-center">
+                  <i class="fas fa-terminal mr-3"></i>
+                  Pull the Container
+                </h3>
+                <button type="button" class="px-4 py-2 bg-hologram-primary text-white rounded-lg hover:bg-hologram-secondary transition-colors duration-200 text-sm font-semibold inline-flex items-center" data-copy-button data-copy-target="#{{ $codeId }}">
+                  <i class="fas fa-copy mr-2"></i>
+                  <span data-copy-label>Copy</span>
+                </button>
+              </div>
+
+              {{- with $card.description -}}
+                {{- partial "get-started/richtext.html" (dict
+                  "content" .
+                  "p_class" "text-white/80 mb-6 leading-relaxed"
+                  "a_class" "text-hologram-primary hover:text-hologram-dark font-semibold underline"
+                  "code_class" "px-2 py-1 bg-white/10 rounded text-white font-mono text-sm border border-white/30"
+                ) -}}
+              {{- end -}}
+
+              {{- with $card.code_block -}}
+                {{- $code := strings.TrimSpace (replace (replace . "\r\n" "\n") "\r" "\n") -}}
+                <div class="bg-black rounded-lg p-6 overflow-x-auto border border-white/10">
+                  <pre class="text-green-400 text-sm font-mono leading-relaxed"><code id="{{ $codeId }}">{{ $code | htmlEscape }}</code></pre>
+                </div>
+              {{- end -}}
+
+              {{- with $card.button -}}
+                {{- $label := .label -}}
+                {{- $url := .url -}}
+                {{- if and $label $url -}}
+                  {{- $btnClass := .class | default "inline-flex items-center px-6 py-3 bg-white/10 text-white rounded-lg border border-white/30 hover:bg-white/20 transition-colors duration-200 font-semibold" -}}
+                  <a href="{{ $url }}" class="{{ $btnClass }}">
+                    {{- with .icon_left -}}
+                      <i class="{{ . }} mr-2"></i>
+                    {{- end -}}
+                    {{- $label -}}
+                    {{- with .icon_right -}}
+                      <i class="{{ . }} ml-2 text-sm"></i>
+                    {{- end -}}
+                  </a>
+                {{- end -}}
+              {{- end -}}
+              {{- partial "get-started/copy-script.html" (dict "page" $.Page) -}}
+            </div>
+          {{- else -}}
+            {{- $wrapperClass := $card.wrapper_class | default "gradient-border rounded-2xl p-8" -}}
+            <div class="{{ $wrapperClass }}">
+              <div class="flex items-center space-x-3 mb-6">
+                {{- $iconBg := $card.icon_bg | default "bg-hologram-primary/10" -}}
+                {{- $iconColor := $card.icon_color | default "text-hologram-primary" -}}
+                <div class="w-12 h-12 {{ $iconBg }} rounded-lg flex items-center justify-center">
+                  {{- with $card.icon -}}
+                    <i class="{{ . }} {{ $iconColor }} text-2xl"></i>
+                  {{- end -}}
+                </div>
+                {{- with $card.title -}}
+                  <h3 class="text-2xl font-bold text-gray-900">{{ . }}</h3>
                 {{- end -}}
               </div>
-              {{- with .title -}}
-                <h3 class="text-2xl font-bold text-gray-900">{{ . }}</h3>
+
+              {{- with $card.description -}}
+                {{- partial "get-started/richtext.html" (dict
+                  "content" .
+                  "p_class" "text-gray-600 mb-6"
+                  "a_class" "text-hologram-primary hover:text-hologram-dark font-semibold underline"
+                  "code_class" "px-2 py-1 bg-gray-100 rounded text-hologram-primary font-mono text-sm"
+                ) -}}
+              {{- end -}}
+
+              {{- with $card.code_block -}}
+                {{- $code := strings.TrimSpace (replace (replace . "\r\n" "\n") "\r" "\n") -}}
+                <div class="code-block rounded-xl p-6 overflow-x-auto">
+                  <pre class="text-green-400 text-sm font-mono"><code>{{ $code | htmlEscape }}</code></pre>
+                </div>
+              {{- end -}}
+
+              {{- with $card.button -}}
+                {{- $label := .label -}}
+                {{- $url := .url -}}
+                {{- if and $label $url -}}
+                  {{- $btnClass := .class | default "inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 font-semibold" -}}
+                  <a href="{{ $url }}" class="{{ $btnClass }}">
+                    {{- with .icon_left -}}
+                      <i class="{{ . }} mr-2"></i>
+                    {{- end -}}
+                    {{- $label -}}
+                    {{- with .icon_right -}}
+                      <i class="{{ . }} ml-2 text-sm"></i>
+                    {{- end -}}
+                  </a>
+                {{- end -}}
               {{- end -}}
             </div>
-
-            {{- with .description -}}
-              {{- partial "get-started/richtext.html" (dict
-                "content" .
-                "p_class" "text-gray-600 mb-6"
-                "a_class" "text-hologram-primary hover:text-hologram-dark font-semibold underline"
-                "code_class" "px-2 py-1 bg-gray-100 rounded text-hologram-primary font-mono text-sm"
-              ) -}}
-            {{- end -}}
-
-            {{- with .code_block -}}
-              {{- $code := strings.TrimSpace (replace (replace . "\r\n" "\n") "\r" "\n") -}}
-              <div class="code-block rounded-xl p-6 overflow-x-auto">
-                <pre class="text-green-400 text-sm font-mono"><code>{{ $code | htmlEscape }}</code></pre>
-              </div>
-            {{- end -}}
-
-            {{- with .button -}}
-              {{- $label := .label -}}
-              {{- $url := .url -}}
-              {{- if and $label $url -}}
-                {{- $btnClass := .class | default "inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 font-semibold" -}}
-                <a href="{{ $url }}" class="{{ $btnClass }}">
-                  {{- with .icon_left -}}
-                    <i class="{{ . }} mr-2"></i>
-                  {{- end -}}
-                  {{- $label -}}
-                  {{- with .icon_right -}}
-                    <i class="{{ . }} ml-2 text-sm"></i>
-                  {{- end -}}
-                </a>
-              {{- end -}}
-            {{- end -}}
-          </div>
+          {{- end -}}
         {{- end -}}
       </div>
 

@@ -1402,7 +1402,7 @@ body.get-started-page .run-container-card .bg-black {
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
 body.get-started-page .run-container-card pre {
-    color: #86efac;
+    color: #4ade80;
   }
 body.get-started-page code.text-hologram-primary.font-mono {
     display: inline-flex;
@@ -1433,6 +1433,9 @@ body.get-started-page code.text-hologram-primary.font-mono {
 }
 .static {
   position: static;
+}
+.fixed {
+  position: fixed;
 }
 .absolute {
   position: absolute;
@@ -2465,6 +2468,9 @@ body.get-started-page code.text-hologram-primary.font-mono {
 .border-white\/10 {
   border-color: rgb(255 255 255 / 0.1);
 }
+.border-white\/30 {
+  border-color: rgb(255 255 255 / 0.3);
+}
 .border-yellow-400 {
   --tw-border-opacity: 1;
   border-color: rgb(250 204 21 / var(--tw-border-opacity, 1));
@@ -2757,6 +2763,9 @@ body.get-started-page code.text-hologram-primary.font-mono {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+.bg-white\/10 {
+  background-color: rgb(255 255 255 / 0.1);
 }
 .bg-white\/80 {
   background-color: rgb(255 255 255 / 0.8);
@@ -3521,6 +3530,9 @@ body.get-started-page code.text-hologram-primary.font-mono {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+.text-white\/80 {
+  color: rgb(255 255 255 / 0.8);
 }
 .text-yellow-400 {
   --tw-text-opacity: 1;
@@ -4567,6 +4579,10 @@ body.get-started-page .group:hover .group-hover\:text-hologram-primarycode.font-
 .hover\:bg-verana-light:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(159 122 234 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-white\/20:hover {
+  background-color: rgb(255 255 255 / 0.2);
 }
 
 .hover\:text-gray-900:hover {

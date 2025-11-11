@@ -1,9 +1,12 @@
 ---
 title: Getting Started
-subtitle: "Learn how to get started with Hologram as a developer, and where to find documentation and access community channels."
+#subtitle: "Learn how to get started with Hologram as a developer, and where to find documentation and access community channels."
 url: "/page/get-started"
 meta_title: "Developers and Hologram | Learn how to get started with Hologram, and where to find documentation and access community channels."
 hero_icon: "fa-solid fa-hammer"
+hero_heading: "Getting <strong>Started</strong>"
+hero_description: "Learn how to get started with Hologram as a <string>service developer</strong>, and where to find documentation and access community channels."
+
 disable_content_wrapper: true
 bodyClass: "min-h-screen flex flex-col bg-white text-gray-900 overflow-x-hidden font-sans get-started-page"
 intro:
@@ -16,10 +19,11 @@ installation:
   title: "Get VS Agent"
   cards:
     - title: "Docker"
+      variant: "run"
+      lede: "Pull the image from DockerHub and run it in any environment."
       icon: "fab fa-docker"
       icon_bg: "bg-hologram-primary/10"
       icon_color: "text-hologram-primary"
-      description: "Pull the image from DockerHub and run it in any environment"
       code_block: |
         docker pull io2060/vs-agent:dev
   note:
