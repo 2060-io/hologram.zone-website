@@ -28,6 +28,8 @@
 {{- $qrLabel := .Get "qr_label" | default "Scan to open this demo" -}}
 {{- $qrHint := .Get "qr_hint" | default "Use the Hologram app or any QR reader to start instantly." -}}
 {{- $qrClose := .Get "qr_close_label" | default "Back to preview" -}}
+{{- $qrBackLabel := .Get "qr_back_label" | default $qrClose -}}
+{{- $qrBackURL := .Get "qr_back_url" | default "" -}}
 {{- $primaryLabel := .Get "primary_label" -}}
 {{- $primary := "" -}}
 {{- if $primaryLabel }}
@@ -62,5 +64,7 @@
     "qr_label" $qrLabel
     "qr_hint" $qrHint
     "qr_close_label" $qrClose
+    "qr_back_label" $qrBackLabel
+    "qr_back_url" $qrBackURL
     "Page" .Page
   ) }}

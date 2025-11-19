@@ -31,6 +31,8 @@
 {{- $qrLabel := or .qr_label "Scan to open this demo" -}}
 {{- $qrHint := or .qr_hint "Use the Hologram app or any QR reader to start instantly." -}}
 {{- $qrCloseLabel := or .qr_close_label "Back to preview" -}}
+{{- $qrBackLabel := or .qr_back_label $qrCloseLabel -}}
+{{- $qrBackURL := .qr_back_url -}}
 {{- $hasQr := and $qrURL (gt (len (trim $qrURL " ")) 0) -}}
 <section id="{{ $id }}" class="py-20 {{ $background }}">
   <div class="container mx-auto px-6">
@@ -122,7 +124,7 @@
                     </div>
                     <p class="text-gray-900 font-semibold mb-1">{{ $qrLabel }}</p>
                     <p class="text-gray-500 text-sm mb-4">{{ $qrHint }}</p>
-                    <button type="button" class="text-sm font-semibold text-hologram-primary hover:text-hologram-secondary" data-demo-qr-close>{{ $qrCloseLabel }}</button>
+                    <a href="{{ if $qrBackURL }}{{ $qrBackURL }}{{ else }}#{{ end }}" class="text-sm font-semibold text-hologram-primary hover:text-hologram-secondary" data-demo-qr-close>{{ $qrBackLabel }}</a>
                   </div>
                 {{ end }}
               </div>

@@ -14,10 +14,11 @@ hero_note: |-
   All services are **open source** and available in our [GitHub repository](https://github.com/2060-io) under the **Apache 2.0 license**.
 disable_content_wrapper: true
 ---
-
+<!--
 {{< demo-section
     id="demo-hello-world"
     background="bg-white"
+    reverse="true"
     kicker_text="Starter Demo"
     kicker_icon="fa-solid fa-globe"
     kicker_class="bg-green-100 text-green-700"
@@ -33,7 +34,7 @@ disable_content_wrapper: true
     secondary_url="https://github.com/2060-io"
     secondary_icon="fab fa-github"
     secondary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
-    qr_url="https://demos.hologram.zone/hello-world"
+    qr_url="https://aifriends.demos.2060.io/qr"
     image_src="https://storage.googleapis.com/uxpilot-auth.appspot.com/fc9a5b67a3-a30a2d5a270b0f9912bb.png"
     image_alt="Mobile app interface showing a Hello World credential being issued."
     image_gradient_class="from-hologram-primary/10 to-hologram-secondary/10"
@@ -59,33 +60,58 @@ disable_content_wrapper: true
     secondary_url="https://github.com/2060-io"
     secondary_icon="fab fa-github"
     secondary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
-    qr_url="https://demos.hologram.zone/login"
+    qr_url="https://aifriends.demos.2060.io/qr"
     image_src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a8d5b8bb6a-90d06021eef33699a079.png"
     image_alt="Mobile authentication flow showing credential presentation."
     image_gradient_class="from-hologram-secondary/10 to-hologram-dark/10"
 >}}
 {{< /demo-section >}}
+-->
 
+{{< demo-section
+    id="demo-ai-welcome"
+    background="bg-white"
+    reverse="false"
+    kicker_text="Hello World"
+    kicker_icon="fa-solid fa-robot"
+    kicker_class="bg-purple-100 text-purple-700"
+    title="Hello AI"
+    title_icon="fa-solid fa-brain"
+    title_icon_color="text-hologram-primary"
+    description="A highly extensible AI agent architecture built with NestJS, supporting multiple languages, custom logic modules, and effortless integration with any LLM, Retrieval-Augmented Generation (RAG) pipeline, or third-party API."
+    primary_label="Try the Demo"
+    primary_url="https://welcome.hologram.2060.io/invitation"
+    primary_icon="fa-solid fa-play"
+    primary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-primary text-white hover:bg-hologram-secondary"
+    secondary_label="GitHub Repository"
+    secondary_url="https://github.com/2060-io/hologram-generic-ai-agent-vs"
+    secondary_icon="fab fa-github"
+    secondary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
+    image_src="/images/digitalgirly.webp"
+    image_alt="Mobile chat interface showing AI personalities and authentication prompts."
+    image_gradient_class="from-purple-100 to-hologram-primary/10"
+>}}
+{{< /demo-section >}}
 {{< demo-section
     id="demo-ai-friends"
     background="bg-white"
+    reverse="true"
     kicker_text="AI Experience"
     kicker_icon="fa-solid fa-robot"
     kicker_class="bg-purple-100 text-purple-700"
     title="AI Friends"
     title_icon="fa-solid fa-brain"
     title_icon_color="text-hologram-primary"
-    description="Chat with distinctive Verifiable AI Agents. Access is restricted to holders of the **Hello World** credential, so every conversation starts from a trust anchor."
+    description="A java-based AI fun chat with distinctive imaginary personas. Choose your friend, have fun!"
     primary_label="Try the Demo"
-    primary_url="https://demos.hologram.zone/ai-friends"
+    primary_url="https://aifriends.demos.2060.io/invitation"
     primary_icon="fa-solid fa-play"
     primary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-primary text-white hover:bg-hologram-secondary"
     secondary_label="GitHub Repository"
-    secondary_url="https://github.com/2060-io"
+    secondary_url="https://github.com/2060-io/aifriends-hologram-chatbot"
     secondary_icon="fab fa-github"
     secondary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
-    qr_url="https://demos.hologram.zone/ai-friends"
-    image_src="https://storage.googleapis.com/uxpilot-auth.appspot.com/22eea93cde-f04fa1e0120b5270f3f9.png"
+    image_src="/images/aifriends.webp"
     image_alt="Mobile chat interface showing AI personalities and authentication prompts."
     image_gradient_class="from-purple-100 to-hologram-primary/10"
 >}}
@@ -94,7 +120,7 @@ disable_content_wrapper: true
 {{< demo-section
     id="demo-gov-id-issue"
     background="bg-gray-50"
-    reverse="true"
+    reverse="false"
     kicker_text="Identity Verification"
     kicker_icon="fa-solid fa-id-card"
     kicker_class="bg-indigo-100 text-indigo-700"
@@ -103,21 +129,21 @@ disable_content_wrapper: true
     title_icon_color="text-hologram-dark"
     description="This Verifiable Service performs strong identity verification by:"
     primary_label="Try the Demo"
-    primary_url="https://demos.hologram.zone/gov-id-issue"
+    primary_url="https://dm.gov-id-issuer.demos.2060.io/invitation"
     primary_icon="fa-solid fa-play"
     primary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-dark text-white hover:bg-hologram-primary"
     secondary_label="GitHub Repository"
     secondary_url="https://github.com/2060-io"
     secondary_icon="fab fa-github"
     secondary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
-    qr_url="https://demos.hologram.zone/gov-id-issue"
-    image_src="https://storage.googleapis.com/uxpilot-auth.appspot.com/33ffaaad4a-a7a4601ae18bd115f798.png"
+    qr_url="https://aifriends.demos.2060.io/qr"
+    image_src="/images/face-verif.webp"
     image_alt="Government ID verification workflow illustration."
     image_gradient_class="from-hologram-dark/10 to-hologram-primary/10"
 >}}
 {{< demo-list class="space-y-3 mb-6" >}}
   {{< demo-list-item icon="fa-solid fa-check-circle" icon_color_class="text-hologram-primary" >}}Reading an NFC-compatible ID document{{< /demo-list-item >}}
-  {{< demo-list-item icon="fa-solid fa-check-circle" icon_color_class="text-hologram-primary" >}}Performing **liveness detection** with facial comparison between the user and the document photo{{< /demo-list-item >}}
+  {{< demo-list-item icon="fa-solid fa-check-circle" icon_color_class="text-hologram-primary" >}}Performing **liveness detection** with facial comparison between the user and the document photo using our open source **webrtc container** for video and NIST FRTE 1:1 registered engine {{< /demo-list-item >}}
 {{< /demo-list >}}
 <p class="text-lg text-gray-600 mb-6 leading-relaxed">
   Upon successful verification, it <strong>issues a Verifiable Digital ID Credential</strong> to the user.
@@ -127,6 +153,7 @@ disable_content_wrapper: true
 {{< demo-section
     id="demo-gov-id-verify"
     background="bg-white"
+    reverse="true"
     kicker_text="Credential Verification"
     kicker_icon="fa-solid fa-search"
     kicker_class="bg-teal-100 text-teal-700"
@@ -135,20 +162,20 @@ disable_content_wrapper: true
     title_icon_color="text-hologram-secondary"
     description="Request the presentation of a **Government Digital ID** credential and review its contents with a clear, auditable interface."
     primary_label="Try the Demo"
-    primary_url="https://demos.hologram.zone/gov-id-verify"
+    primary_url="https://gov-id-verifier.demos.2060.io/"
     primary_icon="fa-solid fa-play"
     primary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-secondary text-white hover:bg-hologram-dark"
     secondary_label="GitHub Repository"
     secondary_url="https://github.com/2060-io"
     secondary_icon="fab fa-github"
     secondary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
-    qr_url="https://demos.hologram.zone/gov-id-verify"
-    image_src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d4546e52f7-0de730630b1495ca5000.png"
+    qr_url="https://aifriends.demos.2060.io/qr"
+    image_src="/images/unic-presentation.png"
     image_alt="Credential verification interface with confirmation screens."
     image_gradient_class="from-teal-100 to-hologram-secondary/10"
 >}}
 {{< /demo-section >}}
-
+<!--
 {{< demo-section
     id="demo-customer-support"
     background="bg-gray-50"
@@ -168,11 +195,12 @@ disable_content_wrapper: true
     secondary_url="https://github.com/2060-io"
     secondary_icon="fab fa-github"
     secondary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
-    qr_url="https://demos.hologram.zone/customer-support"
+    qr_url="https://aifriends.demos.2060.io/qr"
     image_src="https://storage.googleapis.com/uxpilot-auth.appspot.com/59f54bae56-fa8739f91f5d2600354a.png"
     image_alt="Customer support AI agent dashboard handling telecom requests."
     image_gradient_class="from-hologram-primary/10 to-hologram-dark/10"
 >}}
+
 {{< demo-note >}}
 This demo was created by deploying the open-source <a href="https://github.com/2060-io" class="text-hologram-primary font-semibold hover:underline">AI Agent Template</a>. Follow the <a href="https://docs.hologram.zone/" class="text-hologram-primary font-semibold hover:underline">documentation</a> to launch yours in minutes.
 {{< /demo-note >}}
@@ -194,7 +222,7 @@ This demo was created by deploying the open-source <a href="https://github.com/2
   {{< demo-list-item icon="fa-solid fa-check" icon_color_class="text-green-600" icon_spacing_class="mr-3 mt-1" >}}And more{{< /demo-list-item >}}
 {{< /demo-list >}}
 {{< /demo-section >}}
-
+-->
 {{< demo-build-cta
     id="build-cta"
     kicker_text="Ready to Build?"
@@ -202,10 +230,10 @@ This demo was created by deploying the open-source <a href="https://github.com/2
     title="Want to build your"
     highlight_text="own service?"
     description="Deploy your first Verifiable AI Agent in just 5 minutes. No complex setup, no hidden costs -- just powerful, verifiable AI at your fingertips."
-    primary_label="Start Building Now"
+    primary_label="Start Building"
     primary_url="/build"
     primary_icon="fa-solid fa-hammer"
-    secondary_label="View Documentation"
+    secondary_label="Documentation"
     secondary_url="https://docs.hologram.zone/"
     secondary_icon="fa-solid fa-book"
     feature_titles="Quick Deployment|Built-in Verification|Global Discovery"
