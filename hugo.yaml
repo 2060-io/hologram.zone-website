@@ -96,7 +96,7 @@ params:
       - title: "Getting Started"
         url: "/page/get-started"
 
-      - title: "Demos"
+      - title: "Examples & Demos"
         url: "/page/demos"
          
       - title: "About"

@@ -2,7 +2,6 @@
 (function(){
   if (window.hologramDemoQrInit) return;
   window.hologramDemoQrInit = true;
-  const qrBase = 'https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=';
   let activeId = null;
 
   const escapeAttr = typeof CSS !== 'undefined' && CSS.escape ? CSS.escape : function(value){
@@ -31,14 +30,17 @@
     }
   }
 
+  function clearMedia(media){
+    if (!media) return;
+    setState(media, 'image');
+    const img = media.querySelector('[data-demo-qr-img]');
+    if (img) img.removeAttribute('src');
+  }
+
   function hideActive(){
     if (!activeId) return;
     const media = getMedia(activeId);
-    if (media){
-      setState(media, 'image');
-      const img = media.querySelector('[data-demo-qr-img]');
-      if (img) img.removeAttribute('src');
-    }
+    clearMedia(media);
     activeId = null;
   }
 
@@ -50,8 +52,7 @@
     if (activeId && activeId !== targetId){
       hideActive();
     }
-    const encoded = encodeURIComponent(url);
-    qrImg.src = qrBase + encoded;
+    qrImg.src = url;
     setState(media, 'qr');
     activeId = targetId;
   }
@@ -60,8 +61,13 @@
     const btn = event.target.closest('[data-demo-qr-btn]');
     if (btn){
       const url = btn.getAttribute('data-demo-qr-url');
+      const href = btn.getAttribute('href');
       const targetId = btn.getAttribute('data-demo-qr-target');
       if (!url || !targetId) return;
+      if (href){
+        const newWindow = window.open(href, '_blank', 'noopener,noreferrer');
+        if (newWindow) newWindow.opener = null;
+      }
       event.preventDefault();
       if (activeId === targetId){
         hideActive();
@@ -73,12 +79,20 @@
     const closeBtn = event.target.closest('[data-demo-qr-close]');
     if (closeBtn){
       const media = closeBtn.closest('[data-demo-media]');
-      if (!media) return;
-      const mediaId = media.getAttribute('data-demo-media');
-      if (mediaId && mediaId === activeId){
-        hideActive();
+      if (media){
+        const mediaId = media.getAttribute('data-demo-media');
+        clearMedia(media);
+        if (mediaId && mediaId === activeId){
+          activeId = null;
+        }
       } else {
-        setState(media, 'image');
+        hideActive();
+      }
+      const href = (closeBtn.getAttribute('href') || '').trim();
+      const isLink = closeBtn.tagName && closeBtn.tagName.toLowerCase() === 'a';
+      const lowerHref = href.toLowerCase();
+      if (!isLink || !href || href === '#' || lowerHref === 'javascript:void(0)' || lowerHref === 'javascript:void(0);' || lowerHref.startsWith('javascript:')){
+        event.preventDefault();
       }
     }
   });
