@@ -75,7 +75,7 @@ disable_content_wrapper: true
     kicker_text="Hello World"
     kicker_icon="fa-solid fa-robot"
     kicker_class="bg-purple-100 text-purple-700"
-    title="Hello AI"
+    title="Welcome to Hologram!"
     title_icon="fa-solid fa-brain"
     title_icon_color="text-hologram-primary"
     description="A highly extensible AI agent architecture built with NestJS, supporting multiple languages, custom logic modules, and effortless integration with any LLM, Retrieval-Augmented Generation (RAG) pipeline, or third-party API."
