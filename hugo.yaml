@@ -49,7 +49,7 @@ params:
       - platform: "github"
         url: "https://github.com/2060-io"
       - platform: "discord"
-        url: "https://discord.gg/uJVTB3bU"
+        url: "https://discord.gg/pFk6XdC28E"
       - platform: "linkedin"
         url: "https://www.linkedin.com/company/2060-io"
     legal:

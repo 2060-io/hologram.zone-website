@@ -212,7 +212,7 @@ Launch of the Verana Testnet and its integration with Hologram Messaging, introd
     header_gradient_class="from-hologram-primary/20 to-hologram-secondary/20"
     cta_variant="primary"
     cta_label="Join Discord"
-    cta_url="https://discord.gg/uJVTB3bU"
+    cta_url="https://discord.gg/pFk6XdC28E"
 >}}
 
 {{< team-mission-card
