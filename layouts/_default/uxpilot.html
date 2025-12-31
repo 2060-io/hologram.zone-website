@@ -82,54 +82,280 @@
     </script>
   </head>
   {{ $hero := .Params.hero }}
-  <body class="bg-black text-white overflow-x-hidden font-sans">
+  {{ $bodyClass := .Params.bodyClass }}
+  {{ if not $bodyClass }}{{ $bodyClass = "min-h-screen flex flex-col bg-white text-gray-900 overflow-x-hidden font-sans" }}{{ end }}
+  <body class="{{ $bodyClass }}">
     {{ partial "uxpilot/header.html" . }}
+    <main id="content" class="flex-1">
 
-    <section id="hero" class="relative bg-black py-20 lg:py-32 overflow-hidden h-[900px] flex items-center">
-      <div class="absolute inset-0 gradient-mesh"></div>
-      <div class="absolute inset-0 network-bg opacity-30"></div>
+    <section id="hero" class="relative bg-gradient-to-br from-gray-50 to-white py-24 overflow-hidden">
       <div class="absolute inset-0">
-        <div class="absolute top-20 left-20 w-2 h-2 bg-verana rounded-full animate-pulse"></div>
-        <div class="absolute top-40 right-32 w-1 h-1 bg-verana-light rounded-full animate-pulse delay-1000"></div>
-        <div class="absolute bottom-32 left-1/3 w-1.5 h-1.5 bg-verana rounded-full animate-pulse delay-2000"></div>
-        <div class="absolute top-1/3 right-1/4 w-1 h-1 bg-verana-light rounded-full animate-pulse delay-500"></div>
+        <div class="absolute top-20 left-10 w-72 h-72 bg-hologram-primary/20 rounded-full blur-3xl opacity-40"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-hologram-secondary/20 rounded-full blur-3xl opacity-30"></div>
       </div>
       <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-5xl mx-auto text-center">
-          <h1 class="text-6xl lg:text-8xl font-black mb-8 leading-tight">
-            {{ $lines := $hero.title_lines }}
-            {{ range $index, $line := $lines }}
-              {{ $variant := default "light" $line.variant }}
-              {{ $classes := cond (eq $variant "brand") "bg-gradient-to-r from-verana to-verana-light bg-clip-text text-transparent gradient-text-brand" "text-slate-900 dark:text-white" }}
-              <span class="{{ $classes }}">{{ $line.text }}</span>{{ if lt (add $index 1) (len $lines) }}<br />{{ end }}
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8">
+            {{ with $hero.badge }}
+              <div class="inline-flex items-center px-4 py-2 bg-hologram-primary/10 rounded-full text-hologram-primary text-sm font-medium">
+                {{ with .icon }}<i class="{{ . }} mr-2"></i>{{ end }}
+                {{ .text }}
+              </div>
             {{ end }}
-          </h1>
-          <p class="text-xl lg:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">{{ $hero.description }}</p>
-          <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-            {{ with $hero.primary_cta }}
-              <a href="{{ .href }}" class="bg-verana hover:bg-verana-dark text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105 hover:shadow-xl flex items-center space-x-2">
-                {{ partial "uxpilot/fa.html" (dict "name" .icon "style" (default "solid" .icon_style) "class" "") }}
-                <span>{{ .label }}</span>
-              </a>
+            <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+              <span class="bg-gradient-to-r from-hologram-primary to-hologram-dark bg-clip-text text-transparent">{{ $hero.title.gradient }}</span>
+              {{ range $hero.title.lines }}<br><span class="block text-gray-900 mt-4 lg:mt-6">{{ . }}</span>{{ end }}
+            </h1>
+            {{ with $hero.description }}
+              <p class="text-xl text-gray-600 leading-relaxed max-w-lg">{{ . | safeHTML }}</p>
             {{ end }}
-            {{ with $hero.secondary_cta }}
-              <a href="{{ .href }}" class="border-2 border-gray-600 hover:border-verana text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 hover:scale-105">
-                {{ .label }}
-              </a>
+            <div class="flex flex-col sm:flex-row gap-4">
+              {{ with $hero.primary_cta }}
+                <a href="{{ .href }}" class="bg-hologram-primary text-white px-8 py-4 rounded-lg hover:bg-hologram-secondary transition-all duration-200 font-semibold text-lg animate-pulse-glow inline-flex items-center justify-center gap-2">
+                  {{ if .icon }}<i class="{{ .icon }}"></i>{{ end }}
+                  <span>{{ .label }}</span>
+                </a>
+              {{ end }}
+              {{ with $hero.secondary_cta }}
+                <a href="{{ .href }}" class="border-2 border-hologram-primary text-hologram-primary px-8 py-4 rounded-lg hover:bg-hologram-primary hover:text-white transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center gap-2">
+                  {{ if .icon }}<i class="{{ .icon }}"></i>{{ end }}
+                  <span>{{ .label }}</span>
+                </a>
+              {{ end }}
+            </div>
+            {{ with $hero.features }}
+              <div class="flex items-center space-x-6 text-sm text-gray-600">
+                {{ range . }}
+                  <div class="flex items-center">
+                    {{ if .icon }}<i class="{{ .icon }} text-hologram-primary mr-2"></i>{{ end }}
+                    <span>{{ .text }}</span>
+                  </div>
+                {{ end }}
+              </div>
             {{ end }}
+          </div>
+          <div class="relative">
+            <div class="bg-white rounded-2xl shadow-2xl p-8 animate-float">
+              <div class="h-96 w-full bg-gradient-to-br from-hologram-primary/20 to-hologram-dark/20 rounded-xl flex items-center justify-center relative overflow-hidden">
+                {{ with $hero.screenshot }}
+                  <img src="{{ .src }}" alt="{{ .alt }}" class="w-full h-full object-cover rounded-xl" loading="lazy" />
+                {{ end }}
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                {{ with $hero.overlay_card }}
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <div class="bg-white/90 backdrop-blur-sm rounded-lg p-4">
+                      <div class="flex items-center space-x-3 mb-2">
+                        <div class="w-8 h-8 bg-hologram-primary rounded-full flex items-center justify-center">
+                          {{ if .icon }}<i class="{{ .icon }} text-white text-sm"></i>{{ end }}
+                        </div>
+                        <div>
+                          <div class="font-semibold text-gray-900">{{ .title }}</div>
+                          <div class="text-xs text-gray-500">{{ .subtitle }}</div>
+                        </div>
+                        {{ if .status_icon }}
+                          <div class="ml-auto"><i class="{{ .status_icon }} text-green-500"></i></div>
+                        {{ end }}
+                      </div>
+                      <div class="text-sm text-gray-700">{{ .message }}</div>
+                    </div>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    {{ partial "uxpilot/discover.html" . }}
-    {{ partial "uxpilot/core-pillars.html" . }}
-    {{ partial "uxpilot/examples.html" . }}
-    {{ partial "uxpilot/solution-preview.html" . }}
-    {{ partial "uxpilot/feature-sections.html" . }}
-    {{ partial "uxpilot/impact.html" . }}
-    {{ partial "uxpilot/technical.html" . }}
-    {{ partial "uxpilot/community.html" . }}
+    {{ partial "uxpilot/app-download.html" . }}
+    {{ partial "uxpilot/powerful-communication.html" . }}
+    {{ partial "uxpilot/why-hologram.html" . }}
+    {{ partial "uxpilot/use-cases.html" . }}
+    {{ partial "uxpilot/how-it-works.html" . }}
+    {{ partial "uxpilot/discovery.html" . }}
+    {{ partial "uxpilot/future-vision.html" . }}
+    {{ partial "uxpilot/developer-resources.html" . }}
+    {{ partial "uxpilot/partners-logos.html" . }}
+    </main>
     {{ partial "uxpilot/footer.html" . }}
+    <script>
+        (function(){
+          function initNavToggle(){
+            var toggle = document.getElementById('nav-toggle');
+            var menu = document.getElementById('nav-menu-mobile');
+            if (!toggle || !menu || toggle.dataset.navInitialized === 'true') return;
+            toggle.dataset.navInitialized = 'true';
+            menu.setAttribute('aria-hidden', menu.classList.contains('hidden') ? 'true' : 'false');
+            toggle.setAttribute('aria-expanded', (!menu.classList.contains('hidden')).toString());
+            toggle.addEventListener('click', function(){
+              var isHidden = menu.classList.toggle('hidden');
+              var expanded = !isHidden;
+              toggle.setAttribute('aria-expanded', expanded.toString());
+              menu.setAttribute('aria-hidden', (!expanded).toString());
+            });
+          }
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initNavToggle, { once: true });
+          } else {
+            initNavToggle();
+          }
+        })();
+        (function(){
+          const header = document.getElementById('header');
+          if (!header) return;
+          const row = header.querySelector('[data-header-row]');
+          const nav = header.querySelector('nav[data-primary-nav]');
+          const left = header.querySelector('[data-header-left]');
+          const right = header.querySelector('[data-header-right]');
+          const testnetBtn = header.querySelector('[data-desktop-testnet]');
+
+          if (!row || !nav || !left || !right) return;
+
+          const baseNavGap = (() => {
+            const styles = getComputedStyle(nav);
+            const gap = parseFloat(styles.columnGap || styles.gap || '0');
+            return !isNaN(gap) && gap > 0 ? gap : 24;
+          })();
+
+          const setGap = (value) => {
+            if (!isFinite(value) || value <= 0) return;
+            row.style.setProperty('--header-gap', value + 'px');
+          };
+
+          const hideDesktopCta = () => {
+            if (!testnetBtn) return;
+            testnetBtn.setAttribute('tabindex', '-1');
+            testnetBtn.setAttribute('aria-hidden', 'true');
+          };
+
+          const showDesktopCta = () => {
+            if (!testnetBtn) return;
+            testnetBtn.removeAttribute('tabindex');
+            testnetBtn.removeAttribute('aria-hidden');
+          };
+
+          const collapse = () => {
+            header.dataset.collapse = 'true';
+            hideDesktopCta();
+          };
+
+          const expand = () => {
+            header.dataset.collapse = 'false';
+            showDesktopCta();
+          };
+
+          const collapsedGap = baseNavGap * 1.5;
+
+          const updateLayout = () => {
+            const rowRect = row.getBoundingClientRect();
+            const leftRect = left.getBoundingClientRect();
+            const rightRect = right.getBoundingClientRect();
+            const navRect = nav.getBoundingClientRect();
+
+            const available = rowRect.width - leftRect.width - navRect.width - rightRect.width;
+            const desiredGap = available / 4;
+
+            if (window.innerWidth < 1024 || desiredGap <= collapsedGap) {
+              setGap(collapsedGap);
+              collapse();
+              return;
+            }
+
+            setGap(desiredGap);
+            expand();
+          };
+
+          const debounced = (() => {
+            let frame;
+            return () => {
+              if (frame) cancelAnimationFrame(frame);
+              frame = requestAnimationFrame(updateLayout);
+            };
+          })();
+
+          window.addEventListener('resize', debounced);
+          window.addEventListener('orientationchange', debounced);
+          document.addEventListener('DOMContentLoaded', updateLayout, { once: true });
+          debounced();
+        })();
+        (function(){
+          function slugify(text){
+            return text.toString().toLowerCase()
+              .replace(/\s+/g,'-')
+              .replace(/[^\w\-]+/g,'')
+              .replace(/\-\-+/g,'-')
+              .replace(/^-+/, '')
+              .replace(/-+$/, '');
+          }
+          const selector = '.prose h2, .prose h3, .prose h4, .prose h5, .prose h6';
+          document.querySelectorAll(selector).forEach(h => {
+            let id = h.id;
+            if (!id) { id = slugify(h.textContent || ''); h.id = id; }
+            if (!id) return;
+            if (h.querySelector('.heading-anchor-btn')) return;
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'heading-anchor-btn';
+            btn.setAttribute('aria-label','Link to section');
+            btn.textContent = '#';
+            btn.addEventListener('click', (e) => {
+              e.preventDefault();
+              if (history.replaceState) {
+                history.replaceState(null, '', `#${id}`);
+              } else {
+                location.hash = `#${id}`;
+              }
+              scrollToHash(`#${id}`);
+            });
+            h.appendChild(btn);
+          });
+          function syncSidebarTop(off){
+            const stickyNodes = document.querySelectorAll('[data-sidebar-sticky]');
+            if (!stickyNodes.length) return;
+            const topValue = Math.max(0, off + 16);
+            stickyNodes.forEach(node => {
+              node.style.top = topValue + 'px';
+            });
+          }
+          function updateHeaderOffset(){
+            const header = document.querySelector('header');
+            if (!header) return parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-offset')) || 72;
+            const extra = 8;
+            const off = header.offsetHeight + extra;
+            document.documentElement.style.setProperty('--header-offset', off + 'px');
+            syncSidebarTop(off);
+            return off;
+          }
+          function scrollToHash(hash){
+            if (!hash) return;
+            const id = hash.replace(/^#/, '');
+            const el = document.getElementById(id);
+            if (!el) return;
+            const off = updateHeaderOffset();
+            const top = el.getBoundingClientRect().top + window.scrollY - off;
+            window.scrollTo({ top, behavior: 'instant' in window ? 'instant' : 'auto' });
+          }
+          const debouncedUpdate = (() => {
+            let frame;
+            return () => {
+              if (frame) cancelAnimationFrame(frame);
+              frame = requestAnimationFrame(() => {
+                updateHeaderOffset();
+                frame = null;
+              });
+            };
+          })();
+          document.addEventListener('DOMContentLoaded', () => {
+            updateHeaderOffset();
+            if (location.hash) {
+              setTimeout(() => scrollToHash(location.hash), 0);
+            }
+          });
+          window.addEventListener('load', updateHeaderOffset, { once: true });
+          window.addEventListener('resize', debouncedUpdate);
+          window.addEventListener('orientationchange', debouncedUpdate);
+          window.addEventListener('hashchange', () => scrollToHash(location.hash));
+        })();
+    </script>
   </body>
 </html>
