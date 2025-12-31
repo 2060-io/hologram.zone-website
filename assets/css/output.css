@@ -3541,6 +3541,11 @@ body.get-started-page code.text-hologram-primary.font-mono {
   background-color: rgb(113 63 18 / 0.2);
 }
 
+.bg-cyan-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(207 250 254 / var(--tw-bg-opacity, 1));
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -3740,6 +3745,12 @@ body.get-started-page code.text-hologram-primary.font-mono {
 .from-verana\/20 {
   --tw-gradient-from: rgb(118 62 240 / 0.2) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(118 62 240 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-cyan-100 {
+  --tw-gradient-from: #cffafe var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(207 250 254 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -4496,6 +4507,11 @@ body.get-started-page code.text-hologram-primary.font-mono {
 .text-yellow-600 {
   --tw-text-opacity: 1;
   color: rgb(202 138 4 / var(--tw-text-opacity, 1));
+}
+
+.text-cyan-700 {
+  --tw-text-opacity: 1;
+  color: rgb(14 116 144 / var(--tw-text-opacity, 1));
 }
 
 .underline {
@@ -5539,7 +5555,7 @@ body.get-started-page code.text-hologram-primary.font-mono {
   }
 }
 
-body.get-started-page .hover\:text-hologram-primary:hovercode.font-mono {
+body.get-started-page code.hover\:text-hologram-primary:hover.font-mono {
   display: inline-flex;
   align-items: center;
   padding: 0.25rem 0.5rem;

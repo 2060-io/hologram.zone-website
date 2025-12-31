@@ -175,6 +175,32 @@ disable_content_wrapper: true
     image_gradient_class="from-teal-100 to-hologram-secondary/10"
 >}}
 {{< /demo-section >}}
+
+{{< demo-section
+    id="demo-concieragent"
+    background="bg-gray-50"
+    reverse="false"
+    kicker_text="Travel AI Agent"
+    kicker_icon="fa-solid fa-plane"
+    kicker_class="bg-cyan-100 text-cyan-700"
+    title="Concieragent"
+    title_icon="fa-solid fa-globe"
+    title_icon_color="text-hologram-primary"
+    description="Your **multilingual AI travel concierge** powered by **MCP (Model Context Protocol)**. Orchestrates 6 specialized **travel planning** servers with **multi-LLM support** (OpenAI, Claude, or Ollama) to help you find flights, hotels, events, weather, and more in English, Spanish, or French."
+    primary_label="Try the Demo"
+    primary_url="https://dm.concieragent.demos.dev.2060.io/invitation"
+    primary_icon="fa-solid fa-play"
+    primary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-primary text-white hover:bg-hologram-secondary"
+    secondary_label="GitHub Repository"
+    secondary_url="https://github.com/2060-io/hologram-concieragent-demo-vs"
+    secondary_icon="fab fa-github"
+    secondary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
+    image_src="/images/purple/hotel1.webp"
+    image_alt="AI travel concierge interface showing flight and hotel search capabilities with multilingual support."
+    image_gradient_class="from-cyan-100 to-hologram-primary/10"
+>}}
+{{< /demo-section >}}
+
 <!--
 {{< demo-section
     id="demo-customer-support"
