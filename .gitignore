@@ -11,10 +11,6 @@ themes/.DS_Store
 # Dependencies
 node_modules/
 **/node_modules/
-package-lock.json
-yarn.lock
-**/yarn.lock
-pnpm-lock.yaml
 
 # Build outputs
 /public/
@@ -28,13 +24,6 @@ pnpm-lock.yaml
 
 # Hugo
 .hugo_build.lock
-
-# Next.js (app directory)
-app/.next/
-app/out/
-app/build/
-app/dist/
-app/.vercel/
 
 # CSS build artifacts
 assets/css/output.css
@@ -66,10 +55,6 @@ lerna-debug.log*
 .settings/
 *.sublime-project
 *.sublime-workspace
-
-# Test files
-testfile.txt
-*.test.txt
 
 # Temporary files
 *.tmp
