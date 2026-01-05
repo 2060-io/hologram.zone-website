@@ -1,6 +1,65 @@
+# OS files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 themes/.DS_Store
-.hugo_build.lock
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
 /public/
 /public-tmp/
-node_modules
+/resources/_gen/
+/.next/
+/out/
+/build/
+/dist/
+*.tsbuildinfo
+
+# Hugo
+.hugo_build.lock
+
+# CSS build artifacts
+assets/css/output.css
+
+# Environment variables
+.env
+.env.local
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Source image files (uncomment if you want to exclude GIMP source files)
+# *.xcf
