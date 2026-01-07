@@ -80,6 +80,30 @@
         ]
       }
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LV2RHBYR5T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LV2RHBYR5T');
+    </script>
+    <script>
+      (function () {
+        if (typeof window === 'undefined') return;
+        var search = window.location.search;
+        if (!search) return;
+        var params = new URLSearchParams(search);
+        var hasInvitationParam = params.has('oob') || params.has('_oob') || params.has('_url');
+        if (!hasInvitationParam) return;
+        var target = '{{ with site.GetPage "page/service-invitation" }}{{ .RelPermalink }}{{ else }}/page/service-invitation/{{ end }}';
+        var pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+        var normalizedTarget = target.replace(/\/+$/, '') || '/';
+        if (pathname === normalizedTarget) return;
+        window.location.replace(target + search);
+      })();
+    </script>
   </head>
   {{ $hero := .Params.hero }}
   {{ $bodyClass := .Params.bodyClass }}
