@@ -98,6 +98,9 @@ params:
 
       - title: "Examples & Demos"
         url: "/page/demos"
+
+      - title: "Avatar"
+        url: "/page/avatar"
          
       - title: "About"
         url: "/page/about"
