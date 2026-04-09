@@ -76,7 +76,7 @@ get_avatar:
     text: "Get Started Now"
   title: "Scan to Obtain Your Avatar"
   description: "Open the Hologram app on your phone and scan this QR code to create your first Avatar and receive your verifiable credential"
-  qr_url: "https://issuer-chatbot-vs.avatar.hologram.zone/qr"
+  qr_url: "https://avatar.vs.hologram.zone/qr"
   qr_title: "Scan with Hologram App"
   qr_subtitle: "Point your camera at this QR code"
   qr_badge: "Secure & Verified"
