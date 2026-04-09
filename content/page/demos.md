@@ -111,7 +111,7 @@ disable_content_wrapper: true
     secondary_url="https://github.com/2060-io/hologram-generic-ai-agent-vs"
     secondary_icon="fab fa-github"
     secondary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
-    image_src="/images/github.svg"
+    image_src="/images/github-agent.webp"
     image_alt="GitHub Agent AI assistant interface for managing repositories through Hologram."
     image_gradient_class="from-gray-100 to-hologram-primary/10"
 >}}
