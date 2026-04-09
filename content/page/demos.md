@@ -93,28 +93,31 @@ disable_content_wrapper: true
 >}}
 {{< /demo-section >}}
 {{< demo-section
-    id="demo-ai-friends"
+    id="demo-github-agent"
     background="bg-white"
     reverse="true"
-    kicker_text="AI Experience"
-    kicker_icon="fa-solid fa-robot"
-    kicker_class="bg-purple-100 text-purple-700"
-    title="AI Friends"
-    title_icon="fa-solid fa-brain"
+    kicker_text="MCP Agent"
+    kicker_icon="fab fa-github"
+    kicker_class="bg-gray-100 text-gray-700"
+    title="GitHub Agent"
+    title_icon="fa-solid fa-code-branch"
     title_icon_color="text-hologram-primary"
-    description="A java-based AI fun chat with distinctive imaginary personas. Choose your friend, have fun!"
+    description="An AI-powered GitHub assistant that uses the **Model Context Protocol (MCP)** to interact with GitHub on your behalf. Search repositories, browse issues and pull requests, explore code, and manage your projects — all through an encrypted DIDComm chat in Hologram Messaging."
     primary_label="Try the Demo"
-    primary_url="https://aifriends.demos.2060.io/invitation"
+    primary_url="https://github-agent.vs.hologram.zone/invitation"
     primary_icon="fa-solid fa-play"
     primary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-sm bg-hologram-primary text-white hover:bg-hologram-secondary"
     secondary_label="GitHub Repository"
-    secondary_url="https://github.com/2060-io/aifriends-hologram-chatbot"
+    secondary_url="https://github.com/2060-io/hologram-generic-ai-agent-vs"
     secondary_icon="fab fa-github"
     secondary_class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold transition-colors duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200"
-    image_src="/images/aifriends.webp"
-    image_alt="Mobile chat interface showing AI personalities and authentication prompts."
-    image_gradient_class="from-purple-100 to-hologram-primary/10"
+    image_src="/images/github.svg"
+    image_alt="GitHub Agent AI assistant interface for managing repositories through Hologram."
+    image_gradient_class="from-gray-100 to-hologram-primary/10"
 >}}
+{{< demo-note >}}
+To get started: first authenticate using the credential you received from the <a href="/page/avatar" class="text-hologram-primary font-semibold hover:underline">Avatar</a> service, then open the contextual menu, select <strong>MCP Server Config</strong>, and enter your GitHub Personal Access Token. Once configured, the agent can access GitHub tools on your behalf.
+{{< /demo-note >}}
 {{< /demo-section >}}
 
 {{< demo-section
