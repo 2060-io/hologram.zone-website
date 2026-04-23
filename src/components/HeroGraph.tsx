@@ -583,7 +583,7 @@ export default function HeroGraph() {
   return (
     <div
       ref={wrapperRef}
-      className="absolute inset-0 pointer-events-none opacity-70 dark:opacity-95"
+      className="absolute inset-0 pointer-events-none opacity-60 dark:opacity-85"
       aria-hidden="true"
     >
       <canvas ref={canvasRef} className="w-full h-full block" />

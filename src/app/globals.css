@@ -264,6 +264,26 @@ body {
   table.ck td code { font-size: 0.82rem; background: rgba(0, 0, 0, 0.05); padding: 1px 6px; border-radius: 4px; }
   :where(.dark) table.ck td code { background: rgba(255, 255, 255, 0.08); }
 
+  /* hero readability vignette — lightens (or darkens in dark mode) the
+     area directly under the headline so the animated trust-graph canvas
+     stops competing with the copy. Strongest in the middle, fading to
+     zero at the edges so the network still reads as full-bleed. */
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 62% 48% at 50% 40%,
+                rgba(255, 255, 255, 0.72) 0%,
+                rgba(255, 255, 255, 0.35) 40%,
+                transparent 75%);
+  }
+  :where(.dark) .hero-vignette {
+    background: radial-gradient(ellipse 62% 48% at 50% 40%,
+                rgba(8, 8, 12, 0.68) 0%,
+                rgba(8, 8, 12, 0.28) 40%,
+                transparent 75%);
+  }
+
   /* nav active indicator */
   .nav-active { color: #fff; position: relative; }
   .nav-active::after {
