@@ -1,17 +1,11 @@
-import type { Metadata } from "next";
 import { COMPANY } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
-const TITLE = "Privacy Policy";
-const DESCRIPTION =
-  "How 2060 OÜ collects and protects your data across the Hologram Messaging App, Hologram Agentic Cloud, and our websites. Local-first by design, with clear export and deletion controls.";
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/privacy" },
-  openGraph: { title: `${TITLE} · Hologram`, description: DESCRIPTION, url: "/privacy" },
-  twitter:   { title: `${TITLE} · Hologram`, description: DESCRIPTION },
-};
+export const metadata = buildPageMetadata({
+  title: "Privacy Policy",
+  description: "How 2060 OÜ collects and protects your data across the Hologram Messaging App, Hologram Agentic Cloud, and our websites. Local-first by design, with clear export and deletion controls.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

@@ -1,16 +1,11 @@
 import Link from "next/link";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-const TITLE = "Apps";
-const DESCRIPTION = "Two apps, one network. Hologram Messaging App for humans. Hologram Dashboard for corporations managing agent deployment, supervision, and audit.";
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/app" },
-  openGraph: { title: `${TITLE} · Hologram`, description: DESCRIPTION, url: "/app" },
-  twitter:   { title: `${TITLE} · Hologram`, description: DESCRIPTION },
-};
+export const metadata = buildPageMetadata({
+  title: "Apps",
+  description: "Two apps, one network. Hologram Messaging App for humans. Hologram Dashboard for corporations managing agent deployment, supervision, and audit.",
+  path: "/app",
+});
 
 export default function AppsPage() {
   return (

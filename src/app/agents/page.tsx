@@ -1,16 +1,11 @@
 import Link from "next/link";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-const TITLE = "Agents";
-const DESCRIPTION = "Personal and corporate AI agents that accept inbound connections only from verified parties. One agent, many gates, all proven.";
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/agents" },
-  openGraph: { title: `${TITLE} · Hologram`, description: DESCRIPTION, url: "/agents" },
-  twitter:   { title: `${TITLE} · Hologram`, description: DESCRIPTION },
-};
+export const metadata = buildPageMetadata({
+  title: "Agents",
+  description: "Personal and corporate AI agents that accept inbound connections only from verified parties. One agent, many gates, all proven.",
+  path: "/agents",
+});
 
 export default function AgentsPage() {
   return (

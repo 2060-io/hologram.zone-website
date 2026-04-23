@@ -1,17 +1,11 @@
-import type { Metadata } from "next";
 import { COMPANY, GA_MEASUREMENT_ID } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
-const TITLE = "Cookie Policy";
-const DESCRIPTION =
-  "What cookies hologram.zone sets, why, and how to manage your preferences. Strictly necessary cookies only by default; analytics loaded only after consent.";
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/cookies" },
-  openGraph: { title: `${TITLE} · Hologram`, description: DESCRIPTION, url: "/cookies" },
-  twitter:   { title: `${TITLE} · Hologram`, description: DESCRIPTION },
-};
+export const metadata = buildPageMetadata({
+  title: "Cookie Policy",
+  description: "What cookies hologram.zone sets, why, and how to manage your preferences. Strictly necessary cookies only by default; analytics loaded only after consent.",
+  path: "/cookies",
+});
 
 export default function CookiesPage() {
   return (

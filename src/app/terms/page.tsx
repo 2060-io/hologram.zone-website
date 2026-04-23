@@ -1,17 +1,11 @@
-import type { Metadata } from "next";
 import { COMPANY } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
-const TITLE = "Terms of Service";
-const DESCRIPTION =
-  "Terms of Service for the Hologram Messaging App, Hologram Agentic Cloud, and associated websites and APIs. Governed by the laws of Estonia.";
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/terms" },
-  openGraph: { title: `${TITLE} · Hologram`, description: DESCRIPTION, url: "/terms" },
-  twitter:   { title: `${TITLE} · Hologram`, description: DESCRIPTION },
-};
+export const metadata = buildPageMetadata({
+  title: "Terms of Service",
+  description: "Terms of Service for the Hologram Messaging App, Hologram Agentic Cloud, and associated websites and APIs. Governed by the laws of Estonia.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

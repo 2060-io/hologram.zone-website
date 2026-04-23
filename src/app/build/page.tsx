@@ -1,16 +1,11 @@
 import Link from "next/link";
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-const TITLE = "Build";
-const DESCRIPTION = "Hologram is open source, Apache 2.0. Fork it, audit it, build on it. Components: VS Agent, Generic AI Agent, Messaging App, Dashboard, Verana Network.";
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/build" },
-  openGraph: { title: `${TITLE} · Hologram`, description: DESCRIPTION, url: "/build" },
-  twitter:   { title: `${TITLE} · Hologram`, description: DESCRIPTION },
-};
+export const metadata = buildPageMetadata({
+  title: "Build",
+  description: "Hologram is open source, Apache 2.0. Fork it, audit it, build on it. Components: VS Agent, Generic AI Agent, Messaging App, Dashboard, Verana Network.",
+  path: "/build",
+});
 
 export default function BuildPage() {
   return (

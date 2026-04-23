@@ -1,15 +1,10 @@
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-const TITLE = "Pricing";
-const DESCRIPTION = "Hologram pricing: Free personal AI agent, Pro for power users, Business for organisations. Start free. Scale when ready.";
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/pricing" },
-  openGraph: { title: `${TITLE} · Hologram`, description: DESCRIPTION, url: "/pricing" },
-  twitter:   { title: `${TITLE} · Hologram`, description: DESCRIPTION },
-};
+export const metadata = buildPageMetadata({
+  title: "Pricing",
+  description: "Hologram pricing: Free personal AI agent, Pro for power users, Business for organisations. Start free. Scale when ready.",
+  path: "/pricing",
+});
 
 const FREE_FEATURES = [
   "1 personal AI agent",

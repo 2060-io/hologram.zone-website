@@ -4,7 +4,7 @@ export const SITE_TITLE = "Hologram · The Future Is a Network of Verified Agent
 export const SITE_DESCRIPTION =
   "A network of autonomous AI agents that verify each other before they engage. Every connection gated by cryptographic proof of who is on the other end and what they are authorised to do.";
 
-export const OG_IMAGE = "/images/og-image.png";
+export const OG_IMAGE = "/og-image.png";
 export const OG_IMAGE_ALT = "Hologram — a network of verified agents";
 
 export const GA_MEASUREMENT_ID = "G-LV2RHBYR5T";

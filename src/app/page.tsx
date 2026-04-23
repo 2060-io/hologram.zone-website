@@ -1,4 +1,13 @@
 import Link from "next/link";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/metadata";
+
+export const metadata = buildPageMetadata({
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  path: "/",
+  absoluteTitle: true,
+});
 
 const ECOSYSTEM = [
   { href: "https://verana.io",           alt: "Verana",              src: "/images/verana-logo-with-verana.svg", h: "h-10" },

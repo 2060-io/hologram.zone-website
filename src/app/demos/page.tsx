@@ -1,15 +1,10 @@
-import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/metadata";
 
-const TITLE = "Demos";
-const DESCRIPTION = "Live demos of Hologram agents: Avatar, Government Digital ID, GitHub, Wise, and X. Real trust resolution, real credentials, try them now.";
-
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESCRIPTION,
-  alternates: { canonical: "/demos" },
-  openGraph: { title: `${TITLE} · Hologram`, description: DESCRIPTION, url: "/demos" },
-  twitter:   { title: `${TITLE} · Hologram`, description: DESCRIPTION },
-};
+export const metadata = buildPageMetadata({
+  title: "Demos",
+  description: "Live demos of Hologram agents: Avatar, Government Digital ID, GitHub, Wise, and X. Real trust resolution, real credentials, try them now.",
+  path: "/demos",
+});
 
 export default function DemosPage() {
   return (
