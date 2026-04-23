@@ -7,10 +7,15 @@
 
 /* =========================================================================
    Design tokens (Tailwind v4 @theme)
-   ========================================================================= */
+   =========================================================================
+   The --font-inter and --font-space-grotesk variables are injected by
+   next/font/google in src/app/layout.tsx and point at the self-hosted
+   font bundle Next.js optimises. We just thread them through our semantic
+   tokens here.
+*/
 @theme {
-  --font-sans: "Inter", "Space Grotesk", system-ui, -apple-system, sans-serif;
-  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-space-grotesk), "Space Grotesk", "Inter", system-ui, sans-serif;
 
   /* brand (purple) */
   --color-brand-50: #f5f3ff;
