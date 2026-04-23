@@ -16,13 +16,14 @@ export default function HomePage() {
       {/* ============== HERO ============== */}
       <section className="hero-glow relative overflow-hidden">
         <div className="absolute inset-0 bg-grid pointer-events-none" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-28 md:pb-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block text-xs font-semibold tracking-widest uppercase text-brand-600 dark:text-brand-400">
-              The Agentic Network
-            </span>
-            <h1 className="h-display mt-5">
-              The Future Is a <span className="gradient-text">Network of Verified Agents</span>.
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/5 text-xs sm:text-sm text-neutral-600 dark:text-neutral-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              Open Source · Apache 2.0 · Built on Verana Trust Network
+            </div>
+            <h1 className="font-display h-display mt-6">
+              The Future Is a <span className="gradient-text">Network of Verified Agents</span>
             </h1>
             <p className="mt-6 text-lg sm:text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-3xl mx-auto">
               Not one AI assistant per person. A network. Agents serving many humans. Agents talking to other agents. Every connection gated by cryptographic proof of who is on the other end, and what they are authorised to do.

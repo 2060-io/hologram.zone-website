@@ -72,14 +72,17 @@ body {
     color: transparent;
   }
 
-  /* responsive type scale for long headlines */
+  /* responsive type scale for long headlines — these are display headings
+     so the family is baked in; no need to pair with `font-display`. */
   .h-display {
+    font-family: var(--font-display);
     font-size: clamp(2.25rem, 4.5vw + 1rem, 4.5rem);
     line-height: 1.05;
     letter-spacing: -0.02em;
     font-weight: 700;
   }
   .h-display-sm {
+    font-family: var(--font-display);
     font-size: clamp(1.875rem, 3.5vw + 1rem, 3.75rem);
     line-height: 1.08;
     letter-spacing: -0.02em;

@@ -47,7 +47,7 @@ export default function PricingPage() {
         <div className="absolute inset-0 bg-grid pointer-events-none" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 md:pt-28 text-center">
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-brand-600 dark:text-brand-400">Pricing</span>
-          <h1 className="h-display-sm mt-4">Start free. <span className="gradient-text">Scale when ready.</span></h1>
+          <h1 className="font-display h-display-sm mt-4">Start free. <span className="gradient-text">Scale when ready.</span></h1>
           <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-400">
             One personal agent is always free on Hologram Agentic Cloud. Upgrade when you need your own models, unlimited MCPs, persistent memory, or corporate-grade governance.
           </p>
