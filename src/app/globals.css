@@ -272,16 +272,18 @@ body {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse 62% 48% at 50% 40%,
-                rgba(255, 255, 255, 0.72) 0%,
-                rgba(255, 255, 255, 0.35) 40%,
-                transparent 75%);
+    background: radial-gradient(ellipse 72% 58% at 50% 42%,
+                rgba(255, 255, 255, 0.92) 0%,
+                rgba(255, 255, 255, 0.72) 35%,
+                rgba(255, 255, 255, 0.30) 60%,
+                transparent 82%);
   }
   :where(.dark) .hero-vignette {
-    background: radial-gradient(ellipse 62% 48% at 50% 40%,
-                rgba(8, 8, 12, 0.68) 0%,
-                rgba(8, 8, 12, 0.28) 40%,
-                transparent 75%);
+    background: radial-gradient(ellipse 72% 58% at 50% 42%,
+                rgba(8, 8, 12, 0.88) 0%,
+                rgba(8, 8, 12, 0.62) 35%,
+                rgba(8, 8, 12, 0.22) 60%,
+                transparent 82%);
   }
 
   /* nav active indicator */
