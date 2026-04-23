@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/metadata";
+import HeroGraph from "@/components/HeroGraph";
 
 export const metadata = buildPageMetadata({
   title: SITE_TITLE,
@@ -159,6 +160,7 @@ export default function HomePage() {
       {/* ============== HERO ============== */}
       <section className="hero-glow relative overflow-hidden">
         <div className="absolute inset-0 bg-grid pointer-events-none" />
+        <HeroGraph />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/5 text-xs sm:text-sm text-neutral-600 dark:text-neutral-300">
