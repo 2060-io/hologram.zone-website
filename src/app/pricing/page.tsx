@@ -133,7 +133,6 @@ export default function PricingPage() {
               <div className="text-xs uppercase tracking-widest text-amber-500 font-semibold">Business</div>
               <div className="mt-2 flex items-baseline gap-1"><span className="font-display text-3xl font-bold">Let&#39;s talk.</span></div>
               <p className="mt-2 text-sm text-neutral-500">For organisations that need managed hosting, SLAs, and custom trust registries.</p>
-              <p className="mt-4 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">Hologram Agentic AI for your organisation. Managed hosting, enterprise SLAs, RBAC, approval workflows, IAM integration, custom credential schemas, dedicated support.</p>
               <p className="mt-4 text-xs uppercase tracking-widest text-neutral-500">Everything in Pro, plus:</p>
               <ul className="mt-3 space-y-2.5 text-sm text-neutral-600 dark:text-neutral-400 flex-1">
                 {BUSINESS_FEATURES.map((f) => (

@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Analytics from "@/components/Analytics";
 import ThemeScript from "@/components/ThemeScript";
 import ScrollReveal from "@/components/ScrollReveal";
+import CookieConsent from "@/components/CookieConsent";
 import {
   SITE_URL,
   SITE_NAME,
@@ -119,6 +120,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="pt-16">{children}</main>
         <Footer />
         <ScrollReveal />
+        <CookieConsent />
         <Analytics />
       </body>
     </html>

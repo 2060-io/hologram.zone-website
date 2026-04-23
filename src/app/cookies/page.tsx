@@ -74,10 +74,10 @@ export default function CookiesPage() {
             <tbody>
               <tr>
                 <td><code>hologram-consent</code></td>
-                <td>hologram.zone</td>
+                <td>hologram.zone (local&nbsp;storage)</td>
                 <td>Strictly necessary</td>
                 <td>Stores your cookie-banner choice (accept / reject analytics)</td>
-                <td>12 months</td>
+                <td>Until cleared</td>
               </tr>
               <tr>
                 <td><code>hologram-theme</code></td>
@@ -107,7 +107,7 @@ export default function CookiesPage() {
           <h2>4. Your choices</h2>
           <p>You can accept or reject non-essential cookies from the banner shown on your first visit. You can change your choice at any time:</p>
           <ul>
-            <li>Clear the <code>hologram-consent</code> cookie (or all cookies for <code>hologram.zone</code>) from your browser settings — the banner will reappear on your next visit.</li>
+            <li>Clear the <code>hologram-consent</code> entry from your browser&#39;s local storage (or all site data for <code>hologram.zone</code>) — the banner will reappear on your next visit.</li>
             <li>Use your browser&#39;s cookie controls to block third-party cookies globally, or to block cookies from <code>google-analytics.com</code> and <code>googletagmanager.com</code> specifically.</li>
             <li>Enable &quot;Do Not Track&quot; or &quot;Global Privacy Control&quot; in your browser — we honour GPC as a signal to reject analytics cookies.</li>
             <li>Install the official <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noreferrer">Google Analytics Opt-out Browser Add-on</a>.</li>
