@@ -178,67 +178,6 @@ export default function HomePage() {
               <Link href="/demos"   className="px-7 py-3.5 rounded-xl text-base font-semibold border border-neutral-300 dark:border-white/15 bg-white/60 dark:bg-white/5 hover:bg-neutral-100 dark:hover:bg-white/10 transition">See Live Demos</Link>
             </div>
           </div>
-
-          {/* Trust graph */}
-          <div className="mt-20 relative reveal">
-            <div className="hidden lg:flex absolute left-0 top-0 flex-col gap-2 text-xs text-neutral-500 opacity-70">
-              <span className="uppercase tracking-widest text-[10px]">yesterday</span>
-              <div className="card rounded-lg p-3 flex items-center gap-2 w-44">
-                <div className="w-6 h-6 rounded-full bg-neutral-200 dark:bg-white/10" />
-                <span className="text-[11px]">one human ↔ one bot</span>
-              </div>
-            </div>
-            <div className="hidden lg:flex absolute right-0 top-0 flex-col gap-2 text-xs items-end">
-              <span className="uppercase tracking-widest text-[10px] text-brand-400">today</span>
-              <span className="text-[11px] text-neutral-500">a network of verified agents ▾</span>
-            </div>
-
-            <svg viewBox="0 0 1200 380" className="w-full max-w-5xl mx-auto" aria-hidden="true">
-              <defs>
-                <radialGradient id="nodeGlow"   cx="50%" cy="50%" r="50%"><stop offset="0%"   stopColor="#a78bfa" stopOpacity=".85" /><stop offset="100%" stopColor="#a78bfa" stopOpacity="0" /></radialGradient>
-                <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%"><stop offset="0%"   stopColor="#60a5fa" stopOpacity=".9"  /><stop offset="100%" stopColor="#60a5fa" stopOpacity="0" /></radialGradient>
-                <linearGradient id="thread-green" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stopColor="#22c55e" stopOpacity=".15" /><stop offset="50%" stopColor="#22c55e" stopOpacity=".7"  /><stop offset="100%" stopColor="#22c55e" stopOpacity=".15" /></linearGradient>
-                <linearGradient id="thread-amber" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stopColor="#f59e0b" stopOpacity=".15" /><stop offset="50%" stopColor="#f59e0b" stopOpacity=".55" /><stop offset="100%" stopColor="#f59e0b" stopOpacity=".15" /></linearGradient>
-                <linearGradient id="thread-red"   x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stopColor="#ef4444" stopOpacity=".1"  /><stop offset="50%" stopColor="#ef4444" stopOpacity=".55" /><stop offset="100%" stopColor="#ef4444" stopOpacity="0"   /></linearGradient>
-                <linearGradient id="thread-brand" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stopColor="#a78bfa" stopOpacity=".15" /><stop offset="50%" stopColor="#60a5fa" stopOpacity=".7"  /><stop offset="100%" stopColor="#22d3ee" stopOpacity=".15" /></linearGradient>
-              </defs>
-              <g transform="translate(600 190)">
-                <circle r="80" fill="url(#centerGlow)" />
-                <circle r="32" fill="#60a5fa" />
-                <circle r="32" fill="none" stroke="#bfdbfe" strokeWidth="2" />
-                <g transform="translate(22 -22)">
-                  <circle r="11" fill="#22c55e" />
-                  <path d="M-4 1 l3 3 l6 -6" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
-              </g>
-              <g fill="none" stroke="url(#thread-green)" strokeWidth="1.6" className="thread">
-                <path d="M180,80  L600,190" /><path d="M260,310 L600,190" /><path d="M1040,90 L600,190" /><path d="M960,310 L600,190" />
-              </g>
-              <g fill="none" stroke="url(#thread-brand)" strokeWidth="1.4" className="thread">
-                <path d="M430,340 L600,190" /><path d="M820,60  L600,190" />
-              </g>
-              <g fill="none" stroke="url(#thread-amber)" strokeWidth="1.4" className="thread"><path d="M370,180 L600,190" /></g>
-              <g fill="none" stroke="url(#thread-red)"   strokeWidth="1.3" className="thread-rev">
-                <path d="M80,200  L530,190" /><path d="M1120,210 L670,190" />
-              </g>
-              <g><circle cx="180" cy="80" r="26" fill="url(#nodeGlow)" /><g transform="translate(180 80)"><circle r="10" fill="#a78bfa" /><circle cx="0" cy="-2" r="3" fill="#1e1b4b" /><path d="M-6 6 Q0 2 6 6" fill="#1e1b4b" /></g><circle cx="200" cy="60" r="6" fill="#22c55e" /></g>
-              <g><circle cx="960" cy="310" r="26" fill="url(#nodeGlow)" /><g transform="translate(960 310)"><circle r="10" fill="#a78bfa" /><circle cx="0" cy="-2" r="3" fill="#1e1b4b" /><path d="M-6 6 Q0 2 6 6" fill="#1e1b4b" /></g><circle cx="980" cy="290" r="6" fill="#22c55e" /></g>
-              <g><circle cx="1040" cy="90" r="26" fill="url(#nodeGlow)" /><rect x="1028" y="78"  width="24" height="24" rx="5" fill="#60a5fa" /><circle cx="1060" cy="70" r="6" fill="#22c55e" /></g>
-              <g><circle cx="260" cy="310" r="26" fill="url(#nodeGlow)" /><rect x="248"  y="298" width="24" height="24" rx="5" fill="#60a5fa" /><circle cx="280" cy="290" r="6" fill="#22c55e" /></g>
-              <g><circle cx="430" cy="340" r="22" fill="url(#nodeGlow)" /><rect x="420"  y="330" width="20" height="20" rx="3" fill="#22d3ee" /></g>
-              <g><circle cx="820" cy="60"  r="22" fill="url(#nodeGlow)" /><rect x="810"  y="50"  width="20" height="20" rx="3" fill="#22d3ee" /></g>
-              <g><circle cx="370" cy="180" r="18" fill="url(#nodeGlow)" /><circle cx="370" cy="180" r="6" fill="#f59e0b" /></g>
-              <g opacity=".65"><circle cx="80"   cy="200" r="14" fill="#111827" stroke="#ef4444" strokeDasharray="2 3" /><text x="80"   y="204" textAnchor="middle" fontSize="10" fill="#ef4444" fontWeight="bold">?</text></g>
-              <g opacity=".65"><circle cx="1120" cy="210" r="14" fill="#111827" stroke="#ef4444" strokeDasharray="2 3" /><text x="1120" y="214" textAnchor="middle" fontSize="10" fill="#ef4444" fontWeight="bold">?</text></g>
-            </svg>
-
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] text-neutral-500">
-              <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500" />accepted</span>
-              <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-amber-500"   />scoped</span>
-              <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-red-500"     />refused</span>
-              <span className="flex items-center gap-1.5 text-brand-500 dark:text-brand-300">agent ↔ agent</span>
-            </div>
-          </div>
         </div>
       </section>
 
