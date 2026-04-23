@@ -3,49 +3,51 @@
 import { useEffect, useRef } from "react";
 
 /* -------------------------------------------------------------------------- *
- *  Hologram hero — animated trust-graph background.
+ *  Hologram hero — animated 3D trust-graph background.
  *
- *  Zero dependencies, pure Canvas 2D, ~2 kB gzipped runtime.
- *  Honours prefers-reduced-motion (draws a single static frame).
+ *  Zero dependencies. Canvas 2D + a hand-rolled perspective projection, so
+ *  we get a real 3D scene without paying the ~180 kB bundle tax of
+ *  Three.js / react-three-fiber. Runtime is ~4 kB gzipped.
  *
- *  Composition mirrors the hero brief:
- *    - 7 hex agent nodes arranged in an organic constellation.
- *    - ~22 threads converge from off-frame "sources" onto the nodes.
- *    - Colour-coded state per thread:
- *        accepted (emerald)  — full reach, bright particles flowing.
- *        scoped   (amber)    — full reach, fewer / dimmer particles.
- *        refused  (red)      — fades to a broken arc at the perimeter.
- *    - Node halos pulse gently; verified check-mark glows.
+ *  Scene:
+ *    - ~10 hex agent nodes distributed in a 3D cloud, not on a flat plane.
+ *    - ~28 threads converge onto them from off-world anchors at varied
+ *      depths; particles travel along curved paths in world space, then
+ *      get projected to screen each frame.
+ *    - Base scene drifts slowly on yaw/pitch (orbital idle motion).
+ *    - Mouse position adds parallax yaw/pitch on top (lerped for smoothness).
+ *    - Vertical scroll adds a subtle extra pitch while the hero is in view.
+ *    - Depth fog fades distant geometry (cheap DOF substitute).
  *
- *  The canvas is fully decorative (`aria-hidden`, `pointer-events: none`)
- *  and sits beneath the hero copy and the existing SVG trust diagram.
+ *  Honours prefers-reduced-motion (renders one static frame, no RAF loop,
+ *  no mouse / scroll listeners registered).
+ *
+ *  The canvas is decorative (aria-hidden, pointer-events: none) and sits
+ *  between the hero-section .bg-grid layer and the z-10 content.
  * -------------------------------------------------------------------------- */
 
 type Rgb = readonly [number, number, number];
 
+type Vec3 = { x: number; y: number; z: number };
+
 type NodeDef = {
-  x: number; // normalized 0..1 across the canvas width
-  y: number; // normalized 0..1 across the canvas height
-  r: number; // hex radius at a 900-px reference viewport
+  p: Vec3; // world-space position, roughly in [-0.5, 0.5] per axis
+  r: number; // hex radius at a 900-px reference viewport, pre-projection
 };
 
 type ThreadDef = {
-  from: { x: number; y: number }; // normalized; negative / > 1 means off-frame
+  from: Vec3; // world anchor — can sit outside [-0.5, 0.5] to feel off-frame
   to: number; // index into NODES
   state: "accepted" | "scoped" | "refused";
   phase: number; // 0..1, particle starting offset
   speed: number; // loops per second
-  particles: number; // how many beads travel this thread
-  curve: number; // bezier control offset (signed); higher = more bow
+  particles: number;
+  cp: Vec3; // world-space bezier control-point offset vs. the midpoint
 };
 
-// Palette is locked to the CSS brand tokens (globals.css @theme) so the
-// canvas blends with the rest of the hero chrome.
-const NODE_STROKE: Rgb[] = [
-  [167, 139, 250], // brand-400
-  [59, 130, 246], // blue-500
-  [6, 182, 212], // cyan-500
-];
+/* -------------------------------------------------------------------------- */
+/*  Palette (locked to globals.css @theme tokens)                             */
+/* -------------------------------------------------------------------------- */
 
 const STATE: Record<ThreadDef["state"], Rgb> = {
   accepted: [16, 185, 129], // emerald-500
@@ -53,66 +55,94 @@ const STATE: Record<ThreadDef["state"], Rgb> = {
   refused: [239, 68, 68], // red-500
 };
 
+const NODE_STROKE: Rgb[] = [
+  [167, 139, 250], // brand-400
+  [59, 130, 246], // blue-500
+  [6, 182, 212], // cyan-500
+];
+
+const HALO_NEAR: Rgb = [139, 92, 246]; // brand-500
+const HALO_FAR: Rgb = [59, 130, 246]; // blue-500
+
 const rgba = (c: Rgb, a: number) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
 
-/* ---- hand-tuned layout (deterministic, no randomness on load) ----------- */
+/* -------------------------------------------------------------------------- */
+/*  Scene — hand-placed so the constellation reads nicely at any aspect       */
+/* -------------------------------------------------------------------------- */
 
 const NODES: NodeDef[] = [
-  { x: 0.16, y: 0.38, r: 18 },
-  { x: 0.30, y: 0.70, r: 16 },
-  { x: 0.42, y: 0.26, r: 20 },
-  { x: 0.56, y: 0.58, r: 24 }, // visual center
-  { x: 0.70, y: 0.30, r: 18 },
-  { x: 0.82, y: 0.66, r: 20 },
-  { x: 0.92, y: 0.40, r: 16 },
+  { p: { x: -0.40, y:  0.02, z: -0.18 }, r: 17 },
+  { p: { x: -0.26, y:  0.22, z:  0.24 }, r: 13 },
+  { p: { x: -0.10, y: -0.22, z: -0.04 }, r: 15 },
+  { p: { x:  0.02, y:  0.06, z:  0.34 }, r: 12 },
+  { p: { x:  0.08, y:  0.20, z: -0.26 }, r: 13 },
+  { p: { x:  0.18, y: -0.14, z:  0.10 }, r: 19 }, // visual hero
+  { p: { x:  0.30, y:  0.12, z: -0.06 }, r: 13 },
+  { p: { x:  0.40, y: -0.20, z:  0.22 }, r: 11 },
+  { p: { x:  0.44, y:  0.08, z:  0.00 }, r: 14 },
+  { p: { x: -0.05, y: -0.02, z: -0.38 }, r: 10 },
 ];
 
 const THREADS: ThreadDef[] = [
-  // node 0 — left-edge agent
-  { from: { x: -0.08, y: 0.20 }, to: 0, state: "accepted", phase: 0.00, speed: 0.28, particles: 2, curve:  0.45 },
-  { from: { x: -0.06, y: 0.60 }, to: 0, state: "accepted", phase: 0.45, speed: 0.25, particles: 2, curve: -0.30 },
-  { from: { x:  0.05, y: 1.10 }, to: 0, state: "scoped",   phase: 0.20, speed: 0.22, particles: 1, curve:  0.25 },
+  // node 0 — left-front agent
+  { from: { x: -0.75, y:  0.18, z:  0.05 }, to: 0, state: "accepted", phase: 0.00, speed: 0.28, particles: 2, cp: { x: -0.05, y:  0.08, z:  0.00 } },
+  { from: { x: -0.72, y: -0.18, z: -0.10 }, to: 0, state: "accepted", phase: 0.40, speed: 0.24, particles: 2, cp: { x:  0.00, y: -0.08, z:  0.05 } },
+  { from: { x: -0.30, y: -0.65, z:  0.20 }, to: 0, state: "scoped",   phase: 0.20, speed: 0.22, particles: 1, cp: { x:  0.05, y:  0.00, z:  0.00 } },
 
-  // node 1 — lower-left agent
-  { from: { x: -0.08, y: 0.95 }, to: 1, state: "accepted", phase: 0.10, speed: 0.30, particles: 2, curve: -0.35 },
-  { from: { x:  0.20, y: 1.10 }, to: 1, state: "refused",  phase: 0.55, speed: 0.22, particles: 0, curve:  0.20 },
+  // node 1 — left-back agent
+  { from: { x: -0.80, y:  0.55, z:  0.10 }, to: 1, state: "accepted", phase: 0.15, speed: 0.26, particles: 2, cp: { x:  0.05, y:  0.05, z:  0.00 } },
+  { from: { x: -0.10, y:  0.55, z:  0.40 }, to: 1, state: "accepted", phase: 0.70, speed: 0.22, particles: 2, cp: { x:  0.00, y:  0.05, z:  0.05 } },
 
-  // node 2 — upper-mid agent
-  { from: { x:  0.30, y: -0.12 }, to: 2, state: "accepted", phase: 0.30, speed: 0.26, particles: 2, curve:  0.40 },
-  { from: { x:  0.55, y: -0.10 }, to: 2, state: "scoped",   phase: 0.65, speed: 0.20, particles: 1, curve: -0.25 },
-  { from: { x:  0.10, y: -0.10 }, to: 2, state: "accepted", phase: 0.80, speed: 0.24, particles: 2, curve: -0.50 },
+  // node 2 — lower-mid-front agent
+  { from: { x: -0.45, y: -0.55, z: -0.20 }, to: 2, state: "accepted", phase: 0.05, speed: 0.30, particles: 2, cp: { x:  0.05, y: -0.05, z:  0.00 } },
+  { from: { x:  0.20, y: -0.60, z: -0.05 }, to: 2, state: "accepted", phase: 0.50, speed: 0.26, particles: 2, cp: { x:  0.00, y: -0.05, z:  0.05 } },
+  { from: { x: -0.05, y: -0.55, z:  0.30 }, to: 2, state: "refused",  phase: 0.35, speed: 0.20, particles: 0, cp: { x:  0.00, y: -0.10, z:  0.00 } },
 
-  // node 3 — central hub, the busiest
-  { from: { x:  0.25, y:  1.08 }, to: 3, state: "accepted", phase: 0.00, speed: 0.32, particles: 3, curve:  0.30 },
-  { from: { x:  0.45, y: -0.08 }, to: 3, state: "accepted", phase: 0.22, speed: 0.28, particles: 2, curve:  0.40 },
-  { from: { x:  0.85, y: -0.10 }, to: 3, state: "accepted", phase: 0.55, speed: 0.24, particles: 2, curve: -0.35 },
-  { from: { x:  1.05, y:  0.95 }, to: 3, state: "scoped",   phase: 0.35, speed: 0.20, particles: 1, curve: -0.25 },
-  { from: { x:  0.70, y:  1.10 }, to: 3, state: "refused",  phase: 0.70, speed: 0.22, particles: 0, curve:  0.40 },
+  // node 3 — back-center agent (deep)
+  { from: { x: -0.20, y:  0.55, z:  0.50 }, to: 3, state: "accepted", phase: 0.20, speed: 0.24, particles: 2, cp: { x:  0.00, y:  0.05, z:  0.00 } },
+  { from: { x:  0.35, y:  0.50, z:  0.55 }, to: 3, state: "accepted", phase: 0.65, speed: 0.22, particles: 2, cp: { x:  0.00, y:  0.05, z:  0.05 } },
 
-  // node 4 — upper-right agent
-  { from: { x:  0.60, y: -0.10 }, to: 4, state: "accepted", phase: 0.15, speed: 0.26, particles: 2, curve:  0.35 },
-  { from: { x:  0.88, y: -0.08 }, to: 4, state: "accepted", phase: 0.60, speed: 0.28, particles: 2, curve: -0.30 },
-  { from: { x:  1.10, y:  0.18 }, to: 4, state: "scoped",   phase: 0.90, speed: 0.22, particles: 1, curve:  0.25 },
+  // node 4 — upper-mid-front agent
+  { from: { x:  0.10, y:  0.60, z: -0.40 }, to: 4, state: "accepted", phase: 0.10, speed: 0.28, particles: 2, cp: { x:  0.00, y:  0.05, z:  0.00 } },
+  { from: { x: -0.10, y:  0.60, z: -0.05 }, to: 4, state: "scoped",   phase: 0.55, speed: 0.20, particles: 1, cp: { x: -0.05, y:  0.05, z: -0.05 } },
 
-  // node 5 — lower-right agent
-  { from: { x:  0.90, y:  1.08 }, to: 5, state: "accepted", phase: 0.05, speed: 0.30, particles: 2, curve: -0.35 },
-  { from: { x:  1.10, y:  0.85 }, to: 5, state: "accepted", phase: 0.40, speed: 0.26, particles: 2, curve:  0.30 },
-  { from: { x:  0.60, y:  1.10 }, to: 5, state: "refused",  phase: 0.75, speed: 0.22, particles: 0, curve: -0.45 },
+  // node 5 — the hero node, busiest
+  { from: { x: -0.30, y:  0.50, z:  0.05 }, to: 5, state: "accepted", phase: 0.00, speed: 0.32, particles: 3, cp: { x:  0.00, y:  0.08, z:  0.00 } },
+  { from: { x:  0.50, y:  0.55, z:  0.00 }, to: 5, state: "accepted", phase: 0.22, speed: 0.28, particles: 2, cp: { x:  0.05, y:  0.06, z:  0.00 } },
+  { from: { x:  0.60, y: -0.55, z: -0.05 }, to: 5, state: "accepted", phase: 0.55, speed: 0.26, particles: 2, cp: { x:  0.05, y: -0.05, z:  0.05 } },
+  { from: { x: -0.05, y: -0.55, z:  0.40 }, to: 5, state: "scoped",   phase: 0.35, speed: 0.22, particles: 1, cp: { x:  0.00, y: -0.05, z:  0.05 } },
+  { from: { x:  0.15, y: -0.55, z: -0.45 }, to: 5, state: "refused",  phase: 0.70, speed: 0.22, particles: 0, cp: { x:  0.00, y: -0.08, z:  0.00 } },
 
-  // node 6 — right-edge agent
-  { from: { x:  1.10, y:  0.18 }, to: 6, state: "accepted", phase: 0.10, speed: 0.28, particles: 2, curve: -0.35 },
-  { from: { x:  1.10, y:  0.62 }, to: 6, state: "accepted", phase: 0.55, speed: 0.25, particles: 2, curve:  0.30 },
-  { from: { x:  1.10, y:  0.95 }, to: 6, state: "scoped",   phase: 0.85, speed: 0.22, particles: 1, curve: -0.20 },
+  // node 6 — right-mid agent
+  { from: { x:  0.75, y:  0.40, z:  0.00 }, to: 6, state: "accepted", phase: 0.05, speed: 0.28, particles: 2, cp: { x:  0.05, y:  0.05, z:  0.00 } },
+  { from: { x:  0.15, y:  0.55, z:  0.20 }, to: 6, state: "accepted", phase: 0.60, speed: 0.24, particles: 2, cp: { x:  0.00, y:  0.05, z:  0.05 } },
+
+  // node 7 — right-back agent
+  { from: { x:  0.85, y: -0.50, z:  0.35 }, to: 7, state: "accepted", phase: 0.25, speed: 0.26, particles: 2, cp: { x:  0.05, y: -0.05, z:  0.05 } },
+  { from: { x:  0.20, y: -0.55, z:  0.45 }, to: 7, state: "scoped",   phase: 0.75, speed: 0.20, particles: 1, cp: { x:  0.00, y: -0.05, z:  0.05 } },
+
+  // node 8 — right-edge agent
+  { from: { x:  0.85, y:  0.40, z: -0.05 }, to: 8, state: "accepted", phase: 0.15, speed: 0.26, particles: 2, cp: { x:  0.05, y:  0.05, z:  0.00 } },
+  { from: { x:  0.85, y: -0.35, z: -0.10 }, to: 8, state: "accepted", phase: 0.55, speed: 0.28, particles: 2, cp: { x:  0.05, y: -0.05, z:  0.00 } },
+  { from: { x:  0.85, y:  0.05, z:  0.40 }, to: 8, state: "refused",  phase: 0.80, speed: 0.22, particles: 0, cp: { x:  0.05, y:  0.00, z:  0.05 } },
+
+  // node 9 — deep-front agent (behind camera direction — mostly visible as it rotates)
+  { from: { x: -0.30, y: -0.20, z: -0.75 }, to: 9, state: "accepted", phase: 0.10, speed: 0.26, particles: 2, cp: { x: -0.05, y: -0.05, z: -0.05 } },
+  { from: { x:  0.20, y:  0.20, z: -0.75 }, to: 9, state: "scoped",   phase: 0.60, speed: 0.22, particles: 1, cp: { x:  0.05, y:  0.05, z: -0.05 } },
 ];
 
+/* -------------------------------------------------------------------------- */
+/*  Component                                                                 */
 /* -------------------------------------------------------------------------- */
 
 export default function HeroGraph() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const wrapper = wrapperRef.current;
+    if (!canvas || !wrapper) return;
     const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
@@ -120,134 +150,285 @@ export default function HeroGraph() {
       typeof window.matchMedia === "function" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    /* ---------- mutable state ------------------------------------------- */
+
     let width = 0;
     let height = 0;
     let rafId = 0;
     const start = performance.now();
 
+    // Target mouse in [-0.5, 0.5] (both axes), lerped toward by current.
+    let targetMx = 0;
+    let targetMy = 0;
+    let mx = 0;
+    let my = 0;
+
+    // Scroll normalised to [0, 1] while the hero is in view.
+    let targetScroll = 0;
+    let scroll = 0;
+
+    /* ---------- sizing -------------------------------------------------- */
+
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
       width = rect.width;
       height = rect.height;
-      // Clamp DPR at 2 — beyond that the bytes burned on a decorative layer
-      // outweigh the sharpness gain.
+      // Clamp DPR; beyond 2 the pixel cost outweighs any visible sharpness
+      // gain for an ambient background layer.
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.max(1, Math.round(width * dpr));
       canvas.height = Math.max(1, Math.round(height * dpr));
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
-    const scale = () => Math.max(0.55, Math.min(width, height) / 900);
+    // Reference viewport so radii, line widths and world scale stay stable
+    // across phones and desktops.
+    const scaleRef = () => Math.max(0.55, Math.min(width, height) / 900);
 
-    const nodePx = (n: NodeDef) => ({ x: n.x * width, y: n.y * height });
-    const anchorPx = (a: { x: number; y: number }) => ({
-      x: a.x * width,
-      y: a.y * height,
-    });
+    // How many screen pixels one world-unit of XY covers at z=0.
+    const worldScale = () => Math.min(width, height) * 1.25;
 
-    const bezier = (
-      a: { x: number; y: number },
-      c: { x: number; y: number },
-      b: { x: number; y: number },
-      t: number,
-    ) => {
+    /* ---------- math helpers ------------------------------------------- */
+
+    const bezier3 = (a: Vec3, c: Vec3, b: Vec3, t: number): Vec3 => {
       const u = 1 - t;
       return {
         x: u * u * a.x + 2 * u * t * c.x + t * t * b.x,
         y: u * u * a.y + 2 * u * t * c.y + t * t * b.y,
+        z: u * u * a.z + 2 * u * t * c.z + t * t * b.z,
       };
     };
 
-    const drawThread = (th: ThreadDef, timeSec: number) => {
-      const a = anchorPx(th.from);
-      const b = nodePx(NODES[th.to]);
+    // Rotate a 3D point around Y (yaw), then X (pitch).
+    const rotate = (v: Vec3, yaw: number, pitch: number): Vec3 => {
+      const cy = Math.cos(yaw);
+      const sy = Math.sin(yaw);
+      const x1 = v.x * cy + v.z * sy;
+      const z1 = -v.x * sy + v.z * cy;
+      const cp = Math.cos(pitch);
+      const sp = Math.sin(pitch);
+      const y1 = v.y * cp - z1 * sp;
+      const z2 = v.y * sp + z1 * cp;
+      return { x: x1, y: y1, z: z2 };
+    };
 
-      // Perpendicular control point so curves bow organically.
-      const dx = b.x - a.x;
-      const dy = b.y - a.y;
-      const len = Math.hypot(dx, dy) || 1;
-      const nx = -dy / len;
-      const ny = dx / len;
-      const cp = {
-        x: (a.x + b.x) / 2 + nx * th.curve * len * 0.18,
-        y: (a.y + b.y) / 2 + ny * th.curve * len * 0.18,
+    // Perspective projection. Returns screen-space x/y plus a `scale` factor
+    // that callers fold into radii, line widths and alpha (fog).
+    const FOCAL = 1.1;
+    const project = (v: Vec3) => {
+      const k = FOCAL / (FOCAL + v.z);
+      const ws = worldScale();
+      return {
+        x: width / 2 + v.x * ws * k,
+        y: height / 2 + v.y * ws * k,
+        k, // > 1 when the point is in front of origin, < 1 behind
+        z: v.z, // keep depth for fog / sort
+      };
+    };
+
+    // Depth-dependent alpha. At z = -0.4 (closest), ~1.0; at z = +0.5
+    // (farthest), ~0.35. The sceneZ argument is the point's z _after_
+    // rotation, so nodes actually fade in/out as the scene rotates.
+    const fog = (z: number) => {
+      const t = (0.5 - z) / 0.9; // 0..1 maps +0.5 -> 0, -0.4 -> 1
+      return Math.max(0.35, Math.min(1, t));
+    };
+
+    /* ---------- draw ---------------------------------------------------- */
+
+    const render = (nowMs: number) => {
+      const timeSec = (nowMs - start) / 1000;
+
+      // Smooth trailing state so motion never jitters even when the mouse
+      // moves discretely or the scroll event fires rapidly.
+      mx += (targetMx - mx) * 0.07;
+      my += (targetMy - my) * 0.07;
+      scroll += (targetScroll - scroll) * 0.08;
+
+      // Base orbital drift (very slow) + mouse parallax + scroll tilt.
+      const yaw = Math.sin(timeSec * 0.18) * 0.08 + mx * 0.55;
+      const pitch =
+        Math.sin(timeSec * 0.14 + 1.2) * 0.05 + my * 0.32 + scroll * 0.18;
+
+      ctx.clearRect(0, 0, width, height);
+
+      // Project every node once per frame; reused for threads.
+      const projectedNodes = NODES.map((n) => {
+        const r = rotate(n.p, yaw, pitch);
+        return { n, r, s: project(r) };
+      });
+
+      // Collect drawables (threads + nodes) so we can paint back-to-front
+      // per element. For threads we sort by midpoint depth.
+      type Drawable =
+        | { kind: "thread"; th: ThreadDef; depth: number }
+        | { kind: "node"; idx: number; depth: number };
+
+      const drawables: Drawable[] = [];
+
+      for (let i = 0; i < projectedNodes.length; i++) {
+        drawables.push({ kind: "node", idx: i, depth: projectedNodes[i].r.z });
+      }
+
+      for (const th of THREADS) {
+        const aRot = rotate(th.from, yaw, pitch);
+        const b = projectedNodes[th.to].r;
+        const midWorld = {
+          x: (th.from.x + NODES[th.to].p.x) / 2 + th.cp.x,
+          y: (th.from.y + NODES[th.to].p.y) / 2 + th.cp.y,
+          z: (th.from.z + NODES[th.to].p.z) / 2 + th.cp.z,
+        };
+        const cRot = rotate(midWorld, yaw, pitch);
+        drawables.push({
+          kind: "thread",
+          th,
+          depth: (aRot.z + b.z + cRot.z) / 3,
+        });
+      }
+
+      // Painter's algorithm — deepest first.
+      drawables.sort((a, b) => b.depth - a.depth);
+
+      ctx.globalCompositeOperation = "lighter";
+      for (const d of drawables) {
+        if (d.kind === "thread") {
+          drawThread(d.th, timeSec, yaw, pitch);
+        }
+      }
+      ctx.globalCompositeOperation = "source-over";
+      for (const d of drawables) {
+        if (d.kind === "node") {
+          drawNode(d.idx, timeSec, projectedNodes[d.idx]);
+        }
+      }
+
+      if (!reduceMotion) rafId = requestAnimationFrame(render);
+    };
+
+    const drawThread = (
+      th: ThreadDef,
+      timeSec: number,
+      yaw: number,
+      pitch: number,
+    ) => {
+      const aWorld = th.from;
+      const bWorld = NODES[th.to].p;
+      const cWorld: Vec3 = {
+        x: (aWorld.x + bWorld.x) / 2 + th.cp.x,
+        y: (aWorld.y + bWorld.y) / 2 + th.cp.y,
+        z: (aWorld.z + bWorld.z) / 2 + th.cp.z,
       };
 
-      // Refused threads never reach the node — they peter out at ~55%.
-      const endT = th.state === "refused" ? 0.55 : 1;
-      const end = bezier(a, cp, b, endT);
+      const aRot = rotate(aWorld, yaw, pitch);
+      const bRot = rotate(bWorld, yaw, pitch);
+      const cRot = rotate(cWorld, yaw, pitch);
 
-      // Stroke: soft gradient from dim at source to bright near endpoint.
+      const a = project(aRot);
+      const b = project(bRot);
+      const c = project(cRot);
+
+      const endT = th.state === "refused" ? 0.55 : 1;
+      const endWorld = bezier3(aWorld, cWorld, bWorld, endT);
+      const endProj = project(rotate(endWorld, yaw, pitch));
+
       const colour = STATE[th.state];
-      const grad = ctx.createLinearGradient(a.x, a.y, end.x, end.y);
+      const alpha =
+        (th.state === "scoped" ? 0.4 : 0.55) * ((fog(aRot.z) + fog(bRot.z)) / 2);
+
+      const grad = ctx.createLinearGradient(a.x, a.y, endProj.x, endProj.y);
       grad.addColorStop(0, rgba(colour, 0));
-      grad.addColorStop(1, rgba(colour, th.state === "scoped" ? 0.45 : 0.6));
+      grad.addColorStop(1, rgba(colour, alpha));
 
       ctx.strokeStyle = grad;
-      ctx.lineWidth = 1 * scale();
+      ctx.lineWidth = 1 * scaleRef();
       ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(a.x, a.y);
-      // For refused threads use a slightly shorter control point so the
-      // curve visibly "breaks off" rather than pointing at the node.
+
       if (th.state === "refused") {
-        const cp2 = bezier(a, cp, b, 0.35);
-        ctx.quadraticCurveTo(cp2.x, cp2.y, end.x, end.y);
+        const mid = project(rotate(bezier3(aWorld, cWorld, bWorld, 0.35), yaw, pitch));
+        ctx.quadraticCurveTo(mid.x, mid.y, endProj.x, endProj.y);
       } else {
-        ctx.quadraticCurveTo(cp.x, cp.y, b.x, b.y);
+        ctx.quadraticCurveTo(c.x, c.y, b.x, b.y);
       }
       ctx.stroke();
 
       if (th.particles === 0) return;
 
-      // Particles traveling along the curve, brightening as they approach
-      // their destination ("the packet was accepted").
+      // Particles travel in world-space then project each frame — this
+      // gives the right perspective speed-up / slow-down as they move
+      // closer to / away from the camera.
       for (let i = 0; i < th.particles; i++) {
         const u = (timeSec * th.speed + th.phase + i / th.particles) % 1;
-        const p = bezier(a, cp, b, u);
-        const alpha = 0.35 + 0.65 * u; // fade-in over the journey
-        const rad = (1.8 + 1.2 * u) * scale();
+        const pWorld = bezier3(aWorld, cWorld, bWorld, u);
+        const pRot = rotate(pWorld, yaw, pitch);
+        const pProj = project(pRot);
 
-        // Soft outer glow.
-        const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, rad * 5);
-        glow.addColorStop(0, rgba(colour, alpha * 0.55));
+        const f = fog(pRot.z);
+        const brighten = 0.35 + 0.65 * u; // fade-in over the journey
+        const a0 = brighten * f;
+        const radius = (1.6 + 1.2 * u) * scaleRef() * Math.max(0.6, pProj.k);
+
+        const glow = ctx.createRadialGradient(
+          pProj.x,
+          pProj.y,
+          0,
+          pProj.x,
+          pProj.y,
+          radius * 5,
+        );
+        glow.addColorStop(0, rgba(colour, a0 * 0.55));
         glow.addColorStop(1, rgba(colour, 0));
         ctx.fillStyle = glow;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, rad * 5, 0, Math.PI * 2);
+        ctx.arc(pProj.x, pProj.y, radius * 5, 0, Math.PI * 2);
         ctx.fill();
 
-        // Crisp core.
-        ctx.fillStyle = rgba(colour, Math.min(1, alpha + 0.25));
+        ctx.fillStyle = rgba(colour, Math.min(1, a0 + 0.3));
         ctx.beginPath();
-        ctx.arc(p.x, p.y, rad * 0.8, 0, Math.PI * 2);
+        ctx.arc(pProj.x, pProj.y, radius * 0.85, 0, Math.PI * 2);
         ctx.fill();
       }
     };
 
-    const drawNode = (n: NodeDef, idx: number, timeSec: number) => {
-      const p = nodePx(n);
-      const r = n.r * scale();
-      // Each node pulses on its own phase so the constellation breathes
-      // instead of flashing in sync.
+    const drawNode = (
+      idx: number,
+      timeSec: number,
+      pn: { n: NodeDef; r: Vec3; s: ReturnType<typeof project> },
+    ) => {
+      const { n, r: rot, s } = pn;
+      const k = Math.max(0.55, s.k);
+      const r = n.r * scaleRef() * k;
+      const f = fog(rot.z);
+
+      // Each node breathes on its own phase so the constellation never
+      // flashes in unison.
       const pulse = 0.82 + 0.18 * Math.sin(timeSec * 1.1 + idx * 0.9);
 
-      // Halo.
-      const halo = ctx.createRadialGradient(p.x, p.y, r * 0.3, p.x, p.y, r * 3.2);
-      halo.addColorStop(0, rgba([139, 92, 246], 0.32 * pulse));
-      halo.addColorStop(0.55, rgba([59, 130, 246], 0.08 * pulse));
-      halo.addColorStop(1, rgba([59, 130, 246], 0));
+      // Halo — a near/far colour mix gives depth cues even on nodes that
+      // happen to rotate through the center.
+      const haloColour: Rgb = rot.z < 0 ? HALO_NEAR : HALO_FAR;
+      const halo = ctx.createRadialGradient(
+        s.x,
+        s.y,
+        r * 0.3,
+        s.x,
+        s.y,
+        r * 3.2,
+      );
+      halo.addColorStop(0, rgba(haloColour, 0.32 * pulse * f));
+      halo.addColorStop(0.55, rgba(haloColour, 0.08 * pulse * f));
+      halo.addColorStop(1, rgba(haloColour, 0));
       ctx.fillStyle = halo;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, r * 3.2, 0, Math.PI * 2);
+      ctx.arc(s.x, s.y, r * 3.2, 0, Math.PI * 2);
       ctx.fill();
 
       // Hex body.
       ctx.save();
-      ctx.translate(p.x, p.y);
+      ctx.translate(s.x, s.y);
       ctx.beginPath();
       for (let i = 0; i < 6; i++) {
-        // Flat-top hex: first vertex at angle = -30° so edges face up/down.
         const a = (Math.PI / 3) * i - Math.PI / 6;
         const x = Math.cos(a) * r;
         const y = Math.sin(a) * r;
@@ -255,63 +436,85 @@ export default function HeroGraph() {
       }
       ctx.closePath();
 
-      // Very faint fill so the hex reads against the grid but doesn't mask
-      // the particles flowing behind larger nodes.
-      ctx.fillStyle = rgba([139, 92, 246], 0.05);
+      ctx.fillStyle = rgba(HALO_NEAR, 0.05 * f);
       ctx.fill();
 
-      // Gradient stroke (violet → blue → cyan) matching the brand ramp.
       const stroke = ctx.createLinearGradient(-r, -r, r, r);
-      stroke.addColorStop(0, rgba(NODE_STROKE[0], 0.9));
-      stroke.addColorStop(0.5, rgba(NODE_STROKE[1], 0.9));
-      stroke.addColorStop(1, rgba(NODE_STROKE[2], 0.9));
+      stroke.addColorStop(0, rgba(NODE_STROKE[0], 0.9 * f));
+      stroke.addColorStop(0.5, rgba(NODE_STROKE[1], 0.9 * f));
+      stroke.addColorStop(1, rgba(NODE_STROKE[2], 0.9 * f));
       ctx.strokeStyle = stroke;
-      ctx.lineWidth = 1.5 * scale();
+      ctx.lineWidth = 1.5 * scaleRef() * k;
       ctx.stroke();
 
-      // Tiny verified check-mark at the centre.
-      const cr = r * 0.38;
-      ctx.beginPath();
-      ctx.moveTo(-cr * 0.65, 0);
-      ctx.lineTo(-cr * 0.15, cr * 0.5);
-      ctx.lineTo(cr * 0.65, -cr * 0.55);
-      ctx.strokeStyle = rgba([134, 239, 172], 0.95); // emerald-300
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
-      ctx.lineWidth = 1.6 * scale();
-      ctx.stroke();
+      // Tiny verified check-mark, only on nodes close enough that it'd read.
+      if (k > 0.75) {
+        const cr = r * 0.38;
+        ctx.beginPath();
+        ctx.moveTo(-cr * 0.65, 0);
+        ctx.lineTo(-cr * 0.15, cr * 0.5);
+        ctx.lineTo(cr * 0.65, -cr * 0.55);
+        ctx.strokeStyle = rgba([134, 239, 172], 0.95 * f);
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.lineWidth = 1.6 * scaleRef() * k;
+        ctx.stroke();
+      }
 
       ctx.restore();
     };
 
-    const render = (nowMs: number) => {
-      const timeSec = (nowMs - start) / 1000;
-      ctx.clearRect(0, 0, width, height);
-      // additive-ish blending so overlapping glows read as light, not paint
-      ctx.globalCompositeOperation = "lighter";
-      for (const th of THREADS) drawThread(th, timeSec);
-      ctx.globalCompositeOperation = "source-over";
-      for (let i = 0; i < NODES.length; i++) drawNode(NODES[i], i, timeSec);
-      if (!reduceMotion) rafId = requestAnimationFrame(render);
+    /* ---------- interaction --------------------------------------------- */
+
+    const onPointerMove = (e: PointerEvent) => {
+      // Use the viewport so the parallax tracks the cursor naturally even
+      // when the user is well below the hero section (the canvas itself
+      // may not be on screen any more, but recalculating against the
+      // viewport gives a continuous value with no jumps).
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      targetMx = (e.clientX - cx) / window.innerWidth;
+      targetMy = (e.clientY - cy) / window.innerHeight;
     };
+
+    const onScroll = () => {
+      const rect = wrapper.getBoundingClientRect();
+      const h = rect.height || 1;
+      // 0 while the hero top is at the viewport top; 1 when the hero is
+      // fully scrolled out. Clamp so we stop integrating past the hero.
+      const progress = Math.max(0, Math.min(1, -rect.top / h));
+      targetScroll = progress;
+    };
+
+    /* ---------- wiring -------------------------------------------------- */
+
+    resize();
+    onScroll();
+    render(performance.now());
 
     const onResize = () => {
       resize();
       if (reduceMotion) render(performance.now());
     };
 
-    resize();
-    render(performance.now());
     window.addEventListener("resize", onResize);
+
+    if (!reduceMotion) {
+      window.addEventListener("pointermove", onPointerMove, { passive: true });
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
 
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
   return (
     <div
+      ref={wrapperRef}
       className="absolute inset-0 pointer-events-none opacity-70 dark:opacity-95"
       aria-hidden="true"
     >
