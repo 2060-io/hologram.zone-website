@@ -9,6 +9,136 @@ export const metadata = buildPageMetadata({
   absoluteTitle: true,
 });
 
+/*
+  Structured data for rich search results.
+  Scoped to the home page so Google de-duplicates the graph rather
+  than seeing it repeated on every inner page.
+
+  Declares:
+    - 2060 OÜ as the publishing Organization
+    - Verana Foundation as the ecosystem (linked via memberOf)
+    - hologram.zone as the WebSite
+    - Hologram Agentic AI as the developer-facing SoftwareApplication
+    - Hologram Messaging App as the consumer MobileApplication
+    - The two foundational specifications as TechArticles
+*/
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://2060.io/#organization",
+      "name": "2060",
+      "legalName": "2060 OÜ",
+      "url": "https://2060.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://2060.io/assets/logo-2060.svg",
+      },
+      "foundingDate": "2023",
+      "foundingLocation": { "@type": "Place", "name": "Tallinn, Estonia" },
+      "description":
+        "Independent research and engineering company building the infrastructure for a verifiable internet.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ahtri tn 12",
+        "postalCode": "10151",
+        "addressLocality": "Tallinn",
+        "addressCountry": "EE",
+      },
+      "sameAs": [
+        "https://github.com/2060-io",
+        "https://www.linkedin.com/company/2060-io/",
+        "https://x.com/2060_io",
+      ],
+      "memberOf": { "@id": "https://verana.io/#organization" },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://verana.io/#organization",
+      "name": "Verana Foundation",
+      "url": "https://verana.io",
+      "description":
+        "Non-profit foundation stewarding the Verana Verifiable Trust Network and the Verifiable Public Registry.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hologram.zone/#website",
+      "url": "https://hologram.zone",
+      "name": "Hologram",
+      "description":
+        "A network of verified agents. Open infrastructure for the agentic network.",
+      "publisher": { "@id": "https://2060.io/#organization" },
+      "inLanguage": "en",
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://hologram.zone/#software",
+      "name": "Hologram Agentic AI",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Cross-platform",
+      "url": "https://hologram.zone",
+      "downloadUrl": "https://github.com/2060-io",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+      },
+      "creator": { "@id": "https://2060.io/#organization" },
+      "description":
+        "Open infrastructure for deploying decentralized, verifiable, identifiable, and governable AI agents. Built by 2060 on the Verana trust layer.",
+      "featureList": [
+        "Decentralized Identifiers (DIDs)",
+        "W3C Verifiable Credentials",
+        "DIDComm end-to-end encrypted messaging",
+        "Model Context Protocol (MCP) tool integration",
+        "Agent Pack declarative policies",
+        "Trust resolution against the Verana Verifiable Public Registry",
+      ],
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://hologram.zone/#messaging-app",
+      "name": "Hologram Messaging App",
+      "operatingSystem": "iOS, Android, desktop",
+      "applicationCategory": "CommunicationApplication",
+      "url": "https://hologram.zone/app",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+      },
+      "creator": { "@id": "https://2060.io/#organization" },
+      "description":
+        "Self-custody messaging app, credential wallet, and trust-resolution engine for the Hologram agentic network. End-to-end encrypted over DIDComm.",
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Verifiable Trust Specification",
+      "url": "https://verana-labs.github.io/verifiable-trust-spec/",
+      "author": { "@id": "https://2060.io/#organization" },
+      "about": [
+        "Verifiable Credentials",
+        "Trust Registry",
+        "Decentralized Identity",
+        "Digital Trust Ecosystem",
+      ],
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Verifiable Public Registry Specification",
+      "url": "https://verana-labs.github.io/verifiable-trust-vpr-spec/",
+      "author": { "@id": "https://2060.io/#organization" },
+      "about": [
+        "Verifiable Public Registry",
+        "Decentralized Identity",
+        "Digital Trust Ecosystem",
+      ],
+    },
+  ],
+};
+
 const ECOSYSTEM = [
   { href: "https://verana.io",           alt: "Verana",              src: "/images/verana-logo-with-verana.svg", h: "h-10" },
   { href: "https://identity.foundation/", alt: "DIF",                 src: "/images/logo-dif.png",                h: "h-9"  },
@@ -22,6 +152,10 @@ const STANDARDS = ["DIDComm", "W3C VC", "DIDs", "MCP", "A2A", "OpenRouter", "Cre
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* ============== HERO ============== */}
       <section className="hero-glow relative overflow-hidden">
         <div className="absolute inset-0 bg-grid pointer-events-none" />
