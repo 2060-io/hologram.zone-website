@@ -4,7 +4,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata = buildPageMetadata({
   title: "Apps",
   description: "Two apps, one network. Hologram Messaging App for humans. Hologram Dashboard for corporations managing agent deployment, supervision, and audit.",
-  path: "/app",
+  path: "/apps",
 });
 
 export default function AppsPage() {

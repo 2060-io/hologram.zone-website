@@ -103,7 +103,7 @@ const structuredData = {
       "name": "Hologram Messaging App",
       "operatingSystem": "iOS, Android, desktop",
       "applicationCategory": "CommunicationApplication",
-      "url": "https://hologram.zone/app",
+      "url": "https://hologram.zone/apps",
       "offers": {
         "@type": "Offer",
         "price": "0",

@@ -54,7 +54,7 @@ export default function BuildPage() {
               <p className="mt-2 text-sm text-neutral-500">Operator console to deploy, supervise, and audit agent fleets. The corporate surface.</p>
               <div className="mt-4 flex items-center gap-3 text-xs text-neutral-500">
                 <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-cyan-400" />Next.js</span>
-                <span>·</span><span><Link href="/app#dashboard" className="underline decoration-dotted hover:text-neutral-900 dark:hover:text-white">Learn more</Link></span>
+                <span>·</span><span><Link href="/apps#dashboard" className="underline decoration-dotted hover:text-neutral-900 dark:hover:text-white">Learn more</Link></span>
               </div>
             </article>
 

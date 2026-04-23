@@ -3,7 +3,7 @@ export type NavLink = { href: string; label: string };
 export const NAV_LINKS: readonly NavLink[] = [
   { href: "/",        label: "Home" },
   { href: "/agents",  label: "Agents" },
-  { href: "/app",     label: "Apps" },
+  { href: "/apps",    label: "Apps" },
   { href: "/demos",   label: "Demos" },
   { href: "/pricing", label: "Pricing" },
   { href: "/build",   label: "Build" },
