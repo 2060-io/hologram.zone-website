@@ -36,12 +36,17 @@ type NodeDef = {
 };
 
 type ThreadDef = {
-  from: Vec3; // world anchor — can sit outside [-0.5, 0.5] to feel off-frame
+  // Source of the connection. Either a literal world-space anchor (for
+  // threads that arrive from "off-frame" sources such as humans, other
+  // orgs, etc.) or another node in NODES — which gives us agent-to-agent
+  // links that double as bidirectional conversations.
+  from: Vec3 | { node: number };
   to: number; // index into NODES
   state: "accepted" | "scoped" | "refused";
   phase: number; // 0..1, particle starting offset
   speed: number; // loops per second
-  particles: number;
+  particles: number; // forward traffic (from -> to)
+  back?: number; // reverse traffic (to -> from); default 0
   cp: Vec3; // world-space bezier control-point offset vs. the midpoint
 };
 
@@ -129,7 +134,39 @@ const THREADS: ThreadDef[] = [
   // node 9 — deep-front agent (behind camera direction — mostly visible as it rotates)
   { from: { x: -0.30, y: -0.20, z: -0.75 }, to: 9, state: "accepted", phase: 0.10, speed: 0.26, particles: 2, cp: { x: -0.05, y: -0.05, z: -0.05 } },
   { from: { x:  0.20, y:  0.20, z: -0.75 }, to: 9, state: "scoped",   phase: 0.60, speed: 0.22, particles: 1, cp: { x:  0.05, y:  0.05, z: -0.05 } },
+
+  /* ---- agent ↔ agent conversations --------------------------------------
+   * Node-to-node threads with non-zero `back` render traffic in both
+   * directions, telling the "agents talking to other agents" half of the
+   * hero narrative. Kept deliberately few (~4) so the scene still reads
+   * as mostly inbound requests rather than a fully-meshed blob.
+   * ---------------------------------------------------------------------- */
+
+  // hero node (5) <-> back-center (3) — the busy cross-depth link
+  { from: { node: 3 }, to: 5, state: "accepted", phase: 0.00, speed: 0.24, particles: 2, back: 2, cp: { x: 0.00, y:  0.06, z: -0.02 } },
+
+  // hero node (5) <-> right-mid agent (6) — tight collaboration
+  { from: { node: 6 }, to: 5, state: "accepted", phase: 0.30, speed: 0.30, particles: 2, back: 2, cp: { x: 0.00, y: -0.05, z:  0.00 } },
+
+  // left-front (0) <-> lower-front (2) — side channel
+  { from: { node: 0 }, to: 2, state: "accepted", phase: 0.50, speed: 0.22, particles: 1, back: 1, cp: { x: -0.05, y: -0.10, z: -0.05 } },
+
+  // upper-mid (4) <-> right-edge (8) — cross-network gossip, scoped
+  { from: { node: 4 }, to: 8, state: "scoped",   phase: 0.15, speed: 0.20, particles: 1, back: 1, cp: { x:  0.05, y:  0.10, z:  0.00 } },
+
+  /* ---- off-frame request/response (human ↔ service) --------------------
+   * A couple of the off-frame threads also flow both ways, e.g. a user
+   * phone sending a request and the agent answering back.
+   * ---------------------------------------------------------------------- */
+
+  { from: { x: -0.60, y:  0.35, z:  0.00 }, to: 5, state: "accepted", phase: 0.40, speed: 0.28, particles: 2, back: 2, cp: { x:  0.00, y:  0.08, z:  0.00 } },
+  { from: { x:  0.70, y:  0.30, z:  0.15 }, to: 8, state: "accepted", phase: 0.75, speed: 0.26, particles: 1, back: 1, cp: { x:  0.05, y:  0.08, z:  0.00 } },
 ];
+
+/** Unwraps a ThreadDef `from` to a concrete Vec3 whether it's an off-frame
+ *  anchor or a reference to another node. */
+const resolveFrom = (from: Vec3 | { node: number }): Vec3 =>
+  "node" in from ? NODES[from.node].p : from;
 
 /* -------------------------------------------------------------------------- */
 /*  Component                                                                 */
@@ -271,12 +308,13 @@ export default function HeroGraph() {
       }
 
       for (const th of THREADS) {
-        const aRot = rotate(th.from, yaw, pitch);
+        const fromWorld = resolveFrom(th.from);
+        const aRot = rotate(fromWorld, yaw, pitch);
         const b = projectedNodes[th.to].r;
         const midWorld = {
-          x: (th.from.x + NODES[th.to].p.x) / 2 + th.cp.x,
-          y: (th.from.y + NODES[th.to].p.y) / 2 + th.cp.y,
-          z: (th.from.z + NODES[th.to].p.z) / 2 + th.cp.z,
+          x: (fromWorld.x + NODES[th.to].p.x) / 2 + th.cp.x,
+          y: (fromWorld.y + NODES[th.to].p.y) / 2 + th.cp.y,
+          z: (fromWorld.z + NODES[th.to].p.z) / 2 + th.cp.z,
         };
         const cRot = rotate(midWorld, yaw, pitch);
         drawables.push({
@@ -311,7 +349,7 @@ export default function HeroGraph() {
       yaw: number,
       pitch: number,
     ) => {
-      const aWorld = th.from;
+      const aWorld = resolveFrom(th.from);
       const bWorld = NODES[th.to].p;
       const cWorld: Vec3 = {
         x: (aWorld.x + bWorld.x) / 2 + th.cp.x,
@@ -335,12 +373,25 @@ export default function HeroGraph() {
       const alpha =
         (th.state === "scoped" ? 0.4 : 0.55) * ((fog(aRot.z) + fog(bRot.z)) / 2);
 
-      const grad = ctx.createLinearGradient(a.x, a.y, endProj.x, endProj.y);
-      grad.addColorStop(0, rgba(colour, 0));
-      grad.addColorStop(1, rgba(colour, alpha));
+      // Bidirectional (back > 0) or node-originated threads get a symmetric
+      // gradient so neither endpoint is visually demoted to "source". Pure
+      // inbound-from-off-frame threads keep the fade-in-from-anchor ramp
+      // that reads naturally as "a request arriving at the agent".
+      const back = th.back ?? 0;
+      const symmetric = back > 0 || "node" in th.from;
+
+      const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+      if (symmetric) {
+        grad.addColorStop(0, rgba(colour, alpha * 0.55));
+        grad.addColorStop(0.5, rgba(colour, alpha));
+        grad.addColorStop(1, rgba(colour, alpha * 0.55));
+      } else {
+        grad.addColorStop(0, rgba(colour, 0));
+        grad.addColorStop(1, rgba(colour, alpha));
+      }
 
       ctx.strokeStyle = grad;
-      ctx.lineWidth = 1 * scaleRef();
+      ctx.lineWidth = (symmetric ? 1.15 : 1) * scaleRef();
       ctx.lineCap = "round";
       ctx.beginPath();
       ctx.moveTo(a.x, a.y);
@@ -353,21 +404,25 @@ export default function HeroGraph() {
       }
       ctx.stroke();
 
-      if (th.particles === 0) return;
+      if (th.particles === 0 && back === 0) return;
 
-      // Particles travel in world-space then project each frame — this
-      // gives the right perspective speed-up / slow-down as they move
-      // closer to / away from the camera.
-      for (let i = 0; i < th.particles; i++) {
-        const u = (timeSec * th.speed + th.phase + i / th.particles) % 1;
+      /* ---- particle pass -------------------------------------------------
+       * `u` is the particle's position along the forward curve [0..1].
+       * `progress` is how far the particle is through its *own* journey.
+       * For forward traffic they're the same; for reverse traffic we
+       * invert u so particles travel to->from but still brighten as they
+       * approach their destination (the `from` side).
+       * ------------------------------------------------------------------ */
+      const drawParticle = (u: number, progress: number) => {
         const pWorld = bezier3(aWorld, cWorld, bWorld, u);
         const pRot = rotate(pWorld, yaw, pitch);
         const pProj = project(pRot);
 
         const f = fog(pRot.z);
-        const brighten = 0.35 + 0.65 * u; // fade-in over the journey
+        const brighten = 0.35 + 0.65 * progress;
         const a0 = brighten * f;
-        const radius = (1.6 + 1.2 * u) * scaleRef() * Math.max(0.6, pProj.k);
+        const radius =
+          (1.6 + 1.2 * progress) * scaleRef() * Math.max(0.6, pProj.k);
 
         const glow = ctx.createRadialGradient(
           pProj.x,
@@ -388,6 +443,19 @@ export default function HeroGraph() {
         ctx.beginPath();
         ctx.arc(pProj.x, pProj.y, radius * 0.85, 0, Math.PI * 2);
         ctx.fill();
+      };
+
+      // Forward stream: from -> to.
+      for (let i = 0; i < th.particles; i++) {
+        const u = (timeSec * th.speed + th.phase + i / th.particles) % 1;
+        drawParticle(u, u);
+      }
+
+      // Reverse stream: to -> from. Offset by 0.5 so reverse beads don't
+      // sit on top of forward ones at every frame.
+      for (let i = 0; i < back; i++) {
+        const uR = (timeSec * th.speed + th.phase + 0.5 + i / back) % 1;
+        drawParticle(1 - uR, uR);
       }
     };
 
