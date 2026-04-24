@@ -172,10 +172,10 @@ export default function HomePage() {
               Open Source · Apache 2.0 · Built on Verana Trust Network
             </div>
             <h1 className="font-display h-display mt-6">
-              The Future Is a <span className="gradient-text">Network of Verified Agents</span>
+              Join the Open  <span className="gradient-text">Network of Verified Agents</span>
             </h1>
             <p className="mt-6 text-lg sm:text-xl md:text-2xl text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-3xl mx-auto">
-              Not one AI assistant per person. A network. Agents serving many humans. Agents talking to other agents. Every connection gated by cryptographic proof of who is on the other end, and what they are authorised to do.
+              The future is now. A network. Agents serving many humans. Agents talking to other agents. Every connection gated by cryptographic proof of who is on the other end, and what they are authorised to do.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link href="/pricing" className="px-7 py-3.5 rounded-xl text-base font-semibold bg-brand-600 hover:bg-brand-500 text-white shadow-lg shadow-brand-600/30 transition">Get Started Free</Link>
