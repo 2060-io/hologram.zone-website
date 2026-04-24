@@ -329,7 +329,11 @@ function DemoCard({
           <img
             src={demo.art.src}
             alt={demo.art.alt}
-            className="relative w-20 h-20 rounded-2xl object-contain bg-white p-3 shadow-xl"
+            // Same 96×96 footprint as photo icons; `bg-white` keeps
+            // dark marks (GitHub) visible on dark gradients; `p-2`
+            // gives 80px of logo inside a 96px box, so the rendered
+            // mass matches the photo cards visually.
+            className="relative w-24 h-24 rounded-2xl object-contain bg-white p-2 shadow-xl ring-1 ring-white/30"
             loading="lazy"
           />
         )}
