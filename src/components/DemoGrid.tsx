@@ -121,7 +121,7 @@ const DEMOS: Demo[] = [
         An AI-powered GitHub assistant that uses the{" "}
         <strong className="text-neutral-900 dark:text-white">Model Context Protocol (MCP)</strong>{" "}
         to interact with GitHub on your behalf. Search repositories, browse
-        issues and pull requests, explore code, and manage your projects —
+        issues and pull requests, explore code, and manage your projects,
         all through an encrypted DIDComm chat in Hologram Messaging. To get
         started: first authenticate using the credential you received from
         the Avatar service, then open the contextual menu, select{" "}
@@ -155,7 +155,7 @@ const DEMOS: Demo[] = [
         <strong className="text-neutral-900 dark:text-white">Model Context Protocol (MCP)</strong>{" "}
         to interact with your Wise account. Check balances, view exchange
         rates, list transfers, send money, create invoices, and manage
-        recipients — all through an encrypted DIDComm chat in Hologram
+        recipients, all through an encrypted DIDComm chat in Hologram
         Messaging. To get started: first authenticate using the credential
         you received from the Avatar service, then open the contextual menu,
         select <em>MCP Server Config</em>, and enter your Wise API Token.
@@ -206,7 +206,7 @@ const DEMOS: Demo[] = [
         <br />
         <br />
         Because each instance is tied to a specific X/Twitter account, there
-        is no shared demo — you deploy your own, linked to your own handle.
+        is no shared demo. You deploy your own, linked to your own handle.
         See the documentation to get started.
         <br />
         <br />
@@ -216,7 +216,7 @@ const DEMOS: Demo[] = [
         </strong>
         . The Agent Pack policy binds posting rights to verifiable credentials,
         so a personal handle can stay personal, and a corporate handle can
-        grant publishing authority to a credential-gated team — only holders
+        grant publishing authority to a credential-gated team. Only holders
         of the credentials you approve can draft and publish, and every action
         is attributable.
       </>
