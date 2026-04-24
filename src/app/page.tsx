@@ -253,8 +253,14 @@ export default function HomePage() {
               <p className="text-center sm:text-left text-xl font-semibold pt-3">No blind trust. No hope. <span className="gradient-text">Cryptographic proof.</span></p>
             </ol>
 
-            <div className="relative reveal">
-              <div className="absolute -inset-10 hero-glow" />
+            <div className="relative reveal min-w-0">
+              {/* Glow wrapper clips its own pseudo-element so the
+                  hero-glow::before (which extends -10% beyond) cannot
+                  escape the grid column and force horizontal page
+                  overflow on mobile. */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute -inset-10 hero-glow" />
+              </div>
               <div className="relative mx-auto w-full max-w-sm card rounded-[2.5rem] p-3">
                 <div className="rounded-[2rem] overflow-hidden bg-neutral-50 dark:bg-neutral-900">
                   <div className="h-6 flex items-center justify-center bg-neutral-100 dark:bg-neutral-800/60"><span className="w-16 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-700" /></div>
@@ -361,7 +367,7 @@ Response: Connected, with scoped access.   Audit record written.`}</pre>
                   <p className="text-neutral-900 dark:text-white font-semibold">Your infrastructure. Your data. Your rules.</p>
                 </div>
               </div>
-              <div className="card rounded-2xl p-5 text-sm">
+              <div className="card rounded-2xl p-5 text-sm min-w-0">
                 <div className="flex items-center justify-between mb-3 text-xs text-neutral-500">
                   <div className="flex gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-red-400" /><span className="w-2.5 h-2.5 rounded-full bg-amber-400" /><span className="w-2.5 h-2.5 rounded-full bg-emerald-400" /></div>
                   <span className="font-mono">agent-pack.yaml</span>
