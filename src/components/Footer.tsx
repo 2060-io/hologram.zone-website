@@ -47,6 +47,11 @@ export default function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
               <li><a href={COMPANY.website}    className="hover:text-neutral-900 dark:hover:text-white">2060.io ↗</a></li>
               <li><a href={COMPANY.foundation} className="hover:text-neutral-900 dark:hover:text-white">Verana Foundation ↗</a></li>
+              <li>
+                <Link href="/contact" className="hover:text-neutral-900 dark:hover:text-white">
+                  Contact
+                </Link>
+              </li>
               {FOOTER_LEGAL.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="hover:text-neutral-900 dark:hover:text-white">
@@ -60,11 +65,10 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-neutral-200 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
           <p className="text-center md:text-left">
-            Hologram is developed by{" "}
-            <a href={COMPANY.website} className="underline decoration-dotted">2060.io</a>
-            , built on the{" "}
+            © {new Date().getFullYear()}{" "}
+            <a href={COMPANY.website} className="underline decoration-dotted">{COMPANY.legalName}</a>
+            {" · "}{COMPANY.address}{" · "}Built on the{" "}
             <a href={COMPANY.foundation} className="underline decoration-dotted">Verana Verifiable Trust Network</a>.
-            <br />© {new Date().getFullYear()} {COMPANY.legalName} · {COMPANY.address}
           </p>
           <div className="flex items-center gap-4">
             <a href={SOCIALS.linkedin} className="hover:text-neutral-900 dark:hover:text-white">LinkedIn</a>
