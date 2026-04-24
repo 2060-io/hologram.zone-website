@@ -69,6 +69,20 @@ const NODE_STROKE: Rgb[] = [
 const HALO_NEAR: Rgb = [139, 92, 246]; // brand-500
 const HALO_FAR: Rgb = [59, 130, 246]; // blue-500
 
+/**
+ * Global speed dial for the whole hero animation. Applied to every
+ * time-driven thing uniformly: orbital drift, per-node pulse, particle
+ * travel along threads.
+ *
+ *   1.0   natural speed (original)
+ *   0.7   ~30% slower — calm but clearly alive  ← current default
+ *   0.5   slow and meditative
+ *   0.3   almost frozen, occasional motion
+ *
+ * To retune the vibe, change this one number. No other edits needed.
+ */
+const ANIMATION_SPEED = 0.3;
+
 const rgba = (c: Rgb, a: number) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
 
 /* -------------------------------------------------------------------------- */
@@ -274,7 +288,11 @@ export default function HeroGraph() {
     /* ---------- draw ---------------------------------------------------- */
 
     const render = (nowMs: number) => {
-      const timeSec = (nowMs - start) / 1000;
+      // Scaling timeSec once here means every downstream animation term
+      // (`timeSec * 0.18` for orbital yaw, `timeSec * th.speed` for
+      // particles, `timeSec * 1.1` for node pulse, etc.) inherits the
+      // ANIMATION_SPEED factor automatically.
+      const timeSec = ((nowMs - start) / 1000) * ANIMATION_SPEED;
 
       // Smooth trailing state so motion never jitters even when the mouse
       // moves discretely or the scroll event fires rapidly.
