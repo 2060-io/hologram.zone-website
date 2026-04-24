@@ -69,7 +69,7 @@ export default function DemosPage() {
                 >
                   Apps page
                 </Link>
-                {" "}— it&apos;s free on iOS and Android.
+                .
               </p>
             </div>
           </div>
