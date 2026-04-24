@@ -47,6 +47,11 @@ export default function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
               <li><a href={COMPANY.website}    className="hover:text-neutral-900 dark:hover:text-white">2060.io ↗</a></li>
               <li><a href={COMPANY.foundation} className="hover:text-neutral-900 dark:hover:text-white">Verana Foundation ↗</a></li>
+              <li>
+                <Link href="/contact" className="hover:text-neutral-900 dark:hover:text-white">
+                  Contact
+                </Link>
+              </li>
               {FOOTER_LEGAL.map((l) => (
                 <li key={l.href}>
                   <Link href={l.href} className="hover:text-neutral-900 dark:hover:text-white">
