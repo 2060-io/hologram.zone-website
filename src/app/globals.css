@@ -41,11 +41,20 @@
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
+  /* Viewport-level safety net: if any decoration (radial glow, wide
+     <pre>, unexpectedly wide image) sticks past the viewport edge,
+     contain it horizontally rather than letting the page widen and
+     get horizontal scroll — which on mobile made the fixed <Nav>
+     appear narrower than the body content.
+     `clip` instead of `hidden` so `position: sticky` descendants
+     keep working (hidden would force a scroll container). */
+  overflow-x: clip;
 }
 body {
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 /* visible focus rings for accessibility */
