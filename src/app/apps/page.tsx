@@ -128,7 +128,7 @@ export default function AppsPage() {
                 and Google internal stroke rects stripped so the outer
                 wrapper border is the only one visible, consistent
                 across all three). */}
-            <div className="relative mt-10 flex flex-wrap items-center justify-center gap-3">
+            <div className="relative mt-20 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="https://apps.apple.com/us/app/hologram-messaging/id6474701855"
                 target="_blank"
