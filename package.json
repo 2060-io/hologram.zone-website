@@ -1,19 +1,26 @@
 {
-  "name": "verana-io-codex-site",
-  "private": true,
+  "name": "hologram.zone-website",
   "version": "0.1.0",
+  "private": true,
+  "description": "Next.js + Tailwind 4 marketing site for hologram.zone",
   "scripts": {
-    "build:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --minify",
-    "watch:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css --watch",
-    "build": "hugo -d public",
-    "dev": "concurrently \"npm:watch:css\" \"hugo server -D\""
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.45",
-    "postcss-cli": "^11.0.0",
-    "concurrently": "^9.0.1",
-    "tailwindcss": "^3.4.10",
-    "@tailwindcss/typography": "^0.5.15"
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.3"
   }
 }
