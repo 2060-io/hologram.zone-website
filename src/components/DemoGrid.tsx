@@ -105,7 +105,7 @@ const DEMOS: Demo[] = [
     title: "GitHub Agent",
     tagline: "AI assistant over MCP",
     badge: {
-      label: "Community Service",
+      label: "Multiuser Service",
       className:
         "bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 ring-1 ring-cyan-500/30",
     },
@@ -138,7 +138,7 @@ const DEMOS: Demo[] = [
     title: "Wise Agent",
     tagline: "AI assistant over MCP",
     badge: {
-      label: "Community Service",
+      label: "Multiuser Service",
       className:
         "bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 ring-1 ring-cyan-500/30",
     },
