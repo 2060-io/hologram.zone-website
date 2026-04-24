@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.2.0...hologram-zone-website-v0.3.0) (2026-04-24)
+
+
+### Features
+
+* **demos:** revamp demo cards with real icons, single-QR, phone/desktop routing ([#109](https://github.com/2060-io/hologram.zone-website/issues/109)) ([de830e0](https://github.com/2060-io/hologram.zone-website/commit/de830e088f49483c121bf28810fbd03c668aa27d))
+
+
+### Bug Fixes
+
+* **home:** eliminate mobile horizontal overflow on the home page ([#108](https://github.com/2060-io/hologram.zone-website/issues/108)) ([da1e441](https://github.com/2060-io/hologram.zone-website/commit/da1e441d86a1975c5fa6e7a8cfadebe9805d23c1))
+
 ## [0.2.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.1.0...hologram-zone-website-v0.2.0) (2026-04-24)
 
 
