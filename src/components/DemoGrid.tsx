@@ -208,6 +208,17 @@ const DEMOS: Demo[] = [
         Because each instance is tied to a specific X/Twitter account, there
         is no shared demo — you deploy your own, linked to your own handle.
         See the documentation to get started.
+        <br />
+        <br />
+        Once deployed, you decide{" "}
+        <strong className="text-neutral-900 dark:text-white">
+          who is allowed to post in the name of the account
+        </strong>
+        . The Agent Pack policy binds posting rights to verifiable credentials,
+        so a personal handle can stay personal, and a corporate handle can
+        grant publishing authority to a credential-gated team — only holders
+        of the credentials you approve can draft and publish, and every action
+        is attributable.
       </>
     ),
     deployYourOwn: {
