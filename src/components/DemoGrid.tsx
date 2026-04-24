@@ -46,7 +46,7 @@ const DEMOS: Demo[] = [
     title: "Avatar",
     tagline: "Your Digital Identity",
     badge: {
-      label: "Human Credential Issuer",
+      label: "Credential Issuer",
       className:
         "bg-brand-500/15 text-brand-700 dark:text-brand-300 ring-1 ring-brand-500/30",
     },
@@ -62,7 +62,7 @@ const DEMOS: Demo[] = [
         A <strong className="text-neutral-900 dark:text-white">DIDComm chatbot</strong>{" "}
         that issues verifiable credentials to users through conversational
         interactions. Connect with Hologram Messaging, follow the guided
-        flow, and receive a W3C Verifiable Credential backed by the Verana
+        flow, and receive a Verifiable Credential backed by the Verana
         Trust Registry. Your credential proves attributes about you and can
         be verified by any party.
       </>
@@ -75,7 +75,7 @@ const DEMOS: Demo[] = [
     title: "Passport",
     tagline: "Government Digital ID",
     badge: {
-      label: "Human Credential Issuer",
+      label: "Credential Issuer",
       className:
         "bg-brand-500/15 text-brand-700 dark:text-brand-300 ring-1 ring-brand-500/30",
     },
@@ -93,7 +93,7 @@ const DEMOS: Demo[] = [
         from government-issued identity documents (passports, ID cards) and
         verifies the holder&apos;s identity via a liveness check with video
         call and gesture detection. Once verified, it issues a passport
-        credential as a W3C Verifiable Credential backed by the Verana Trust
+        credential as a Verifiable Credential backed by the Verana Trust
         Registry.
       </>
     ),
