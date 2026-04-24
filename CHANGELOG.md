@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.3.0...hologram-zone-website-v0.4.0) (2026-04-24)
+
+
+### Features
+
+* hero updates ([#112](https://github.com/2060-io/hologram.zone-website/issues/112)) ([b5f3c09](https://github.com/2060-io/hologram.zone-website/commit/b5f3c0929d8132dfce0e3ef0cc90f4dead036ca4))
+
 ## [0.3.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.2.0...hologram-zone-website-v0.3.0) (2026-04-24)
 
 
