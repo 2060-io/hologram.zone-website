@@ -71,6 +71,12 @@ export default function DemosPage() {
                 </Link>
                 .
               </p>
+              <p className="mt-3">
+                These demos are educational. Each one is scoped to a single
+                capability so the underlying concept is easy to follow. In
+                a real deployment, one agent usually combines several of
+                these capabilities into a single Agent Pack.
+              </p>
             </div>
           </div>
         </div>

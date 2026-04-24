@@ -65,6 +65,11 @@ const DEMOS: Demo[] = [
         flow, and receive a Verifiable Credential backed by the Verana
         Trust Registry. Your credential proves attributes about you and can
         be verified by any party.
+        <br />
+        <br />
+        <strong className="text-neutral-900 dark:text-white">Start here.</strong>{" "}
+        The Avatar credential is required to authenticate with the GitHub
+        Agent, Wise Agent and X Agent demos below.
       </>
     ),
     endpoint: "https://avatar.vs.hologram.zone",
