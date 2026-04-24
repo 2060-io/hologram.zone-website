@@ -124,11 +124,10 @@ export default function AppsPage() {
               </div>
             </div>
 
-            {/* App store badges — official 120x40 SVGs. Each link is
-                wrapped in a subtle bordered box so all three read as the
-                same kind of button (the Apple badge has its own internal
-                border baked into the SVG, so the outer border is kept
-                faint to avoid double-ring look). */}
+            {/* App store badges — official 120x40 SVGs (with the Apple
+                and Google internal stroke rects stripped so the outer
+                wrapper border is the only one visible, consistent
+                across all three). */}
             <div className="relative mt-10 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="https://apps.apple.com/us/app/hologram-messaging/id6474701855"
