@@ -68,56 +68,6 @@ export default function AppsPage() {
             <div className="card card-glow rounded-2xl p-6 mt-4">
               <p>The Hologram Messaging App is a <strong className="text-neutral-900 dark:text-white">Verifiable User Agent</strong>. Have different needs? Extend it, or build your own Verifiable User Agent from scratch using the open <a href="https://verana-labs.github.io/verifiable-trust-spec/" className="underline decoration-dotted">Verifiable Trust</a> spec. The standard is open, and the app is one implementation.</p>
             </div>
-
-            {/* App store badges — official 120x40 SVG badges, no extra
-                chrome. Each `<a>` shows the store badge image only. */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <a
-                href="https://apps.apple.com/us/app/hologram-messaging/id6474701855"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="Download Hologram Messaging on the App Store"
-                className="inline-block rounded-md transition hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50"
-              >
-                <img
-                  src="/images/download-apple.svg"
-                  alt="Download on the App Store"
-                  width={120}
-                  height={40}
-                  className="block h-10 w-auto"
-                />
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="Get Hologram Messaging on Google Play"
-                className="inline-block rounded-md transition hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50"
-              >
-                <img
-                  src="/images/download-google.svg"
-                  alt="Get it on Google Play"
-                  width={135}
-                  height={40}
-                  className="block h-10 w-auto"
-                />
-              </a>
-              <a
-                href="https://appgallery.huawei.com/app/C110964449"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="Explore Hologram Messaging on Huawei AppGallery"
-                className="inline-block rounded-md transition hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50"
-              >
-                <img
-                  src="/images/download-huawei.svg"
-                  alt="Explore it on AppGallery"
-                  width={135}
-                  height={40}
-                  className="block h-10 w-auto"
-                />
-              </a>
-            </div>
           </div>
 
           {/* Phone mockups */}
@@ -172,6 +122,59 @@ export default function AppsPage() {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* App store badges — official 120x40 SVGs. Each link is
+                wrapped in a subtle bordered box so all three read as the
+                same kind of button (the Apple badge has its own internal
+                border baked into the SVG, so the outer border is kept
+                faint to avoid double-ring look). */}
+            <div className="relative mt-10 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="https://apps.apple.com/us/app/hologram-messaging/id6474701855"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Download Hologram Messaging on the App Store"
+                className="inline-flex items-center rounded-lg border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/[.03] overflow-hidden transition hover:border-neutral-300 dark:hover:border-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50"
+              >
+                <img
+                  src="/images/download-apple.svg"
+                  alt="Download on the App Store"
+                  width={120}
+                  height={40}
+                  className="block h-10 w-auto"
+                />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=io.twentysixty.mobileagent.m"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Get Hologram Messaging on Google Play"
+                className="inline-flex items-center rounded-lg border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/[.03] overflow-hidden transition hover:border-neutral-300 dark:hover:border-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50"
+              >
+                <img
+                  src="/images/download-google.svg"
+                  alt="Get it on Google Play"
+                  width={135}
+                  height={40}
+                  className="block h-10 w-auto"
+                />
+              </a>
+              <a
+                href="https://appgallery.huawei.com/app/C110964449"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="Explore Hologram Messaging on Huawei AppGallery"
+                className="inline-flex items-center rounded-lg border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/[.03] overflow-hidden transition hover:border-neutral-300 dark:hover:border-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50"
+              >
+                <img
+                  src="/images/download-huawei.svg"
+                  alt="Explore it on AppGallery"
+                  width={135}
+                  height={40}
+                  className="block h-10 w-auto"
+                />
+              </a>
             </div>
           </div>
         </div>
