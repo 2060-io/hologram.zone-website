@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.4.0...hologram-zone-website-v0.5.0) (2026-04-26)
+
+
+### Features
+
+* svg logos ([#115](https://github.com/2060-io/hologram.zone-website/issues/115)) ([ecf9d6b](https://github.com/2060-io/hologram.zone-website/commit/ecf9d6bdd7e367a23471bc71f26d16698c493c09))
+
 ## [0.4.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.3.0...hologram-zone-website-v0.4.0) (2026-04-24)
 
 
