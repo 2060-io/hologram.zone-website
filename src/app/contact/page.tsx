@@ -137,7 +137,7 @@ export default function ContactPage() {
               </li>
               <li className="flex items-start gap-3">
                 <IconDatabase className="w-5 h-5 shrink-0 mt-0.5 text-neutral-500" aria-hidden="true" />
-                <span>One processor: OVHcloud Canada (Beauharnois, Québec). No CDN. Covered by EC adequacy decision 2002/2/EC.</span>
+                <span>Inquiries are stored in our self-hosted Relaticle CRM (crm.2060.io) so we can follow up. No third-party CRM.</span>
               </li>
               <li className="flex items-start gap-3">
                 <IconCookie className="w-5 h-5 shrink-0 mt-0.5 text-neutral-500" aria-hidden="true" />
