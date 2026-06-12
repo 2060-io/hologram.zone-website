@@ -64,15 +64,16 @@ export type CrmResult = {
 };
 
 const TOPIC_LABELS: Record<string, string> = {
-  enterprise: "Enterprise / consortium",
-  investor: "Investor",
+  enterprise: "Hologram Cloud / enterprise deployment",
+  sales: "Plans & subscriptions",
+  partnership: "Partnership / integration",
+  build: "Developer support",
   press: "Press or analyst",
-  hiring: "Hiring",
   general: "General inquiry",
 };
 
 // Inquiry types that should also open an Opportunity (a lead in the pipeline).
-const LEAD_TOPICS = new Set(["investor", "enterprise"]);
+const LEAD_TOPICS = new Set(["enterprise", "sales", "partnership"]);
 
 // Custom-field types whose value must be sent as an array (verified against the
 // live API: email/phone/link reject scalars; text/select/rich-editor are scalar).

@@ -22,10 +22,11 @@ const MIN_MESSAGE = 50;
 const MAX_MESSAGE = 4000;
 
 const TOPICS = [
-  { value: "enterprise", label: "Enterprise or consortium: Hologram deployment, trust-registry engagement" },
-  { value: "investor", label: "Investor: equity round, investor memo, data-room access" },
+  { value: "enterprise", label: "Hologram Cloud: enterprise or on-premise deployment" },
+  { value: "sales", label: "Plans & subscriptions: pricing, quotes, billing" },
+  { value: "partnership", label: "Partnership / integration" },
+  { value: "build", label: "Building an agent: developer support" },
   { value: "press", label: "Press or analyst" },
-  { value: "hiring", label: "Hiring: send work, not résumés" },
   { value: "general", label: "General inquiry" },
 ];
 
