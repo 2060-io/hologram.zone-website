@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.5.0...hologram-zone-website-v0.6.0) (2026-06-12)
+
+
+### Features
+
+* hologram-specific inquiry types + site-scoped CRM secret ([#119](https://github.com/2060-io/hologram.zone-website/issues/119)) ([b5ade97](https://github.com/2060-io/hologram.zone-website/commit/b5ade9708471a282e786b1cb1f373b84ad166f15))
+* post contact form to Relaticle CRM ([#117](https://github.com/2060-io/hologram.zone-website/issues/117)) ([d11659e](https://github.com/2060-io/hologram.zone-website/commit/d11659e262f53d2ecb8ba9c3cc627780e460c0a0))
+
 ## [0.5.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.4.0...hologram-zone-website-v0.5.0) (2026-04-26)
 
 
