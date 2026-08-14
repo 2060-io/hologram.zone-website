@@ -34,10 +34,10 @@ export default function BuildPage() {
             <article className="card rounded-2xl p-6 reveal">
               <div className="flex items-center justify-between">
                 <div className="w-10 h-10 rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300 flex items-center justify-center"><svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="5" y="2" width="14" height="20" rx="3" /><path d="M11 18h2" /></svg></div>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 font-semibold">Production</span>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-500 font-semibold">Tech preview</span>
               </div>
               <h3 className="font-display text-lg font-bold mt-4">Hologram Messaging App</h3>
-              <p className="mt-2 text-sm text-neutral-500">Verifiable User Agent for iOS, Android, Huawei. The end-user surface.</p>
+              <p className="mt-2 text-sm text-neutral-500">Verifiable User Agent for iOS and Android. The end-user surface.</p>
               <div className="mt-4 flex items-center gap-3 text-xs text-neutral-500">
                 <span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-cyan-400" />TypeScript</span>
                 <span>·</span><span>Apache 2.0</span>
@@ -62,7 +62,7 @@ export default function BuildPage() {
             <article className="card rounded-2xl p-6 reveal">
               <div className="flex items-center justify-between">
                 <div className="w-10 h-10 rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300 flex items-center justify-center"><svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M7 9l3 3-3 3M13 15h4" /></svg></div>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 font-semibold">Production</span>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-500 font-semibold">Tech preview</span>
               </div>
               <h3 className="font-display text-lg font-bold mt-4">VS Agent</h3>
               <p className="mt-2 text-sm text-neutral-500">DIDComm agent with credential management and DID lifecycle.</p>
@@ -76,7 +76,7 @@ export default function BuildPage() {
             <article className="card rounded-2xl p-6 reveal">
               <div className="flex items-center justify-between">
                 <div className="w-10 h-10 rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300 flex items-center justify-center"><svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3" /><path d="M19 12a7 7 0 11-14 0 7 7 0 0114 0zM12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1" /></svg></div>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 font-semibold">Production</span>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-500 font-semibold">Tech preview</span>
               </div>
               <h3 className="font-display text-lg font-bold mt-4">Generic AI Agent</h3>
               <p className="mt-2 text-sm text-neutral-500">Modular LLM agent: MCP, RAG, RBAC, approvals, multi-language, connection-policy engine.</p>
@@ -117,7 +117,7 @@ export default function BuildPage() {
             <article className="card rounded-2xl p-6 reveal">
               <div className="flex items-center justify-between">
                 <div className="w-10 h-10 rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300 flex items-center justify-center"><svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6" /></svg></div>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500 font-semibold">Production</span>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-500 font-semibold">Tech preview</span>
               </div>
               <h3 className="font-display text-lg font-bold mt-4">Hologram SDK</h3>
               <p className="mt-2 text-sm text-neutral-500">Build custom Verifiable Services from scratch.</p>

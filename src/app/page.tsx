@@ -569,7 +569,7 @@ deployment:
           <h2 className="font-display h-display">Build the <span className="gradient-text">Agentic Network.</span></h2>
           <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">Every agent deployed with proof. Every connection gated by credentials. Every interaction auditable.</p>
           <p className="mt-6 text-lg">The future is not one AI assistant per person, hoping you can trust it.<br className="hidden sm:inline" />It is a network of agents, humans and software alike, that <span className="gradient-text font-semibold">verify each other before they engage</span>, and leave an evidentiary trail when they do.</p>
-          <p className="mt-4 text-sm text-neutral-500">Hologram ships that network today, on open protocols, in production, under Apache 2.0.</p>
+          <p className="mt-4 text-sm text-neutral-500">Hologram ships that network today, on open protocols, in technology preview, under Apache 2.0.</p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link href="/pricing" className="px-7 py-3.5 rounded-xl text-base font-semibold bg-brand-600 hover:bg-brand-500 text-white shadow-lg shadow-brand-600/30 transition">Get Started Free</Link>
             <a href="https://2060.io/contact" className="px-7 py-3.5 rounded-xl text-base font-semibold border border-neutral-300 dark:border-white/15 bg-white/60 dark:bg-white/5 hover:bg-neutral-100 dark:hover:bg-white/10 transition">Talk to Our Team</a>

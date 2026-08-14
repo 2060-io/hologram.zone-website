@@ -68,7 +68,7 @@ export default function Footer() {
             © {new Date().getFullYear()}{" "}
             <a href={COMPANY.website} className="underline decoration-dotted">{COMPANY.legalName}</a>
             {" · "}{COMPANY.address}{" · "}Built on the{" "}
-            <a href={COMPANY.foundation} className="underline decoration-dotted">Verana Verifiable Trust Network</a>.
+            <a href={COMPANY.network} className="underline decoration-dotted">Verana Verifiable Trust Network</a>.
           </p>
           <div className="flex items-center gap-4">
             <a href={SOCIALS.linkedin} className="hover:text-neutral-900 dark:hover:text-white">LinkedIn</a>
