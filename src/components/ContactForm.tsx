@@ -30,7 +30,7 @@ const TOPICS = [
   { value: "general", label: "General inquiry" },
 ];
 
-const VALIDATION_MSG = `Please complete the required fields — a valid email and a message of at least ${MIN_MESSAGE} characters — then try again.`;
+const VALIDATION_MSG = `Please complete the required fields (a valid email and a message of at least ${MIN_MESSAGE} characters), then try again.`;
 const SUBMIT_MSG =
   "Sorry, we couldn't send your message just now. Please try again in a moment, or reach a founder on LinkedIn.";
 
@@ -121,7 +121,7 @@ export default function ContactForm() {
           Message sent
         </h3>
         <p className="mt-2 text-sm text-neutral-500">
-          Thank you — we received your inquiry and will reply within one business
+          Thank you, we received your inquiry and will reply within one business
           day. For urgent matters, reach a founder on LinkedIn.
         </p>
         <button

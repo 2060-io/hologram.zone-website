@@ -159,21 +159,6 @@ export default function AppsPage() {
                   className="block h-10 w-auto"
                 />
               </a>
-              <a
-                href="https://appgallery.huawei.com/app/C110964449"
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label="Explore Hologram Messaging on Huawei AppGallery"
-                className="inline-flex items-center rounded-lg border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/[.03] overflow-hidden transition hover:border-neutral-300 dark:hover:border-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50"
-              >
-                <img
-                  src="/images/download-huawei.svg"
-                  alt="Explore it on AppGallery"
-                  width={135}
-                  height={40}
-                  className="block h-10 w-auto"
-                />
-              </a>
             </div>
           </div>
         </div>
