@@ -1,13 +1,14 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 /* -------------------------------------------------------------------------- */
 /*  Demo data                                                                 */
 /*                                                                            */
-/*  Descriptions, endpoints and logos mirror the Verifiable Services          */
-/*  playground (hologram-verifiable-services/playground/app/page.tsx).        */
-/*  If you change anything here, consider keeping the playground in sync.     */
+/*  Endpoints are the demos of hologram-demos-deploy (Verana testnet,         */
+/*  *.demos.hologram.zone). `invitation` mirrors the ECS-Service claims       */
+/*  (service name and logo) set in each chart, so the wallet shows the same   */
+/*  name before and after it resolves the service's trust.                   */
 /* -------------------------------------------------------------------------- */
 
 type Demo = {
@@ -27,11 +28,12 @@ type Demo = {
     | { kind: "logo"; src: string; alt: string; gradient: string }
     | { kind: "node"; node: React.ReactNode; gradient: string };
   description: React.ReactNode;
-  /** Public URL of the deployed Verifiable Service.
-   *  `{endpoint}/qr` serves the DIDComm invitation QR.
-   *  `{endpoint}/invitation` is the mobile-friendly landing page that
-   *  triggers the Hologram Messaging deep-link. */
+  /** Public URL of the deployed Verifiable Service. Its DID is read from
+   *  `{endpoint}/.well-known/did.jsonl`; the QR and the phone link carry a
+   *  static out-of-band invitation to that DID (see `buildInvitationUrl`). */
   endpoint?: string;
+  /** Label and image of the out-of-band invitation. */
+  invitation?: { label: string; imageUrl: string };
   /** For demos that can't be tried directly (e.g. the X Agent), the
    *  primary CTA becomes a deploy-it-yourself link. */
   deployYourOwn?: { href: string; label: string };
@@ -72,8 +74,12 @@ const DEMOS: Demo[] = [
         Agent, Wise Agent and X Agent demos below.
       </>
     ),
-    endpoint: "https://avatar.vs.hologram.zone",
-    githubUrl: "https://github.com/2060-io/hologram-verifiable-services",
+    endpoint: "https://avatar.demos.hologram.zone",
+    invitation: {
+      label: "Hologram Avatar",
+      imageUrl: "https://2060.io/images/avatar.jpg",
+    },
+    githubUrl: "https://github.com/2060-io/hologram-avatar-issuer-vs",
   },
   {
     id: "passport",
@@ -102,8 +108,12 @@ const DEMOS: Demo[] = [
         Registry.
       </>
     ),
-    endpoint: "https://passport.vs.hologram.zone",
-    githubUrl: "https://github.com/2060-io/hologram-verifiable-services",
+    endpoint: "https://passport.demos.hologram.zone",
+    invitation: {
+      label: "Hologram Passport",
+      imageUrl: "https://hologram.zone/images/passport.jpg",
+    },
+    githubUrl: "https://github.com/2060-io/hologram-gov-id-issuer-vs",
   },
   {
     id: "github-agent",
@@ -135,8 +145,12 @@ const DEMOS: Demo[] = [
         behalf.
       </>
     ),
-    endpoint: "https://github-agent.vs.hologram.zone",
-    githubUrl: "https://github.com/2060-io/hologram-verifiable-services",
+    endpoint: "https://github-agent.demos.hologram.zone",
+    invitation: {
+      label: "GitHub Agent",
+      imageUrl: "https://hologram.zone/images/github.svg",
+    },
+    githubUrl: "https://github.com/2060-io/hologram-ai-agent",
   },
   {
     id: "wise-agent",
@@ -167,8 +181,12 @@ const DEMOS: Demo[] = [
         Once configured, the agent can access Wise tools on your behalf.
       </>
     ),
-    endpoint: "https://wise-agent.vs.hologram.zone",
-    githubUrl: "https://github.com/2060-io/hologram-verifiable-services",
+    endpoint: "https://wise-agent.demos.hologram.zone",
+    invitation: {
+      label: "Wise Agent",
+      imageUrl: "https://hologram.zone/images/wise.svg",
+    },
+    githubUrl: "https://github.com/2060-io/hologram-ai-agent",
   },
   {
     id: "x-agent",
@@ -261,6 +279,77 @@ function isPhone(): boolean {
 }
 
 /* -------------------------------------------------------------------------- */
+/*  Static out-of-band invitation                                             */
+/*                                                                            */
+/*  VS Agent v2 no longer serves `/qr` or `/invitation`. It accepts a DID     */
+/*  Exchange request whose invitation id is its public DID, so a static       */
+/*  invitation carrying the DID works for every user:                         */
+/*    { "@type": ".../out-of-band/1.1/invitation", "@id": <DID>,              */
+/*      "services": [<DID>], "handshake_protocols": [DID Exchange 1.1] }      */
+/*  The DID comes from the service's own did:webvh log, so a redeploy with    */
+/*  new keys needs no change here.                                            */
+/* -------------------------------------------------------------------------- */
+
+const INVITATION_BASE_URL = "https://hologram.zone/invitation";
+const QR_ENDPOINT = "https://api.qrserver.com/v1/create-qr-code/?size=440x440";
+
+const didCache = new Map<string, Promise<string>>();
+
+/** Resolve the current DID of a service from its did:webvh log (last entry). */
+function fetchServiceDid(endpoint: string): Promise<string> {
+  let pending = didCache.get(endpoint);
+  if (!pending) {
+    pending = fetch(`${endpoint}/.well-known/did.jsonl`, {
+      credentials: "omit",
+      cache: "no-store",
+    })
+      .then(async (resp) => {
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const lines = (await resp.text()).trim().split("\n");
+        const did = JSON.parse(lines[lines.length - 1])?.state?.id;
+        if (typeof did !== "string" || !did.startsWith("did:"))
+          throw new Error("No DID in the DID log");
+        return did;
+      })
+      .catch((e) => {
+        // Let the next click retry.
+        didCache.delete(endpoint);
+        throw e;
+      });
+    didCache.set(endpoint, pending);
+  }
+  return pending;
+}
+
+function base64UrlEncode(value: string): string {
+  const bytes = new TextEncoder().encode(value);
+  let binary = "";
+  bytes.forEach((b) => (binary += String.fromCharCode(b)));
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+function buildInvitationUrl(
+  did: string,
+  invitation: { label: string; imageUrl: string },
+): string {
+  const oob = {
+    "@type": "https://didcomm.org/out-of-band/1.1/invitation",
+    "@id": did,
+    label: invitation.label,
+    imageUrl: invitation.imageUrl,
+    handshake_protocols: ["https://didcomm.org/didexchange/1.1"],
+    services: [did],
+  };
+  return `${INVITATION_BASE_URL}?oob=${base64UrlEncode(JSON.stringify(oob))}`;
+}
+
+async function invitationUrlFor(demo: Demo): Promise<string> {
+  if (!demo.endpoint || !demo.invitation)
+    throw new Error(`${demo.id} has no endpoint`);
+  return buildInvitationUrl(await fetchServiceDid(demo.endpoint), demo.invitation);
+}
+
+/* -------------------------------------------------------------------------- */
 /*  DemoGrid — holds the "which QR is open" state so only one QR shows        */
 /*  at a time across every card.                                              */
 /* -------------------------------------------------------------------------- */
@@ -270,10 +359,15 @@ export default function DemoGrid() {
 
   const handleTryIt = useCallback((demo: Demo) => {
     if (!demo.endpoint) return;
-    // Phones: send the user straight to the service's invitation page,
-    // which triggers the Hologram Messaging deep-link.
+    // Phones: send the user to the invitation page, which triggers the
+    // Hologram Messaging deep-link. On error, fall back to the QR panel,
+    // which shows the error.
     if (isPhone()) {
-      window.location.href = `${demo.endpoint}/invitation`;
+      invitationUrlFor(demo)
+        .then((url) => {
+          window.location.href = url;
+        })
+        .catch(() => setOpenQrId(demo.id));
       return;
     }
     // Tablets / desktops: toggle the inline QR. Opening one QR closes
@@ -407,31 +501,60 @@ function DemoCard({
 
       {/* QR panel — only rendered for demos with an endpoint, only shown
           on tablet/desktop after the user clicks "Try It". */}
-      {isQrOpen && demo.endpoint && (
-        <div
-          id={`qr-${demo.id}`}
-          className="mt-5 border-t border-neutral-200 dark:border-white/10 pt-5"
-        >
-          <div className="flex flex-col items-center gap-3">
-            <div className="bg-white rounded-2xl p-3 shadow-sm">
-              <img
-                src={`${demo.endpoint}/qr`}
-                alt={`QR code to connect with ${demo.title}`}
-                width={220}
-                height={220}
-                className="block w-[220px] h-[220px]"
-              />
-            </div>
-            <p className="text-xs text-neutral-500 text-center max-w-xs">
-              Scan with{" "}
-              <strong className="text-neutral-700 dark:text-neutral-200">
-                Hologram Messaging
-              </strong>{" "}
-              to connect with {demo.title}.
-            </p>
-          </div>
-        </div>
-      )}
+      {isQrOpen && demo.endpoint && <QrPanel demo={demo} />}
     </article>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  QR panel: resolves the service DID, then shows the invitation QR          */
+/* -------------------------------------------------------------------------- */
+
+function QrPanel({ demo }: { demo: Demo }) {
+  const [url, setUrl] = useState<string | null>(null);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    invitationUrlFor(demo)
+      .then((u) => !cancelled && setUrl(u))
+      .catch(() => !cancelled && setError(true));
+    return () => {
+      cancelled = true;
+    };
+  }, [demo]);
+
+  return (
+    <div
+      id={`qr-${demo.id}`}
+      className="mt-5 border-t border-neutral-200 dark:border-white/10 pt-5"
+    >
+      <div className="flex flex-col items-center gap-3">
+        <div className="bg-white rounded-2xl p-3 shadow-sm w-[244px] h-[244px] flex items-center justify-center">
+          {url ? (
+            <img
+              src={`${QR_ENDPOINT}&data=${encodeURIComponent(url)}`}
+              alt={`QR code to connect with ${demo.title}`}
+              width={220}
+              height={220}
+              className="block w-[220px] h-[220px]"
+            />
+          ) : (
+            <span className="text-xs text-neutral-500 text-center px-4">
+              {error
+                ? `${demo.title} is not reachable right now. Please try again later.`
+                : "Loading..."}
+            </span>
+          )}
+        </div>
+        <p className="text-xs text-neutral-500 text-center max-w-xs">
+          Scan with{" "}
+          <strong className="text-neutral-700 dark:text-neutral-200">
+            Hologram Messaging
+          </strong>{" "}
+          to connect with {demo.title}.
+        </p>
+      </div>
+    </div>
   );
 }
