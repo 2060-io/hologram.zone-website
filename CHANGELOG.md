@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.6.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.5.0...hologram-zone-website-v0.6.0) (2026-11-05)
+
+
+### Features
+
+* **demos:** point the demos to *.demos.hologram.zone with a static invitation QR ([#123](https://github.com/2060-io/hologram.zone-website/issues/123)) ([d7d1e90](https://github.com/2060-io/hologram.zone-website/commit/d7d1e905790757243cde7b8cd51a093df940a290))
+* hologram-specific inquiry types + site-scoped CRM secret ([#119](https://github.com/2060-io/hologram.zone-website/issues/119)) ([b5ade97](https://github.com/2060-io/hologram.zone-website/commit/b5ade9708471a282e786b1cb1f373b84ad166f15))
+* post contact form to Relaticle CRM ([#117](https://github.com/2060-io/hologram.zone-website/issues/117)) ([d11659e](https://github.com/2060-io/hologram.zone-website/commit/d11659e262f53d2ecb8ba9c3cc627780e460c0a0))
+
+
+### Bug Fixes
+
+* align product status with technology preview, drop Huawei ([#122](https://github.com/2060-io/hologram.zone-website/issues/122)) ([c92df56](https://github.com/2060-io/hologram.zone-website/commit/c92df56a1df0cf28cd7fb4edbffc570b75c3f466))
+
 ## [0.5.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.4.0...hologram-zone-website-v0.5.0) (2026-04-26)
 
 
