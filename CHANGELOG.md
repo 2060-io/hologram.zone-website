@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.7.0...hologram-zone-website-v0.7.1) (2026-11-06)
+
+
+### Bug Fixes
+
+* **demos:** X card links to hologram-ai-agent ([#126](https://github.com/2060-io/hologram.zone-website/issues/126)) ([8b0534a](https://github.com/2060-io/hologram.zone-website/commit/8b0534ac8eac51e293c14fe2fabce4871c546c06))
+
 ## [0.7.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.6.0...hologram-zone-website-v0.7.0) (2026-11-06)
 
 
