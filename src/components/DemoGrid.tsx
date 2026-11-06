@@ -230,8 +230,8 @@ const DEMOS: Demo[] = [
         <br />
         Because each instance is tied to a specific X/Twitter account, there
         is no shared demo. You deploy your own, linked to your own handle.
-        The example agent pack and deployment values are in the demos
-        repository.
+        The example agent pack and deployment values are in the
+        hologram-ai-agent repository.
         <br />
         <br />
         Once deployed, you decide{" "}
@@ -246,10 +246,10 @@ const DEMOS: Demo[] = [
       </>
     ),
     deployYourOwn: {
-      href: "https://github.com/2060-io/hologram-demos-deploy/tree/main/examples/x-agent",
+      href: "https://github.com/2060-io/hologram-ai-agent/tree/main/agent-packs/x-agent",
       label: "Deploy Your Own",
     },
-    githubUrl: "https://github.com/2060-io/hologram-demos-deploy",
+    githubUrl: "https://github.com/2060-io/hologram-ai-agent",
     wide: true,
   },
 ];
