@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.6.0...hologram-zone-website-v0.7.0) (2026-11-06)
+
+
+### Features
+
+* **demos:** X card links to the X Agent example of hologram-demos-deploy ([#124](https://github.com/2060-io/hologram.zone-website/issues/124)) ([9fa744a](https://github.com/2060-io/hologram.zone-website/commit/9fa744a3ad31ecf3d5d4ec160c603fc2a90453b7))
+
 ## [0.6.0](https://github.com/2060-io/hologram.zone-website/compare/hologram-zone-website-v0.5.0...hologram-zone-website-v0.6.0) (2026-11-05)
 
 
