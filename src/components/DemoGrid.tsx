@@ -249,7 +249,7 @@ const DEMOS: Demo[] = [
       href: "https://github.com/2060-io/hologram-demos-deploy/tree/main/examples/x-agent",
       label: "Deploy Your Own",
     },
-    githubUrl: "https://github.com/2060-io/hologram-demos-deploy",
+    githubUrl: "https://github.com/2060-io/hologram-ai-agent",
     wide: true,
   },
 ];
