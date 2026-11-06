@@ -230,7 +230,8 @@ const DEMOS: Demo[] = [
         <br />
         Because each instance is tied to a specific X/Twitter account, there
         is no shared demo. You deploy your own, linked to your own handle.
-        See the documentation to get started.
+        The example agent pack and deployment values are in the demos
+        repository.
         <br />
         <br />
         Once deployed, you decide{" "}
@@ -245,10 +246,10 @@ const DEMOS: Demo[] = [
       </>
     ),
     deployYourOwn: {
-      href: "https://docs.hologram.zone",
+      href: "https://github.com/2060-io/hologram-demos-deploy/tree/main/examples/x-agent",
       label: "Deploy Your Own",
     },
-    githubUrl: "https://github.com/2060-io/x-autonomous-mcp",
+    githubUrl: "https://github.com/2060-io/hologram-demos-deploy",
     wide: true,
   },
 ];
